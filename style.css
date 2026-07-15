@@ -1,6 +1,5 @@
 /* ============================================================
-   MAIN STYLES - Minimal Redirect Page
-   Restoran Pak Haji Ali & Muiz Hot Chicken
+   MAIN STYLES - Minimal Loader
    ============================================================ */
 
 * {
@@ -65,42 +64,6 @@ h1 .amp {
     margin-top: 2px;
 }
 
-.location {
-    font-size: 13px;
-    color: #8e8e93;
-    margin-top: 2px;
-}
-
-.location i {
-    color: #d62828;
-    margin-right: 4px;
-}
-
-.badges {
-    display: flex;
-    flex-wrap: wrap;
-    gap: 8px;
-    justify-content: center;
-    margin: 14px 0 18px;
-}
-
-.badges span {
-    background: #f2f2f7;
-    padding: 4px 14px;
-    border-radius: 9999px;
-    font-size: 11px;
-    font-weight: 600;
-    color: #6c6c70;
-    border: 1px solid #e8e8ed;
-    display: inline-flex;
-    align-items: center;
-    gap: 4px;
-}
-
-.badges span i {
-    color: #d62828;
-}
-
 .spinner {
     width: 40px;
     height: 40px;
@@ -118,82 +81,7 @@ h1 .amp {
 .detect-text {
     font-size: 14px;
     color: #8e8e93;
-    transition: 0.3s ease;
     min-height: 24px;
-}
-
-.manual-links {
-    display: none;
-    gap: 8px;
-    justify-content: center;
-    margin-top: 16px;
-    flex-wrap: wrap;
-}
-
-.manual-links.visible {
-    display: flex;
-}
-
-.manual-links .platform-link {
-    display: inline-flex;
-    align-items: center;
-    gap: 6px;
-    padding: 8px 18px;
-    border-radius: 9999px;
-    font-weight: 700;
-    font-size: 13px;
-    text-decoration: none;
-    border: 2px solid transparent;
-    background: #f0f0f5;
-    color: #1c1c1e;
-    transition: all 0.3s cubic-bezier(0.2, 0.9, 0.4, 1);
-}
-
-.manual-links .platform-link:hover {
-    transform: translateY(-2px);
-    box-shadow: 0 4px 16px rgba(0, 0, 0, 0.08);
-}
-
-.manual-links .platform-link:active {
-    transform: scale(0.95);
-}
-
-.manual-links .ios {
-    color: #007AFF;
-    border-color: #007AFF;
-}
-
-.manual-links .ios:hover {
-    background: #007AFF;
-    color: #fff;
-}
-
-.manual-links .android {
-    color: #3DDC84;
-    border-color: #3DDC84;
-}
-
-.manual-links .android:hover {
-    background: #3DDC84;
-    color: #1c1c1e;
-}
-
-.manual-links .web {
-    color: #d62828;
-    border-color: #d62828;
-}
-
-.manual-links .web:hover {
-    background: #d62828;
-    color: #fff;
-}
-
-.footer {
-    font-size: 11px;
-    color: #aeaeb2;
-    margin-top: 16px;
-    padding-top: 12px;
-    border-top: 1px solid #f0f0f0;
 }
 
 /* ===== RESPONSIVE ===== */
@@ -211,30 +99,10 @@ h1 .amp {
     .subtitle {
         font-size: 13px;
     }
-    .manual-links .platform-link {
-        padding: 6px 14px;
-        font-size: 12px;
-    }
     .spinner {
         width: 32px;
         height: 32px;
         margin: 12px auto;
-    }
-}
-
-@media (max-width: 380px) {
-    .loader {
-        padding: 20px 16px;
-    }
-    .logo {
-        font-size: 40px;
-    }
-    h1 {
-        font-size: 15px;
-    }
-    .manual-links .platform-link {
-        padding: 5px 12px;
-        font-size: 11px;
     }
 }
 
@@ -253,71 +121,11 @@ h1 .amp {
     .subtitle {
         color: #aeaeb2;
     }
-    .location {
-        color: #8e8e93;
-    }
-    .badges span {
-        background: #2c2c2e;
-        color: #aeaeb2;
-        border-color: #38383a;
-    }
     .spinner {
         border-color: #2c2c2e;
         border-top-color: #d62828;
     }
     .detect-text {
         color: #8e8e93;
-    }
-    .manual-links .platform-link {
-        background: #2c2c2e;
-        color: #f2f2f7;
-    }
-    .manual-links .ios {
-        color: #0a84ff;
-        border-color: #0a84ff;
-    }
-    .manual-links .ios:hover {
-        background: #0a84ff;
-        color: #fff;
-    }
-    .manual-links .android {
-        color: #3DDC84;
-        border-color: #3DDC84;
-    }
-    .manual-links .android:hover {
-        background: #3DDC84;
-        color: #1c1c1e;
-    }
-    .manual-links .web {
-        color: #ff6b6b;
-        border-color: #ff6b6b;
-    }
-    .manual-links .web:hover {
-        background: #d62828;
-        color: #fff;
-    }
-    .footer {
-        border-top-color: #2c2c2e;
-        color: #636366;
-    }
-}
-
-/* ===== REDUCED MOTION ===== */
-@media (prefers-reduced-motion: reduce) {
-    .loader {
-        animation: none;
-    }
-    .logo {
-        animation: none;
-    }
-    .spinner {
-        animation: none;
-        border: 3px solid #d62828;
-    }
-    .manual-links .platform-link {
-        transition: none;
-    }
-    .manual-links .platform-link:hover {
-        transform: none;
     }
 }
