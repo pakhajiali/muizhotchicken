@@ -32,14 +32,8 @@ body {
 }
 
 @keyframes fadeUp {
-    from {
-        opacity: 0;
-        transform: translateY(20px);
-    }
-    to {
-        opacity: 1;
-        transform: translateY(0);
-    }
+    from { opacity: 0; transform: translateY(20px); }
+    to { opacity: 1; transform: translateY(0); }
 }
 
 .logo {
@@ -71,7 +65,42 @@ h1 .amp {
     margin-top: 2px;
 }
 
-/* ===== SPINNER ===== */
+.location {
+    font-size: 13px;
+    color: #8e8e93;
+    margin-top: 2px;
+}
+
+.location i {
+    color: #d62828;
+    margin-right: 4px;
+}
+
+.badges {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 8px;
+    justify-content: center;
+    margin: 14px 0 18px;
+}
+
+.badges span {
+    background: #f2f2f7;
+    padding: 4px 14px;
+    border-radius: 9999px;
+    font-size: 11px;
+    font-weight: 600;
+    color: #6c6c70;
+    border: 1px solid #e8e8ed;
+    display: inline-flex;
+    align-items: center;
+    gap: 4px;
+}
+
+.badges span i {
+    color: #d62828;
+}
+
 .spinner {
     width: 40px;
     height: 40px;
@@ -86,7 +115,6 @@ h1 .amp {
     to { transform: rotate(360deg); }
 }
 
-/* ===== DETECT TEXT ===== */
 .detect-text {
     font-size: 14px;
     color: #8e8e93;
@@ -94,7 +122,6 @@ h1 .amp {
     min-height: 24px;
 }
 
-/* ===== MANUAL LINKS ===== */
 .manual-links {
     display: none;
     gap: 8px;
@@ -161,7 +188,6 @@ h1 .amp {
     color: #fff;
 }
 
-/* ===== FOOTER ===== */
 .footer {
     font-size: 11px;
     color: #aeaeb2;
@@ -170,10 +196,7 @@ h1 .amp {
     border-top: 1px solid #f0f0f0;
 }
 
-/* ============================================================
-   RESPONSIVE
-   ============================================================ */
-
+/* ===== RESPONSIVE ===== */
 @media (max-width: 480px) {
     .loader {
         padding: 28px 20px;
@@ -215,9 +238,7 @@ h1 .amp {
     }
 }
 
-/* ============================================================
-   DARK MODE
-   ============================================================ */
+/* ===== DARK MODE ===== */
 @media (prefers-color-scheme: dark) {
     body {
         background: #000000;
@@ -231,6 +252,14 @@ h1 .amp {
     }
     .subtitle {
         color: #aeaeb2;
+    }
+    .location {
+        color: #8e8e93;
+    }
+    .badges span {
+        background: #2c2c2e;
+        color: #aeaeb2;
+        border-color: #38383a;
     }
     .spinner {
         border-color: #2c2c2e;
@@ -273,9 +302,7 @@ h1 .amp {
     }
 }
 
-/* ============================================================
-   REDUCED MOTION
-   ============================================================ */
+/* ===== REDUCED MOTION ===== */
 @media (prefers-reduced-motion: reduce) {
     .loader {
         animation: none;
