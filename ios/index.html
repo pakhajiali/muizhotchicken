@@ -16,6 +16,7 @@
     <meta property="og:image" content="https://pakhajiali.github.io/muizhotchicken/logo.webp" />
     <meta property="og:image:width" content="1200" />
     <meta property="og:image:height" content="630" />
+    <meta property="og:image:alt" content="Restoran Pak Haji Ali & Muiz Hot Chicken - Subang Jaya (USJ 8) - Crispy Fried Chicken" />
     <meta property="og:url" content="https://pakhajiali.github.io/muizhotchicken/" />
     <meta property="og:type" content="website" />
     <meta property="og:site_name" content="Restoran Pak Haji Ali & Muiz Hot Chicken - Subang Jaya (USJ 8)" />
@@ -45,34 +46,42 @@
     
     <style>
         /* ============================================================
-           BLACK & WHITE THEME - Light Mode (Default)
+           THEME TOGGLE BUTTON (iOS style)
            ============================================================ */
-        :root {
-            /* Light Mode (Default) */
-            --bg: #f2f2f7;
-            --bg-secondary: #e5e5ea;
-            --card: #ffffff;
-            --card-hover: #f0f0f5;
-            --text: #1c1c1e;
-            --text-secondary: #3a3a3c;
-            --text-tertiary: #8e8e93;
-            --text-quaternary: #aeaeb2;
-            --separator: #e5e5ea;
-            --separator-heavy: #d1d1d6;
-            --shadow: 0 2px 16px rgba(0, 0, 0, 0.06);
-            --shadow-lg: 0 8px 40px rgba(0, 0, 0, 0.10);
-            --shadow-modal: 0 -8px 40px rgba(0, 0, 0, 0.12);
-            --primary: #000000;
-            --primary-dark: #000000;
-            --primary-surface: #f0f0f0;
-            --badge-bg: #000000;
-            --badge-text: #ffffff;
-            --border: #e5e5ea;
-            --toggle-bg: #e5e5ea;
-            --toggle-dot: #ffffff;
+        .theme-toggle-ios {
+            position: fixed;
+            top: 76px;
+            right: 16px;
+            z-index: 999;
+            background: var(--card, #ffffff);
+            border: 1px solid var(--separator, #e5e5ea);
+            border-radius: 50%;
+            width: 40px;
+            height: 40px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 18px;
+            cursor: pointer;
+            transition: all 0.3s cubic-bezier(0.2, 0.9, 0.4, 1);
+            box-shadow: 0 2px 12px rgba(0, 0, 0, 0.08);
+            color: var(--text, #1c1c1e);
+            backdrop-filter: blur(8px);
+            -webkit-backdrop-filter: blur(8px);
         }
         
-        /* ===== DARK MODE VARIABLES ===== */
+        .theme-toggle-ios:hover {
+            transform: scale(1.08);
+            box-shadow: 0 4px 20px rgba(0, 0, 0, 0.12);
+        }
+        
+        .theme-toggle-ios:active {
+            transform: scale(0.92);
+        }
+        
+        /* ============================================================
+           DARK MODE VARIABLES
+           ============================================================ */
         [data-theme="dark"] {
             --bg: #000000;
             --bg-secondary: #1c1c1e;
@@ -89,7 +98,10 @@
             --shadow-modal: 0 -8px 40px rgba(0, 0, 0, 0.5);
             --primary: #ffffff;
             --primary-dark: #e5e5ea;
+            --primary-light: #f2f2f7;
+            --primary-gradient: linear-gradient(135deg, #f2f2f7, #aeaeb2);
             --primary-surface: #2c2c2e;
+            --text-inverse: #1c1c1e;
             --badge-bg: #ffffff;
             --badge-text: #000000;
             --border: #38383a;
@@ -98,37 +110,33 @@
         }
         
         /* ============================================================
-           THEME TOGGLE BUTTON (iOS style - Black & White)
+           LIGHT MODE VARIABLES (default)
            ============================================================ */
-        .theme-toggle-ios {
-            position: fixed;
-            top: 76px;
-            right: 16px;
-            z-index: 999;
-            background: var(--card);
-            border: 1px solid var(--border);
-            border-radius: 50%;
-            width: 40px;
-            height: 40px;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            font-size: 18px;
-            cursor: pointer;
-            transition: all 0.3s cubic-bezier(0.2, 0.9, 0.4, 1);
-            box-shadow: var(--shadow);
-            color: var(--text);
-            backdrop-filter: blur(8px);
-            -webkit-backdrop-filter: blur(8px);
-        }
-        
-        .theme-toggle-ios:hover {
-            transform: scale(1.08);
-            box-shadow: var(--shadow-lg);
-        }
-        
-        .theme-toggle-ios:active {
-            transform: scale(0.92);
+        :root {
+            --bg: #f2f2f7;
+            --bg-secondary: #e5e5ea;
+            --card: #ffffff;
+            --card-hover: #f0f0f5;
+            --text: #1c1c1e;
+            --text-secondary: #3a3a3c;
+            --text-tertiary: #8e8e93;
+            --text-quaternary: #aeaeb2;
+            --separator: #e5e5ea;
+            --separator-heavy: #d1d1d6;
+            --shadow: 0 2px 16px rgba(0, 0, 0, 0.06);
+            --shadow-lg: 0 8px 40px rgba(0, 0, 0, 0.10);
+            --shadow-modal: 0 -8px 40px rgba(0, 0, 0, 0.12);
+            --primary: #000000;
+            --primary-dark: #000000;
+            --primary-light: #3a3a3c;
+            --primary-gradient: linear-gradient(135deg, #1c1c1e, #3a3a3c);
+            --primary-surface: #f0f0f0;
+            --text-inverse: #ffffff;
+            --badge-bg: #000000;
+            --badge-text: #ffffff;
+            --border: #e5e5ea;
+            --toggle-bg: #e5e5ea;
+            --toggle-dot: #ffffff;
         }
         
         /* ============================================================
@@ -146,7 +154,7 @@
             align-items: center;
             gap: 8px;
             background: var(--primary);
-            color: var(--badge-text);
+            color: var(--text-inverse);
             border: none;
             padding: 12px 18px;
             border-radius: 9999px;
@@ -270,18 +278,6 @@
             text-align: center;
         }
         
-        .switcher-option[data-platform="ios"] i {
-            color: var(--text);
-        }
-        
-        .switcher-option[data-platform="android"] i {
-            color: var(--text);
-        }
-        
-        .switcher-option[data-platform="web"] i {
-            color: var(--text);
-        }
-        
         .switcher-option .switcher-badge {
             font-size: 10px;
             font-weight: 600;
@@ -299,7 +295,7 @@
         
         .switcher-option.active .switcher-badge {
             background: var(--primary);
-            color: var(--badge-text);
+            color: var(--text-inverse);
         }
         
         .switcher-current {
@@ -393,8 +389,8 @@
     <header class="ios-header">
         <div class="header-content">
             <div class="brand">
-                <h1>Muiz Hot Chicken</h1>
-                <p>Restoran Pak Haji Ali • USJ 8</p>
+                <h1>Restoran Pak Haji Ali</h1>
+                <p>Muiz Hot Chicken • Subang Jaya (USJ 8)</p>
             </div>
             <button class="cart-btn" id="headerCartBtn" aria-label="Cart">
                 <i class="fas fa-shopping-bag"></i>
@@ -528,12 +524,11 @@
     <!-- ===== IOS SCRIPT ===== -->
     <script src="script.js"></script>
     
-    <!-- ============================================================
+<!-- ============================================================
          THEME TOGGLE SCRIPT
          ============================================================ -->
     <script>
         (function() {
-            // ===== THEME TOGGLE - Black & White =====
             var savedTheme = localStorage.getItem('muiz-theme') || 'light';
             var themeToggle = document.getElementById('themeToggle');
             var themeIcon = document.getElementById('themeIcon');
@@ -552,7 +547,6 @@
                 }
             }
             
-            // Apply saved theme (default = light)
             applyTheme(savedTheme);
             
             themeToggle.addEventListener('click', function() {
@@ -568,7 +562,6 @@
          ============================================================ -->
     <script>
         (function() {
-            // ===== PLATFORM SWITCHER =====
             var toggleBtn = document.getElementById('switcherToggle');
             var closeBtn = document.getElementById('switcherClose');
             var menu = document.getElementById('switcherMenu');
@@ -602,7 +595,6 @@
                 if (e.key === 'Escape') closeMenu();
             });
             
-            // Current platform label
             var label = document.getElementById('currentPlatformLabel');
             if (label) label.textContent = 'iOS';
         })();
