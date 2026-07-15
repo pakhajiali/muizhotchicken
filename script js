@@ -1,5 +1,5 @@
 /* ============================================================
-   MAIN SCRIPT - Device Detection & Redirect
+   MAIN SCRIPT - Device Detection & Redirect (INSTANT)
    Restoran Pak Haji Ali & Muiz Hot Chicken
    ============================================================ */
 
@@ -12,8 +12,8 @@
         androidPath: '/muizhotchicken/android/',
         webPath: '/muizhotchicken/web/',
         defaultPlatform: 'android',
-        redirectDelay: 1200,
-        fallbackTimeout: 5000,
+        redirectDelay: 800,
+        fallbackTimeout: 4000,
     };
     
     // ===== DOM REFS =====
@@ -21,7 +21,7 @@
     const spinner = document.getElementById('spinner');
     const manualLinks = document.getElementById('manualLinks');
     
-    // ===== DEVICE DETECTION =====
+    // ===== DEVICE DETECTION (INSTANT) =====
     function detectDevice() {
         const ua = navigator.userAgent || navigator.vendor || window.opera;
         
@@ -79,28 +79,6 @@
         }
     }
     
-    // ===== HANDLE DETECTION =====
-    function handleDetection() {
-        const device = detectDevice();
-        const platform = device.platform;
-        const displayName = getPlatformName(platform);
-        
-        // Update UI
-        if (detectText) {
-            if (device.isDetected) {
-                detectText.textContent = `✅ ${displayName} detected. Redirecting...`;
-            } else {
-                detectText.textContent = `⚠️ Using ${displayName} (default)`;
-            }
-        }
-        
-        // Redirect
-        const destination = getDestination(platform);
-        setTimeout(function() {
-            window.location.replace(destination);
-        }, CONFIG.redirectDelay);
-    }
-    
     // ===== CHECK IF ON ROOT =====
     function isOnRoot() {
         const path = window.location.pathname;
@@ -109,42 +87,67 @@
                !path.includes('/web/');
     }
     
-    // ===== INIT =====
-    if (isOnRoot()) {
-        // Start detection with small delay to let DOM render
-        setTimeout(handleDetection, 300);
+    // ===== HANDLE DETECTION (RUNS INSTANTLY) =====
+    function handleDetection() {
+        if (!isOnRoot()) {
+            window.location.href = '/muizhotchicken/';
+            return;
+        }
         
-        // Fallback: show manual links after timeout
+        const device = detectDevice();
+        const platform = device.platform;
+        const displayName = getPlatformName(platform);
+        
+        if (detectText) {
+            if (device.isDetected) {
+                detectText.textContent = '✅ ' + displayName + ' detected. Redirecting...';
+            } else {
+                detectText.textContent = '📱 Using ' + displayName + ' (default)';
+            }
+        }
+        
+        const destination = getDestination(platform);
         setTimeout(function() {
-            if (isOnRoot()) {
+            window.location.replace(destination);
+        }, CONFIG.redirectDelay);
+    }
+    
+    // ============================================================
+    // INIT - RUNS IMMEDIATELY
+    // ============================================================
+    
+    if (isOnRoot()) {
+        handleDetection();
+        
+        setTimeout(function() {
+            if (isOnRoot() && document.getElementById('spinner') && 
+                document.getElementById('spinner').style.display !== 'none') {
                 showManualLinks('⏳ Still here? Choose your interface:');
             }
         }, CONFIG.fallbackTimeout);
         
-        // Show manual links on click/tap anywhere
         document.addEventListener('click', function() {
             if (isOnRoot() && manualLinks && !manualLinks.classList.contains('visible')) {
                 showManualLinks('Choose your interface:');
             }
         });
-    } else {
-        // If somehow on a platform page, redirect to root
-        window.location.href = '/muizhotchicken/';
     }
     
-    // ===== SERVICE WORKER =====
+    // ============================================================
+    // SERVICE WORKER
+    // ============================================================
     if ('serviceWorker' in navigator) {
         window.addEventListener('load', function() {
             navigator.serviceWorker.register('/sw.js')
-                .then(function(registration) {
+                .then(function() {
                     console.log('✅ Service Worker registered');
                 })
-                .catch(function(err) {
-                    console.log('❌ Service Worker registration failed:', err);
+                .catch(function() {
+                    console.log('❌ Service Worker registration failed');
                 });
         });
     }
     
-    console.log('🍗 Muiz Hot Chicken - Redirecting...');
+    console.log('🍗 Muiz Hot Chicken - Redirecting instantly...');
     
 })();
