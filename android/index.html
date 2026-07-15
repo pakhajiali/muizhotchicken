@@ -6,32 +6,33 @@
     
     <!-- ===== PRIMARY SEO ===== -->
     <title>Restoran Pak Haji Ali & Muiz Hot Chicken - Subang Jaya (USJ 8) | Halal Crispy Chicken</title>
-    <meta name="description" content="JAKIM Halal certified crispy Muiz Hot Chicken, authentic Nasi Kandar & Malaysian-Thai cuisine in Subang Jaya USJ 8. Est. 2026. Dine-in, takeaway & delivery." />
+    <meta name="description" content="Restoran Pak Haji Ali & Muiz Hot Chicken - Subang Jaya (USJ 8). JAKIM Halal certified crispy Muiz Hot Chicken, authentic Nasi Kandar & Malaysian-Thai cuisine. Est. 2026. Dine-in, takeaway & delivery." />
     <meta name="robots" content="index, follow" />
     <link rel="canonical" href="https://pakhajiali.github.io/muizhotchicken/" />
     
     <!-- ===== OPEN GRAPH ===== -->
     <meta property="og:title" content="Restoran Pak Haji Ali & Muiz Hot Chicken - Subang Jaya (USJ 8)" />
-    <meta property="og:description" content="JAKIM Halal certified crispy Muiz Hot Chicken, Nasi Kandar & Tomyam in USJ 8. Order now!" />
+    <meta property="og:description" content="Restoran Pak Haji Ali & Muiz Hot Chicken - Subang Jaya (USJ 8). JAKIM Halal certified crispy Muiz Hot Chicken, Nasi Kandar & Tomyam. Order now!" />
     <meta property="og:image" content="https://pakhajiali.github.io/muizhotchicken/logo.webp" />
     <meta property="og:image:width" content="1200" />
     <meta property="og:image:height" content="630" />
+    <meta property="og:image:alt" content="Restoran Pak Haji Ali & Muiz Hot Chicken - Subang Jaya (USJ 8) - Crispy Fried Chicken" />
     <meta property="og:url" content="https://pakhajiali.github.io/muizhotchicken/" />
     <meta property="og:type" content="website" />
-    <meta property="og:site_name" content="Restoran Pak Haji Ali & Muiz Hot Chicken" />
+    <meta property="og:site_name" content="Restoran Pak Haji Ali & Muiz Hot Chicken - Subang Jaya (USJ 8)" />
     <meta property="og:locale" content="en_MY" />
     
     <!-- ===== TWITTER ===== -->
     <meta name="twitter:card" content="summary_large_image" />
     <meta name="twitter:title" content="Restoran Pak Haji Ali & Muiz Hot Chicken - Subang Jaya (USJ 8)" />
-    <meta name="twitter:description" content="JAKIM Halal certified crispy Muiz Hot Chicken in USJ 8." />
+    <meta name="twitter:description" content="Restoran Pak Haji Ali & Muiz Hot Chicken - Subang Jaya (USJ 8). JAKIM Halal certified crispy Muiz Hot Chicken." />
     <meta name="twitter:image" content="https://pakhajiali.github.io/muizhotchicken/logo.webp" />
     
     <!-- ===== PWA ===== -->
-    <meta name="theme-color" content="#d62828" />
+    <meta name="theme-color" content="#000000" id="themeColor" />
     <meta name="apple-mobile-web-app-capable" content="yes" />
     <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent" />
-    <meta name="apple-mobile-web-app-title" content="Muiz Hot Chicken" />
+    <meta name="apple-mobile-web-app-title" content="Restoran Pak Haji Ali & Muiz Hot Chicken" />
     <link rel="manifest" href="../manifest.json" />
     <link rel="icon" type="image/svg+xml" href="../favicon.svg" />
     <link rel="icon" type="image/png" sizes="96x96" href="../favicon-96x96.png" />
@@ -47,15 +48,340 @@
     
     <!-- ===== ANDROID STYLES ===== -->
     <link rel="stylesheet" href="style.css" />
+    
+    <style>
+        /* ============================================================
+           THEME TOGGLE BUTTON (Android style)
+           ============================================================ */
+        .theme-toggle-android {
+            position: fixed;
+            top: 72px;
+            right: 16px;
+            z-index: 999;
+            background: var(--card);
+            border: 1px solid var(--separator);
+            border-radius: 50%;
+            width: 40px;
+            height: 40px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 18px;
+            cursor: pointer;
+            transition: all 0.3s cubic-bezier(0.2, 0.9, 0.4, 1);
+            box-shadow: var(--shadow-sm);
+            color: var(--text);
+        }
+        
+        .theme-toggle-android:hover {
+            transform: scale(1.08);
+            box-shadow: var(--shadow-md);
+        }
+        
+        .theme-toggle-android:active {
+            transform: scale(0.92);
+        }
+        
+        /* ============================================================
+           DARK MODE VARIABLES
+           ============================================================ */
+        [data-theme="dark"] {
+            --bg: #121212;
+            --bg-secondary: #1e1e1e;
+            --card: #1e1e1e;
+            --card-elevated: #2c2c2e;
+            --text: #f2f2f7;
+            --text-secondary: #aeaeb2;
+            --text-tertiary: #8e8e93;
+            --text-disabled: #636366;
+            --text-inverse: #1c1c1e;
+            --separator: #38383a;
+            --separator-heavy: #48484a;
+            --primary: #ffffff;
+            --primary-dark: #e5e5ea;
+            --primary-light: #f2f2f7;
+            --primary-surface: #2c2c2e;
+            --primary-gradient: linear-gradient(135deg, #f2f2f7, #aeaeb2);
+            --shadow-sm: 0 1px 3px rgba(0, 0, 0, 0.4);
+            --shadow-md: 0 2px 8px rgba(0, 0, 0, 0.5);
+            --shadow-lg: 0 4px 20px rgba(0, 0, 0, 0.6);
+            --shadow-xl: 0 8px 40px rgba(0, 0, 0, 0.7);
+        }
+        
+        /* ============================================================
+           LIGHT MODE VARIABLES (default)
+           ============================================================ */
+        :root {
+            --bg: #f5f5f5;
+            --bg-secondary: #e8e8e8;
+            --card: #ffffff;
+            --card-elevated: #ffffff;
+            --text: #1c1c1e;
+            --text-secondary: #3a3a3c;
+            --text-tertiary: #8e8e93;
+            --text-disabled: #c7c7cc;
+            --text-inverse: #ffffff;
+            --separator: #e5e5ea;
+            --separator-heavy: #d1d1d6;
+            --primary: #000000;
+            --primary-dark: #000000;
+            --primary-light: #3a3a3c;
+            --primary-surface: #f0f0f0;
+            --primary-gradient: linear-gradient(135deg, #1c1c1e, #3a3a3c);
+            --shadow-sm: 0 1px 3px rgba(0, 0, 0, 0.06);
+            --shadow-md: 0 2px 8px rgba(0, 0, 0, 0.08);
+            --shadow-lg: 0 4px 20px rgba(0, 0, 0, 0.12);
+            --shadow-xl: 0 8px 40px rgba(0, 0, 0, 0.16);
+        }
+        
+        /* ============================================================
+           PLATFORM SWITCHER - Android Style
+           ============================================================ */
+        .platform-switcher {
+            position: fixed;
+            bottom: 80px;
+            right: 16px;
+            z-index: 9999;
+        }
+        
+        .switcher-toggle {
+            display: flex;
+            align-items: center;
+            gap: 8px;
+            background: var(--primary);
+            color: var(--text-inverse);
+            border: none;
+            padding: 12px 18px;
+            border-radius: 9999px;
+            font-weight: 700;
+            font-size: 14px;
+            cursor: pointer;
+            box-shadow: 0 4px 20px rgba(0, 0, 0, 0.15);
+            transition: all 0.3s cubic-bezier(0.2, 0.9, 0.4, 1);
+            font-family: inherit;
+        }
+        
+        .switcher-toggle:hover {
+            transform: scale(1.05);
+            box-shadow: 0 6px 28px rgba(0, 0, 0, 0.25);
+        }
+        
+        .switcher-toggle:active {
+            transform: scale(0.95);
+        }
+        
+        .switcher-toggle .switcher-label {
+            font-size: 13px;
+        }
+        
+        .switcher-menu {
+            position: absolute;
+            bottom: calc(100% + 12px);
+            right: 0;
+            background: var(--card);
+            border-radius: 12px;
+            padding: 16px 20px 18px;
+            box-shadow: var(--shadow-lg);
+            min-width: 220px;
+            display: none;
+            animation: switcherSlideUp 0.3s cubic-bezier(0.2, 0.9, 0.4, 1);
+            border: 1px solid var(--separator);
+        }
+        
+        .switcher-menu.open {
+            display: block;
+        }
+        
+        @keyframes switcherSlideUp {
+            from {
+                opacity: 0;
+                transform: translateY(12px) scale(0.96);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0) scale(1);
+            }
+        }
+        
+        .switcher-header {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            margin-bottom: 12px;
+            padding-bottom: 10px;
+            border-bottom: 1px solid var(--separator);
+        }
+        
+        .switcher-header span {
+            font-weight: 700;
+            font-size: 14px;
+            color: var(--text);
+        }
+        
+        .switcher-close {
+            background: none;
+            border: none;
+            color: var(--text-tertiary);
+            font-size: 16px;
+            cursor: pointer;
+            padding: 4px 6px;
+            transition: 0.2s;
+            border-radius: 50%;
+        }
+        
+        .switcher-close:hover {
+            color: var(--primary);
+            background: var(--bg-secondary);
+        }
+        
+        .switcher-options {
+            display: flex;
+            flex-direction: column;
+            gap: 6px;
+        }
+        
+        .switcher-option {
+            display: flex;
+            align-items: center;
+            gap: 12px;
+            padding: 10px 14px;
+            border-radius: 8px;
+            text-decoration: none;
+            color: var(--text);
+            transition: all 0.2s ease;
+            border: 1px solid transparent;
+            font-weight: 600;
+            font-size: 14px;
+        }
+        
+        .switcher-option:hover {
+            background: var(--bg-secondary);
+            border-color: var(--separator);
+        }
+        
+        .switcher-option:active {
+            transform: scale(0.97);
+        }
+        
+        .switcher-option i {
+            font-size: 20px;
+            width: 28px;
+            text-align: center;
+        }
+        
+        .switcher-option .switcher-badge {
+            font-size: 10px;
+            font-weight: 600;
+            color: var(--text-tertiary);
+            background: var(--bg-secondary);
+            padding: 2px 10px;
+            border-radius: 9999px;
+            margin-left: auto;
+        }
+        
+        .switcher-option.active {
+            background: var(--primary-surface);
+            border-color: var(--primary);
+        }
+        
+        .switcher-option.active .switcher-badge {
+            background: var(--primary);
+            color: var(--text-inverse);
+        }
+        
+        .switcher-current {
+            margin-top: 12px;
+            padding-top: 10px;
+            border-top: 1px solid var(--separator);
+            font-size: 12px;
+            color: var(--text-tertiary);
+            text-align: center;
+        }
+        
+        .switcher-current strong {
+            color: var(--text);
+        }
+        
+        /* ============================================================
+           RESPONSIVE
+           ============================================================ */
+        @media (max-width: 480px) {
+            .platform-switcher {
+                bottom: 72px;
+                right: 12px;
+            }
+            .switcher-toggle {
+                padding: 10px 14px;
+                font-size: 12px;
+            }
+            .switcher-toggle .switcher-label {
+                display: none;
+            }
+            .switcher-menu {
+                min-width: 190px;
+                padding: 14px 16px 16px;
+                right: 0;
+                bottom: calc(100% + 10px);
+            }
+            .switcher-option {
+                padding: 8px 12px;
+                font-size: 13px;
+            }
+            .switcher-option i {
+                font-size: 18px;
+                width: 24px;
+            }
+            .switcher-option .switcher-badge {
+                font-size: 9px;
+                padding: 1px 8px;
+            }
+            .theme-toggle-android {
+                top: 64px;
+                right: 12px;
+                width: 36px;
+                height: 36px;
+                font-size: 16px;
+            }
+        }
+        
+        @media (max-width: 380px) {
+            .platform-switcher {
+                bottom: 64px;
+                right: 8px;
+            }
+            .switcher-toggle {
+                padding: 8px 12px;
+                font-size: 11px;
+            }
+            .switcher-menu {
+                min-width: 170px;
+                padding: 12px 14px 14px;
+            }
+            .switcher-option {
+                padding: 6px 10px;
+                font-size: 12px;
+                gap: 8px;
+            }
+            .switcher-option i {
+                font-size: 16px;
+                width: 20px;
+            }
+        }
+    </style>
 </head>
 <body>
+    
+    <!-- ===== THEME TOGGLE ===== -->
+    <button class="theme-toggle-android" id="themeToggle" aria-label="Toggle theme">
+        <i class="fas fa-moon" id="themeIcon"></i>
+    </button>
     
     <!-- ===== ANDROID HEADER ===== -->
     <header class="android-header">
         <div class="header-content">
             <div class="brand">
-                <h1>Muiz Hot Chicken</h1>
-                <p>Restoran Pak Haji Ali • USJ 8</p>
+                <h1>Restoran Pak Haji Ali</h1>
+                <p>Muiz Hot Chicken • Subang Jaya (USJ 8)</p>
             </div>
             <button class="cart-btn" id="headerCartBtn" aria-label="Cart">
                 <i class="fas fa-shopping-bag"></i>
@@ -151,11 +477,121 @@
     <!-- ===== TOAST ===== -->
     <div class="android-toast" id="toast"></div>
     
+    <!-- ===== PLATFORM SWITCHER ===== -->
+    <div class="platform-switcher" id="platformSwitcher">
+        <button class="switcher-toggle" id="switcherToggle" aria-label="Switch platform">
+            <i class="fas fa-arrow-right-arrow-left"></i>
+            <span class="switcher-label">Switch</span>
+        </button>
+        <div class="switcher-menu" id="switcherMenu">
+            <div class="switcher-header">
+                <span>Switch Interface</span>
+                <button class="switcher-close" id="switcherClose"><i class="fas fa-times"></i></button>
+            </div>
+            <div class="switcher-options">
+                <a href="/muizhotchicken/ios/" class="switcher-option" data-platform="ios">
+                    <i class="fab fa-apple"></i>
+                    <span>iOS</span>
+                    <span class="switcher-badge">Cupertino</span>
+                </a>
+                <a href="/muizhotchicken/android/" class="switcher-option active" data-platform="android">
+                    <i class="fab fa-android"></i>
+                    <span>Android</span>
+                    <span class="switcher-badge">Material</span>
+                </a>
+                <a href="/muizhotchicken/web/" class="switcher-option" data-platform="web">
+                    <i class="fas fa-desktop"></i>
+                    <span>Web</span>
+                    <span class="switcher-badge">Desktop</span>
+                </a>
+            </div>
+            <div class="switcher-current">
+                <span>Current: <strong id="currentPlatformLabel">Android</strong></span>
+            </div>
+        </div>
+    </div>
+    
     <!-- ===== SHARED DATA ===== -->
     <script src="../shared/data.js"></script>
     
     <!-- ===== ANDROID SCRIPT ===== -->
     <script src="script.js"></script>
+    
+    <!-- ============================================================
+         THEME TOGGLE SCRIPT
+         ============================================================ -->
+    <script>
+        (function() {
+            var savedTheme = localStorage.getItem('muiz-theme') || 'light';
+            var themeToggle = document.getElementById('themeToggle');
+            var themeIcon = document.getElementById('themeIcon');
+            var themeColor = document.getElementById('themeColor');
+            
+            function applyTheme(theme) {
+                document.documentElement.setAttribute('data-theme', theme);
+                localStorage.setItem('muiz-theme', theme);
+                
+                if (theme === 'dark') {
+                    themeIcon.className = 'fas fa-sun';
+                    themeColor.content = '#000000';
+                } else {
+                    themeIcon.className = 'fas fa-moon';
+                    themeColor.content = '#000000';
+                }
+            }
+            
+            applyTheme(savedTheme);
+            
+            themeToggle.addEventListener('click', function() {
+                var current = document.documentElement.getAttribute('data-theme') || 'light';
+                var next = current === 'light' ? 'dark' : 'light';
+                applyTheme(next);
+            });
+        })();
+    </script>
+    
+    <!-- ============================================================
+         PLATFORM SWITCHER SCRIPT
+         ============================================================ -->
+    <script>
+        (function() {
+            var toggleBtn = document.getElementById('switcherToggle');
+            var closeBtn = document.getElementById('switcherClose');
+            var menu = document.getElementById('switcherMenu');
+            var switcher = document.getElementById('platformSwitcher');
+            
+            function toggleMenu() {
+                menu.classList.toggle('open');
+            }
+            
+            function closeMenu() {
+                menu.classList.remove('open');
+            }
+            
+            toggleBtn.addEventListener('click', function(e) {
+                e.stopPropagation();
+                toggleMenu();
+            });
+            
+            closeBtn.addEventListener('click', function(e) {
+                e.stopPropagation();
+                closeMenu();
+            });
+            
+            document.addEventListener('click', function(e) {
+                if (switcher && !switcher.contains(e.target)) {
+                    closeMenu();
+                }
+            });
+            
+            document.addEventListener('keydown', function(e) {
+                if (e.key === 'Escape') closeMenu();
+            });
+            
+            var label = document.getElementById('currentPlatformLabel');
+            if (label) label.textContent = 'Android';
+        })();
+    </script>
     
 </body>
 </html>
