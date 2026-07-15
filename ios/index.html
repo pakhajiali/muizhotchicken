@@ -6,32 +6,32 @@
     
     <!-- ===== PRIMARY SEO ===== -->
     <title>Restoran Pak Haji Ali & Muiz Hot Chicken - Subang Jaya (USJ 8) | Halal Crispy Chicken</title>
-    <meta name="description" content="JAKIM Halal certified crispy Muiz Hot Chicken, authentic Nasi Kandar & Malaysian-Thai cuisine in Subang Jaya USJ 8. Est. 2026. Dine-in, takeaway & delivery." />
+    <meta name="description" content="Restoran Pak Haji Ali & Muiz Hot Chicken - Subang Jaya (USJ 8). JAKIM Halal certified crispy Muiz Hot Chicken, authentic Nasi Kandar & Malaysian-Thai cuisine. Est. 2026. Dine-in, takeaway & delivery." />
     <meta name="robots" content="index, follow" />
     <link rel="canonical" href="https://pakhajiali.github.io/muizhotchicken/" />
     
     <!-- ===== OPEN GRAPH ===== -->
     <meta property="og:title" content="Restoran Pak Haji Ali & Muiz Hot Chicken - Subang Jaya (USJ 8)" />
-    <meta property="og:description" content="JAKIM Halal certified crispy Muiz Hot Chicken, Nasi Kandar & Tomyam in USJ 8. Order now!" />
+    <meta property="og:description" content="Restoran Pak Haji Ali & Muiz Hot Chicken - Subang Jaya (USJ 8). JAKIM Halal certified crispy Muiz Hot Chicken, Nasi Kandar & Tomyam. Order now!" />
     <meta property="og:image" content="https://pakhajiali.github.io/muizhotchicken/logo.webp" />
     <meta property="og:image:width" content="1200" />
     <meta property="og:image:height" content="630" />
     <meta property="og:url" content="https://pakhajiali.github.io/muizhotchicken/" />
     <meta property="og:type" content="website" />
-    <meta property="og:site_name" content="Restoran Pak Haji Ali & Muiz Hot Chicken" />
+    <meta property="og:site_name" content="Restoran Pak Haji Ali & Muiz Hot Chicken - Subang Jaya (USJ 8)" />
     <meta property="og:locale" content="en_MY" />
     
     <!-- ===== TWITTER ===== -->
     <meta name="twitter:card" content="summary_large_image" />
     <meta name="twitter:title" content="Restoran Pak Haji Ali & Muiz Hot Chicken - Subang Jaya (USJ 8)" />
-    <meta name="twitter:description" content="JAKIM Halal certified crispy Muiz Hot Chicken in USJ 8." />
+    <meta name="twitter:description" content="Restoran Pak Haji Ali & Muiz Hot Chicken - Subang Jaya (USJ 8). JAKIM Halal certified crispy Muiz Hot Chicken." />
     <meta name="twitter:image" content="https://pakhajiali.github.io/muizhotchicken/logo.webp" />
     
     <!-- ===== PWA ===== -->
-    <meta name="theme-color" content="#d62828" />
+    <meta name="theme-color" content="#d62828" id="themeColor" />
     <meta name="apple-mobile-web-app-capable" content="yes" />
     <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent" />
-    <meta name="apple-mobile-web-app-title" content="Muiz Hot Chicken" />
+    <meta name="apple-mobile-web-app-title" content="Restoran Pak Haji Ali & Muiz Hot Chicken" />
     <link rel="manifest" href="../manifest.json" />
     <link rel="icon" type="image/svg+xml" href="../favicon.svg" />
     <link rel="icon" type="image/png" sizes="96x96" href="../favicon-96x96.png" />
@@ -42,8 +42,322 @@
     
     <!-- ===== IOS STYLES ===== -->
     <link rel="stylesheet" href="style.css" />
+    
+    <style>
+        /* ===== THEME TOGGLE BUTTON (iOS style) ===== */
+        .theme-toggle-ios {
+            position: fixed;
+            top: 76px;
+            right: 16px;
+            z-index: 999;
+            background: var(--card, #ffffff);
+            border: 1px solid var(--separator, #e5e5ea);
+            border-radius: 50%;
+            width: 40px;
+            height: 40px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 18px;
+            cursor: pointer;
+            transition: all 0.3s cubic-bezier(0.2, 0.9, 0.4, 1);
+            box-shadow: 0 2px 12px rgba(0, 0, 0, 0.08);
+            color: var(--text, #1c1c1e);
+            backdrop-filter: blur(8px);
+            -webkit-backdrop-filter: blur(8px);
+        }
+        
+        .theme-toggle-ios:hover {
+            transform: scale(1.08);
+            box-shadow: 0 4px 20px rgba(0, 0, 0, 0.12);
+        }
+        
+        .theme-toggle-ios:active {
+            transform: scale(0.92);
+        }
+        
+        /* ===== DARK MODE VARIABLES ===== */
+        [data-theme="dark"] {
+            --bg: #000000;
+            --bg-secondary: #1c1c1e;
+            --card: #1c1c1e;
+            --card-hover: #2c2c2e;
+            --text: #f2f2f7;
+            --text-secondary: #aeaeb2;
+            --text-tertiary: #8e8e93;
+            --text-quaternary: #636366;
+            --separator: #38383a;
+            --separator-heavy: #48484a;
+            --shadow: 0 2px 16px rgba(0, 0, 0, 0.4);
+            --shadow-lg: 0 8px 40px rgba(0, 0, 0, 0.5);
+            --shadow-modal: 0 -8px 40px rgba(0, 0, 0, 0.5);
+            --primary-surface: #3a1a1a;
+        }
+        
+        /* ===== LIGHT MODE VARIABLES (default) ===== */
+        :root {
+            --bg: #f2f2f7;
+            --bg-secondary: #e5e5ea;
+            --card: #ffffff;
+            --card-hover: #f8f8fc;
+            --text: #1c1c1e;
+            --text-secondary: #6c6c70;
+            --text-tertiary: #8e8e93;
+            --text-quaternary: #aeaeb2;
+            --separator: #e5e5ea;
+            --separator-heavy: #d1d1d6;
+            --shadow: 0 2px 16px rgba(0, 0, 0, 0.06);
+            --shadow-lg: 0 8px 40px rgba(0, 0, 0, 0.10);
+            --shadow-modal: 0 -8px 40px rgba(0, 0, 0, 0.12);
+            --primary-surface: #fef0ef;
+        }
+        
+        /* ===== PLATFORM SWITCHER ===== */
+        .platform-switcher {
+            position: fixed;
+            bottom: 100px;
+            right: 16px;
+            z-index: 9999;
+        }
+        
+        .switcher-toggle {
+            display: flex;
+            align-items: center;
+            gap: 8px;
+            background: var(--primary, #d62828);
+            color: #fff;
+            border: none;
+            padding: 12px 18px;
+            border-radius: 9999px;
+            font-weight: 700;
+            font-size: 14px;
+            cursor: pointer;
+            box-shadow: 0 4px 20px rgba(214, 40, 40, 0.3);
+            transition: all 0.3s cubic-bezier(0.2, 0.9, 0.4, 1);
+            font-family: inherit;
+            backdrop-filter: blur(8px);
+            -webkit-backdrop-filter: blur(8px);
+        }
+        
+        .switcher-toggle:hover {
+            transform: scale(1.05);
+            box-shadow: 0 6px 28px rgba(214, 40, 40, 0.4);
+        }
+        
+        .switcher-toggle:active {
+            transform: scale(0.95);
+        }
+        
+        .switcher-toggle .switcher-label {
+            font-size: 13px;
+        }
+        
+        .switcher-menu {
+            position: absolute;
+            bottom: calc(100% + 12px);
+            right: 0;
+            background: var(--card, #ffffff);
+            border-radius: 16px;
+            padding: 16px 20px 18px;
+            box-shadow: var(--shadow-lg, 0 8px 32px rgba(0,0,0,0.15));
+            min-width: 220px;
+            display: none;
+            animation: switcherSlideUp 0.3s cubic-bezier(0.2, 0.9, 0.4, 1);
+            border: 1px solid var(--separator, #e5e5ea);
+            backdrop-filter: blur(20px);
+            -webkit-backdrop-filter: blur(20px);
+        }
+        
+        .switcher-menu.open {
+            display: block;
+        }
+        
+        @keyframes switcherSlideUp {
+            from {
+                opacity: 0;
+                transform: translateY(12px) scale(0.96);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0) scale(1);
+            }
+        }
+        
+        .switcher-header {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            margin-bottom: 12px;
+            padding-bottom: 10px;
+            border-bottom: 1px solid var(--separator, #e5e5ea);
+        }
+        
+        .switcher-header span {
+            font-weight: 700;
+            font-size: 14px;
+            color: var(--text, #1c1c1e);
+        }
+        
+        .switcher-close {
+            background: none;
+            border: none;
+            color: var(--text-tertiary, #8e8e93);
+            font-size: 16px;
+            cursor: pointer;
+            padding: 4px 6px;
+            transition: 0.2s;
+            border-radius: 50%;
+        }
+        
+        .switcher-close:hover {
+            color: var(--primary, #d62828);
+            background: var(--bg-secondary, #f0f0f5);
+        }
+        
+        .switcher-options {
+            display: flex;
+            flex-direction: column;
+            gap: 6px;
+        }
+        
+        .switcher-option {
+            display: flex;
+            align-items: center;
+            gap: 12px;
+            padding: 10px 14px;
+            border-radius: 10px;
+            text-decoration: none;
+            color: var(--text, #1c1c1e);
+            transition: all 0.2s ease;
+            border: 1px solid transparent;
+            font-weight: 600;
+            font-size: 14px;
+        }
+        
+        .switcher-option:hover {
+            background: var(--bg-secondary, #f0f0f5);
+            border-color: var(--separator, #e5e5ea);
+        }
+        
+        .switcher-option:active {
+            transform: scale(0.97);
+        }
+        
+        .switcher-option i {
+            font-size: 20px;
+            width: 28px;
+            text-align: center;
+        }
+        
+        .switcher-option[data-platform="ios"] i {
+            color: #007AFF;
+        }
+        
+        .switcher-option[data-platform="android"] i {
+            color: #3DDC84;
+        }
+        
+        .switcher-option[data-platform="web"] i {
+            color: var(--primary, #d62828);
+        }
+        
+        .switcher-option .switcher-badge {
+            font-size: 10px;
+            font-weight: 600;
+            color: var(--text-tertiary, #8e8e93);
+            background: var(--bg-secondary, #f0f0f5);
+            padding: 2px 10px;
+            border-radius: 9999px;
+            margin-left: auto;
+        }
+        
+        .switcher-option.active {
+            background: var(--primary-surface, #fef0ef);
+            border-color: var(--primary, #d62828);
+        }
+        
+        .switcher-option.active .switcher-badge {
+            background: var(--primary, #d62828);
+            color: #fff;
+        }
+        
+        .switcher-current {
+            margin-top: 12px;
+            padding-top: 10px;
+            border-top: 1px solid var(--separator, #e5e5ea);
+            font-size: 12px;
+            color: var(--text-tertiary, #8e8e93);
+            text-align: center;
+        }
+        
+        .switcher-current strong {
+            color: var(--text, #1c1c1e);
+        }
+        
+        /* ===== RESPONSIVE ===== */
+        @media (max-width: 480px) {
+            .platform-switcher {
+                bottom: 80px;
+                right: 12px;
+            }
+            .switcher-toggle {
+                padding: 10px 14px;
+                font-size: 12px;
+            }
+            .switcher-toggle .switcher-label {
+                display: none;
+            }
+            .switcher-menu {
+                min-width: 190px;
+                padding: 14px 16px 16px;
+                right: 0;
+                bottom: calc(100% + 10px);
+            }
+            .switcher-option {
+                padding: 8px 12px;
+                font-size: 13px;
+            }
+            .switcher-option i {
+                font-size: 18px;
+                width: 24px;
+            }
+            .switcher-option .switcher-badge {
+                font-size: 9px;
+                padding: 1px 8px;
+            }
+        }
+        
+        @media (max-width: 380px) {
+            .platform-switcher {
+                bottom: 72px;
+                right: 8px;
+            }
+            .switcher-toggle {
+                padding: 8px 12px;
+                font-size: 11px;
+            }
+            .switcher-menu {
+                min-width: 170px;
+                padding: 12px 14px 14px;
+            }
+            .switcher-option {
+                padding: 6px 10px;
+                font-size: 12px;
+                gap: 8px;
+            }
+            .switcher-option i {
+                font-size: 16px;
+                width: 20px;
+            }
+        }
+    </style>
 </head>
 <body>
+    
+    <!-- ===== THEME TOGGLE (iOS style) ===== -->
+    <button class="theme-toggle-ios" id="themeToggle" aria-label="Toggle theme">
+        <i class="fas fa-moon" id="themeIcon"></i>
+    </button>
     
     <!-- ===== IOS HEADER ===== -->
     <header class="ios-header">
@@ -144,11 +458,120 @@
     <!-- ===== TOAST ===== -->
     <div class="ios-toast" id="toast"></div>
     
+    <!-- ===== PLATFORM SWITCHER (Floating) ===== -->
+    <div class="platform-switcher" id="platformSwitcher">
+        <button class="switcher-toggle" id="switcherToggle" aria-label="Switch platform">
+            <i class="fas fa-arrow-right-arrow-left"></i>
+            <span class="switcher-label">Switch</span>
+        </button>
+        <div class="switcher-menu" id="switcherMenu">
+            <div class="switcher-header">
+                <span>Switch Interface</span>
+                <button class="switcher-close" id="switcherClose"><i class="fas fa-times"></i></button>
+            </div>
+            <div class="switcher-options">
+                <a href="/muizhotchicken/ios/" class="switcher-option active" data-platform="ios">
+                    <i class="fab fa-apple"></i>
+                    <span>iOS</span>
+                    <span class="switcher-badge">Cupertino</span>
+                </a>
+                <a href="/muizhotchicken/android/" class="switcher-option" data-platform="android">
+                    <i class="fab fa-android"></i>
+                    <span>Android</span>
+                    <span class="switcher-badge">Material</span>
+                </a>
+                <a href="/muizhotchicken/web/" class="switcher-option" data-platform="web">
+                    <i class="fas fa-desktop"></i>
+                    <span>Web</span>
+                    <span class="switcher-badge">Desktop</span>
+                </a>
+            </div>
+            <div class="switcher-current">
+                <span>Current: <strong id="currentPlatformLabel">iOS</strong></span>
+            </div>
+        </div>
+    </div>
+    
     <!-- ===== SHARED DATA ===== -->
     <script src="../shared/data.js"></script>
     
     <!-- ===== IOS SCRIPT ===== -->
     <script src="script.js"></script>
+    
+    <!-- ===== THEME TOGGLE SCRIPT ===== -->
+    <script>
+        (function() {
+            // ===== THEME TOGGLE =====
+            var savedTheme = localStorage.getItem('muiz-theme') || 'light';
+            var themeToggle = document.getElementById('themeToggle');
+            var themeIcon = document.getElementById('themeIcon');
+            var themeColor = document.getElementById('themeColor');
+            
+            function applyTheme(theme) {
+                document.documentElement.setAttribute('data-theme', theme);
+                localStorage.setItem('muiz-theme', theme);
+                
+                if (theme === 'dark') {
+                    themeIcon.className = 'fas fa-sun';
+                    themeColor.content = '#000000';
+                } else {
+                    themeIcon.className = 'fas fa-moon';
+                    themeColor.content = '#d62828';
+                }
+            }
+            
+            applyTheme(savedTheme);
+            
+            themeToggle.addEventListener('click', function() {
+                var current = document.documentElement.getAttribute('data-theme') || 'light';
+                var next = current === 'light' ? 'dark' : 'light';
+                applyTheme(next);
+            });
+        })();
+    </script>
+    
+    <!-- ===== PLATFORM SWITCHER SCRIPT ===== -->
+    <script>
+        (function() {
+            // ===== PLATFORM SWITCHER =====
+            var toggleBtn = document.getElementById('switcherToggle');
+            var closeBtn = document.getElementById('switcherClose');
+            var menu = document.getElementById('switcherMenu');
+            var switcher = document.getElementById('platformSwitcher');
+            
+            function toggleMenu() {
+                menu.classList.toggle('open');
+            }
+            
+            function closeMenu() {
+                menu.classList.remove('open');
+            }
+            
+            toggleBtn.addEventListener('click', function(e) {
+                e.stopPropagation();
+                toggleMenu();
+            });
+            
+            closeBtn.addEventListener('click', function(e) {
+                e.stopPropagation();
+                closeMenu();
+            });
+            
+            document.addEventListener('click', function(e) {
+                if (switcher && !switcher.contains(e.target)) {
+                    closeMenu();
+                }
+            });
+            
+            document.addEventListener('keydown', function(e) {
+                if (e.key === 'Escape') closeMenu();
+            });
+            
+            // Current platform label
+            var label = document.getElementById('currentPlatformLabel');
+            if (label) label.textContent = 'iOS';
+        })();
+    </script>
     
 </body>
 </html>
