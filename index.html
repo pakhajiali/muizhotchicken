@@ -4,9 +4,7 @@
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover" />
     
-    <!-- ============================================================
-         PRIMARY SEO
-         ============================================================ -->
+    <!-- ===== PRIMARY SEO ===== -->
     <title>Restoran Pak Haji Ali & Muiz Hot Chicken - Subang Jaya (USJ 8) | Halal Crispy Chicken Since 2026</title>
     <meta name="description" content="JAKIM Halal certified crispy Muiz Hot Chicken, authentic Nasi Kandar & Malaysian-Thai cuisine in Subang Jaya USJ 8. Established 2026. Dine-in, takeaway & delivery." />
     <meta name="keywords" content="Muiz Hot Chicken, Restoran Pak Haji Ali, Nasi Kandar Subang Jaya, Halal Fried Chicken USJ 8, Crispy Chicken Subang Jaya, Malaysian Food, Thai Food, Tomyam, Nasi Goreng, Halal Restaurant, USJ 8, Subang Jaya, Selangor" />
@@ -14,9 +12,7 @@
     <meta name="googlebot" content="index, follow" />
     <link rel="canonical" href="https://pakhajiali.github.io/muizhotchicken/" />
     
-    <!-- ============================================================
-         OPEN GRAPH (WhatsApp, Facebook, Telegram, LinkedIn)
-         ============================================================ -->
+    <!-- ===== OPEN GRAPH ===== -->
     <meta property="og:title" content="Restoran Pak Haji Ali & Muiz Hot Chicken - Subang Jaya (USJ 8)" />
     <meta property="og:description" content="JAKIM Halal certified crispy Muiz Hot Chicken, authentic Nasi Kandar & Malaysian-Thai cuisine in Subang Jaya USJ 8. Order now for dine-in, takeaway or delivery!" />
     <meta property="og:image" content="https://pakhajiali.github.io/muizhotchicken/logo.webp" />
@@ -28,17 +24,13 @@
     <meta property="og:site_name" content="Restoran Pak Haji Ali & Muiz Hot Chicken" />
     <meta property="og:locale" content="en_MY" />
     
-    <!-- ============================================================
-         TWITTER CARDS
-         ============================================================ -->
+    <!-- ===== TWITTER CARDS ===== -->
     <meta name="twitter:card" content="summary_large_image" />
     <meta name="twitter:title" content="Restoran Pak Haji Ali & Muiz Hot Chicken - Subang Jaya (USJ 8)" />
     <meta name="twitter:description" content="JAKIM Halal certified crispy Muiz Hot Chicken, Nasi Kandar & Tomyam in USJ 8. Order now!" />
     <meta name="twitter:image" content="https://pakhajiali.github.io/muizhotchicken/logo.webp" />
     
-    <!-- ============================================================
-         STRUCTURED DATA - JSON-LD
-         ============================================================ -->
+    <!-- ===== STRUCTURED DATA ===== -->
     <script type="application/ld+json">
         {
             "@context": "https://schema.org",
@@ -160,9 +152,7 @@
         }
     </script>
     
-    <!-- ============================================================
-         PWA META TAGS
-         ============================================================ -->
+    <!-- ===== PWA ===== -->
     <meta name="theme-color" content="#d62828" />
     <meta name="apple-mobile-web-app-capable" content="yes" />
     <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent" />
@@ -172,9 +162,7 @@
     <link rel="icon" type="image/png" sizes="96x96" href="favicon-96x96.png" />
     <link rel="apple-touch-icon" href="apple-touch-icon.png" />
     
-    <!-- ============================================================
-         STYLES
-         ============================================================ -->
+    <!-- ===== STYLES ===== -->
     <link rel="stylesheet" href="style.css" />
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css" />
 </head>
@@ -210,141 +198,8 @@
         <p class="footer">&copy; 2026 Restoran Pak Haji Ali &amp; Muiz Hot Chicken</p>
     </div>
     
-    <!-- ============================================================
-         SCRIPT WITH REDIRECT LOGIC
-         ============================================================ -->
-    <script>
-        // ============================================================
-        // DEVICE DETECTION & REDIRECT (INLINE FOR SPEED)
-        // ============================================================
-        (function() {
-            'use strict';
-            
-            const CONFIG = {
-                iosPath: '/muizhotchicken/ios/',
-                androidPath: '/muizhotchicken/android/',
-                webPath: '/muizhotchicken/web/',
-                defaultPlatform: 'android',
-                redirectDelay: 1200,
-                fallbackTimeout: 5000,
-            };
-            
-            const detectText = document.getElementById('detectText');
-            const spinner = document.getElementById('spinner');
-            const manualLinks = document.getElementById('manualLinks');
-            
-            function detectDevice() {
-                const ua = navigator.userAgent || navigator.vendor || window.opera;
-                const isIOS = /iPad|iPhone|iPod/.test(ua) && !window.MSStream;
-                const isAndroid = /android/i.test(ua);
-                const isTablet = /iPad|Android(?!.*Mobile)/.test(ua) || 
-                                 (navigator.maxTouchPoints > 1 && window.innerWidth >= 768);
-                const isDesktop = !isIOS && !isAndroid && !isTablet;
-                const isTouch = 'ontouchstart' in window || navigator.maxTouchPoints > 0;
-                
-                let platform = 'web';
-                if (isIOS) platform = 'ios';
-                else if (isAndroid) platform = 'android';
-                else if (isDesktop) platform = 'web';
-                else if (isTablet && isTouch) platform = 'android';
-                else platform = CONFIG.defaultPlatform;
-                
-                return {
-                    platform: platform,
-                    isDetected: isIOS || isAndroid || isDesktop || isTablet
-                };
-            }
-            
-            function getDestination(platform) {
-                switch(platform) {
-                    case 'ios': return CONFIG.iosPath;
-                    case 'android': return CONFIG.androidPath;
-                    case 'web': return CONFIG.webPath;
-                    default: return CONFIG.androidPath;
-                }
-            }
-            
-            function getPlatformName(platform) {
-                switch(platform) {
-                    case 'ios': return 'iOS';
-                    case 'android': return 'Android';
-                    case 'web': return 'Web';
-                    default: return 'Android';
-                }
-            }
-            
-            function showManualLinks() {
-                if (manualLinks) manualLinks.classList.add('visible');
-                if (spinner) spinner.style.display = 'none';
-                if (detectText) detectText.textContent = 'Choose your interface:';
-            }
-            
-            function isOnRoot() {
-                const path = window.location.pathname;
-                return !path.includes('/ios/') && 
-                       !path.includes('/android/') && 
-                       !path.includes('/web/');
-            }
-            
-            function handleDetection() {
-                if (!isOnRoot()) {
-                    // Already on a platform page, redirect to root
-                    window.location.href = '/muizhotchicken/';
-                    return;
-                }
-                
-                const device = detectDevice();
-                const platform = device.platform;
-                const displayName = getPlatformName(platform);
-                
-                if (detectText) {
-                    if (device.isDetected) {
-                        detectText.textContent = `✅ ${displayName} detected. Redirecting...`;
-                    } else {
-                        detectText.textContent = `⚠️ Using ${displayName} (default)`;
-                    }
-                }
-                
-                const destination = getDestination(platform);
-                setTimeout(function() {
-                    window.location.replace(destination);
-                }, CONFIG.redirectDelay);
-            }
-            
-            // ===== START =====
-            if (isOnRoot()) {
-                setTimeout(handleDetection, 300);
-                
-                setTimeout(function() {
-                    if (isOnRoot()) {
-                        showManualLinks();
-                    }
-                }, CONFIG.fallbackTimeout);
-                
-                document.addEventListener('click', function() {
-                    if (isOnRoot() && manualLinks && !manualLinks.classList.contains('visible')) {
-                        showManualLinks();
-                    }
-                });
-            } else {
-                window.location.href = '/muizhotchicken/';
-            }
-            
-            // ===== SERVICE WORKER =====
-            if ('serviceWorker' in navigator) {
-                window.addEventListener('load', function() {
-                    navigator.serviceWorker.register('/sw.js')
-                        .then(function() { console.log('✅ SW registered'); })
-                        .catch(function() { console.log('❌ SW failed'); });
-                });
-            }
-            
-        })();
-    </script>
+    <script src="script.js" defer></script>
     
-    <!-- ============================================================
-         NOSCRIPT FALLBACK
-         ============================================================ -->
     <noscript>
         <div style="position:fixed;top:0;left:0;right:0;background:#d62828;color:#fff;padding:16px;text-align:center;font-weight:700;z-index:9999;">
             <i class="fas fa-exclamation-triangle"></i> Please enable JavaScript.
