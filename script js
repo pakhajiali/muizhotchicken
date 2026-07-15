@@ -1,0 +1,296 @@
+/* ============================================================
+   MAIN SCRIPT - Device Detection & Redirect
+   Restoran Pak Haji Ali & Muiz Hot Chicken
+   ============================================================ */
+
+'use strict';
+
+// ===== CONFIGURATION =====
+const CONFIG = {
+    basePath: '/muizhotchicken/',
+    iosPath: '/muizhotchicken/ios/',
+    androidPath: '/muizhotchicken/android/',
+    webPath: '/muizhotchicken/web/',
+    redirectDelay: 1500, // milliseconds before auto-redirect
+    fallbackTimeout: 5000, // milliseconds before showing manual links
+};
+
+// ===== DEVICE DETECTION =====
+function detectDevice() {
+    const ua = navigator.userAgent || navigator.vendor || window.opera;
+    
+    // Check for iOS
+    const isIOS = /iPad|iPhone|iPod/.test(ua) && !window.MSStream;
+    
+    // Check for Android
+    const isAndroid = /android/i.test(ua);
+    
+    // Check for tablet
+    const isTablet = /iPad|Android(?!.*Mobile)/.test(ua) || 
+                     (navigator.maxTouchPoints > 1 && window.innerWidth >= 768);
+    
+    // Check for desktop
+    const isDesktop = !isIOS && !isAndroid && !isTablet;
+    
+    // Check if touch device
+    const isTouch = 'ontouchstart' in window || navigator.maxTouchPoints > 0;
+    
+    // Check for PWA mode (standalone)
+    const isStandalone = window.matchMedia('(display-mode: standalone)').matches || 
+                         window.navigator.standalone === true;
+    
+    return {
+        isIOS,
+        isAndroid,
+        isTablet,
+        isDesktop,
+        isTouch,
+        isStandalone,
+        platform: isIOS ? 'ios' : isAndroid ? 'android' : isDesktop ? 'web' : 'web',
+        isMobile: isIOS || isAndroid || isTablet
+    };
+}
+
+// ===== DETECT CURRENT PATH =====
+function getCurrentPlatform() {
+    const path = window.location.pathname;
+    
+    if (path.includes('/ios/')) return 'ios';
+    if (path.includes('/android/')) return 'android';
+    if (path.includes('/web/')) return 'web';
+    return null;
+}
+
+// ===== GET DESTINATION URL =====
+function getDestinationUrl(device) {
+    if (device.isIOS) return CONFIG.iosPath;
+    if (device.isAndroid) return CONFIG.androidPath;
+    return CONFIG.webPath;
+}
+
+// ===== PERFORM REDIRECT =====
+function performRedirect() {
+    const device = detectDevice();
+    const currentPlatform = getCurrentPlatform();
+    const destination = getDestinationUrl(device);
+    
+    // If already on the correct platform, stay
+    if (currentPlatform === device.platform) {
+        showLoaderMessage('✅ Loading your experience...');
+        return;
+    }
+    
+    // If on root or wrong platform, redirect
+    if (!currentPlatform || currentPlatform !== device.platform) {
+        showLoaderMessage(`📱 Redirecting to ${device.platform.charAt(0).toUpperCase() + device.platform.slice(1)} interface...`);
+        
+        setTimeout(() => {
+            window.location.replace(destination);
+        }, CONFIG.redirectDelay);
+    }
+}
+
+// ===== SHOW LOADER MESSAGES =====
+function showLoaderMessage(msg) {
+    const detectText = document.querySelector('.detect-text');
+    if (detectText) {
+        detectText.textContent = msg;
+    }
+}
+
+function showManualLinks() {
+    const manualLinks = document.querySelector('.manual-links');
+    if (manualLinks) {
+        manualLinks.style.display = 'flex';
+        manualLinks.style.opacity = '1';
+        manualLinks.style.animation = 'fadeIn 0.5s ease';
+    }
+    
+    const detectText = document.querySelector('.detect-text');
+    if (detectText) {
+        detectText.textContent = '⚠️ Still here? Click below to choose your experience:';
+    }
+}
+
+// ===== ANIMATE LOADER =====
+function animateLoader() {
+    const logo = document.querySelector('.loader .logo');
+    if (logo) {
+        logo.style.display = 'inline-block';
+        logo.style.animation = 'pulse 1.5s ease-in-out infinite';
+    }
+}
+
+// ===== INJECT MANUAL LINKS =====
+function injectManualLinks() {
+    const container = document.querySelector('.manual-links');
+    if (!container) return;
+    
+    // Clear existing links
+    container.innerHTML = '';
+    
+    // Add platform links
+    const platforms = [
+        { id: 'ios', label: '🍎 iOS', icon: 'fab fa-apple' },
+        { id: 'android', label: '🤖 Android', icon: 'fab fa-android' },
+        { id: 'web', label: '🖥️ Web', icon: 'fas fa-desktop' }
+    ];
+    
+    platforms.forEach(p => {
+        const link = document.createElement('a');
+        link.href = `/${CONFIG.basePath}${p.id}/`;
+        link.className = `platform-link platform-${p.id}`;
+        link.innerHTML = `<i class="${p.icon}"></i> ${p.label}`;
+        link.addEventListener('click', function(e) {
+            e.preventDefault();
+            window.location.href = this.href;
+        });
+        container.appendChild(link);
+    });
+}
+
+// ===== ADD STYLES FOR MANUAL LINKS =====
+function injectStyles() {
+    const style = document.createElement('style');
+    style.textContent = `
+        .manual-links {
+            display: none;
+            gap: 12px;
+            justify-content: center;
+            margin-top: 20px;
+            flex-wrap: wrap;
+            opacity: 0;
+            transition: opacity 0.5s ease;
+        }
+        .manual-links .platform-link {
+            display: inline-flex;
+            align-items: center;
+            gap: 8px;
+            padding: 10px 24px;
+            border-radius: 9999px;
+            font-weight: 700;
+            font-size: 15px;
+            text-decoration: none;
+            transition: all 0.3s ease;
+            border: 2px solid transparent;
+            cursor: pointer;
+            background: #fff;
+            color: #1c1c1e;
+            box-shadow: 0 2px 12px rgba(0,0,0,0.08);
+        }
+        .manual-links .platform-link:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 8px 24px rgba(0,0,0,0.15);
+        }
+        .manual-links .platform-link:active {
+            transform: scale(0.96);
+        }
+        .manual-links .platform-ios {
+            color: #007AFF;
+            border-color: #007AFF;
+        }
+        .manual-links .platform-ios:hover {
+            background: #007AFF;
+            color: #fff;
+        }
+        .manual-links .platform-android {
+            color: #3DDC84;
+            border-color: #3DDC84;
+        }
+        .manual-links .platform-android:hover {
+            background: #3DDC84;
+            color: #fff;
+        }
+        .manual-links .platform-web {
+            color: #d62828;
+            border-color: #d62828;
+        }
+        .manual-links .platform-web:hover {
+            background: #d62828;
+            color: #fff;
+        }
+        @keyframes fadeIn {
+            from { opacity: 0; transform: translateY(10px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+        @keyframes pulse {
+            0%, 100% { transform: scale(1); }
+            50% { transform: scale(1.08); }
+        }
+    `;
+    document.head.appendChild(style);
+}
+
+// ===== OPTIONAL: SEND ANALYTICS =====
+function sendAnalytics(device) {
+    try {
+        // You can add Google Analytics or similar here
+        console.log('📊 Device detected:', device.platform, device.isMobile ? 'Mobile' : 'Desktop');
+        
+        // Example: gtag('event', 'device_detected', { platform: device.platform });
+    } catch (_) {}
+}
+
+// ===== MAIN INIT =====
+document.addEventListener('DOMContentLoaded', function() {
+    // Inject styles
+    injectStyles();
+    
+    // Inject manual links
+    injectManualLinks();
+    
+    // Animate loader
+    animateLoader();
+    
+    // Detect device
+    const device = detectDevice();
+    
+    // Send analytics
+    sendAnalytics(device);
+    
+    // Check if on root or wrong platform
+    const currentPlatform = getCurrentPlatform();
+    
+    // If already on a platform, we shouldn't be here (redirect loop protection)
+    if (currentPlatform) {
+        showLoaderMessage(`✅ Already on ${currentPlatform} interface.`);
+        showManualLinks();
+        return;
+    }
+    
+    // Perform redirect
+    performRedirect();
+    
+    // Fallback: Show manual links after timeout
+    setTimeout(() => {
+        showManualLinks();
+    }, CONFIG.fallbackTimeout);
+    
+    // Log
+    console.log('🍗 Muiz Hot Chicken - Device Detection');
+    console.log(`📱 Platform: ${device.platform}`);
+    console.log(`📐 Mobile: ${device.isMobile}`);
+    console.log(`🖱️ Touch: ${device.isTouch}`);
+    console.log(`📦 Standalone: ${device.isStandalone}`);
+});
+
+// ===== SERVICE WORKER REGISTRATION =====
+if ('serviceWorker' in navigator) {
+    window.addEventListener('load', function() {
+        navigator.serviceWorker.register('/sw.js')
+            .then(function(registration) {
+                console.log('✅ Service Worker registered successfully');
+            })
+            .catch(function(err) {
+                console.log('❌ Service Worker registration failed:', err);
+            });
+    });
+}
+
+// ===== EXPOSE FUNCTIONS FOR DEBUGGING =====
+window.__muiz = {
+    detectDevice,
+    getCurrentPlatform,
+    getDestinationUrl,
+    CONFIG
+};
