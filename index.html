@@ -123,200 +123,19 @@
     <link rel="icon" type="image/png" sizes="96x96" href="favicon-96x96.png" />
     <link rel="apple-touch-icon" href="apple-touch-icon.png" />
     
-    <!-- ===== DEVICE DETECTION & REDIRECT ===== -->
-    <script>
-        (function() {
-            const userAgent = navigator.userAgent || navigator.vendor || window.opera;
-            
-            // Detect platform
-            const isIOS = /iPad|iPhone|iPod/.test(userAgent) && !window.MSStream;
-            const isAndroid = /android/i.test(userAgent);
-            const isDesktop = !isIOS && !isAndroid;
-            
-            // Get current path (for subfolder support)
-            const path = window.location.pathname;
-            const basePath = '/muizhotchicken/';
-            const currentPage = window.location.href;
-            
-            // Check if we're already in a platform folder
-            const inIOS = path.includes('/ios/') || currentPage.includes('/ios/');
-            const inAndroid = path.includes('/android/') || currentPage.includes('/android/');
-            const inWeb = path.includes('/web/') || currentPage.includes('/web/');
-            
-            // Redirect to appropriate interface
-            if (isIOS && !inIOS) {
-                window.location.replace(basePath + 'ios/');
-                return;
-            }
-            
-            if (isAndroid && !inAndroid) {
-                window.location.replace(basePath + 'android/');
-                return;
-            }
-            
-            if (isDesktop && !inWeb) {
-                window.location.replace(basePath + 'web/');
-                return;
-            }
-            
-            // If already in correct folder or detection fails, show fallback
-            // This page serves as a fallback/loader
-        })();
-    </script>
+    <!-- ===== MAIN STYLES ===== -->
+    <link rel="stylesheet" href="style.css" />
     
-    <!-- ===== LOADING FALLBACK STYLES ===== -->
-    <style>
-        * {
-            margin: 0;
-            padding: 0;
-            box-sizing: border-box;
-        }
-        
-        body {
-            font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            min-height: 100vh;
-            min-height: 100dvh;
-            margin: 0;
-            background: #f2f2f7;
-            color: #1c1c1e;
-            text-align: center;
-            padding: 20px;
-        }
-        
-        .loader {
-            max-width: 420px;
-            width: 100%;
-        }
-        
-        .loader .logo {
-            font-size: 72px;
-            margin-bottom: 12px;
-            display: block;
-            animation: pulse 1.5s ease-in-out infinite;
-        }
-        
-        @keyframes pulse {
-            0%, 100% { transform: scale(1); }
-            50% { transform: scale(1.05); }
-        }
-        
-        .loader h1 {
-            font-size: 26px;
-            font-weight: 800;
-            color: #d62828;
-            letter-spacing: -0.3px;
-            line-height: 1.2;
-        }
-        
-        .loader .subtitle {
-            font-size: 16px;
-            color: #6c6c70;
-            margin-top: 4px;
-        }
-        
-        .loader .location {
-            font-size: 14px;
-            color: #8e8e93;
-            margin-top: 2px;
-        }
-        
-        .loader .badges {
-            display: flex;
-            flex-wrap: wrap;
-            gap: 6px;
-            justify-content: center;
-            margin: 16px 0;
-        }
-        
-        .loader .badges span {
-            background: #fff;
-            padding: 4px 14px;
-            border-radius: 9999px;
-            font-size: 11px;
-            font-weight: 600;
-            color: #6c6c70;
-            border: 1px solid #e8e8ed;
-        }
-        
-        .loader .badges span i {
-            color: #d62828;
-            margin-right: 4px;
-        }
-        
-        .spinner {
-            width: 44px;
-            height: 44px;
-            margin: 20px auto;
-            border: 4px solid #e8e8ed;
-            border-top-color: #d62828;
-            border-radius: 50%;
-            animation: spin 0.8s linear infinite;
-        }
-        
-        @keyframes spin {
-            to { transform: rotate(360deg); }
-        }
-        
-        .loader .detect-text {
-            font-size: 14px;
-            color: #8e8e93;
-        }
-        
-        .loader .manual-links {
-            display: flex;
-            gap: 12px;
-            justify-content: center;
-            margin-top: 16px;
-            flex-wrap: wrap;
-        }
-        
-        .loader .manual-links a {
-            font-size: 13px;
-            font-weight: 600;
-            color: #d62828;
-            text-decoration: none;
-            padding: 6px 16px;
-            background: #fff;
-            border-radius: 9999px;
-            border: 1px solid #e8e8ed;
-            transition: 0.2s;
-        }
-        
-        .loader .manual-links a:hover {
-            background: #d62828;
-            color: #fff;
-            border-color: #d62828;
-        }
-        
-        .loader .footer-text {
-            font-size: 12px;
-            color: #c7c7cc;
-            margin-top: 20px;
-        }
-        
-        @media (max-width: 480px) {
-            .loader .logo {
-                font-size: 56px;
-            }
-            .loader h1 {
-                font-size: 22px;
-            }
-            .loader .subtitle {
-                font-size: 14px;
-            }
-        }
-    </style>
+    <!-- ===== FONT AWESOME ===== -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css" />
 </head>
 <body>
     
     <div class="loader" id="loader">
         <span class="logo">🍗</span>
-        <h1>Restoran Pak Haji Ali<br />&amp; Muiz Hot Chicken</h1>
+        <h1>Restoran Pak Haji Ali <span class="amp">&amp;</span> Muiz Hot Chicken</h1>
         <p class="subtitle">Subang Jaya (USJ 8)</p>
-        <p class="location">📍 Goodyear Court 6, Persiaran Mulia</p>
+        <p class="location"><i class="fas fa-location-dot"></i> Goodyear Court 6, Persiaran Mulia</p>
         
         <div class="badges">
             <span><i class="fas fa-certificate"></i> JAKIM Halal</span>
@@ -324,37 +143,595 @@
             <span><i class="fas fa-star" style="color:#f59e0b;"></i> 5★ Rated</span>
         </div>
         
-        <div class="spinner"></div>
-        <p class="detect-text">Detecting your device...</p>
-        <p style="font-size:12px;color:#c7c7cc;margin-top:4px;">You will be redirected to the best experience for your device</p>
-        
-        <div class="manual-links">
-            <a href="/muizhotchicken/ios/"><i class="fab fa-apple"></i> iOS</a>
-            <a href="/muizhotchicken/android/"><i class="fab fa-android"></i> Android</a>
-            <a href="/muizhotchicken/web/"><i class="fas fa-desktop"></i> Web</a>
+        <!-- Detected Platform Banner -->
+        <div class="platform-banner" id="platformBanner" style="display:none;">
+            <span id="platformIcon"><i class="fas fa-mobile-screen-button"></i></span>
+            <span id="platformText">Detecting your device...</span>
+            <button class="platform-switch-btn" onclick="togglePlatformSelector()">
+                <i class="fas fa-arrow-right-arrow-left"></i> Switch
+            </button>
         </div>
         
-        <p class="footer-text">&copy; 2026 Restoran Pak Haji Ali &amp; Muiz Hot Chicken</p>
+        <div class="spinner" id="spinner"></div>
+        <p class="detect-text" id="detectText">Detecting your device...</p>
+        <p class="detect-hint" id="detectHint">You will be redirected to the best experience for your device</p>
+        
+        <!-- Platform Selector (hidden by default) -->
+        <div class="platform-selector" id="platformSelector">
+            <p style="font-size:13px;font-weight:600;color:var(--text-secondary);margin-bottom:10px;">
+                <i class="fas fa-arrow-right-arrow-left"></i> Choose your preferred interface:
+            </p>
+            <div class="manual-links" id="manualLinks">
+                <a href="/muizhotchicken/ios/" class="platform-link platform-ios" data-platform="ios">
+                    <i class="fab fa-apple"></i> iOS
+                </a>
+                <a href="/muizhotchicken/android/" class="platform-link platform-android" data-platform="android">
+                    <i class="fab fa-android"></i> Android
+                </a>
+                <a href="/muizhotchicken/web/" class="platform-link platform-web" data-platform="web">
+                    <i class="fas fa-desktop"></i> Web
+                </a>
+            </div>
+            <button class="close-selector" onclick="togglePlatformSelector()">
+                <i class="fas fa-times"></i> Close
+            </button>
+        </div>
+        
+        <p class="footer-text">&copy; 2026 Restoran Pak Haji Ali &amp; Muiz Hot Chicken <span class="heart">❤️</span></p>
     </div>
     
-    <!-- ===== FONT AWESOME (for badges) ===== -->
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css" />
-    
-    <!-- ===== FALLBACK: If redirection fails, show manual links ===== -->
+    <!-- ===== MAIN SCRIPT ===== -->
     <script>
-        // If still on this page after 5 seconds, show manual links more prominently
-        setTimeout(function() {
-            const loader = document.getElementById('loader');
-            const manualLinks = loader.querySelector('.manual-links');
-            if (manualLinks) {
-                manualLinks.style.display = 'flex';
+        // ============================================================
+        // MAIN SCRIPT - Device Detection & Platform Switching
+        // ============================================================
+        
+        (function() {
+            'use strict';
+            
+            // ===== CONFIGURATION =====
+            const CONFIG = {
+                basePath: '/muizhotchicken/',
+                iosPath: '/muizhotchicken/ios/',
+                androidPath: '/muizhotchicken/android/',
+                webPath: '/muizhotchicken/web/',
+                redirectDelay: 1200,
+                fallbackTimeout: 5000,
+                defaultPlatform: 'android', // Fallback if detection fails
+            };
+            
+            // ===== DOM REFS =====
+            const detectText = document.getElementById('detectText');
+            const detectHint = document.getElementById('detectHint');
+            const spinner = document.getElementById('spinner');
+            const platformBanner = document.getElementById('platformBanner');
+            const platformIcon = document.getElementById('platformIcon');
+            const platformText = document.getElementById('platformText');
+            const platformSelector = document.getElementById('platformSelector');
+            const manualLinks = document.getElementById('manualLinks');
+            
+            // ===== DEVICE DETECTION =====
+            function detectDevice() {
+                const ua = navigator.userAgent || navigator.vendor || window.opera;
+                
+                // Check for iOS
+                const isIOS = /iPad|iPhone|iPod/.test(ua) && !window.MSStream;
+                
+                // Check for Android
+                const isAndroid = /android/i.test(ua);
+                
+                // Check for tablet
+                const isTablet = /iPad|Android(?!.*Mobile)/.test(ua) || 
+                                 (navigator.maxTouchPoints > 1 && window.innerWidth >= 768);
+                
+                // Check for desktop
+                const isDesktop = !isIOS && !isAndroid && !isTablet;
+                
+                // Check if touch device
+                const isTouch = 'ontouchstart' in window || navigator.maxTouchPoints > 0;
+                
+                // Check for PWA mode (standalone)
+                const isStandalone = window.matchMedia('(display-mode: standalone)').matches || 
+                                     window.navigator.standalone === true;
+                
+                // Determine platform - default to Android if undetectable
+                let platform = 'web';
+                if (isIOS) platform = 'ios';
+                else if (isAndroid) platform = 'android';
+                else if (isDesktop) platform = 'web';
+                else if (isTablet && isTouch) platform = 'android'; // Default tablets to Android
+                else platform = CONFIG.defaultPlatform;
+                
+                return {
+                    isIOS,
+                    isAndroid,
+                    isTablet,
+                    isDesktop,
+                    isTouch,
+                    isStandalone,
+                    platform,
+                    isMobile: isIOS || isAndroid || isTablet,
+                    isDetected: isIOS || isAndroid || isDesktop || isTablet
+                };
             }
-            const detectText = loader.querySelector('.detect-text');
-            if (detectText) {
-                detectText.textContent = 'Redirecting... Click below if not redirected.';
+            
+            // ===== GET CURRENT PLATFORM FROM URL =====
+            function getCurrentPlatform() {
+                const path = window.location.pathname;
+                if (path.includes('/ios/')) return 'ios';
+                if (path.includes('/android/')) return 'android';
+                if (path.includes('/web/')) return 'web';
+                return null;
             }
-        }, 5000);
+            
+            // ===== GET DESTINATION URL =====
+            function getDestinationUrl(platform) {
+                switch(platform) {
+                    case 'ios': return CONFIG.iosPath;
+                    case 'android': return CONFIG.androidPath;
+                    case 'web': return CONFIG.webPath;
+                    default: return CONFIG.androidPath;
+                }
+            }
+            
+            // ===== PLATFORM DISPLAY NAMES =====
+            function getPlatformDisplay(platform) {
+                switch(platform) {
+                    case 'ios': return 'iOS';
+                    case 'android': return 'Android';
+                    case 'web': return 'Web';
+                    default: return 'Android';
+                }
+            }
+            
+            function getPlatformIcon(platform) {
+                switch(platform) {
+                    case 'ios': return '<i class="fab fa-apple"></i>';
+                    case 'android': return '<i class="fab fa-android"></i>';
+                    case 'web': return '<i class="fas fa-desktop"></i>';
+                    default: return '<i class="fas fa-mobile-screen-button"></i>';
+                }
+            }
+            
+            function getPlatformEmoji(platform) {
+                switch(platform) {
+                    case 'ios': return '🍎';
+                    case 'android': return '🤖';
+                    case 'web': return '🖥️';
+                    default: return '📱';
+                }
+            }
+            
+            // ===== UPDATE UI =====
+            function updateUI(device, detectedPlatform) {
+                const displayName = getPlatformDisplay(detectedPlatform);
+                const icon = getPlatformIcon(detectedPlatform);
+                const emoji = getPlatformEmoji(detectedPlatform);
+                
+                // Update banner
+                platformBanner.style.display = 'flex';
+                platformIcon.innerHTML = icon;
+                platformText.textContent = `${emoji} Detected: ${displayName} interface`;
+                
+                // Update detect text
+                if (detectText) {
+                    detectText.textContent = `✅ ${displayName} detected. Redirecting...`;
+                }
+                
+                if (detectHint) {
+                    detectHint.textContent = `You can switch to another platform using the "Switch" button above.`;
+                }
+                
+                // Auto-redirect
+                const destination = getDestinationUrl(detectedPlatform);
+                setTimeout(() => {
+                    window.location.replace(destination);
+                }, CONFIG.redirectDelay);
+            }
+            
+            // ===== SHOW MANUAL LINKS =====
+            function showManualLinks(message) {
+                if (detectText) {
+                    detectText.textContent = message || '⚠️ Select your preferred interface:';
+                }
+                if (detectHint) {
+                    detectHint.textContent = 'Choose iOS, Android, or Web experience';
+                }
+                if (spinner) {
+                    spinner.style.display = 'none';
+                }
+                
+                // Show manual links
+                if (manualLinks) {
+                    manualLinks.style.display = 'flex';
+                    manualLinks.style.opacity = '1';
+                }
+                
+                // Show platform selector
+                if (platformSelector) {
+                    platformSelector.style.display = 'block';
+                }
+                
+                // Show platform banner with switch button
+                if (platformBanner) {
+                    platformBanner.style.display = 'flex';
+                }
+            }
+            
+            // ===== HANDLE DETECTION =====
+            function handleDetection() {
+                const device = detectDevice();
+                const currentPlatform = getCurrentPlatform();
+                
+                // If already on a platform page, redirect back to root
+                if (currentPlatform) {
+                    if (detectText) {
+                        detectText.textContent = `✅ You're on ${getPlatformDisplay(currentPlatform)}. Redirecting to root...`;
+                    }
+                    setTimeout(() => {
+                        window.location.href = CONFIG.basePath;
+                    }, 1500);
+                    return;
+                }
+                
+                // Determine platform to use
+                let detectedPlatform = device.platform;
+                
+                // If not detected, use default (Android)
+                if (!device.isDetected) {
+                    detectedPlatform = CONFIG.defaultPlatform;
+                    if (detectText) {
+                        detectText.textContent = `⚠️ Could not detect device. Using ${getPlatformDisplay(detectedPlatform)} as default.`;
+                    }
+                    if (detectHint) {
+                        detectHint.textContent = 'You can switch to another platform using the "Switch" button above.';
+                    }
+                }
+                
+                // Update UI and redirect
+                updateUI(device, detectedPlatform);
+            }
+            
+            // ===== TOGGLE PLATFORM SELECTOR =====
+            window.togglePlatformSelector = function() {
+                const selector = document.getElementById('platformSelector');
+                const isVisible = selector.style.display === 'block';
+                selector.style.display = isVisible ? 'none' : 'block';
+                
+                // Update banner text
+                const platformText = document.getElementById('platformText');
+                if (platformText) {
+                    if (!isVisible) {
+                        platformText.textContent = '👆 Select your preferred interface below';
+                    } else {
+                        const device = detectDevice();
+                        const displayName = getPlatformDisplay(device.platform);
+                        const emoji = getPlatformEmoji(device.platform);
+                        platformText.textContent = `${emoji} Detected: ${displayName} interface`;
+                    }
+                }
+            };
+            
+            // ===== HANDLE MANUAL LINK CLICKS =====
+            document.addEventListener('DOMContentLoaded', function() {
+                // Set up manual links
+                document.querySelectorAll('.manual-links .platform-link').forEach(link => {
+                    link.addEventListener('click', function(e) {
+                        e.preventDefault();
+                        const platform = this.dataset.platform;
+                        const destination = getDestinationUrl(platform);
+                        window.location.href = destination;
+                    });
+                });
+                
+                // Close selector when clicking outside
+                document.addEventListener('click', function(e) {
+                    const selector = document.getElementById('platformSelector');
+                    const banner = document.getElementById('platformBanner');
+                    if (selector && selector.style.display === 'block') {
+                        if (!selector.contains(e.target) && !banner.contains(e.target)) {
+                            selector.style.display = 'none';
+                        }
+                    }
+                });
+            });
+            
+            // ===== START =====
+            // Small delay to let DOM render
+            setTimeout(handleDetection, 300);
+            
+            // Fallback: Show manual links if redirect doesn't happen
+            setTimeout(() => {
+                const currentPath = window.location.pathname;
+                if (!currentPath.includes('/ios/') && 
+                    !currentPath.includes('/android/') && 
+                    !currentPath.includes('/web/')) {
+                    showManualLinks('⏳ Still here? Choose your experience:');
+                }
+            }, CONFIG.fallbackTimeout);
+            
+            // ===== EXPOSE FOR DEBUGGING =====
+            window.__muiz = {
+                detectDevice,
+                getCurrentPlatform,
+                getDestinationUrl,
+                CONFIG,
+                togglePlatformSelector
+            };
+            
+            console.log('🍗 Muiz Hot Chicken - Device Detection');
+            const device = detectDevice();
+            console.log(`📱 Platform: ${device.platform}`);
+            console.log(`📐 Mobile: ${device.isMobile}`);
+            console.log(`🖱️ Touch: ${device.isTouch}`);
+            console.log(`📦 Standalone: ${device.isStandalone}`);
+            console.log(`✅ Detected: ${device.isDetected ? 'Yes' : 'No (using default)'}`);
+            
+        })();
     </script>
     
+    <!-- ===== ADDITIONAL STYLES FOR PLATFORM SWITCHER ===== -->
+    <style>
+        /* ===== PLATFORM BANNER ===== */
+        .platform-banner {
+            display: none;
+            align-items: center;
+            gap: 10px;
+            background: var(--bg, #f0f0f5);
+            padding: 10px 16px;
+            border-radius: var(--radius-sm, 10px);
+            margin: 12px 0 16px;
+            font-size: 13px;
+            font-weight: 600;
+            color: var(--text, #1c1c1e);
+            border: 1px solid rgba(0,0,0,0.04);
+            flex-wrap: wrap;
+            justify-content: center;
+        }
+        
+        .platform-banner #platformIcon {
+            font-size: 18px;
+        }
+        
+        .platform-banner #platformText {
+            flex: 1;
+            min-width: 120px;
+            text-align: center;
+        }
+        
+        .platform-switch-btn {
+            background: var(--primary, #d62828);
+            color: #fff;
+            border: none;
+            padding: 6px 16px;
+            border-radius: var(--radius-full, 9999px);
+            font-size: 12px;
+            font-weight: 700;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            font-family: inherit;
+            display: inline-flex;
+            align-items: center;
+            gap: 6px;
+        }
+        
+        .platform-switch-btn:hover {
+            transform: scale(1.04);
+            background: var(--primary-dark, #b01e1e);
+        }
+        
+        .platform-switch-btn:active {
+            transform: scale(0.96);
+        }
+        
+        /* ===== PLATFORM SELECTOR ===== */
+        .platform-selector {
+            display: none;
+            background: var(--bg, #f0f0f5);
+            border-radius: var(--radius-sm, 10px);
+            padding: 16px 20px 14px;
+            margin: 8px 0 12px;
+            border: 1px solid rgba(0,0,0,0.04);
+            animation: fadeUp 0.3s ease;
+        }
+        
+        .platform-selector .manual-links {
+            display: flex !important;
+            opacity: 1 !important;
+            margin-top: 4px;
+        }
+        
+        .close-selector {
+            background: none;
+            border: none;
+            color: var(--text-tertiary, #8e8e93);
+            font-size: 12px;
+            font-weight: 600;
+            cursor: pointer;
+            padding: 6px 12px;
+            margin-top: 8px;
+            transition: all 0.3s ease;
+            font-family: inherit;
+            width: 100%;
+            border-top: 1px solid rgba(0,0,0,0.04);
+            padding-top: 10px;
+        }
+        
+        .close-selector:hover {
+            color: var(--primary, #d62828);
+        }
+        
+        /* ===== MANUAL LINKS - Updated ===== */
+        .manual-links {
+            display: none;
+            gap: 10px;
+            justify-content: center;
+            flex-wrap: wrap;
+            opacity: 0;
+            transition: opacity 0.5s ease;
+        }
+        
+        .manual-links.visible {
+            display: flex;
+            opacity: 1;
+        }
+        
+        .manual-links .platform-link {
+            display: inline-flex;
+            align-items: center;
+            gap: 8px;
+            padding: 10px 22px;
+            border-radius: var(--radius-full, 9999px);
+            font-weight: 700;
+            font-size: 14px;
+            text-decoration: none;
+            transition: all 0.3s cubic-bezier(0.2, 0.9, 0.4, 1);
+            border: 2px solid transparent;
+            cursor: pointer;
+            background: var(--card, #ffffff);
+            color: var(--text, #1c1c1e);
+            box-shadow: 0 2px 12px rgba(0, 0, 0, 0.06);
+        }
+        
+        .manual-links .platform-link:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 8px 24px rgba(0, 0, 0, 0.12);
+        }
+        
+        .manual-links .platform-link:active {
+            transform: scale(0.96);
+        }
+        
+        .manual-links .platform-ios {
+            color: #007AFF;
+            border-color: #007AFF;
+        }
+        
+        .manual-links .platform-ios:hover {
+            background: #007AFF;
+            color: #fff;
+            border-color: #007AFF;
+        }
+        
+        .manual-links .platform-android {
+            color: #3DDC84;
+            border-color: #3DDC84;
+        }
+        
+        .manual-links .platform-android:hover {
+            background: #3DDC84;
+            color: #1c1c1e;
+            border-color: #3DDC84;
+        }
+        
+        .manual-links .platform-web {
+            color: var(--primary, #d62828);
+            border-color: var(--primary, #d62828);
+        }
+        
+        .manual-links .platform-web:hover {
+            background: var(--primary, #d62828);
+            color: #fff;
+            border-color: var(--primary, #d62828);
+        }
+        
+        /* ===== RESPONSIVE ===== */
+        @media (max-width: 480px) {
+            .platform-banner {
+                font-size: 12px;
+                padding: 8px 12px;
+                gap: 6px;
+            }
+            
+            .platform-banner #platformText {
+                font-size: 12px;
+                min-width: 80px;
+            }
+            
+            .platform-switch-btn {
+                font-size: 11px;
+                padding: 4px 12px;
+            }
+            
+            .platform-selector {
+                padding: 12px 14px 10px;
+            }
+            
+            .manual-links .platform-link {
+                padding: 8px 16px;
+                font-size: 12px;
+                gap: 6px;
+            }
+            
+            .manual-links .platform-link i {
+                font-size: 14px;
+            }
+        }
+        
+        /* ===== DARK MODE ===== */
+        @media (prefers-color-scheme: dark) {
+            .platform-banner {
+                background: #2c2c2e;
+                border-color: #38383a;
+                color: #f2f2f7;
+            }
+            
+            .platform-selector {
+                background: #2c2c2e;
+                border-color: #38383a;
+            }
+            
+            .manual-links .platform-link {
+                background: #1c1c1e;
+                color: #f2f2f7;
+                box-shadow: 0 2px 12px rgba(0, 0, 0, 0.3);
+            }
+            
+            .manual-links .platform-link:hover {
+                box-shadow: 0 8px 24px rgba(0, 0, 0, 0.5);
+            }
+            
+            .manual-links .platform-ios {
+                color: #0a84ff;
+                border-color: #0a84ff;
+            }
+            
+            .manual-links .platform-ios:hover {
+                background: #0a84ff;
+                color: #fff;
+            }
+            
+            .manual-links .platform-android {
+                color: #3DDC84;
+                border-color: #3DDC84;
+            }
+            
+            .manual-links .platform-android:hover {
+                background: #3DDC84;
+                color: #1c1c1e;
+            }
+            
+            .manual-links .platform-web {
+                color: #ff6b6b;
+                border-color: #ff6b6b;
+            }
+            
+            .manual-links .platform-web:hover {
+                background: var(--primary, #d62828);
+                color: #fff;
+                border-color: var(--primary, #d62828);
+            }
+            
+            .close-selector {
+                border-top-color: #38383a;
+            }
+        }
+        
+        @keyframes fadeUp {
+            from { opacity: 0; transform: translateY(10px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+    </style>
+    
 </body>
-                    </html>
+</html>
