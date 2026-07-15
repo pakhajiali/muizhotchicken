@@ -5,9 +5,11 @@
 
 (function() {
     'use strict';
-    
+
+    console.log('🍗 Script started');
+
     // ===== CONFIGURATION =====
-    const CONFIG = {
+    var CONFIG = {
         iosPath: '/muizhotchicken/ios/',
         androidPath: '/muizhotchicken/android/',
         webPath: '/muizhotchicken/web/',
@@ -15,41 +17,45 @@
         redirectDelay: 800,
         fallbackTimeout: 4000,
     };
-    
+
     // ===== DOM REFS =====
-    const detectText = document.getElementById('detectText');
-    const spinner = document.getElementById('spinner');
-    const manualLinks = document.getElementById('manualLinks');
-    
-    // ===== DEVICE DETECTION (INSTANT) =====
+    var detectText = document.getElementById('detectText');
+    var spinner = document.getElementById('spinner');
+    var manualLinks = document.getElementById('manualLinks');
+
+    console.log('detectText:', detectText);
+    console.log('spinner:', spinner);
+    console.log('manualLinks:', manualLinks);
+
+    // ===== DEVICE DETECTION =====
     function detectDevice() {
-        const ua = navigator.userAgent || navigator.vendor || window.opera;
-        
-        const isIOS = /iPad|iPhone|iPod/.test(ua) && !window.MSStream;
-        const isAndroid = /android/i.test(ua);
-        const isTablet = /iPad|Android(?!.*Mobile)/.test(ua) || 
-                         (navigator.maxTouchPoints > 1 && window.innerWidth >= 768);
-        const isDesktop = !isIOS && !isAndroid && !isTablet;
-        const isTouch = 'ontouchstart' in window || navigator.maxTouchPoints > 0;
-        
-        let platform = 'web';
+        var ua = navigator.userAgent || navigator.vendor || window.opera;
+        console.log('User Agent:', ua);
+
+        var isIOS = /iPad|iPhone|iPod/.test(ua) && !window.MSStream;
+        var isAndroid = /android/i.test(ua);
+        var isTablet = /iPad|Android(?!.*Mobile)/.test(ua) ||
+                       (navigator.maxTouchPoints > 1 && window.innerWidth >= 768);
+        var isDesktop = !isIOS && !isAndroid && !isTablet;
+
+        var platform = 'web';
         if (isIOS) platform = 'ios';
         else if (isAndroid) platform = 'android';
         else if (isDesktop) platform = 'web';
-        else if (isTablet && isTouch) platform = 'android';
+        else if (isTablet) platform = 'android';
         else platform = CONFIG.defaultPlatform;
-        
+
+        console.log('Detected platform:', platform);
         return {
             platform: platform,
             isDetected: isIOS || isAndroid || isDesktop || isTablet,
             isIOS: isIOS,
             isAndroid: isAndroid,
             isDesktop: isDesktop,
-            isTablet: isTablet,
-            isTouch: isTouch
+            isTablet: isTablet
         };
     }
-    
+
     // ===== GET DESTINATION URL =====
     function getDestination(platform) {
         switch(platform) {
@@ -59,8 +65,7 @@
             default: return CONFIG.androidPath;
         }
     }
-    
-    // ===== GET PLATFORM DISPLAY NAME =====
+
     function getPlatformName(platform) {
         switch(platform) {
             case 'ios': return 'iOS';
@@ -69,85 +74,94 @@
             default: return 'Android';
         }
     }
-    
-    // ===== SHOW MANUAL LINKS =====
+
     function showManualLinks(message) {
-        if (manualLinks) manualLinks.classList.add('visible');
+        if (manualLinks) {
+            manualLinks.classList.add('visible');
+            console.log('Manual links shown');
+        }
         if (spinner) spinner.style.display = 'none';
         if (detectText) {
             detectText.textContent = message || 'Choose your interface:';
         }
     }
-    
-    // ===== CHECK IF ON ROOT =====
+
     function isOnRoot() {
-        const path = window.location.pathname;
-        return !path.includes('/ios/') && 
-               !path.includes('/android/') && 
-               !path.includes('/web/');
+        var path = window.location.pathname;
+        console.log('Current path:', path);
+        var onRoot = !path.includes('/ios/') &&
+                     !path.includes('/android/') &&
+                     !path.includes('/web/');
+        console.log('Is on root?', onRoot);
+        return onRoot;
     }
-    
-    // ===== HANDLE DETECTION (RUNS INSTANTLY) =====
+
+    // ===== HANDLE DETECTION =====
     function handleDetection() {
+        console.log('handleDetection called');
+
+        // If not on root, redirect to root (safety)
         if (!isOnRoot()) {
+            console.log('Not on root, redirecting to root');
             window.location.href = '/muizhotchicken/';
             return;
         }
-        
-        const device = detectDevice();
-        const platform = device.platform;
-        const displayName = getPlatformName(platform);
-        
+
+        var device = detectDevice();
+        var platform = device.platform;
+        var displayName = getPlatformName(platform);
+
+        // Update UI
         if (detectText) {
             if (device.isDetected) {
                 detectText.textContent = '✅ ' + displayName + ' detected. Redirecting...';
             } else {
                 detectText.textContent = '📱 Using ' + displayName + ' (default)';
             }
+            console.log('Updated text to:', detectText.textContent);
         }
-        
-        const destination = getDestination(platform);
+
+        // Redirect after delay
+        var destination = getDestination(platform);
+        console.log('Redirecting to:', destination);
         setTimeout(function() {
+            console.log('Redirecting now...');
             window.location.replace(destination);
         }, CONFIG.redirectDelay);
     }
-    
+
     // ============================================================
     // INIT - RUNS IMMEDIATELY
     // ============================================================
-    
-    if (isOnRoot()) {
-        handleDetection();
-        
-        setTimeout(function() {
-            if (isOnRoot() && document.getElementById('spinner') && 
-                document.getElementById('spinner').style.display !== 'none') {
-                showManualLinks('⏳ Still here? Choose your interface:');
-            }
-        }, CONFIG.fallbackTimeout);
-        
-        document.addEventListener('click', function() {
-            if (isOnRoot() && manualLinks && !manualLinks.classList.contains('visible')) {
-                showManualLinks('Choose your interface:');
-            }
-        });
-    }
-    
+
+    // Run detection
+    handleDetection();
+
+    // Fallback: show manual links after timeout if still on root
+    setTimeout(function() {
+        if (isOnRoot() && spinner && spinner.style.display !== 'none') {
+            showManualLinks('⏳ Still here? Choose your interface:');
+        }
+    }, CONFIG.fallbackTimeout);
+
+    // Click anywhere to show manual links
+    document.addEventListener('click', function() {
+        if (isOnRoot() && manualLinks && !manualLinks.classList.contains('visible')) {
+            showManualLinks('Choose your interface:');
+        }
+    });
+
     // ============================================================
-    // SERVICE WORKER
+    // SERVICE WORKER (optional)
     // ============================================================
     if ('serviceWorker' in navigator) {
         window.addEventListener('load', function() {
             navigator.serviceWorker.register('/sw.js')
-                .then(function() {
-                    console.log('✅ Service Worker registered');
-                })
-                .catch(function() {
-                    console.log('❌ Service Worker registration failed');
-                });
+                .then(function() { console.log('✅ Service Worker registered'); })
+                .catch(function() { console.log('❌ SW registration failed'); });
         });
     }
-    
-    console.log('🍗 Muiz Hot Chicken - Redirecting instantly...');
-    
+
+    console.log('🍗 Script finished executing');
+
 })();
