@@ -4,18 +4,23 @@
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover" />
     
-    <!-- SEO (kept minimal for clarity) -->
+    <!-- ===== SEO ===== -->
     <title>Restoran Pak Haji Ali & Muiz Hot Chicken - Subang Jaya (USJ 8)</title>
     <meta name="description" content="JAKIM Halal certified crispy Muiz Hot Chicken in Subang Jaya USJ 8." />
     <link rel="canonical" href="https://pakhajiali.github.io/muizhotchicken/" />
     <meta property="og:title" content="Restoran Pak Haji Ali & Muiz Hot Chicken - Subang Jaya (USJ 8)" />
     <meta property="og:image" content="https://pakhajiali.github.io/muizhotchicken/logo.webp" />
     <meta property="og:url" content="https://pakhajiali.github.io/muizhotchicken/" />
+    
+    <!-- ===== PWA ===== -->
     <meta name="theme-color" content="#d62828" />
+    <meta name="apple-mobile-web-app-capable" content="yes" />
     <link rel="manifest" href="manifest.json" />
     <link rel="icon" type="image/svg+xml" href="favicon.svg" />
+    <link rel="icon" type="image/png" sizes="96x96" href="favicon-96x96.png" />
     <link rel="apple-touch-icon" href="apple-touch-icon.png" />
     
+    <!-- ===== STYLES ===== -->
     <link rel="stylesheet" href="style.css" />
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css" />
 </head>
@@ -25,26 +30,20 @@
         <span class="logo">🍗</span>
         <h1>Restoran Pak Haji Ali <span class="amp">&amp;</span> Muiz Hot Chicken</h1>
         <p class="subtitle">Subang Jaya (USJ 8)</p>
-        <p class="location"><i class="fas fa-location-dot"></i> Goodyear Court 6, Persiaran Mulia</p>
-        
-        <div class="badges">
-            <span><i class="fas fa-certificate"></i> JAKIM Halal</span>
-            <span><i class="fas fa-shield-halved"></i> MeSTI</span>
-            <span><i class="fas fa-star" style="color:#f59e0b;"></i> 5★ Rated</span>
-        </div>
         
         <div class="spinner" id="spinner"></div>
-        <p class="detect-text" id="detectText">Detecting your device...</p>
-        
-        <div class="manual-links" id="manualLinks">
-            <a href="/muizhotchicken/ios/" class="platform-link ios"><i class="fab fa-apple"></i> iOS</a>
-            <a href="/muizhotchicken/android/" class="platform-link android"><i class="fab fa-android"></i> Android</a>
-            <a href="/muizhotchicken/web/" class="platform-link web"><i class="fas fa-desktop"></i> Web</a>
-        </div>
-        
-        <p class="footer">&copy; 2026 Restoran Pak Haji Ali &amp; Muiz Hot Chicken</p>
+        <p class="detect-text" id="detectText">Loading...</p>
     </div>
     
-    <script src="script.js"></script>
+    <script>
+        // ============================================================
+        // INSTANT REDIRECT TO iOS (no detection, no delay)
+        // ============================================================
+        (function() {
+            // Redirect to iOS immediately
+            window.location.replace('/muizhotchicken/ios/');
+        })();
+    </script>
+    
 </body>
 </html>
