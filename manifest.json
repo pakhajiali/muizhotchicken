@@ -1,0 +1,114 @@
+{
+  "name": "Restoran Pak Haji Ali & Muiz Hot Chicken - Subang Jaya (USJ 8)",
+  "short_name": "Muiz Hot Chicken",
+  "description": "JAKIM Halal certified crispy Muiz Hot Chicken, Nasi Kandar & Tomyam in Subang Jaya USJ 8. Order now for dine-in, takeaway or delivery!",
+  "start_url": "/muizhotchicken/",
+  "scope": "/muizhotchicken/",
+  "display": "standalone",
+  "orientation": "portrait",
+  "theme_color": "#d62828",
+  "background_color": "#f2f2f7",
+  "categories": ["food", "restaurant", "halal", "delivery"],
+  "lang": "en-MY",
+  "dir": "ltr",
+  "icons": [
+    {
+      "src": "favicon-96x96.png",
+      "sizes": "96x96",
+      "type": "image/png",
+      "purpose": "any"
+    },
+    {
+      "src": "apple-touch-icon.png",
+      "sizes": "180x180",
+      "type": "image/png",
+      "purpose": "any"
+    },
+    {
+      "src": "web-app-manifest-192x192.png",
+      "sizes": "192x192",
+      "type": "image/png",
+      "purpose": "maskable any"
+    },
+    {
+      "src": "web-app-manifest-512x512.png",
+      "sizes": "512x512",
+      "type": "image/png",
+      "purpose": "maskable any"
+    }
+  ],
+  "screenshots": [
+    {
+      "src": "screenshot-home.webp",
+      "sizes": "1080x1920",
+      "type": "image/webp",
+      "form_factor": "narrow",
+      "label": "Home screen showing featured dishes"
+    },
+    {
+      "src": "screenshot-menu.webp",
+      "sizes": "1080x1920",
+      "type": "image/webp",
+      "form_factor": "narrow",
+      "label": "Menu screen with categories"
+    },
+    {
+      "src": "screenshot-cart.webp",
+      "sizes": "1080x1920",
+      "type": "image/webp",
+      "form_factor": "narrow",
+      "label": "Shopping cart screen"
+    }
+  ],
+  "shortcuts": [
+    {
+      "name": "View Menu",
+      "short_name": "Menu",
+      "description": "Quickly browse our full menu",
+      "url": "/muizhotchicken/#menu",
+      "icons": [
+        {
+          "src": "favicon-96x96.png",
+          "sizes": "96x96",
+          "type": "image/png"
+        }
+      ]
+    },
+    {
+      "name": "Order Now",
+      "short_name": "Order",
+      "description": "Place an order via WhatsApp",
+      "url": "/muizhotchicken/#cart",
+      "icons": [
+        {
+          "src": "favicon-96x96.png",
+          "sizes": "96x96",
+          "type": "image/png"
+        }
+      ]
+    },
+    {
+      "name": "Call Us",
+      "short_name": "Call",
+      "description": "Call Restoran Pak Haji Ali",
+      "url": "/muizhotchicken/#profile",
+      "icons": [
+        {
+          "src": "favicon-96x96.png",
+          "sizes": "96x96",
+          "type": "image/png"
+        }
+      ]
+    }
+  ],
+  "related_applications": [],
+  "prefer_related_applications": false,
+  "display_override": ["standalone", "minimal-ui"],
+  "edge_side_panel": {
+    "preferred_width": 400
+  },
+  "handle_links": "preferred",
+  "launch_handler": {
+    "client_mode": ["focus-existing", "auto"]
+  }
+}
