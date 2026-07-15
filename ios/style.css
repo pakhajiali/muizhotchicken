@@ -1,6 +1,6 @@
 /* ============================================================
-   IOS STYLES - Cupertino Design
-   Restoran Pak Haji Ali & Muiz Hot Chicken
+   IOS STYLES - Cupertino Design (Black & White Theme)
+   Restoran Pak Haji Ali & Muiz Hot Chicken - Subang Jaya (USJ 8)
    ============================================================ */
 
 /* ===== RESET & BASE ===== */
@@ -11,10 +11,11 @@
 }
 
 :root {
-    --primary: #d62828;
-    --primary-dark: #b01e1e;
-    --primary-light: #ff6b6b;
-    --primary-gradient: linear-gradient(135deg, #d62828, #b01e1e);
+    /* Black & White Theme */
+    --primary: #000000;
+    --primary-dark: #000000;
+    --primary-light: #3a3a3c;
+    --primary-gradient: linear-gradient(135deg, #000000, #1c1c1e);
     
     --bg: #f2f2f7;
     --bg-secondary: #e5e5ea;
@@ -22,7 +23,7 @@
     --card-secondary: #f8f8fc;
     
     --text: #1c1c1e;
-    --text-secondary: #6c6c70;
+    --text-secondary: #3a3a3c;
     --text-tertiary: #8e8e93;
     --text-quaternary: #aeaeb2;
     
@@ -641,7 +642,7 @@ body {
     background: var(--primary);
     color: #fff;
     border-color: var(--primary);
-    box-shadow: 0 4px 16px rgba(214, 40, 40, 0.25);
+    box-shadow: 0 4px 16px rgba(0, 0, 0, 0.25);
 }
 
 .menu-categories button:active {
@@ -995,7 +996,7 @@ body {
     font-size: 36px;
     color: #fff;
     font-weight: 800;
-    box-shadow: 0 4px 20px rgba(214, 40, 40, 0.25);
+    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.25);
 }
 
 .profile-card h2 {
@@ -1481,7 +1482,9 @@ body {
     }
 }
 
-/* Dark mode support (optional) */
+/* ============================================================
+   DARK MODE SUPPORT (Black & White)
+   ============================================================ */
 @media (prefers-color-scheme: dark) {
     :root {
         --bg: #000000;
@@ -1549,6 +1552,12 @@ body {
         background: #2c2c2e;
         border-color: #38383a;
         color: #aeaeb2;
+    }
+    
+    .modal-qty button:active {
+        background: var(--primary);
+        color: #fff;
+        border-color: var(--primary);
     }
     
     .modal-qty input {
