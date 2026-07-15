@@ -1,0 +1,154 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover, maximum-scale=1.0, user-scalable=no" />
+    
+    <!-- ===== PRIMARY SEO ===== -->
+    <title>Restoran Pak Haji Ali & Muiz Hot Chicken - Subang Jaya (USJ 8) | Halal Crispy Chicken</title>
+    <meta name="description" content="JAKIM Halal certified crispy Muiz Hot Chicken, authentic Nasi Kandar & Malaysian-Thai cuisine in Subang Jaya USJ 8. Est. 2026. Dine-in, takeaway & delivery." />
+    <meta name="robots" content="index, follow" />
+    <link rel="canonical" href="https://pakhajiali.github.io/muizhotchicken/" />
+    
+    <!-- ===== OPEN GRAPH ===== -->
+    <meta property="og:title" content="Restoran Pak Haji Ali & Muiz Hot Chicken - Subang Jaya (USJ 8)" />
+    <meta property="og:description" content="JAKIM Halal certified crispy Muiz Hot Chicken, Nasi Kandar & Tomyam in USJ 8. Order now!" />
+    <meta property="og:image" content="https://pakhajiali.github.io/muizhotchicken/logo.webp" />
+    <meta property="og:image:width" content="1200" />
+    <meta property="og:image:height" content="630" />
+    <meta property="og:url" content="https://pakhajiali.github.io/muizhotchicken/" />
+    <meta property="og:type" content="website" />
+    <meta property="og:site_name" content="Restoran Pak Haji Ali & Muiz Hot Chicken" />
+    <meta property="og:locale" content="en_MY" />
+    
+    <!-- ===== TWITTER ===== -->
+    <meta name="twitter:card" content="summary_large_image" />
+    <meta name="twitter:title" content="Restoran Pak Haji Ali & Muiz Hot Chicken - Subang Jaya (USJ 8)" />
+    <meta name="twitter:description" content="JAKIM Halal certified crispy Muiz Hot Chicken in USJ 8." />
+    <meta name="twitter:image" content="https://pakhajiali.github.io/muizhotchicken/logo.webp" />
+    
+    <!-- ===== PWA ===== -->
+    <meta name="theme-color" content="#d62828" />
+    <meta name="apple-mobile-web-app-capable" content="yes" />
+    <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent" />
+    <meta name="apple-mobile-web-app-title" content="Muiz Hot Chicken" />
+    <link rel="manifest" href="../manifest.json" />
+    <link rel="icon" type="image/svg+xml" href="../favicon.svg" />
+    <link rel="icon" type="image/png" sizes="96x96" href="../favicon-96x96.png" />
+    <link rel="apple-touch-icon" href="../apple-touch-icon.png" />
+    
+    <!-- ===== FONT AWESOME ===== -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css" />
+    
+    <!-- ===== IOS STYLES ===== -->
+    <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+    
+    <!-- ===== IOS HEADER ===== -->
+    <header class="ios-header">
+        <div class="header-content">
+            <div class="brand">
+                <h1>Muiz Hot Chicken</h1>
+                <p>Restoran Pak Haji Ali • USJ 8</p>
+            </div>
+            <button class="cart-btn" id="headerCartBtn" aria-label="Cart">
+                <i class="fas fa-shopping-bag"></i>
+                <span class="badge" id="headerCartBadge">0</span>
+            </button>
+        </div>
+    </header>
+    
+    <!-- ===== IOS TABS ===== -->
+    <nav class="ios-tabs" id="iosTabs" role="tablist">
+        <button class="active" data-tab="home" role="tab" aria-selected="true">
+            <i class="fas fa-house"></i>
+            <span>Home</span>
+        </button>
+        <button data-tab="menu" role="tab" aria-selected="false">
+            <i class="fas fa-utensils"></i>
+            <span>Menu</span>
+        </button>
+        <button data-tab="cart" role="tab" aria-selected="false" id="navCartBtn">
+            <i class="fas fa-shopping-bag"></i>
+            <span>Cart</span>
+            <span class="tab-badge" id="tabCartBadge">0</span>
+        </button>
+        <button data-tab="orders" role="tab" aria-selected="false">
+            <i class="fas fa-clock-rotate-left"></i>
+            <span>Orders</span>
+        </button>
+        <button data-tab="profile" role="tab" aria-selected="false">
+            <i class="fas fa-user"></i>
+            <span>Profile</span>
+        </button>
+    </nav>
+    
+    <!-- ===== IOS CONTENT ===== -->
+    <main class="ios-content" id="iosContent">
+        
+        <!-- HOME PAGE -->
+        <section class="page active" id="pageHome" data-page="home">
+            <!-- Rendered by JavaScript -->
+        </section>
+        
+        <!-- MENU PAGE -->
+        <section class="page" id="pageMenu" data-page="menu">
+            <!-- Rendered by JavaScript -->
+        </section>
+        
+        <!-- CART PAGE -->
+        <section class="page" id="pageCart" data-page="cart">
+            <!-- Rendered by JavaScript -->
+        </section>
+        
+        <!-- ORDERS PAGE -->
+        <section class="page" id="pageOrders" data-page="orders">
+            <!-- Rendered by JavaScript -->
+        </section>
+        
+        <!-- PROFILE PAGE -->
+        <section class="page" id="pageProfile" data-page="profile">
+            <!-- Rendered by JavaScript -->
+        </section>
+        
+    </main>
+    
+    <!-- ===== IOS MODAL ===== -->
+    <div class="ios-modal" id="iosModal">
+        <div class="modal-sheet">
+            <div class="handle"></div>
+            <img id="modalImg" src="" alt="Product" loading="lazy" />
+            <h3 id="modalName">Product Name</h3>
+            <p class="modal-desc" id="modalDesc">Description</p>
+            <div class="modal-price" id="modalPrice">RM0.00</div>
+            
+            <div class="modal-qty">
+                <button id="modalQtyMinus" aria-label="Decrease quantity"><i class="fas fa-minus"></i></button>
+                <input type="number" id="modalQty" value="1" min="1" aria-label="Quantity" />
+                <button id="modalQtyPlus" aria-label="Increase quantity"><i class="fas fa-plus"></i></button>
+            </div>
+            
+            <div class="modal-request">
+                <label for="modalRequest"><i class="fas fa-pen"></i> Special request (optional)</label>
+                <textarea id="modalRequest" rows="2" placeholder="e.g. less spicy, extra sauce..."></textarea>
+            </div>
+            
+            <div class="modal-actions">
+                <button class="btn-add" id="modalAddCart"><i class="fas fa-shopping-cart"></i> Add to Cart</button>
+                <a class="btn-wa" id="modalWaBtn" href="#" target="_blank" rel="noopener"><i class="fab fa-whatsapp"></i> Order via WhatsApp</a>
+            </div>
+        </div>
+    </div>
+    
+    <!-- ===== TOAST ===== -->
+    <div class="ios-toast" id="toast"></div>
+    
+    <!-- ===== SHARED DATA ===== -->
+    <script src="../shared/data.js"></script>
+    
+    <!-- ===== IOS SCRIPT ===== -->
+    <script src="script.js"></script>
+    
+</body>
+</html>
