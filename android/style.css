@@ -49,7 +49,7 @@
     --transition-bounce: 0.3s cubic-bezier(0.34, 1.56, 0.64, 1);
 }
 
-/* ===== DARK MODE ===== */
+/* ===== DARK MODE (controlled by data-theme) ===== */
 [data-theme="dark"] {
     --bg: #121212;
     --bg-secondary: #1e1e1e;
@@ -1585,4 +1585,4 @@ body {
     .review-card {
         flex: 0 0 180px;
     }
-   }
+}
