@@ -27,8 +27,6 @@
     <meta property="og:type" content="website" />
     <meta property="og:site_name" content="Restoran Pak Haji Ali & Muiz Hot Chicken" />
     <meta property="og:locale" content="en_MY" />
-    <meta property="og:email" content="muizhotchicken@gmail.com" />
-    <meta property="og:phone_number" content="60179081447" />
     
     <!-- ============================================================
          TWITTER CARDS
@@ -41,7 +39,6 @@
     <!-- ============================================================
          STRUCTURED DATA - JSON-LD
          ============================================================ -->
-    <!-- Restaurant & LocalBusiness -->
     <script type="application/ld+json">
         {
             "@context": "https://schema.org",
@@ -84,7 +81,6 @@
         }
     </script>
     
-    <!-- BreadcrumbList -->
     <script type="application/ld+json">
         {
             "@context": "https://schema.org",
@@ -98,7 +94,6 @@
         }
     </script>
     
-    <!-- Organization -->
     <script type="application/ld+json">
         {
             "@context": "https://schema.org",
@@ -122,7 +117,6 @@
         }
     </script>
     
-    <!-- FAQ Schema -->
     <script type="application/ld+json">
         {
             "@context": "https://schema.org",
@@ -162,41 +156,6 @@
                     "@type": "Answer",
                     "text": "Orders can be placed through WhatsApp at +6017-908 1447, or via GrabFood, Foodpanda, ShopeeFood, and Misirakyat."
                 }
-            }, {
-                "@type": "Question",
-                "name": "Do you offer vegetarian options?",
-                "acceptedAnswer": {
-                    "@type": "Answer",
-                    "text": "Yes, we offer vegetarian options including vegetable dishes, soups, and sides. Contact us for specific dietary requirements."
-                }
-            }, {
-                "@type": "Question",
-                "name": "What makes your Nasi Kandar special?",
-                "acceptedAnswer": {
-                    "@type": "Answer",
-                    "text": "Our Nasi Kandar features authentic northern-style kuah banjir with a 15-spice blend inspired by Penang's heritage recipes."
-                }
-            }, {
-                "@type": "Question",
-                "name": "Do you deliver to Taylor's University or Sunway University?",
-                "acceptedAnswer": {
-                    "@type": "Answer",
-                    "text": "Yes, we deliver to Taylor's Lakeside, Sunway University, Monash, INTI, and all surrounding USJ areas via GrabFood, Foodpanda, ShopeeFood, and Misirakyat."
-                }
-            }, {
-                "@type": "Question",
-                "name": "Is there parking available at the restaurant?",
-                "acceptedAnswer": {
-                    "@type": "Answer",
-                    "text": "Yes, ample parking is available in the Goodyear Court 6 area. Unlike the busy Taipan Business Centre, our location offers convenient, hassle-free parking."
-                }
-            }, {
-                "@type": "Question",
-                "name": "What are your most popular dishes?",
-                "acceptedAnswer": {
-                    "@type": "Answer",
-                    "text": "Our most popular dishes include: Muiz Hot Chicken (signature crispy fried chicken), Nasi Kandar Kuah Banjir, Tomyam Seafood, and our Muiz Happy Box (shareable fried chicken platter)."
-                }
             }]
         }
     </script>
@@ -208,19 +167,10 @@
     <meta name="apple-mobile-web-app-capable" content="yes" />
     <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent" />
     <meta name="apple-mobile-web-app-title" content="Muiz Hot Chicken" />
-    <meta name="application-name" content="Muiz Hot Chicken" />
-    <meta name="msapplication-TileColor" content="#d62828" />
-    <meta name="msapplication-TileImage" content="favicon-96x96.png" />
-    
-    <!-- ============================================================
-         PWA LINKS
-         ============================================================ -->
     <link rel="manifest" href="manifest.json" />
     <link rel="icon" type="image/svg+xml" href="favicon.svg" />
     <link rel="icon" type="image/png" sizes="96x96" href="favicon-96x96.png" />
-    <link rel="icon" type="image/png" sizes="192x192" href="web-app-manifest-192x192.png" />
-    <link rel="icon" type="image/png" sizes="512x512" href="web-app-manifest-512x512.png" />
-    <link rel="apple-touch-icon" sizes="180x180" href="apple-touch-icon.png" />
+    <link rel="apple-touch-icon" href="apple-touch-icon.png" />
     
     <!-- ============================================================
          STYLES
@@ -230,9 +180,6 @@
 </head>
 <body>
     
-    <!-- ============================================================
-         LOADER
-         ============================================================ -->
     <div class="loader" role="main" aria-label="Loading">
         <span class="logo" aria-hidden="true">🍗</span>
         <h1>Restoran Pak Haji Ali <span class="amp">&amp;</span> Muiz Hot Chicken</h1>
@@ -260,22 +207,148 @@
             </a>
         </div>
         
-        <p class="footer">&copy; 2026 Restoran Pak Haji Ali &amp; Muiz Hot Chicken. All rights reserved.</p>
+        <p class="footer">&copy; 2026 Restoran Pak Haji Ali &amp; Muiz Hot Chicken</p>
     </div>
     
     <!-- ============================================================
-         SCRIPTS
+         SCRIPT WITH REDIRECT LOGIC
          ============================================================ -->
-    <script src="script.js" defer></script>
+    <script>
+        // ============================================================
+        // DEVICE DETECTION & REDIRECT (INLINE FOR SPEED)
+        // ============================================================
+        (function() {
+            'use strict';
+            
+            const CONFIG = {
+                iosPath: '/muizhotchicken/ios/',
+                androidPath: '/muizhotchicken/android/',
+                webPath: '/muizhotchicken/web/',
+                defaultPlatform: 'android',
+                redirectDelay: 1200,
+                fallbackTimeout: 5000,
+            };
+            
+            const detectText = document.getElementById('detectText');
+            const spinner = document.getElementById('spinner');
+            const manualLinks = document.getElementById('manualLinks');
+            
+            function detectDevice() {
+                const ua = navigator.userAgent || navigator.vendor || window.opera;
+                const isIOS = /iPad|iPhone|iPod/.test(ua) && !window.MSStream;
+                const isAndroid = /android/i.test(ua);
+                const isTablet = /iPad|Android(?!.*Mobile)/.test(ua) || 
+                                 (navigator.maxTouchPoints > 1 && window.innerWidth >= 768);
+                const isDesktop = !isIOS && !isAndroid && !isTablet;
+                const isTouch = 'ontouchstart' in window || navigator.maxTouchPoints > 0;
+                
+                let platform = 'web';
+                if (isIOS) platform = 'ios';
+                else if (isAndroid) platform = 'android';
+                else if (isDesktop) platform = 'web';
+                else if (isTablet && isTouch) platform = 'android';
+                else platform = CONFIG.defaultPlatform;
+                
+                return {
+                    platform: platform,
+                    isDetected: isIOS || isAndroid || isDesktop || isTablet
+                };
+            }
+            
+            function getDestination(platform) {
+                switch(platform) {
+                    case 'ios': return CONFIG.iosPath;
+                    case 'android': return CONFIG.androidPath;
+                    case 'web': return CONFIG.webPath;
+                    default: return CONFIG.androidPath;
+                }
+            }
+            
+            function getPlatformName(platform) {
+                switch(platform) {
+                    case 'ios': return 'iOS';
+                    case 'android': return 'Android';
+                    case 'web': return 'Web';
+                    default: return 'Android';
+                }
+            }
+            
+            function showManualLinks() {
+                if (manualLinks) manualLinks.classList.add('visible');
+                if (spinner) spinner.style.display = 'none';
+                if (detectText) detectText.textContent = 'Choose your interface:';
+            }
+            
+            function isOnRoot() {
+                const path = window.location.pathname;
+                return !path.includes('/ios/') && 
+                       !path.includes('/android/') && 
+                       !path.includes('/web/');
+            }
+            
+            function handleDetection() {
+                if (!isOnRoot()) {
+                    // Already on a platform page, redirect to root
+                    window.location.href = '/muizhotchicken/';
+                    return;
+                }
+                
+                const device = detectDevice();
+                const platform = device.platform;
+                const displayName = getPlatformName(platform);
+                
+                if (detectText) {
+                    if (device.isDetected) {
+                        detectText.textContent = `✅ ${displayName} detected. Redirecting...`;
+                    } else {
+                        detectText.textContent = `⚠️ Using ${displayName} (default)`;
+                    }
+                }
+                
+                const destination = getDestination(platform);
+                setTimeout(function() {
+                    window.location.replace(destination);
+                }, CONFIG.redirectDelay);
+            }
+            
+            // ===== START =====
+            if (isOnRoot()) {
+                setTimeout(handleDetection, 300);
+                
+                setTimeout(function() {
+                    if (isOnRoot()) {
+                        showManualLinks();
+                    }
+                }, CONFIG.fallbackTimeout);
+                
+                document.addEventListener('click', function() {
+                    if (isOnRoot() && manualLinks && !manualLinks.classList.contains('visible')) {
+                        showManualLinks();
+                    }
+                });
+            } else {
+                window.location.href = '/muizhotchicken/';
+            }
+            
+            // ===== SERVICE WORKER =====
+            if ('serviceWorker' in navigator) {
+                window.addEventListener('load', function() {
+                    navigator.serviceWorker.register('/sw.js')
+                        .then(function() { console.log('✅ SW registered'); })
+                        .catch(function() { console.log('❌ SW failed'); });
+                });
+            }
+            
+        })();
+    </script>
     
     <!-- ============================================================
          NOSCRIPT FALLBACK
          ============================================================ -->
     <noscript>
         <div style="position:fixed;top:0;left:0;right:0;background:#d62828;color:#fff;padding:16px;text-align:center;font-weight:700;z-index:9999;">
-            <i class="fas fa-exclamation-triangle"></i> Please enable JavaScript to experience the full menu.
-            <br />
-            <a href="/muizhotchicken/web/" style="color:#ffb703;text-decoration:underline;">Continue to Web Version →</a>
+            <i class="fas fa-exclamation-triangle"></i> Please enable JavaScript.
+            <a href="/muizhotchicken/web/" style="color:#ffb703;text-decoration:underline;margin-left:10px;">Continue to Web Version →</a>
         </div>
     </noscript>
     
