@@ -5,45 +5,178 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover" />
     
     <!-- ===== SEO ===== -->
-    <title>Restoran Pak Haji Ali & Muiz Hot Chicken - Subang Jaya (USJ 8)</title>
-    <meta name="description" content="JAKIM Halal certified crispy Muiz Hot Chicken in Subang Jaya USJ 8." />
+    <title>Restoran Pak Haji Ali & Muiz Hot Chicken - Subang Jaya (USJ 8) | Halal Crispy Chicken</title>
+    <meta name="description" content="Restoran Pak Haji Ali & Muiz Hot Chicken - Subang Jaya (USJ 8). JAKIM Halal certified crispy Muiz Hot Chicken, authentic Nasi Kandar & Malaysian-Thai cuisine. Est. 2026. Dine-in, takeaway & delivery." />
     <link rel="canonical" href="https://pakhajiali.github.io/muizhotchicken/" />
     <meta property="og:title" content="Restoran Pak Haji Ali & Muiz Hot Chicken - Subang Jaya (USJ 8)" />
+    <meta property="og:description" content="Restoran Pak Haji Ali & Muiz Hot Chicken - Subang Jaya (USJ 8). JAKIM Halal certified crispy Muiz Hot Chicken, Nasi Kandar & Tomyam. Order now!" />
     <meta property="og:image" content="https://pakhajiali.github.io/muizhotchicken/logo.webp" />
     <meta property="og:url" content="https://pakhajiali.github.io/muizhotchicken/" />
-    
-    <!-- ===== PWA ===== -->
-    <meta name="theme-color" content="#d62828" />
-    <meta name="apple-mobile-web-app-capable" content="yes" />
+    <meta property="og:type" content="website" />
+    <meta name="theme-color" content="#000000" />
     <link rel="manifest" href="manifest.json" />
     <link rel="icon" type="image/svg+xml" href="favicon.svg" />
-    <link rel="icon" type="image/png" sizes="96x96" href="favicon-96x96.png" />
     <link rel="apple-touch-icon" href="apple-touch-icon.png" />
     
-    <!-- ===== STYLES ===== -->
-    <link rel="stylesheet" href="style.css" />
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css" />
+    <style>
+        * { margin:0; padding:0; box-sizing:border-box; }
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+            background: #f2f2f7;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            min-height: 100vh;
+            min-height: 100dvh;
+            padding: 20px;
+        }
+        .loader {
+            background: #ffffff;
+            border-radius: 20px;
+            padding: 40px 32px;
+            max-width: 400px;
+            width: 100%;
+            text-align: center;
+            box-shadow: 0 8px 40px rgba(0,0,0,0.08);
+            animation: fadeUp 0.5s ease;
+        }
+        @keyframes fadeUp { from { opacity:0; transform:translateY(20px); } to { opacity:1; transform:translateY(0); } }
+        .logo { font-size: 64px; display: block; margin-bottom: 8px; animation: pulse 1.8s ease-in-out infinite; }
+        @keyframes pulse { 0%,100% { transform:scale(1); } 50% { transform:scale(1.06); } }
+        h1 { font-size: 20px; font-weight:800; color:#d62828; line-height:1.2; }
+        h1 .amp { color:#1c1c1e; }
+        .subtitle { font-size:14px; color:#6c6c70; margin-top:2px; }
+        .location { font-size:13px; color:#8e8e93; margin-top:2px; }
+        .location i { color:#d62828; margin-right:4px; }
+        .badges { display:flex; flex-wrap:wrap; gap:8px; justify-content:center; margin:14px 0 18px; }
+        .badges span { background:#f2f2f7; padding:4px 14px; border-radius:9999px; font-size:11px; font-weight:600; color:#6c6c70; border:1px solid #e8e8ed; display:inline-flex; align-items:center; gap:4px; }
+        .badges span i { color:#d62828; }
+        .spinner { width:40px; height:40px; margin:16px auto; border:3px solid #e8e8ed; border-top-color:#d62828; border-radius:50%; animation:spin 0.8s linear infinite; }
+        @keyframes spin { to { transform:rotate(360deg); } }
+        .detect-text { font-size:14px; color:#8e8e93; transition:0.3s; min-height:24px; }
+        .detect-hint { font-size:12px; color:#aeaeb2; margin-top:4px; }
+        .footer { font-size:11px; color:#aeaeb2; margin-top:16px; padding-top:12px; border-top:1px solid #f0f0f0; }
+        @media (max-width:480px) { .loader { padding:28px 20px; } .logo { font-size:48px; } h1 { font-size:17px; } }
+        @media (prefers-color-scheme:dark) {
+            body { background:#000; }
+            .loader { background:#1c1c1e; box-shadow:0 8px 40px rgba(0,0,0,0.4); }
+            h1 .amp { color:#f2f2f7; }
+            .subtitle { color:#aeaeb2; }
+            .location { color:#8e8e93; }
+            .badges span { background:#2c2c2e; color:#aeaeb2; border-color:#38383a; }
+            .spinner { border-color:#2c2c2e; border-top-color:#d62828; }
+            .detect-text { color:#8e8e93; }
+            .footer { border-top-color:#2c2c2e; color:#636366; }
+        }
+    </style>
 </head>
 <body>
-    
     <div class="loader">
         <span class="logo">🍗</span>
         <h1>Restoran Pak Haji Ali <span class="amp">&amp;</span> Muiz Hot Chicken</h1>
         <p class="subtitle">Subang Jaya (USJ 8)</p>
-        
+        <p class="location"><i class="fas fa-location-dot"></i> Goodyear Court 6, Persiaran Mulia</p>
+        <div class="badges">
+            <span><i class="fas fa-certificate"></i> JAKIM Halal</span>
+            <span><i class="fas fa-shield-halved"></i> MeSTI</span>
+            <span><i class="fas fa-star" style="color:#f59e0b;"></i> 5★ Rated</span>
+        </div>
         <div class="spinner" id="spinner"></div>
         <p class="detect-text" id="detectText">Loading...</p>
+        <p class="detect-hint" id="detectHint"></p>
+        <p class="footer">&copy; 2026 Restoran Pak Haji Ali &amp; Muiz Hot Chicken</p>
     </div>
-    
+
     <script>
-        // ============================================================
-        // INSTANT REDIRECT TO iOS (no detection, no delay)
-        // ============================================================
         (function() {
-            // Redirect to iOS immediately
-            window.location.replace('/muizhotchicken/ios/');
+            'use strict';
+
+            // ----- CONFIG -----
+            const PATHS = {
+                ios: '/muizhotchicken/ios/',
+                android: '/muizhotchicken/android/',
+                web: '/muizhotchicken/web/'
+            };
+
+            // ----- DOM refs -----
+            const detectText = document.getElementById('detectText');
+            const detectHint = document.getElementById('detectHint');
+            const spinner = document.getElementById('spinner');
+
+            // ----- Helpers -----
+            function setText(el, msg) { if (el) el.textContent = msg; }
+
+            function getPlatformName(p) {
+                return { ios: 'iOS', android: 'Android', web: 'Web' }[p] || 'Web';
+            }
+
+            function getPlatformEmoji(p) {
+                return { ios: '🍎', android: '🤖', web: '🖥️' }[p] || '💻';
+            }
+
+            // ----- Device detection (lightweight, no external libs) -----
+            function detectDevice() {
+                const ua = navigator.userAgent || navigator.vendor || window.opera;
+                const isIOS = /iPad|iPhone|iPod/.test(ua) && !window.MSStream;
+                const isAndroid = /android/i.test(ua);
+                const isTablet = /iPad|Android(?!.*Mobile)/.test(ua) ||
+                                 (navigator.maxTouchPoints > 1 && window.innerWidth >= 768);
+                const isDesktop = !isIOS && !isAndroid && !isTablet;
+                const isTouch = 'ontouchstart' in window || navigator.maxTouchPoints > 0;
+
+                if (isIOS) return 'ios';
+                if (isAndroid) return 'android';
+                if (isTablet && isTouch) return 'android'; // tablets default to Android UI
+                if (isDesktop) return 'web';
+                return 'web'; // ultimate fallback (desktop)
+            }
+
+            // ----- Apply dark mode from localStorage -----
+            function applySavedTheme() {
+                const theme = localStorage.getItem('muiz-theme') || 'light';
+                if (theme === 'dark') {
+                    document.documentElement.setAttribute('data-theme', 'dark');
+                }
+            }
+            applySavedTheme();
+
+            // ----- Main logic: detect platform, save preference, redirect -----
+            function init() {
+                // 1. Check for saved platform preference
+                let savedPlatform = localStorage.getItem('preferred-platform');
+                let platform = savedPlatform;
+
+                // 2. If not saved or invalid, detect device
+                if (!platform || !PATHS[platform]) {
+                    platform = detectDevice();
+                    // Save the detected platform as preference
+                    localStorage.setItem('preferred-platform', platform);
+                }
+
+                // 3. Show friendly message
+                const displayName = getPlatformName(platform);
+                const emoji = getPlatformEmoji(platform);
+                setText(detectText, `${emoji} ${displayName} interface`);
+                setText(detectHint, `Redirecting to your preferred experience...`);
+
+                // 4. Redirect after a short delay (so the user sees the message)
+                setTimeout(function() {
+                    window.location.replace(PATHS[platform]);
+                }, 800);
+            }
+
+            // Start
+            init();
+
         })();
     </script>
-    
+
+    <noscript>
+        <div style="position:fixed;top:0;left:0;right:0;background:#d62828;color:#fff;padding:16px;text-align:center;font-weight:700;z-index:9999;">
+            <i class="fas fa-exclamation-triangle"></i> Please enable JavaScript.
+            <a href="/muizhotchicken/web/" style="color:#ffb703;text-decoration:underline;margin-left:10px;">Continue to Web Version →</a>
+        </div>
+    </noscript>
 </body>
 </html>
