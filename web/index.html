@@ -1197,6 +1197,43 @@
             .switcher-option i { font-size: 16px; width: 20px; }
             .theme-toggle-web { top: 60px; right: 10px; width: 32px; height: 32px; font-size: 14px; }
         }
+        /* ===== CLEAR ORDERS BUTTON (Web) ===== */
+.clear-orders-btn {
+    width: 100%;
+    padding: 14px 24px;
+    border-radius: var(--radius-full);
+    background: #dc3545;
+    color: #fff;
+    font-weight: 700;
+    font-size: 16px;
+    border: none;
+    cursor: pointer;
+    transition: var(--transition);
+    margin-top: 16px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 10px;
+    font-family: inherit;
+}
+
+.clear-orders-btn:hover {
+    background: #c82333;
+    transform: scale(1.02);
+    box-shadow: 0 4px 20px rgba(220, 53, 69, 0.3);
+}
+
+.clear-orders-btn:active {
+    transform: scale(0.97);
+}
+
+[data-theme="dark"] .clear-orders-btn {
+    background: #dc3545;
+}
+
+[data-theme="dark"] .clear-orders-btn:hover {
+    background: #c82333;
+}
     </style>
 </head>
 <body>
