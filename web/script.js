@@ -478,7 +478,22 @@ function renderOrders() {
         <h2 class="section-title">📦 Order History</h2>
         <p class="section-sub">${orders.length} order${orders.length > 1 ? 's' : ''} placed</p>
         ${ordersHTML}
+        <button class="clear-orders-btn" id="clearOrdersBtn" onclick="clearOrderHistory()">
+            <i class="fas fa-trash-can"></i> Clear All Orders
+        </button>
     `;
+}
+
+// Add this function after renderOrders()
+function clearOrderHistory() {
+    if (orders.length === 0) return;
+    
+    if (confirm('Are you sure you want to clear all order history? This cannot be undone.')) {
+        orders = [];
+        saveOrders();
+        renderOrders();
+        toast('Order history cleared');
+    }
 }
 
 function renderProfile() {
