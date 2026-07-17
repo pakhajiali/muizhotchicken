@@ -557,7 +557,7 @@ function renderProfile() {
                    target="_blank" rel="noopener">
                     <i class="fas fa-mobile-screen"></i> Misirakyat
                 </a>
-                // Find and replace these lines in renderProfile():
+            
 <a href="https://pakhajiali.github.io/menu/catering/" target="_blank" rel="noopener noreferrer">
     <i class="fas fa-utensils"></i> Halal Catering
 </a>
