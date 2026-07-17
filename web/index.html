@@ -1498,6 +1498,21 @@ document.querySelectorAll('.switcher-option').forEach(function(link) {
     });
 });
         })();
+
+        // ============================================================
+// SERVICE WORKER REGISTRATION
+// ============================================================
+if ('serviceWorker' in navigator) {
+    window.addEventListener('load', function() {
+        navigator.serviceWorker.register('/sw.js', { scope: '/' })
+            .then(function(registration) {
+                console.log('✅ Service Worker registered successfully');
+            })
+            .catch(function(err) {
+                console.log('❌ Service Worker registration failed:', err);
+            });
+    });
+}
     </script>
     
 </body>
