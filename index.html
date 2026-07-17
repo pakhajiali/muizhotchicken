@@ -765,94 +765,105 @@
     </div>
 
     <script>
-        (function() {
-            'use strict';
+    (function() {
+        'use strict';
 
-            // ----- CONFIG -----
-            const PATHS = {
-                ios: '/muizhotchicken/ios/',
-                android: '/muizhotchicken/android/',
-                web: '/muizhotchicken/web/'
-            };
+        // ----- DETECT BASE PATH (handles both custom domain and GitHub Pages) -----
+        function getBasePath() {
+            // Check if running on GitHub Pages subfolder
+            if (window.location.pathname.includes('/muizhotchicken/')) {
+                return '/muizhotchicken/';
+            }
+            // Custom domain or root path
+            return '/';
+        }
 
-            // ----- DOM refs -----
-            const detectText = document.getElementById('detectText');
-            const detectHint = document.getElementById('detectHint');
-            const spinner = document.getElementById('spinner');
+        const BASE = getBasePath();
 
-            // ----- Helpers -----
-            function setText(el, msg) { if (el) el.textContent = msg; }
+        // ----- CONFIG -----
+        const PATHS = {
+            ios: BASE + 'ios/',
+            android: BASE + 'android/',
+            web: BASE + 'web/'
+        };
 
-            function getPlatformName(p) {
-                return { ios: 'iOS', android: 'Android', web: 'Web' }[p] || 'Web';
+        // ----- DOM refs -----
+        const detectText = document.getElementById('detectText');
+        const detectHint = document.getElementById('detectHint');
+        const spinner = document.getElementById('spinner');
+
+        // ----- Helpers -----
+        function setText(el, msg) { if (el) el.textContent = msg; }
+
+        function getPlatformName(p) {
+            return { ios: 'iOS', android: 'Android', web: 'Web' }[p] || 'Web';
+        }
+
+        function getPlatformEmoji(p) {
+            return { ios: '🍎', android: '🤖', web: '🖥️' }[p] || '💻';
+        }
+
+        // ----- Device detection -----
+        function detectDevice() {
+            const ua = navigator.userAgent || navigator.vendor || window.opera;
+            const isIOS = /iPad|iPhone|iPod/.test(ua) && !window.MSStream;
+            const isAndroid = /android/i.test(ua);
+            const isTablet = /iPad|Android(?!.*Mobile)/.test(ua) ||
+                             (navigator.maxTouchPoints > 1 && window.innerWidth >= 768);
+            const isDesktop = !isIOS && !isAndroid && !isTablet;
+            const isTouch = 'ontouchstart' in window || navigator.maxTouchPoints > 0;
+
+            if (isIOS) return 'ios';
+            if (isAndroid) return 'android';
+            if (isTablet && isTouch) return 'android';
+            if (isDesktop) return 'web';
+            return 'web';
+        }
+
+        // ----- Apply dark mode from localStorage -----
+        function applySavedTheme() {
+            const theme = localStorage.getItem('muiz-theme') || 'light';
+            if (theme === 'dark') {
+                document.documentElement.setAttribute('data-theme', 'dark');
+            }
+        }
+        applySavedTheme();
+
+        // ----- Main logic: detect platform, save preference, redirect -----
+        function init() {
+            // 1. Check for saved platform preference
+            let savedPlatform = localStorage.getItem('preferred-platform');
+            let platform = savedPlatform;
+
+            // 2. If not saved or invalid, detect device
+            if (!platform || !PATHS[platform]) {
+                platform = detectDevice();
+                localStorage.setItem('preferred-platform', platform);
             }
 
-            function getPlatformEmoji(p) {
-                return { ios: '🍎', android: '🤖', web: '🖥️' }[p] || '💻';
-            }
+            // 3. Show friendly message
+            const displayName = getPlatformName(platform);
+            const emoji = getPlatformEmoji(platform);
+            setText(detectText, `${emoji} ${displayName} interface`);
+            setText(detectHint, `Redirecting to your preferred experience...`);
 
-            // ----- Device detection (lightweight, no external libs) -----
-            function detectDevice() {
-                const ua = navigator.userAgent || navigator.vendor || window.opera;
-                const isIOS = /iPad|iPhone|iPod/.test(ua) && !window.MSStream;
-                const isAndroid = /android/i.test(ua);
-                const isTablet = /iPad|Android(?!.*Mobile)/.test(ua) ||
-                                 (navigator.maxTouchPoints > 1 && window.innerWidth >= 768);
-                const isDesktop = !isIOS && !isAndroid && !isTablet;
-                const isTouch = 'ontouchstart' in window || navigator.maxTouchPoints > 0;
+            // 4. Redirect after a short delay
+            setTimeout(function() {
+                window.location.replace(PATHS[platform]);
+            }, 800);
+        }
 
-                if (isIOS) return 'ios';
-                if (isAndroid) return 'android';
-                if (isTablet && isTouch) return 'android'; // tablets default to Android UI
-                if (isDesktop) return 'web';
-                return 'web'; // ultimate fallback (desktop)
-            }
+        // Start
+        init();
 
-            // ----- Apply dark mode from localStorage -----
-            function applySavedTheme() {
-                const theme = localStorage.getItem('muiz-theme') || 'light';
-                if (theme === 'dark') {
-                    document.documentElement.setAttribute('data-theme', 'dark');
-                }
-            }
-            applySavedTheme();
+    })();
+</script>
 
-            // ----- Main logic: detect platform, save preference, redirect -----
-            function init() {
-                // 1. Check for saved platform preference
-                let savedPlatform = localStorage.getItem('preferred-platform');
-                let platform = savedPlatform;
-
-                // 2. If not saved or invalid, detect device
-                if (!platform || !PATHS[platform]) {
-                    platform = detectDevice();
-                    // Save the detected platform as preference
-                    localStorage.setItem('preferred-platform', platform);
-                }
-
-                // 3. Show friendly message
-                const displayName = getPlatformName(platform);
-                const emoji = getPlatformEmoji(platform);
-                setText(detectText, `${emoji} ${displayName} interface`);
-                setText(detectHint, `Redirecting to your preferred experience...`);
-
-                // 4. Redirect after a short delay (so the user sees the message)
-                setTimeout(function() {
-                    window.location.replace(PATHS[platform]);
-                }, 800);
-            }
-
-            // Start
-            init();
-
-        })();
-    </script>
-
-    <noscript>
-        <div style="position:fixed;top:0;left:0;right:0;background:#d62828;color:#fff;padding:16px;text-align:center;font-weight:700;z-index:9999;">
-            <i class="fas fa-exclamation-triangle"></i> Please enable JavaScript.
-            <a href="/muizhotchicken/web/" style="color:#ffb703;text-decoration:underline;margin-left:10px;">Continue to Web Version →</a>
-        </div>
-    </noscript>
+<noscript>
+    <div style="position:fixed;top:0;left:0;right:0;background:#d62828;color:#fff;padding:16px;text-align:center;font-weight:700;z-index:9999;">
+        <i class="fas fa-exclamation-triangle"></i> Please enable JavaScript.
+        <a href="/muizhotchicken/web/" style="color:#ffb703;text-decoration:underline;margin-left:10px;">Continue to Web Version →</a>
+    </div>
+</noscript>
 </body>
 </html>
