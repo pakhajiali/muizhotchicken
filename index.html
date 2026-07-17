@@ -748,17 +748,29 @@
 
 </head>
 <body>
-    <!-- ===== INSTANT REDIRECT ===== -->
+    <!-- ===== INSTANT REDIRECT (with preference memory) ===== -->
     <script>
         (function() {
-            // Detect base path (works for both custom domain and GitHub Pages)
+            // 1. Check for saved platform preference
+            var saved = localStorage.getItem('preferred-platform');
+            
+            // 2. If saved, use it – otherwise detect device
+            var platform;
+            if (saved) {
+                platform = saved;
+            } else {
+                var ua = navigator.userAgent || navigator.vendor || window.opera;
+                var isIOS = /iPad|iPhone|iPod/.test(ua) && !window.MSStream;
+                var isAndroid = /android/i.test(ua);
+                platform = isIOS ? 'ios' : isAndroid ? 'android' : 'web';
+                // Save the detected platform as preference
+                localStorage.setItem('preferred-platform', platform);
+            }
+
+            // 3. Detect base path (works for both custom domain and GitHub Pages)
             var base = window.location.pathname.includes('/muizhotchicken/') ? '/muizhotchicken/' : '/';
-            // Detect platform
-            var ua = navigator.userAgent || navigator.vendor || window.opera;
-            var isIOS = /iPad|iPhone|iPod/.test(ua) && !window.MSStream;
-            var isAndroid = /android/i.test(ua);
-            var platform = isIOS ? 'ios' : isAndroid ? 'android' : 'web';
-            // Redirect immediately
+
+            // 4. Redirect immediately
             window.location.replace(base + platform + '/');
         })();
     </script>
