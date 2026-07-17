@@ -6,46 +6,46 @@
 const CACHE_VERSION = 'v3';
 const CACHE_NAME = `muiz-hot-chicken-${CACHE_VERSION}`;
 
-// ===== ASSETS TO CACHE =====
+// ===== ASSETS TO CACHE (root paths for custom domain) =====
 const STATIC_ASSETS = [
     // Root files
-    '/muizhotchicken/',
-    '/muizhotchicken/index.html',
-    '/muizhotchicken/style.css',
-    '/muizhotchicken/script.js',
-    '/muizhotchicken/manifest.json',
+    '/',
+    '/index.html',
+    '/style.css',
+    '/script.js',
+    '/manifest.json',
     
     // Icons
-    '/muizhotchicken/favicon.ico',
-    '/muizhotchicken/favicon.svg',
-    '/muizhotchicken/favicon-96x96.png',
-    '/muizhotchicken/apple-touch-icon.png',
-    '/muizhotchicken/web-app-manifest-192x192.png',
-    '/muizhotchicken/web-app-manifest-512x512.png',
-    '/muizhotchicken/logo.webp',
+    '/favicon.ico',
+    '/favicon.svg',
+    '/favicon-96x96.png',
+    '/apple-touch-icon.png',
+    '/web-app-manifest-192x192.png',
+    '/web-app-manifest-512x512.png',
+    '/logo.webp',
     
     // iOS interface
-    '/muizhotchicken/ios/index.html',
-    '/muizhotchicken/ios/style.css',
-    '/muizhotchicken/ios/script.js',
+    '/ios/index.html',
+    '/ios/style.css',
+    '/ios/script.js',
     
     // Android interface
-    '/muizhotchicken/android/index.html',
-    '/muizhotchicken/android/style.css',
-    '/muizhotchicken/android/script.js',
+    '/android/index.html',
+    '/android/style.css',
+    '/android/script.js',
     
     // Web interface
-    '/muizhotchicken/web/index.html',
-    '/muizhotchicken/web/style.css',
-    '/muizhotchicken/web/script.js',
+    '/web/index.html',
+    '/web/style.css',
+    '/web/script.js',
     
     // Shared data
-    '/muizhotchicken/shared/data.js',
+    '/shared/data.js',
 ];
 
 // ===== DYNAMIC CACHE RULES =====
 const DYNAMIC_CACHE = [
-    '/muizhotchicken/images/',
+    '/images/',
     'https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/',
     'https://fonts.googleapis.com/',
     'https://fonts.gstatic.com/'
@@ -76,7 +76,6 @@ self.addEventListener('activate', (event) => {
             .then((cacheNames) => {
                 return Promise.all(
                     cacheNames.map((cacheName) => {
-                        // Delete old caches
                         if (cacheName !== CACHE_NAME && cacheName.startsWith('muiz-hot-chicken-')) {
                             console.log(`🗑️ Removing old cache: ${cacheName}`);
                             return caches.delete(cacheName);
@@ -98,129 +97,85 @@ self.addEventListener('fetch', (event) => {
     
     // Skip cross-origin requests (except CDN)
     if (url.origin !== self.location.origin) {
-        // Allow CDN resources
         if (url.hostname.includes('cdnjs.cloudflare.com') ||
             url.hostname.includes('fonts.googleapis.com') ||
             url.hostname.includes('fonts.gstatic.com')) {
-            // Use network-first for CDN
+            // Network-first for CDN
             event.respondWith(
                 fetch(request)
-                    .catch(() => {
-                        return caches.match(request);
-                    })
+                    .catch(() => caches.match(request))
             );
             return;
         }
-        // Skip other cross-origin requests
         return;
     }
     
-    // Skip non-GET requests
-    if (request.method !== 'GET') {
-        return;
-    }
+    if (request.method !== 'GET') return;
     
-    // Check if request is for an image
     const isImage = /\.(webp|png|jpg|jpeg|gif|svg|ico)$/.test(request.url);
     const isHTML = /\.html$/.test(request.url) || request.url.endsWith('/') || request.url.includes('index.html');
     
-    // Strategy: Cache-first for static assets, network-first for HTML
     if (isHTML) {
-        // Network-first for HTML (always get fresh content)
+        // Network-first for HTML
         event.respondWith(
             fetch(request)
                 .then((response) => {
-                    // Cache the fresh response
                     const responseClone = response.clone();
-                    caches.open(CACHE_NAME)
-                        .then((cache) => {
-                            cache.put(request, responseClone);
-                        });
+                    caches.open(CACHE_NAME).then((cache) => cache.put(request, responseClone));
                     return response;
                 })
                 .catch(() => {
-                    // Fallback to cache
                     return caches.match(request)
-                        .then((cachedResponse) => {
-                            if (cachedResponse) {
-                                return cachedResponse;
-                            }
-                            // Return offline fallback
-                            return caches.match('/muizhotchicken/index.html');
-                        });
+                        .then((cached) => cached || caches.match('/index.html'));
                 })
         );
         return;
     }
     
     if (isImage) {
-        // Cache-first for images (with network fallback)
+        // Cache-first for images
         event.respondWith(
             caches.match(request)
-                .then((cachedResponse) => {
-                    if (cachedResponse) {
-                        return cachedResponse;
-                    }
+                .then((cached) => {
+                    if (cached) return cached;
                     return fetch(request)
                         .then((response) => {
-                            const responseClone = response.clone();
-                            caches.open(CACHE_NAME)
-                                .then((cache) => {
-                                    cache.put(request, responseClone);
-                                });
+                            const clone = response.clone();
+                            caches.open(CACHE_NAME).then((cache) => cache.put(request, clone));
                             return response;
                         })
-                        .catch(() => {
-                            // Return fallback image
-                            return caches.match('/muizhotchicken/logo.webp');
-                        });
+                        .catch(() => caches.match('/logo.webp'));
                 })
         );
         return;
     }
     
-    // Default: Cache-first for static assets
+    // Default: Cache-first
     event.respondWith(
         caches.match(request)
-            .then((cachedResponse) => {
-                if (cachedResponse) {
-                    // Return cached response, update in background
-                    fetch(request)
-                        .then((response) => {
-                            if (response && response.status === 200) {
-                                const responseClone = response.clone();
-                                caches.open(CACHE_NAME)
-                                    .then((cache) => {
-                                        cache.put(request, responseClone);
-                                    });
-                            }
-                        })
-                        .catch(() => {});
-                    return cachedResponse;
+            .then((cached) => {
+                if (cached) {
+                    // Background update
+                    fetch(request).then((response) => {
+                        if (response && response.status === 200) {
+                            caches.open(CACHE_NAME).then((cache) => cache.put(request, response.clone()));
+                        }
+                    }).catch(() => {});
+                    return cached;
                 }
-                
-                // Not in cache, fetch from network
                 return fetch(request)
                     .then((response) => {
                         if (response && response.status === 200) {
-                            const responseClone = response.clone();
-                            caches.open(CACHE_NAME)
-                                .then((cache) => {
-                                    cache.put(request, responseClone);
-                                });
+                            const clone = response.clone();
+                            caches.open(CACHE_NAME).then((cache) => cache.put(request, clone));
                         }
                         return response;
                     })
                     .catch(() => {
-                        // Return offline fallback for HTML pages
                         if (request.headers.get('accept').includes('text/html')) {
-                            return caches.match('/muizhotchicken/index.html');
+                            return caches.match('/index.html');
                         }
-                        // Return empty response for other requests
-                        return new Response('Offline', {
-                            status: 503,
-                            statusText: 'Service Unavailable'
-                        });
+                        return new Response('Offline', { status: 503, statusText: 'Service Unavailable' });
                     });
             })
     );
@@ -232,48 +187,29 @@ self.addEventListener('push', (event) => {
     const title = data.title || '🍗 Muiz Hot Chicken';
     const options = {
         body: data.body || 'Check out our latest offers!',
-        icon: '/muizhotchicken/logo.webp',
-        badge: '/muizhotchicken/favicon-96x96.png',
+        icon: '/logo.webp',
+        badge: '/favicon-96x96.png',
         vibrate: [200, 100, 200],
-        data: data.url || '/muizhotchicken/',
+        data: data.url || '/',
         actions: [
-            {
-                action: 'view',
-                title: 'View Menu',
-                icon: '/muizhotchicken/favicon-96x96.png'
-            },
-            {
-                action: 'order',
-                title: 'Order Now',
-                icon: '/muizhotchicken/favicon-96x96.png'
-            }
+            { action: 'view', title: 'View Menu', icon: '/favicon-96x96.png' },
+            { action: 'order', title: 'Order Now', icon: '/favicon-96x96.png' }
         ]
     };
-    
-    event.waitUntil(
-        self.registration.showNotification(title, options)
-    );
+    event.waitUntil(self.registration.showNotification(title, options));
 });
 
 // ===== NOTIFICATION CLICK =====
 self.addEventListener('notificationclick', (event) => {
     event.notification.close();
-    
-    const url = event.notification.data || '/muizhotchicken/';
-    
+    const url = event.notification.data || '/';
     event.waitUntil(
         clients.matchAll({ type: 'window', includeUncontrolled: true })
             .then((clientList) => {
-                // Check if there's already a window/tab open
                 for (const client of clientList) {
-                    if (client.url === url && 'focus' in client) {
-                        return client.focus();
-                    }
+                    if (client.url === url && 'focus' in client) return client.focus();
                 }
-                // Open a new window/tab
-                if (clients.openWindow) {
-                    return clients.openWindow(url);
-                }
+                if (clients.openWindow) return clients.openWindow(url);
             })
     );
 });
@@ -286,27 +222,9 @@ self.addEventListener('sync', (event) => {
 });
 
 async function syncOrders() {
-    try {
-        // Get pending orders from IndexedDB or localStorage
-        const pendingOrders = await getPendingOrders();
-        
-        if (pendingOrders.length === 0) {
-            return;
-        }
-        
-        // Process each pending order
-        for (const order of pendingOrders) {
-            // Send order to server/API
-            await sendOrderToServer(order);
-            // Remove from pending
-            await removePendingOrder(order.id);
-        }
-        
-        console.log('✅ Orders synced successfully');
-    } catch (error) {
-        console.error('❌ Failed to sync orders:', error);
-        throw error; // Will retry on next sync
-    }
+    // Placeholder – implement your logic
+    console.log('🔄 Syncing orders...');
+    return Promise.resolve();
 }
 
 // ===== MESSAGE HANDLING =====
@@ -316,23 +234,5 @@ self.addEventListener('message', (event) => {
     }
 });
 
-// ===== UTILITY FUNCTIONS =====
-// (Placeholder for actual implementation)
-async function getPendingOrders() {
-    // Implement your logic to get pending orders
-    return [];
-}
-
-async function sendOrderToServer(order) {
-    // Implement your logic to send order to server
-    return true;
-}
-
-async function removePendingOrder(id) {
-    // Implement your logic to remove pending order
-    return true;
-}
-
-// ===== LOG =====
 console.log(`📦 Service Worker ${CACHE_NAME} initialized`);
 console.log(`✅ ${STATIC_ASSETS.length} static assets registered`);
