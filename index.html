@@ -747,7 +747,24 @@
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css" />
 
 </head>
-<body>
+
+            <body>
+    <!-- ===== INSTANT REDIRECT ===== -->
+    <script>
+        (function() {
+            // Detect base path (works for both custom domain and GitHub Pages)
+            var base = window.location.pathname.includes('/muizhotchicken/') ? '/muizhotchicken/' : '/';
+            // Detect platform
+            var ua = navigator.userAgent || navigator.vendor || window.opera;
+            var isIOS = /iPad|iPhone|iPod/.test(ua) && !window.MSStream;
+            var isAndroid = /android/i.test(ua);
+            var platform = isIOS ? 'ios' : isAndroid ? 'android' : 'web';
+            // Redirect immediately
+            window.location.replace(base + platform + '/');
+        })();
+    </script>
+
+    <!-- ===== LOADER (only shows if redirect fails) ===== -->
     <div class="loader">
         <span class="logo">🍗</span>
         <h1>Restoran Pak Haji Ali <span class="amp">&amp;</span> Muiz Hot Chicken</h1>
@@ -764,106 +781,12 @@
         <p class="footer">&copy; 2026 Restoran Pak Haji Ali &amp; Muiz Hot Chicken</p>
     </div>
 
-    <script>
-    (function() {
-        'use strict';
-
-        // ----- DETECT BASE PATH (handles both custom domain and GitHub Pages) -----
-        function getBasePath() {
-            // Check if running on GitHub Pages subfolder
-            if (window.location.pathname.includes('/muizhotchicken/')) {
-                return '/muizhotchicken/';
-            }
-            // Custom domain or root path
-            return '/';
-        }
-
-        const BASE = getBasePath();
-
-        // ----- CONFIG -----
-        const PATHS = {
-            ios: BASE + 'ios/',
-            android: BASE + 'android/',
-            web: BASE + 'web/'
-        };
-
-        // ----- DOM refs -----
-        const detectText = document.getElementById('detectText');
-        const detectHint = document.getElementById('detectHint');
-        const spinner = document.getElementById('spinner');
-
-        // ----- Helpers -----
-        function setText(el, msg) { if (el) el.textContent = msg; }
-
-        function getPlatformName(p) {
-            return { ios: 'iOS', android: 'Android', web: 'Web' }[p] || 'Web';
-        }
-
-        function getPlatformEmoji(p) {
-            return { ios: '🍎', android: '🤖', web: '🖥️' }[p] || '💻';
-        }
-
-        // ----- Device detection -----
-        function detectDevice() {
-            const ua = navigator.userAgent || navigator.vendor || window.opera;
-            const isIOS = /iPad|iPhone|iPod/.test(ua) && !window.MSStream;
-            const isAndroid = /android/i.test(ua);
-            const isTablet = /iPad|Android(?!.*Mobile)/.test(ua) ||
-                             (navigator.maxTouchPoints > 1 && window.innerWidth >= 768);
-            const isDesktop = !isIOS && !isAndroid && !isTablet;
-            const isTouch = 'ontouchstart' in window || navigator.maxTouchPoints > 0;
-
-            if (isIOS) return 'ios';
-            if (isAndroid) return 'android';
-            if (isTablet && isTouch) return 'android';
-            if (isDesktop) return 'web';
-            return 'web';
-        }
-
-        // ----- Apply dark mode from localStorage -----
-        function applySavedTheme() {
-            const theme = localStorage.getItem('muiz-theme') || 'light';
-            if (theme === 'dark') {
-                document.documentElement.setAttribute('data-theme', 'dark');
-            }
-        }
-        applySavedTheme();
-
-        // ----- Main logic: detect platform, save preference, redirect -----
-        function init() {
-            // 1. Check for saved platform preference
-            let savedPlatform = localStorage.getItem('preferred-platform');
-            let platform = savedPlatform;
-
-            // 2. If not saved or invalid, detect device
-            if (!platform || !PATHS[platform]) {
-                platform = detectDevice();
-                localStorage.setItem('preferred-platform', platform);
-            }
-
-            // 3. Show friendly message
-            const displayName = getPlatformName(platform);
-            const emoji = getPlatformEmoji(platform);
-            setText(detectText, `${emoji} ${displayName} interface`);
-            setText(detectHint, `Redirecting to your preferred experience...`);
-
-            // 4. Redirect after a short delay
-            setTimeout(function() {
-                window.location.replace(PATHS[platform]);
-            }, 800);
-        }
-
-        // Start
-        init();
-
-    })();
-</script>
-
-<noscript>
-    <div style="position:fixed;top:0;left:0;right:0;background:#d62828;color:#fff;padding:16px;text-align:center;font-weight:700;z-index:9999;">
-        <i class="fas fa-exclamation-triangle"></i> Please enable JavaScript.
-        <a href="/muizhotchicken/web/" style="color:#ffb703;text-decoration:underline;margin-left:10px;">Continue to Web Version →</a>
-    </div>
-</noscript>
-</body>
+    <!-- ===== NOSCRIPT FALLBACK ===== -->
+    <noscript>
+        <div style="position:fixed;top:0;left:0;right:0;background:#d62828;color:#fff;padding:16px;text-align:center;font-weight:700;z-index:9999;">
+            <i class="fas fa-exclamation-triangle"></i> Please enable JavaScript.
+            <a href="/muizhotchicken/web/" style="color:#ffb703;text-decoration:underline;margin-left:10px;">Continue to Web Version →</a>
+        </div>
+    </noscript>
+            </body>
 </html>
