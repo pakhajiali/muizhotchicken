@@ -1573,3 +1573,32 @@ body {
         font-size: 18px;
     }
 }
+/* ===== CLEAR ORDERS BUTTON (iOS) ===== */
+.clear-orders-btn {
+    width: 100%;
+    padding: 14px;
+    border-radius: var(--radius-full);
+    background: #ff3b30;
+    color: #fff;
+    font-weight: 700;
+    font-size: 16px;
+    border: none;
+    cursor: pointer;
+    transition: var(--transition);
+    margin-top: 16px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 10px;
+    font-family: inherit;
+    -webkit-tap-highlight-color: transparent;
+}
+
+.clear-orders-btn:active {
+    transform: scale(0.97);
+    opacity: 0.85;
+}
+
+[data-theme="dark"] .clear-orders-btn {
+    background: #ff453a;
+}
