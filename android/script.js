@@ -539,12 +539,13 @@ function renderProfile() {
                target="_blank" rel="noopener">
                 <i class="fas fa-mobile-screen"></i> Misirakyat
             </a>
-            <a href="/menu/catering/" target="_blank">
-                <i class="fas fa-utensils"></i> Catering
-            </a>
-            <a href="/menu/company-profile.html" target="_blank">
-                <i class="fas fa-file-pdf"></i> Company Profile
-            </a>
+            // Find and replace these lines in renderProfile():
+<a href="https://pakhajiali.github.io/menu/catering/" target="_blank" rel="noopener noreferrer">
+    <i class="fas fa-utensils"></i> Halal Catering
+</a>
+<a href="https://pakhajiali.github.io/menu/company-profile.html" target="_blank" rel="noopener noreferrer">
+    <i class="fas fa-file-pdf"></i> Company Profile
+</a>
         </div>
         
      <div style="background:var(--card);border-radius:var(--radius);padding:16px 18px;box-shadow:var(--shadow-sm);font-size:13px;color:var(--text-tertiary);text-align:center;margin-bottom:16px;">
