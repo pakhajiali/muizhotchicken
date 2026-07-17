@@ -1,12 +1,12 @@
 {
   "name": "Restoran Pak Haji Ali & Muiz Hot Chicken - Subang Jaya (USJ 8)",
   "short_name": "Muiz Hot Chicken",
-  "description": "JAKIM Halal certified crispy Muiz Hot Chicken, Nasi Kandar & Tomyam in Subang Jaya USJ 8. Order now for dine-in, takeaway or delivery!",
-  "start_url": "/muizhotchicken/",
-  "scope": "/muizhotchicken/",
+  "description": "Restoran Pak Haji Ali & Muiz Hot Chicken - Subang Jaya (USJ 8). JAKIM Halal certified crispy Muiz Hot Chicken, Nasi Kandar & Tomyam. Order now for dine-in, takeaway or delivery!",
+  "start_url": "/",
+  "scope": "/",
   "display": "standalone",
   "orientation": "portrait",
-  "theme_color": "#d62828",
+  "theme_color": "#000000",
   "background_color": "#f2f2f7",
   "categories": ["food", "restaurant", "halal", "delivery"],
   "lang": "en-MY",
@@ -65,7 +65,7 @@
       "name": "View Menu",
       "short_name": "Menu",
       "description": "Quickly browse our full menu",
-      "url": "/muizhotchicken/#menu",
+      "url": "/#menu",
       "icons": [
         {
           "src": "favicon-96x96.png",
@@ -78,7 +78,7 @@
       "name": "Order Now",
       "short_name": "Order",
       "description": "Place an order via WhatsApp",
-      "url": "/muizhotchicken/#cart",
+      "url": "/#cart",
       "icons": [
         {
           "src": "favicon-96x96.png",
@@ -91,7 +91,7 @@
       "name": "Call Us",
       "short_name": "Call",
       "description": "Call Restoran Pak Haji Ali",
-      "url": "/muizhotchicken/#profile",
+      "url": "/#profile",
       "icons": [
         {
           "src": "favicon-96x96.png",
