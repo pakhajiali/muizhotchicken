@@ -31,31 +31,20 @@
     })();
 
     // ============================================================
-// APP BANNER & MODAL (No localStorage persistence)
+// APP BANNER & MODAL (No close button)
 // ============================================================
 (function() {
-    var banner = document.getElementById('appBanner');
-    var closeBtn = document.getElementById('appBannerClose');
     var launchBtn = document.getElementById('appBannerBtn');
     var modal = document.getElementById('appModal');
     var modalOverlay = document.getElementById('appModalOverlay');
     var modalClose = document.getElementById('appModalClose');
 
-    // Close banner (hides only for current session)
-    if (closeBtn) {
-        closeBtn.addEventListener('click', function() {
-            banner.style.display = 'none';
-        });
-    }
-
     // Open modal on launch button click
-    if (launchBtn) {
-        launchBtn.addEventListener('click', function(e) {
-            e.preventDefault();
-            modal.classList.add('open');
-            document.body.style.overflow = 'hidden';
-        });
-    }
+    launchBtn.addEventListener('click', function(e) {
+        e.preventDefault();
+        modal.classList.add('open');
+        document.body.style.overflow = 'hidden';
+    });
 
     function closeModal() {
         modal.classList.remove('open');
