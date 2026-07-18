@@ -745,3 +745,97 @@ main {
     .item-modal-info h2 { font-size: 20px; }
     .item-modal-price { font-size: 24px; }
 }
+/* ===== FEATURED MESSAGE ===== */
+.featured-message {
+    margin-bottom: 32px;
+}
+.featured-message-container {
+    background: var(--card);
+    border-radius: var(--radius);
+    padding: 20px 28px;
+    box-shadow: var(--shadow);
+    border: 1px solid var(--separator);
+    text-align: center;
+    transition: var(--transition);
+}
+.featured-message-container:hover {
+    transform: translateY(-2px);
+    box-shadow: var(--shadow-lg);
+}
+.featured-message-content {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 14px;
+    flex-wrap: wrap;
+}
+.featured-message-content .msg-icon {
+    font-size: 32px;
+    flex-shrink: 0;
+    animation: msgPulse 2s ease-in-out infinite;
+}
+@keyframes msgPulse {
+    0%, 100% { transform: scale(1); }
+    50% { transform: scale(1.08); }
+}
+.featured-message-content .msg-text {
+    font-size: 16px;
+    color: var(--text-secondary);
+    line-height: 1.6;
+    max-width: 700px;
+}
+.featured-message-content .msg-text strong {
+    color: var(--text);
+    font-weight: 700;
+}
+.featured-message-content .msg-text .highlight {
+    color: #d62828;
+    font-weight: 700;
+}
+[data-theme="dark"] .featured-message-content .msg-text .highlight {
+    color: #ff6b6b;
+}
+.featured-message-content .msg-cta {
+    background: var(--text);
+    color: var(--bg);
+    padding: 8px 20px;
+    border-radius: 9999px;
+    font-weight: 700;
+    font-size: 13px;
+    border: none;
+    cursor: pointer;
+    transition: var(--transition);
+    text-decoration: none;
+    display: inline-flex;
+    align-items: center;
+    gap: 6px;
+    white-space: nowrap;
+}
+.featured-message-content .msg-cta:hover {
+    opacity: 0.85;
+    transform: scale(1.04);
+}
+[data-theme="dark"] .featured-message-content .msg-cta {
+    background: #ffffff;
+    color: #000000;
+}
+[data-theme="dark"] .featured-message-content .msg-cta:hover {
+    opacity: 0.8;
+}
+
+@media (max-width: 480px) {
+    .featured-message-container {
+        padding: 14px 16px;
+    }
+    .featured-message-content .msg-text {
+        font-size: 14px;
+    }
+    .featured-message-content .msg-icon {
+        font-size: 26px;
+    }
+    .featured-message-content .msg-cta {
+        font-size: 12px;
+        padding: 6px 16px;
+        white-space: normal;
+    }
+}
