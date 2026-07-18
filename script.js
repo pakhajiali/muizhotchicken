@@ -1,5 +1,5 @@
 /* ============================================================
-   iOS-STYLE LANDING SCRIPT
+   iOS-STYLE LANDING SCRIPT (Fallback to iOS)
    ============================================================ */
 
 (function() {
@@ -123,7 +123,9 @@
         }).join('');
     }
 
-    // ----- ITEM DETAIL MODAL (Platform-Aware) -----
+    // ============================================================
+    // ITEM DETAIL MODAL WITH FALLBACK TO iOS
+    // ============================================================
     var itemModal = document.getElementById('itemModal');
     var itemOverlay = document.getElementById('itemModalOverlay');
     var itemClose = document.getElementById('itemModalClose');
@@ -139,9 +141,9 @@
         itemDesc.textContent = desc || '';
         itemPrice.textContent = 'RM' + parseFloat(price).toFixed(2);
 
-        // ----- DETECT PLATFORM (Smart) -----
+        // ----- DETECT PLATFORM (with fallback to iOS) -----
         var currentPath = window.location.pathname;
-        var platform = 'web'; // default fallback
+        var platform = 'ios'; // DEFAULT FALLBACK to iOS
 
         // 1. Detect from URL path
         if (currentPath.includes('/ios/')) {
@@ -156,6 +158,7 @@
             if (pref && ['ios', 'android', 'web'].indexOf(pref) !== -1) {
                 platform = pref;
             }
+            // else: platform stays 'ios' (fallback)
         }
 
         // 3. Build the app link with the detected platform
