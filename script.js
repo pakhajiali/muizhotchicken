@@ -293,5 +293,27 @@
     }
 })();
 
+   // ============================================================
+// CUSTOMER VIDEO - Hide Overlay After Autoplay Starts
+// ============================================================
+(function() {
+    var overlay2 = document.getElementById('playOverlay2');
+    var wrapper2 = document.querySelector('.customer-video .video-thumbnail-wrapper');
+
+    if (overlay2 && wrapper2) {
+        // Hide overlay after 1.5 seconds (video autoplays muted)
+        setTimeout(function() {
+            wrapper2.classList.add('loaded');
+            overlay2.style.display = 'none';
+        }, 1500);
+
+        // Also hide on click (user interaction)
+        overlay2.addEventListener('click', function() {
+            wrapper2.classList.add('loaded');
+            overlay2.style.display = 'none';
+        });
+    }
+})();
+
     console.log('🍗 iOS-style landing page loaded with external messages');
 })();
