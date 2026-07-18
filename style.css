@@ -1267,3 +1267,12 @@ main {
         margin-top: 6px;
     }
 }
+
+/* ===== CUSTOMER VIDEO (Second Video) ===== */
+.customer-video .badge-video {
+    background: #2ecc71;
+}
+
+[data-theme="dark"] .customer-video .badge-video {
+    background: #27ae60;
+}
