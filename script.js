@@ -31,55 +31,53 @@
     })();
 
     // ============================================================
-    // APP BANNER & MODAL
-    // ============================================================
-    (function() {
-        var banner = document.getElementById('appBanner');
-        var closeBtn = document.getElementById('appBannerClose');
-        var launchBtn = document.getElementById('appBannerBtn');
-        var modal = document.getElementById('appModal');
-        var modalOverlay = document.getElementById('appModalOverlay');
-        var modalClose = document.getElementById('appModalClose');
+// APP BANNER & MODAL (No localStorage persistence)
+// ============================================================
+(function() {
+    var banner = document.getElementById('appBanner');
+    var closeBtn = document.getElementById('appBannerClose');
+    var launchBtn = document.getElementById('appBannerBtn');
+    var modal = document.getElementById('appModal');
+    var modalOverlay = document.getElementById('appModalOverlay');
+    var modalClose = document.getElementById('appModalClose');
 
-        // Check if user dismissed banner
-        var dismissed = localStorage.getItem('app-banner-dismissed');
-        if (dismissed === 'true') {
-            banner.style.display = 'none';
-        }
-
+    // Close banner (hides only for current session)
+    if (closeBtn) {
         closeBtn.addEventListener('click', function() {
             banner.style.display = 'none';
-            localStorage.setItem('app-banner-dismissed', 'true');
         });
+    }
 
+    // Open modal on launch button click
+    if (launchBtn) {
         launchBtn.addEventListener('click', function(e) {
             e.preventDefault();
             modal.classList.add('open');
             document.body.style.overflow = 'hidden';
         });
+    }
 
-        function closeModal() {
-            modal.classList.remove('open');
-            document.body.style.overflow = '';
-        }
+    function closeModal() {
+        modal.classList.remove('open');
+        document.body.style.overflow = '';
+    }
 
-        modalOverlay.addEventListener('click', closeModal);
-        modalClose.addEventListener('click', closeModal);
-        document.addEventListener('keydown', function(e) {
-            if (e.key === 'Escape') closeModal();
+    modalOverlay.addEventListener('click', closeModal);
+    modalClose.addEventListener('click', closeModal);
+    document.addEventListener('keydown', function(e) {
+        if (e.key === 'Escape') closeModal();
+    });
+
+    // Save platform preference when user clicks a platform card
+    document.querySelectorAll('.app-modal-card').forEach(function(card) {
+        card.addEventListener('click', function() {
+            var platform = this.dataset.platform;
+            if (platform) {
+                localStorage.setItem('preferred-platform', platform);
+            }
         });
-
-        // Save platform preference when user clicks a platform card
-        document.querySelectorAll('.app-modal-card').forEach(function(card) {
-            card.addEventListener('click', function() {
-                var platform = this.dataset.platform;
-                if (platform) {
-                    localStorage.setItem('preferred-platform', platform);
-                }
-            });
-        });
-    })();
-
+    });
+})();
     // ============================================================
     // RENDER FEATURED MENU (Top 8 Items)
     // ============================================================
