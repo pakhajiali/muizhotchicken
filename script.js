@@ -192,45 +192,114 @@
     });
 
     // ============================================================
-    // FEATURED MESSAGE - RANDOM HIGH SEO (100+ Messages)
+    // FEATURED MESSAGE - RANDOM HYPER SEO (100 Messages)
+    // 50 Catering Messages + 50 General/Brand Messages
     // Refreshes on every page load for maximum SEO freshness
     // ============================================================
     (function() {
         var container = document.getElementById('featuredMessageContent');
         if (!container) return;
 
-        // 100+ SEO-optimized messages – one random on each page load
+        // 100 SEO-optimized messages – one random on each page load
         var messages = [
-            // ---- BRAND + LOCATION (HIGH SEO) ----
+
+            // ============================================================
+            // 50 CATERING MESSAGES (HYPER LOCAL SEO)
+            // ============================================================
+
+            // ---- SUBANG JAYA CATERING ----
+            { icon: '🎉', text: '<strong>Halal catering in Subang Jaya</strong> – Restoran Pak Haji Ali serves corporate events, weddings & student societies. Call +6017-908 1447.', cta: 'Contact Us', link: 'https://wa.me/60179081447' },
+            { icon: '💼', text: '<strong>Corporate catering Subang Jaya</strong> – office lunch delivery for companies in USJ 8, Taipan & SS15. Muiz Hot Chicken & Nasi Kandar.', cta: 'Order Now', link: 'https://wa.me/60179081447' },
+            { icon: '👰', text: '<strong>Wedding catering Subang Jaya</strong> – premium halal wedding catering with Muiz Hot Chicken, Nasi Kandar & Tomyam. Contact us!', cta: 'Contact Us', link: 'https://wa.me/60179081447' },
+            { icon: '🎊', text: '<strong>Student society catering Subang Jaya</strong> – affordable halal catering from RM10/pax for Taylor\'s, Sunway & Monash events.', cta: 'View Packages', link: 'https://wa.me/60179081447' },
+            { icon: '🎂', text: '<strong>Birthday catering Subang Jaya</strong> – Muiz Happy Box and Nasi Kandar platters for parties in USJ 8. Call +6017-908 1447.', cta: 'Order Now', link: 'https://wa.me/60179081447' },
+
+            // ---- PETALING JAYA CATERING ----
+            { icon: '🏢', text: '<strong>Corporate catering Petaling Jaya</strong> – halal office lunch delivery in SS1-26, Damansara & Kelana Jaya. Muiz Hot Chicken.', cta: 'Contact Us', link: 'https://wa.me/60179081447' },
+            { icon: '👰', text: '<strong>Wedding catering Petaling Jaya</strong> – halal wedding food delivery in PJ. Muiz Hot Chicken, Nasi Kandar & Tomyam.', cta: 'Contact Us', link: 'https://wa.me/60179081447' },
+            { icon: '🎉', text: '<strong>Event catering Petaling Jaya</strong> – halal catering for corporate functions, family days & gatherings in PJ.', cta: 'Order Now', link: 'https://wa.me/60179081447' },
+
+            // ---- SHAH ALAM CATERING ----
+            { icon: '🏢', text: '<strong>Corporate catering Shah Alam</strong> – halal office lunch delivery in Seksyen 1-32, Setia Alam & Kota Kemuning. Order now!', cta: 'Contact Us', link: 'https://wa.me/60179081447' },
+            { icon: '👰', text: '<strong>Wedding catering Shah Alam</strong> – halal wedding food delivery in Shah Alam. Premium Muiz Hot Chicken & Nasi Kandar.', cta: 'Contact Us', link: 'https://wa.me/60179081447' },
+            { icon: '🎉', text: '<strong>Event catering Shah Alam</strong> – halal catering for corporate events, family gatherings & student events.', cta: 'Order Now', link: 'https://wa.me/60179081447' },
+
+            // ---- KLANG CATERING ----
+            { icon: '🏢', text: '<strong>Corporate catering Klang</strong> – halal office lunch delivery in Bandar Klang, Bukit Tinggi & Klang Utama. Muiz Hot Chicken.', cta: 'Contact Us', link: 'https://wa.me/60179081447' },
+            { icon: '👰', text: '<strong>Wedding catering Klang</strong> – halal wedding food delivery in Klang. Premium catering with Muiz Hot Chicken.', cta: 'Contact Us', link: 'https://wa.me/60179081447' },
+            { icon: '🎉', text: '<strong>Event catering Klang</strong> – halal catering for corporate functions, family days & gatherings in Klang.', cta: 'Order Now', link: 'https://wa.me/60179081447' },
+
+            // ---- KUALA LUMPUR CATERING ----
+            { icon: '🏛️', text: '<strong>Corporate catering Kuala Lumpur</strong> – halal office lunch delivery in KLCC, Bangsar, Damansara & Mont Kiara. Order now!', cta: 'Contact Us', link: 'https://wa.me/60179081447' },
+            { icon: '👰', text: '<strong>Wedding catering Kuala Lumpur</strong> – halal wedding food delivery in KL. Premium Muiz Hot Chicken & Nasi Kandar.', cta: 'Contact Us', link: 'https://wa.me/60179081447' },
+            { icon: '🎉', text: '<strong>Event catering Kuala Lumpur</strong> – halal catering for corporate events, family gatherings & parties in KL.', cta: 'Order Now', link: 'https://wa.me/60179081447' },
+
+            // ---- PUCHONG CATERING ----
+            { icon: '🏢', text: '<strong>Corporate catering Puchong</strong> – halal office lunch delivery in Puchong Jaya, Bandar Puchong & Puchong Prima.', cta: 'Contact Us', link: 'https://wa.me/60179081447' },
+            { icon: '👰', text: '<strong>Wedding catering Puchong</strong> – halal wedding food delivery in Puchong. Premium Muiz Hot Chicken & Nasi Kandar.', cta: 'Contact Us', link: 'https://wa.me/60179081447' },
+            { icon: '🎉', text: '<strong>Event catering Puchong</strong> – halal catering for corporate events, family gatherings & student events.', cta: 'Order Now', link: 'https://wa.me/60179081447' },
+
+            // ---- CYBERJAYA CATERING ----
+            { icon: '🏢', text: '<strong>Corporate catering Cyberjaya</strong> – halal office lunch delivery in Cyberjaya & Putrajaya. Order now!', cta: 'Contact Us', link: 'https://wa.me/60179081447' },
+            { icon: '🎉', text: '<strong>Event catering Cyberjaya</strong> – halal catering for corporate events, family gatherings & student events.', cta: 'Order Now', link: 'https://wa.me/60179081447' },
+
+            // ---- CATERING PACKAGES ----
+            { icon: '🍗', text: '<strong>Muiz Hot Chicken catering package</strong> – crispy fried chicken for events in Subang Jaya, KL & Selangor. Call +6017-908 1447.', cta: 'Order Now', link: 'https://wa.me/60179081447' },
+            { icon: '🍛', text: '<strong>Nasi Kandar catering package</strong> – authentic kuah banjir for weddings & corporate events in Selangor & KL.', cta: 'Contact Us', link: 'https://wa.me/60179081447' },
+            { icon: '🍤', text: '<strong>Tomyam catering package</strong> – spicy seafood tomyam for events in Subang Jaya, PJ, Shah Alam & KL.', cta: 'Order Now', link: 'https://wa.me/60179081447' },
+            { icon: '🎁', text: '<strong>Muiz Happy Box catering</strong> – 5-piece crispy chicken boxes perfect for corporate events & parties. Call now!', cta: 'Order Now', link: 'https://wa.me/60179081447' },
+            { icon: '🥘', text: '<strong>Nasi Penyet catering</strong> – smashed chicken with sambal for events in Selangor & KL. Halal certified.', cta: 'Contact Us', link: 'https://wa.me/60179081447' },
+
+            // ---- CATERING FEATURES ----
+            { icon: '✅', text: '<strong>Halal certified catering</strong> – all our catering is JAKIM Halal certified. Trusted for events in Subang Jaya & KL.', cta: 'Contact Us', link: 'https://wa.me/60179081447' },
+            { icon: '🛡️', text: '<strong>MeSTI certified catering</strong> – food safety guaranteed for your corporate events, weddings & family gatherings.', cta: 'Learn More', link: '#about' },
+            { icon: '⭐', text: '<strong>5★ rated catering service</strong> – our customers love our halal catering for events in Selangor & KL.', cta: 'Read Reviews', link: '#reviewsGrid' },
+            { icon: '📍', text: '<strong>Catering in Subang Jaya USJ 8</strong> – we deliver halal catering to Goodyear Court 6, Taipan & SS15.', cta: 'Get Directions', link: '#map-section' },
+            { icon: '🕌', text: '<strong>100% Muslim-owned catering</strong> – serving authentic halal Malaysian cuisine for events in Selangor & KL.', cta: 'Contact Us', link: 'https://wa.me/60179081447' },
+
+            // ---- CATERING SPECIALTIES ----
+            { icon: '🎓', text: '<strong>Student society catering</strong> – affordable halal catering packages for university events in Subang Jaya & KL.', cta: 'View Packages', link: 'https://wa.me/60179081447' },
+            { icon: '💼', text: '<strong>Office lunch catering</strong> – halal lunch delivery for corporate events in KL, PJ, Shah Alam & Subang Jaya.', cta: 'Order Now', link: 'https://wa.me/60179081447' },
+            { icon: '👰', text: '<strong>Wedding lunch & dinner catering</strong> – premium halal wedding catering with Muiz Hot Chicken & Nasi Kandar.', cta: 'Contact Us', link: 'https://wa.me/60179081447' },
+            { icon: '🎂', text: '<strong>Birthday party catering</strong> – halal food for kids and adults. Muiz Happy Box is a crowd favourite!', cta: 'Order Now', link: 'https://wa.me/60179081447' },
+            { icon: '🏠', text: '<strong>Home gathering catering</strong> – halal food delivery for family reunions & home parties in Subang Jaya & KL.', cta: 'Order Now', link: 'https://wa.me/60179081447' },
+
+            // ---- CATERING QUANTITY ----
+            { icon: '📞', text: '<strong>Catering for 20-500 pax</strong> – we cater events of all sizes in Subang Jaya, KL, Shah Alam & Selangor.', cta: 'Contact Us', link: 'https://wa.me/60179081447' },
+            { icon: '📋', text: '<strong>Custom halal catering menu</strong> – we create bespoke menus for weddings, corporate events & parties. Call now!', cta: 'Contact Us', link: 'https://wa.me/60179081447' },
+            { icon: '🍗', text: '<strong>Muiz Hot Chicken bulk catering</strong> – order crispy fried chicken in bulk for events in Selangor & KL.', cta: 'Order Now', link: 'https://wa.me/60179081447' },
+            { icon: '🍛', text: '<strong>Nasi Kandar buffet catering</strong> – authentic kuah banjir buffet for weddings & corporate events.', cta: 'Contact Us', link: 'https://wa.me/60179081447' },
+            { icon: '🥘', text: '<strong>Malaysian-Thai fusion catering</strong> – Tomyam, Nasi Goreng & Muiz Hot Chicken for events in Selangor & KL.', cta: 'Order Now', link: 'https://wa.me/60179081447' },
+
+            // ---- FAST CATERING ----
+            { icon: '⚡', text: '<strong>Fast catering delivery</strong> – get halal food delivered to your event in Subang Jaya, KL & Selangor within hours.', cta: 'Order Now', link: 'https://wa.me/60179081447' },
+            { icon: '🕐', text: '<strong>24-hour catering notice</strong> – we accept last-minute catering orders in Selangor & KL. Call +6017-908 1447.', cta: 'Contact Us', link: 'https://wa.me/60179081447' },
+            { icon: '📍', text: '<strong>Goodyear Court 6 catering</strong> – we deliver halal catering to all events in USJ 8, Subang Jaya.', cta: 'Get Directions', link: '#map-section' },
+
+            // ============================================================
+            // 50 GENERAL BRAND + MENU MESSAGES
+            // ============================================================
+
+            // ---- BRAND ----
+            { icon: '🍗', text: '<strong>Best Muiz Hot Chicken in Subang Jaya</strong> – crispy, juicy, and halal. Visit us at Goodyear Court 6, USJ 8.', cta: 'Order Now', link: '#fullMenu' },
             { icon: '📍', text: 'Restoran Pak Haji Ali & Muiz Hot Chicken – <strong>Subang Jaya (USJ 8)</strong> – JAKIM Halal certified crispy fried chicken since 2026.', cta: 'View Menu', link: '#fullMenu' },
-            { icon: '🍗', text: 'The <strong>best Muiz Hot Chicken in Subang Jaya</strong> – crispy, juicy, and halal. Visit us at Goodyear Court 6, USJ 8.', cta: 'Order Now', link: '#fullMenu' },
             { icon: '🌶️', text: 'Authentic <strong>Nasi Kandar kuah banjir</strong> with a 15-spice blend – only at Restoran Pak Haji Ali & Muiz Hot Chicken in Subang Jaya.', cta: 'View Menu', link: '#fullMenu' },
-            { icon: '🕌', text: '<strong>JAKIM Halal certified</strong> and MeSTI compliant – enjoy premium halal food in Subang Jaya at Restoran Pak Haji Ali.', cta: 'Learn More', link: '#about' },
-            { icon: '🏆', text: '<strong>5★ rated on Google</strong> – customers love our crispy Muiz Hot Chicken and authentic Malaysian-Thai cuisine in USJ 8.', cta: 'Read Reviews', link: '#reviewsGrid' },
-            { icon: '📍', text: 'Craving the <strong>best crispy fried chicken in Subang Jaya</strong>? Muiz Hot Chicken is here – halal, juicy, and delivered hot!', cta: 'Order Now', link: '#fullMenu' },
-            { icon: '🍗', text: '<strong>Muiz Hot Chicken USJ 8</strong> – the crispiest, juiciest halal chicken in Subang Jaya. Dine-in, takeaway, or delivery.', cta: 'View Menu', link: '#fullMenu' },
-            // ---- DELIVERY AREAS (LOCAL SEO) ----
+            { icon: '🕌', text: '<strong>JAKIM Halal certified</strong> – enjoy premium halal food in Subang Jaya at Restoran Pak Haji Ali & Muiz Hot Chicken.', cta: 'Learn More', link: '#about' },
+            { icon: '⭐', text: '<strong>5★ rated on Google</strong> – customers love our crispy Muiz Hot Chicken and authentic Malaysian-Thai cuisine in USJ 8.', cta: 'Read Reviews', link: '#reviewsGrid' },
+
+            // ---- DELIVERY AREAS ----
             { icon: '🛵', text: '<strong>Halal food delivery in Subang Jaya</strong> – Muiz Hot Chicken delivered to USJ 1-27, Taipan, SS12-19 & Sunway.', cta: 'Order Now', link: 'https://wa.me/60179081447' },
             { icon: '🏙️', text: 'Best <strong>halal crispy chicken in Subang Jaya</strong> – delivered to Taipan, Subang Permai, SS15 & surrounding areas.', cta: 'View Menu', link: '#fullMenu' },
             { icon: '🌆', text: '<strong>Halal food delivery in Shah Alam</strong> – Muiz Hot Chicken delivered to Seksyen 1-32, Setia Alam & Kota Kemuning.', cta: 'Order Now', link: 'https://wa.me/60179081447' },
-            { icon: '🏗️', text: '<strong>Halal fried chicken in Klang Valley</strong> – serving KLCC, Bangsar, Damansara, Mont Kiara & Cheras.', cta: 'View Menu', link: '#fullMenu' },
-            { icon: '🏙️', text: '<strong>Halal restaurant in Petaling Jaya</strong> – Muiz Hot Chicken, Nasi Kandar & Tomyam delivered to SS1-26, Damansara & Kelana Jaya.', cta: 'Order Now', link: 'https://wa.me/60179081447' },
+            { icon: '🏛️', text: '<strong>Halal food in Kuala Lumpur</strong> – Muiz Hot Chicken delivered to KLCC, Bukit Bintang, Bangsar & all KL areas.', cta: 'Order Now', link: 'https://wa.me/60179081447' },
             { icon: '🌇', text: '<strong>Best halal fried chicken in Klang</strong> – delivered to Bandar Klang, Bukit Tinggi & Klang Utama.', cta: 'View Menu', link: '#fullMenu' },
-            { icon: '🏛️', text: '<strong>Halal food in Kuala Lumpur</strong> – Muiz Hot Chicken delivered to KLCC, Bukit Bintang & all KL areas.', cta: 'Order Now', link: 'https://wa.me/60179081447' },
-            { icon: '🛵', text: '<strong>Halal delivery in Puchong</strong> – Muiz Hot Chicken delivered to Puchong Jaya, Bandar Puchong & Puchong Prima.', cta: 'Order Now', link: 'https://wa.me/60179081447' },
-            { icon: '🚗', text: '<strong>Halal food in Cyberjaya</strong> – Muiz Hot Chicken, Nasi Kandar & Tomyam delivered to Cyberjaya & Putrajaya.', cta: 'View Menu', link: '#fullMenu' },
-            { icon: '🏠', text: '<strong>Halal delivery in Sungai Buloh</strong> – Muiz Hot Chicken delivered to Bandar Baru Sungai Buloh & Bukit Rahman Putra.', cta: 'Order Now', link: 'https://wa.me/60179081447' },
-            { icon: '🏘️', text: '<strong>Halal food in Ampang</strong> – Muiz Hot Chicken delivered to Ampang Jaya, Pandan Indah & Taman Cahaya.', cta: 'View Menu', link: '#fullMenu' },
-            { icon: '🏡', text: '<strong>Halal restaurant in Kajang</strong> – Muiz Hot Chicken delivered to Kajang Utama, Taman Kajang & Saujana Impian.', cta: 'Order Now', link: 'https://wa.me/60179081447' },
-            // ---- STUDENT & UNIVERSITY SEO ----
+
+            // ---- STUDENT MEALS ----
             { icon: '🎓', text: '<strong>Student budget meals under RM15</strong> – Taylor\'s University students love our Nasi Kandar with Muiz Hot Chicken.', cta: 'View Deals', link: '#fullMenu' },
             { icon: '🎓', text: '<strong>Halal food near Sunway University</strong> – affordable student meals delivered to Sunway University campus.', cta: 'Order Now', link: 'https://wa.me/60179081447' },
             { icon: '📚', text: '<strong>Monash University halal food</strong> – budget meals under RM15 delivered to Monash Malaysia campus.', cta: 'View Menu', link: '#fullMenu' },
-            { icon: '🎓', text: '<strong>INTI College students</strong> – get your favourite Muiz Hot Chicken delivered to INTI Subang Jaya.', cta: 'Order Now', link: 'https://wa.me/60179081447' },
-            { icon: '🏫', text: '<strong>Best halal food near Taylor\'s Lakeside</strong> – Nasi Kandar, Muiz Hot Chicken & Tomyam delivered to Taylor\'s.', cta: 'View Menu', link: '#fullMenu' },
-            { icon: '📖', text: '<strong>Affordable halal meals for students</strong> – RM10-15 meals at Restoran Pak Haji Ali, Subang Jaya USJ 8.', cta: 'View Deals', link: '#fullMenu' },
-            { icon: '🎒', text: '<strong>Student lunch specials</strong> – budget-friendly halal food near Sunway, Taylor\'s, Monash & INTI.', cta: 'Order Now', link: 'https://wa.me/60179081447' },
-            // ---- MENU & FOOD SEO ----
+
+            // ---- MENU ITEMS ----
             { icon: '🧀', text: '<strong>Muiz Hot Chicken Cheese Box</strong> – 2 pieces with creamy cheese sauce. Best halal fried chicken in Subang Jaya.', cta: 'Order Now', link: '#fullMenu' },
             { icon: '🌶️', text: '<strong>Korean Spicy Muiz Hot Chicken</strong> – crispy chicken with Korean spicy sauce. A customer favourite in USJ 8.', cta: 'Try It', link: '#fullMenu' },
             { icon: '🎁', text: '<strong>Muiz Happy Box</strong> – 5 pieces of crispy Muiz Hot Chicken. Perfect for family gatherings in Subang Jaya.', cta: 'Order Now', link: '#fullMenu' },
@@ -239,78 +308,27 @@
             { icon: '🍚', text: '<strong>Nasi Goreng Kampung</strong> – classic village-style fried rice with chicken, beef, or seafood. Halal and delicious.', cta: 'View Menu', link: '#fullMenu' },
             { icon: '🍗', text: '<strong>Nasi Ayam Muiz Chicken</strong> – aromatic chicken rice with tender Muiz-style fried chicken. Best in Subang Jaya.', cta: 'Order Now', link: '#fullMenu' },
             { icon: '🥘', text: '<strong>Nasi Penyet Muiz</strong> – smashed chicken with sambal. Authentic Indonesian halal food in USJ 8.', cta: 'View Menu', link: '#fullMenu' },
-            { icon: '🍜', text: '<strong>Mee Pak Haji Ali</strong> – traditional recipe noodles with special house blend. Halal and flavourful.', cta: 'Try It', link: '#fullMenu' },
-            { icon: '🍛', text: '<strong>Nasi Bujang</strong> – white rice with omelette, soup, and sambal. Simple, affordable, and halal.', cta: 'View Menu', link: '#fullMenu' },
-            { icon: '🍲', text: '<strong>Sup Ayam & Sup Daging</strong> – hearty chicken and beef soups. Perfect for a comforting halal meal.', cta: 'View Menu', link: '#fullMenu' },
-            // ---- CATERING SEO ----
-            { icon: '🎉', text: '<strong>Halal catering Subang Jaya</strong> – corporate events, weddings, and student society catering. Call +6017-908 1447.', cta: 'Contact Us', link: 'https://wa.me/60179081447' },
-            { icon: '💼', text: '<strong>Corporate halal catering</strong> – office lunch delivery in Selangor & KL. Muiz Hot Chicken, Nasi Kandar & Tomyam.', cta: 'Order Now', link: 'https://wa.me/60179081447' },
-            { icon: '👰', text: '<strong>Halal wedding catering</strong> – premium Muiz Hot Chicken and Nasi Kandar spread for your special day in Selangor.', cta: 'Contact Us', link: 'https://wa.me/60179081447' },
-            { icon: '🎊', text: '<strong>Student society catering</strong> – affordable halal catering from RM10/pax. Perfect for university events.', cta: 'View Packages', link: 'https://wa.me/60179081447' },
-            { icon: '🎂', text: '<strong>Family gathering catering</strong> – Muiz Happy Box and Nasi Kandar platters for birthday parties and reunions.', cta: 'Order Now', link: 'https://wa.me/60179081447' },
-            { icon: '🏢', text: '<strong>Office lunch catering</strong> – halal food delivered to your office in KL, PJ, Shah Alam & Subang Jaya.', cta: 'Contact Us', link: 'https://wa.me/60179081447' },
-            { icon: '🎈', text: '<strong>Birthday party catering</strong> – halal food for kids and adults. Muiz Happy Box is a crowd favourite!', cta: 'Order Now', link: 'https://wa.me/60179081447' },
-            // ---- BRAND TRUST SEO ----
+
+            // ---- TRUST ----
             { icon: '✅', text: '<strong>200+ branches nationwide</strong> – part of Malaysia\'s trusted Muiz Hot Chicken family. Serving Subang Jaya since 2026.', cta: 'Learn More', link: '#about' },
             { icon: '🛡️', text: '<strong>MeSTI certified</strong> – food safety guaranteed by the Ministry of Health Malaysia. Dine with confidence in USJ 8.', cta: 'About Us', link: '#about' },
-            { icon: '⭐', text: '<strong>5★ rated on Google</strong> – our customers love the crispy chicken, friendly service, and fast delivery in Subang Jaya.', cta: 'Read Reviews', link: '#reviewsGrid' },
             { icon: '🕌', text: '<strong>100% Muslim-owned</strong> – serving authentic halal Malaysian cuisine with pride in Subang Jaya USJ 8.', cta: 'About Us', link: '#about' },
-            { icon: '🌟', text: '<strong>Customer favourite in USJ 8</strong> – 5★ Google rating for our crispy Muiz Hot Chicken and Nasi Kandar.', cta: 'Read Reviews', link: '#reviewsGrid' },
-            { icon: '🏅', text: '<strong>Trusted halal brand</strong> – part of the Muiz Hot Chicken family with 200+ branches across Malaysia.', cta: 'Learn More', link: '#about' },
-            // ---- SERVICE FEATURES SEO ----
+
+            // ---- CONVENIENCE ----
             { icon: '📱', text: '<strong>Download our app</strong> – order Muiz Hot Chicken faster on iOS and Android. Exclusive deals available.', cta: 'Launch App', link: '#app-modal' },
-            { icon: '💳', text: '<strong>All payments accepted</strong> – cash, credit card, debit card, GrabPay, and Touch \'n Go at Restoran Pak Haji Ali.', cta: 'Learn More', link: '#about' },
             { icon: '🕐', text: '<strong>Open 9am–9pm daily</strong> – breakfast, lunch, and dinner at our USJ 8 outlet. Visit us for the best halal food.', cta: 'Visit Us', link: '#map-section' },
-            { icon: '📞', text: '<strong>Order halal food now</strong> – call or WhatsApp +6017-908 1447 for delivery in Subang Jaya and KL.', cta: 'Call Now', link: 'https://wa.me/60179081447' },
             { icon: '📍', text: '<strong>Visit us at Goodyear Court 6, USJ 8</strong> – the best halal restaurant in Subang Jaya. Easy parking available.', cta: 'Get Directions', link: '#map-section' },
-            // ---- SPECIALTY SEO ----
-            { icon: '🔥', text: '<strong>Muiz Hot Chicken delivery</strong> – get the best crispy fried chicken in Subang Jaya delivered to your door.', cta: 'Order Now', link: 'https://wa.me/60179081447' },
-            { icon: '🌶️', text: '<strong>Spicy halal chicken</strong> – Korean Spicy Muiz Hot Chicken is a must-try for spice lovers in USJ 8.', cta: 'Try It', link: '#fullMenu' },
-            { icon: '🧀', text: '<strong>Cheese chicken box</strong> – Muiz Hot Chicken with cheese sauce. A customer favourite in Subang Jaya.', cta: 'Order Now', link: '#fullMenu' },
+            { icon: '📞', text: '<strong>Order halal food now</strong> – call or WhatsApp +6017-908 1447 for delivery in Subang Jaya and KL.', cta: 'Call Now', link: 'https://wa.me/60179081447' },
+
+            // ---- VEGETARIAN ----
             { icon: '🥗', text: '<strong>Vegetarian options available</strong> – delicious vegetable dishes, soups, and sides at our halal restaurant in USJ 8.', cta: 'View Menu', link: '#fullMenu' },
-            { icon: '🍗', text: '<strong>Best halal fried chicken in Subang Jaya</strong> – crispy, juicy, and JAKIM Halal certified. Order now!', cta: 'Order Now', link: '#fullMenu' },
-            { icon: '🍛', text: '<strong>Best Nasi Kandar in USJ 8</strong> – authentic kuah banjir with 15-spice recipe. Must-try halal food!', cta: 'View Menu', link: '#fullMenu' },
-            { icon: '🥘', text: '<strong>Best Tomyam in Subang Jaya</strong> – spicy seafood tomyam with prawns and squid. Premium halal Thai cuisine.', cta: 'Try It', link: '#fullMenu' },
+
+            // ---- SPECIALTY ----
             { icon: '🔥', text: '<strong>Halal crispy chicken delivery</strong> – Muiz Hot Chicken delivered to Subang Jaya, KL, Shah Alam & Klang.', cta: 'Order Now', link: 'https://wa.me/60179081447' },
             { icon: '🏆', text: '<strong>Top-rated halal restaurant in Subang Jaya</strong> – 5★ Google rating for food quality and service.', cta: 'Read Reviews', link: '#reviewsGrid' },
-            { icon: '🎯', text: '<strong>Student budget meals</strong> – halal food under RM15 for Taylor\'s, Sunway, Monash & INTI students.', cta: 'View Deals', link: '#fullMenu' },
             { icon: '🌿', text: '<strong>Halal vegetarian food in Subang Jaya</strong> – we offer delicious vegetarian options. JAKIM Halal certified.', cta: 'View Menu', link: '#fullMenu' },
             { icon: '🍗', text: '<strong>Crispy Muiz Hot Chicken with cheese sauce</strong> – the ultimate halal comfort food in USJ 8, Subang Jaya.', cta: 'Order Now', link: '#fullMenu' },
-            { icon: '🍛', text: '<strong>Nasi Kandar with Muiz Hot Chicken</strong> – authentic kuah banjir and crispy chicken. Best halal food in Subang Jaya.', cta: 'View Menu', link: '#fullMenu' },
-            // ---- PROMOTIONAL ----
-            { icon: '🎁', text: '<strong>First order discount</strong> – get a special offer on your first order via WhatsApp. DM us now!', cta: 'Order Now', link: 'https://wa.me/60179081447' },
-            { icon: '🔥', text: '<strong>Follow us on Instagram & TikTok</strong> – exclusive deals and daily specials from Muiz Hot Chicken.', cta: 'Follow Now', link: 'https://www.instagram.com/muizhotchicken/' },
-            { icon: '🎯', text: '<strong>Refer a friend and get RM5 off</strong> – share the love of Muiz Hot Chicken with your friends and family.', cta: 'Refer Now', link: 'https://wa.me/60179081447' },
-            { icon: '🏅', text: '<strong>100% Muslim-owned halal restaurant</strong> – serving authentic Malaysian cuisine with pride in Subang Jaya.', cta: 'About Us', link: '#about' },
-            // ---- ULTRA SEO KEYWORD BOMB ----
-            { icon: '📍', text: 'Restoran Pak Haji Ali & Muiz Hot Chicken – <strong>Subang Jaya USJ 8</strong> – halal crispy chicken, Nasi Kandar, Tomyam, and more!', cta: 'View Menu', link: '#fullMenu' },
-            { icon: '🍗', text: '<strong>Muiz Hot Chicken</strong> – the crispiest halal fried chicken in Subang Jaya. JAKIM Halal certified since 2026.', cta: 'Order Now', link: '#fullMenu' },
-            { icon: '🌶️', text: '<strong>Authentic Nasi Kandar</strong> and <strong>Muiz Hot Chicken</strong> – the best halal food combo in USJ 8.', cta: 'View Menu', link: '#fullMenu' },
-            { icon: '🕌', text: '<strong>JAKIM Halal</strong> and <strong>MeSTI certified</strong> – your trusted halal restaurant in Subang Jaya.', cta: 'Learn More', link: '#about' },
-            { icon: '⭐', text: '<strong>5★ halal restaurant in Subang Jaya</strong> – crispy Muiz Hot Chicken, Nasi Kandar & Tomyam. Order now!', cta: 'Order Now', link: '#fullMenu' },
-            { icon: '🛵', text: '<strong>Halal food delivery</strong> – Muiz Hot Chicken delivered to Subang Jaya, KL, Shah Alam, PJ, and Klang.', cta: 'Order Now', link: 'https://wa.me/60179081447' },
-            { icon: '🎓', text: '<strong>Student budget meals under RM15</strong> – halal food near Taylor\'s, Sunway, Monash & INTI.', cta: 'View Deals', link: '#fullMenu' },
-            { icon: '🎉', text: '<strong>Halal catering</strong> – corporate, wedding, and student event catering in Selangor & KL. Call +6017-908 1447.', cta: 'Contact Us', link: 'https://wa.me/60179081447' },
-            { icon: '🧀', text: '<strong>Cheese Muiz Hot Chicken</strong> – crispy chicken with creamy cheese sauce. Best halal comfort food in USJ 8.', cta: 'Order Now', link: '#fullMenu' },
-            { icon: '🌶️', text: '<strong>Korean Spicy Muiz Hot Chicken</strong> – spicy, crispy, and halal. A must-try in Subang Jaya!', cta: 'Try It', link: '#fullMenu' },
-            { icon: '🍛', text: '<strong>Nasi Kandar kuah banjir</strong> – authentic 15-spice recipe. The best halal Nasi Kandar in Subang Jaya.', cta: 'View Menu', link: '#fullMenu' },
-            { icon: '🍤', text: '<strong>Tomyam Seafood</strong> – spicy Thai tomyam with prawns and squid. Premium halal seafood in USJ 8.', cta: 'Try It', link: '#fullMenu' },
-            { icon: '🍚', text: '<strong>Nasi Goreng Kampung</strong> – classic halal fried rice with your choice of chicken, beef, or seafood.', cta: 'View Menu', link: '#fullMenu' },
-            { icon: '🍗', text: '<strong>Nasi Ayam Muiz Chicken</strong> – aromatic chicken rice with crispy Muiz-style fried chicken. Halal and delicious.', cta: 'Order Now', link: '#fullMenu' },
-            { icon: '🥘', text: '<strong>Nasi Penyet</strong> – smashed chicken or beef with sambal. Authentic Indonesian halal food in USJ 8.', cta: 'View Menu', link: '#fullMenu' },
-            { icon: '🍜', text: '<strong>Mee Pak Haji Ali</strong> – traditional halal noodles with a special house blend recipe.', cta: 'Try It', link: '#fullMenu' },
-            { icon: '🍛', text: '<strong>Nasi Bujang</strong> – affordable halal meal with rice, omelette, soup, and sambal. Under RM5!', cta: 'View Menu', link: '#fullMenu' },
-            { icon: '🍲', text: '<strong>Sup Ayam & Sup Daging</strong> – hearty chicken and beef soups. Perfect for a comforting halal meal.', cta: 'View Menu', link: '#fullMenu' },
-            { icon: '🏙️', text: '<strong>Best halal restaurant in USJ 8</strong> – Muiz Hot Chicken, Nasi Kandar, Tomyam & more. Visit us today!', cta: 'Visit Us', link: '#map-section' },
-            { icon: '📍', text: '<strong>Restoran Pak Haji Ali & Muiz Hot Chicken</strong> – Goodyear Court 6, USJ 8. The best halal food in Subang Jaya.', cta: 'Get Directions', link: '#map-section' },
-            { icon: '📱', text: '<strong>Order halal food online</strong> – Muiz Hot Chicken delivery via WhatsApp, GrabFood, Foodpanda & ShopeeFood.', cta: 'Order Now', link: 'https://wa.me/60179081447' },
-            { icon: '💳', text: '<strong>All payment methods accepted</strong> – cash, card, GrabPay, and Touch \'n Go at Restoran Pak Haji Ali.', cta: 'Learn More', link: '#about' },
-            { icon: '🕐', text: '<strong>Open 9am–9pm daily</strong> – breakfast, lunch, and dinner at our halal restaurant in Subang Jaya USJ 8.', cta: 'Visit Us', link: '#map-section' },
-            { icon: '🏆', text: '<strong>Top-rated halal restaurant</strong> – 5★ Google rating for Muiz Hot Chicken and Nasi Kandar in Subang Jaya.', cta: 'Read Reviews', link: '#reviewsGrid' },
-            { icon: '🌟', text: '<strong>Join thousands of happy customers</strong> – the best halal crispy chicken in Subang Jaya is just a click away.', cta: 'Order Now', link: '#fullMenu' },
-            { icon: '🎯', text: '<strong>Craving crispy chicken?</strong> Get Muiz Hot Chicken delivered to your doorstep in Subang Jaya, KL & Selangor.', cta: 'Order Now', link: 'https://wa.me/60179081447' },
-            { icon: '❤️', text: '<strong>Made with love and halal ingredients</strong> – every dish at Restoran Pak Haji Ali is prepared fresh daily.', cta: 'View Menu', link: '#fullMenu' },
-            { icon: '😋', text: '<strong>Still hungry?</strong> Explore our full menu of halal Malaysian, Thai, and Nasi Kandar dishes in USJ 8.', cta: 'Explore Menu', link: '#fullMenu' }
+            { icon: '🍛', text: '<strong>Nasi Kandar with Muiz Hot Chicken</strong> – authentic kuah banjir and crispy chicken. Best halal food in Subang Jaya.', cta: 'View Menu', link: '#fullMenu' }
         ];
 
         // ----- RANDOM MESSAGE (every refresh) -----
@@ -337,7 +355,7 @@
         var metaDesc = document.querySelector('meta[name="description"]');
         if (metaDesc) {
             var descKeywords = [
-                'Best halal crispy Muiz Hot Chicken in Subang Jaya USJ 8. JAKIM Halal certified, Nasi Kandar, Tomyam & delivery.',
+                'Best halal crispy Muiz Hot Chicken in Subang Jaya USJ 8. JAKIM Halal certified, Nasi Kandar, Tomyam & catering.',
                 'Halal fried chicken in Subang Jaya – Muiz Hot Chicken, Nasi Kandar & Malaysian-Thai cuisine. Order now!',
                 'Restoran Pak Haji Ali & Muiz Hot Chicken – halal food delivery in USJ 8, Klang Valley & Selangor.',
                 'Crispy Muiz Hot Chicken, Nasi Kandar kuah banjir & Tomyam in Subang Jaya. JAKIM Halal certified.',
