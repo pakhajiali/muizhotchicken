@@ -839,3 +839,143 @@ main {
         white-space: normal;
     }
 }
+/* ============================================================
+   FLOATING LINK - muizhotchicken.com.my
+   ============================================================ */
+.float-link {
+    position: fixed;
+    bottom: 100px;
+    right: 20px;
+    z-index: 999;
+    background: var(--card);
+    border: 1px solid var(--separator);
+    border-radius: 9999px;
+    padding: 10px 20px;
+    box-shadow: 0 4px 24px rgba(0, 0, 0, 0.08);
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    text-decoration: none;
+    color: var(--text);
+    font-family: inherit;
+    font-size: 13px;
+    font-weight: 600;
+    transition: all 0.3s cubic-bezier(0.2, 0.9, 0.4, 1);
+    backdrop-filter: blur(12px);
+    -webkit-backdrop-filter: blur(12px);
+    background: rgba(255, 255, 255, 0.92);
+    border: 1px solid rgba(0, 0, 0, 0.06);
+    animation: floatLinkIn 0.5s cubic-bezier(0.2, 0.9, 0.4, 1);
+}
+
+[data-theme="dark"] .float-link {
+    background: rgba(28, 28, 30, 0.92);
+    border-color: rgba(255, 255, 255, 0.06);
+}
+
+.float-link:hover {
+    transform: translateY(-3px) scale(1.03);
+    box-shadow: 0 8px 32px rgba(0, 0, 0, 0.12);
+    border-color: var(--primary);
+}
+
+[data-theme="dark"] .float-link:hover {
+    border-color: rgba(255, 255, 255, 0.2);
+}
+
+.float-link:active {
+    transform: scale(0.95);
+}
+
+.float-link-icon {
+    font-size: 16px;
+    line-height: 1;
+}
+
+.float-link-text {
+    font-weight: 600;
+    font-size: 13px;
+    letter-spacing: -0.2px;
+    color: var(--text);
+}
+
+.float-link-arrow {
+    font-size: 11px;
+    opacity: 0.6;
+    transition: var(--transition);
+    color: var(--text-secondary);
+}
+
+.float-link:hover .float-link-arrow {
+    opacity: 1;
+    transform: translate(2px, -2px);
+}
+
+@keyframes floatLinkIn {
+    from {
+        opacity: 0;
+        transform: translateY(20px) scale(0.95);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0) scale(1);
+    }
+}
+
+/* ----- PULSE INDICATOR (subtle attention grabber) ----- */
+.float-link::before {
+    content: '';
+    position: absolute;
+    inset: -2px;
+    border-radius: 9999px;
+    padding: 2px;
+    background: linear-gradient(135deg, #d62828, transparent 40%, transparent 60%, #d62828);
+    -webkit-mask: linear-gradient(#fff 0 0) content-box, linear-gradient(#fff 0 0);
+    -webkit-mask-composite: xor;
+    mask-composite: exclude;
+    opacity: 0;
+    transition: var(--transition);
+}
+
+.float-link:hover::before {
+    opacity: 1;
+}
+
+[data-theme="dark"] .float-link::before {
+    background: linear-gradient(135deg, #ff6b6b, transparent 40%, transparent 60%, #ff6b6b);
+}
+
+/* ============================================================
+   RESPONSIVE
+   ============================================================ */
+@media (max-width: 480px) {
+    .float-link {
+        bottom: 80px;
+        right: 12px;
+        padding: 8px 14px;
+        border-radius: 9999px;
+    }
+    .float-link-text {
+        font-size: 11px;
+    }
+    .float-link-icon {
+        font-size: 14px;
+    }
+    .float-link-arrow {
+        font-size: 10px;
+    }
+}
+
+@media (max-width: 380px) {
+    .float-link {
+        bottom: 72px;
+        right: 8px;
+        padding: 6px 12px;
+    }
+    .float-link-text {
+        font-size: 10px;
+    }
+    .float-link-icon {
+        font-size: 12px;
+    }
+}
