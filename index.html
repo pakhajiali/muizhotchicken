@@ -2,69 +2,49 @@
 <html lang="en" data-theme="light">
 <head>
     <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover, maximum-scale=1.0, user-scalable=no" />
     
-    <!-- ===== SEO ===== -->
-    <title>Restoran Pak Haji Ali & Muiz Hot Chicken - Subang Jaya (USJ 8) | Halal Crispy Chicken</title>
-    <meta name="description" content="JAKIM Halal certified crispy Muiz Hot Chicken, authentic Nasi Kandar & Malaysian-Thai cuisine in Subang Jaya USJ 8. Est. 2026. Dine-in, takeaway & delivery." />
-    <meta name="robots" content="index, follow" />
+    <title>Restoran Pak Haji Ali & Muiz Hot Chicken - Subang Jaya (USJ 8)</title>
+    <meta name="description" content="JAKIM Halal certified crispy Muiz Hot Chicken, authentic Nasi Kandar & Malaysian-Thai cuisine in Subang Jaya USJ 8. Est. 2026." />
     <link rel="canonical" href="https://muizhotchicken.com/" />
-    
-    <!-- ===== OPEN GRAPH ===== -->
     <meta property="og:title" content="Restoran Pak Haji Ali & Muiz Hot Chicken - Subang Jaya (USJ 8)" />
-    <meta property="og:description" content="JAKIM Halal certified crispy Muiz Hot Chicken, Nasi Kandar & Tomyam in USJ 8. Order now!" />
     <meta property="og:image" content="https://muizhotchicken.com/logo.webp" />
     <meta property="og:url" content="https://muizhotchicken.com/" />
-    <meta property="og:type" content="website" />
-    <meta property="og:site_name" content="Restoran Pak Haji Ali & Muiz Hot Chicken - Subang Jaya (USJ 8)" />
-    
-    <!-- ===== TWITTER ===== -->
-    <meta name="twitter:card" content="summary_large_image" />
-    <meta name="twitter:title" content="Restoran Pak Haji Ali & Muiz Hot Chicken - Subang Jaya (USJ 8)" />
-    <meta name="twitter:description" content="JAKIM Halal certified crispy Muiz Hot Chicken in USJ 8." />
-    <meta name="twitter:image" content="https://muizhotchicken.com/logo.webp" />
-    
-    <!-- ===== PWA ===== -->
     <meta name="theme-color" content="#000000" id="themeColor" />
-    <meta name="apple-mobile-web-app-capable" content="yes" />
-    <meta name="apple-mobile-web-app-title" content="Restoran Pak Haji Ali & Muiz Hot Chicken" />
     <link rel="manifest" href="manifest.json" />
     <link rel="icon" type="image/svg+xml" href="favicon.svg" />
-    <link rel="icon" type="image/png" sizes="96x96" href="favicon-96x96.png" />
     <link rel="apple-touch-icon" href="apple-touch-icon.png" />
     
-    <!-- ===== FONT AWESOME ===== -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css" />
-    
-    <!-- ===== STYLES ===== -->
     <link rel="stylesheet" href="style.css" />
 </head>
 <body>
-    <!-- ===== APP BANNER (No close button) ===== -->
-<div class="app-banner" id="appBanner">
-    <div class="app-banner-content">
-        <span class="app-banner-icon">📱</span>
-        <span class="app-banner-text">Experience our <strong>App Interface</strong> – faster, smoother, and feature-rich!</span>
-        <a href="#app-modal" class="app-banner-btn" id="appBannerBtn">
-            <i class="fas fa-arrow-right"></i> Launch App
-        </a>
+
+    <!-- ===== APP BANNER ===== -->
+    <div class="app-banner">
+        <div class="app-banner-content">
+            <span class="app-banner-icon">📱</span>
+            <span class="app-banner-text">Try our <strong>App Interface</strong> – faster &amp; smoother!</span>
+            <a href="#app-modal" class="app-banner-btn" id="appBannerBtn">
+                <i class="fas fa-arrow-right"></i> Launch App
+            </a>
+        </div>
     </div>
-</div>
 
     <!-- ===== THEME TOGGLE ===== -->
-    <button class="theme-toggle" id="themeToggle" aria-label="Toggle theme">
+    <button class="theme-toggle" id="themeToggle">
         <i class="fas fa-moon" id="themeIcon"></i>
     </button>
 
     <!-- ===== MAIN CONTENT ===== -->
-    <main class="main-content">
+    <main>
+
         <!-- ===== HERO ===== -->
         <section class="hero">
             <div class="hero-content">
                 <span class="hero-logo">🍗</span>
                 <h1>Restoran Pak Haji Ali <span class="amp">&amp;</span> Muiz Hot Chicken</h1>
                 <p class="hero-sub">Subang Jaya (USJ 8)</p>
-                <p class="hero-location"><i class="fas fa-location-dot"></i> Goodyear Court 6, Persiaran Mulia</p>
                 <div class="hero-badges">
                     <span><i class="fas fa-certificate"></i> JAKIM Halal</span>
                     <span><i class="fas fa-shield-halved"></i> MeSTI</span>
@@ -72,7 +52,7 @@
                 </div>
                 <div class="hero-actions">
                     <a href="#fullMenu" class="btn btn-primary"><i class="fas fa-utensils"></i> View Menu</a>
-                    <a href="https://wa.me/60179081447?text=Hi%2C%20I%20want%20to%20place%20an%20order%20from%20Restoran%20Pak%20Haji%20Ali%20%26%20Muiz%20Hot%20Chicken%20-%20Subang%20Jaya%20(USJ%208)." target="_blank" class="btn btn-wa"><i class="fab fa-whatsapp"></i> Order Now</a>
+                    <a href="#map-section" class="btn btn-outline"><i class="fas fa-location-dot"></i> Find Us</a>
                 </div>
             </div>
             <div class="hero-stats">
@@ -82,39 +62,68 @@
             </div>
         </section>
 
+        <!-- ===== GOOGLE MAPS SECTION (NO API KEY) ===== -->
+        <section class="map-section" id="map-section">
+            <div class="map-container">
+                <div class="map-embed">
+                    <iframe 
+                        src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3983.799281861561!2d101.590658!3d3.044170!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x31ccb4a4c4b4b4b3%3A0xb0c3f1c46d9bc94!2sRestoran%20Pak%20Haji%20Ali%20%26%20Muiz%20Hot%20Chicken!5e0!3m2!1sen!2smy!4v1650000000000!5m2!1sen!2smy" 
+                        width="100%" 
+                        height="280" 
+                        style="border:0;" 
+                        allowfullscreen="" 
+                        loading="lazy" 
+                        referrerpolicy="no-referrer-when-downgrade">
+                    </iframe>
+                </div>
+                <div class="map-details">
+                    <div class="map-address">
+                        <i class="fas fa-location-dot"></i>
+                        <div>
+                            <strong>J2-00-04, Subang Perdana Phase 3</strong>
+                            <span>Persiaran Mulia, Goodyear Court 6, USJ 8</span>
+                            <span>47610 Subang Jaya, Selangor</span>
+                        </div>
+                    </div>
+                    <div class="map-actions">
+                        <a href="https://g.page/r/CUrZw9xvAXIPEBE" target="_blank" rel="noopener" class="btn-google-maps">
+                            <i class="fab fa-google"></i> Open in Google Maps
+                        </a>
+                        <a href="https://wa.me/60179081447?text=Hi%2C%20I%20want%20directions%20to%20your%20restaurant" target="_blank" rel="noopener" class="btn-whatsapp-directions">
+                            <i class="fab fa-whatsapp"></i> Get Directions
+                        </a>
+                    </div>
+                </div>
+            </div>
+        </section>
+
         <!-- ===== FEATURED MENU ===== -->
         <section class="featured" id="menu">
             <div class="section-header">
                 <h2 class="section-title">🔥 Most Ordered</h2>
-                <p class="section-sub">Customer favourites from our kitchen</p>
+                <p class="section-sub">Customer favourites</p>
             </div>
-            <div class="featured-grid" id="featuredGrid">
-                <!-- Rendered by JavaScript -->
-            </div>
+            <div class="featured-grid" id="featuredGrid"></div>
         </section>
 
         <!-- ===== FULL MENU ===== -->
         <section class="full-menu" id="fullMenu">
             <div class="section-header">
                 <h2 class="section-title">📋 Full Menu</h2>
-                <p class="section-sub">All our delicious offerings – JAKIM Halal certified</p>
+                <p class="section-sub">All our offerings – JAKIM Halal certified</p>
             </div>
-            <div id="fullMenuGrid">
-                <!-- Rendered by JavaScript -->
-            </div>
+            <div id="fullMenuGrid"></div>
         </section>
 
         <!-- ===== REVIEWS ===== -->
         <section class="reviews">
             <div class="section-header">
                 <h2 class="section-title">💬 Customer Reviews</h2>
-                <p class="section-sub">What people are saying on Google</p>
+                <p class="section-sub">What people are saying</p>
             </div>
-            <div class="reviews-grid" id="reviewsGrid">
-                <!-- Rendered by JavaScript -->
-            </div>
+            <div class="reviews-grid" id="reviewsGrid"></div>
             <div class="reviews-cta">
-                <a href="https://g.page/r/CUrZw9xvAXIPEBE/review" target="_blank" class="btn btn-google">
+                <a href="https://g.page/r/CUrZw9xvAXIPEBE/review" target="_blank" class="btn-google">
                     <i class="fab fa-google"></i> Leave a Review
                 </a>
             </div>
@@ -126,52 +135,28 @@
                 <span class="about-tag"><i class="fas fa-certificate"></i> JAKIM Halal Certified</span>
                 <h2>Welcome to <span>Restoran Pak Haji Ali <br>&amp; Muiz Hot Chicken</span></h2>
                 <p>Established on <strong>1 May 2026</strong>, our JAKIM Halal-certified restaurant in <strong>Subang Jaya (USJ 8)</strong> specializes in crispy <strong>Muiz Hot Chicken</strong>, authentic <strong>Nasi Kandar</strong>, and delicious <strong>Malaysian-Thai cuisine</strong>.</p>
-                <p>Enjoy freshly prepared crunchy fried chicken, spicy seafood tomyam, nasi goreng favourites and many more. Whether you're dining in, taking away or ordering through GrabFood, we serve quality meals in a clean and family-friendly environment every day.</p>
                 <div class="about-certifications">
-                    <div class="cert-item">
-                        <img src="/images/jakim-halal-cert-product.webp" alt="JAKIM Halal" loading="lazy" />
-                        <span>JAKIM Halal</span>
-                    </div>
-                    <div class="cert-item">
-                        <img src="/images/mesti-cert.webp" alt="MeSTI" loading="lazy" />
-                        <span>MeSTI Certified</span>
-                    </div>
+                    <div class="cert-item"><img src="jakim-halal-cert-product.webp" alt="JAKIM Halal" loading="lazy" /><span>JAKIM Halal</span></div>
+                    <div class="cert-item"><img src="mesti-cert.webp" alt="MeSTI" loading="lazy" /><span>MeSTI Certified</span></div>
                 </div>
             </div>
         </section>
 
         <!-- ===== APP MODAL ===== -->
-<div class="app-modal" id="appModal">
-    <div class="app-modal-overlay" id="appModalOverlay"></div>
-    <div class="app-modal-content">
-        <button class="app-modal-close" id="appModalClose"><i class="fas fa-times"></i></button>
-        <h2>Choose Your Experience</h2>
-        <p>Select your preferred platform to launch the app interface</p>
-        <div class="app-modal-cards">
-            <a href="/ios/" class="app-modal-card ios" data-platform="ios">
-                <i class="fab fa-apple"></i>
-                <span>iOS</span>
-                <small>Cupertino Design</small>
-            </a>
-            <a href="/android/" class="app-modal-card android" data-platform="android">
-                <i class="fab fa-android"></i>
-                <span>Android</span>
-                <small>Material Design</small>
-            </a>
-            <a href="/web/" class="app-modal-card web" data-platform="web">
-                <i class="fas fa-desktop"></i>
-                <span>Web</span>
-                <small>Desktop Optimized</small>
-            </a>
-            <!-- ===== LEGACY WEBSITE ===== -->
-            <a href="https://pakhajiali.github.io/menu/" target="_blank" rel="noopener noreferrer" class="app-modal-card legacy" data-platform="legacy">
-                <i class="fas fa-globe"></i>
-                <span>Legacy</span>
-                <small>Classic Website</small>
-            </a>
+        <div class="app-modal" id="appModal">
+            <div class="app-modal-overlay" id="appModalOverlay"></div>
+            <div class="app-modal-content">
+                <button class="app-modal-close" id="appModalClose"><i class="fas fa-times"></i></button>
+                <h2>Choose Your Experience</h2>
+                <p>Select your preferred platform</p>
+                <div class="app-modal-cards">
+                    <a href="/ios/" class="app-modal-card ios" data-platform="ios"><i class="fab fa-apple"></i><span>iOS</span><small>Cupertino</small></a>
+                    <a href="/android/" class="app-modal-card android" data-platform="android"><i class="fab fa-android"></i><span>Android</span><small>Material</small></a>
+                    <a href="/web/" class="app-modal-card web" data-platform="web"><i class="fas fa-desktop"></i><span>Web</span><small>Desktop</small></a>
+                    <a href="https://pakhajiali.github.io/menu/" target="_blank" rel="noopener" class="app-modal-card legacy" data-platform="legacy"><i class="fas fa-globe"></i><span>Legacy</span><small>Classic</small></a>
+                </div>
+            </div>
         </div>
-    </div>
-</div>
 
         <!-- ===== FOOTER ===== -->
         <footer class="footer">
@@ -182,15 +167,11 @@
                 </div>
                 <div class="footer-links">
                     <a href="https://wa.me/60179081447" target="_blank"><i class="fab fa-whatsapp"></i> WhatsApp</a>
-                    <a href="tel:+60179081447"><i class="fas fa-phone"></i> Call Us</a>
+                    <a href="tel:+60179081447"><i class="fas fa-phone"></i> Call</a>
                     <a href="https://g.page/r/CUrZw9xvAXIPEBE" target="_blank"><i class="fas fa-map-pin"></i> Google Maps</a>
                     <a href="https://www.facebook.com/61591075012810/" target="_blank"><i class="fab fa-facebook"></i> Facebook</a>
                     <a href="https://www.tiktok.com/@muiz.fried.chicken" target="_blank"><i class="fab fa-tiktok"></i> TikTok</a>
                     <a href="https://www.youtube.com/@MHCRestoranPakHajiAli" target="_blank"><i class="fab fa-youtube"></i> YouTube</a>
-                    <a href="https://r.grab.com/g/6-20260630_094247_c8be9e5df8e142aeba682bdb1ba93358_MEXMPS-1-C6D2TUKFCP2UT6" target="_blank"><i class="fas fa-bag-shopping"></i> GrabFood</a>
-                    <a href="https://www.foodpanda.my/restaurant/bn66/restoran-pak-haji-ali-and-muiz-hot-chicken-bn66" target="_blank"><i class="fas fa-utensils"></i> Foodpanda</a>
-                    <a href="https://link.misirakyat.com/vendor/a1fc8eb6-2559-4031-b513-e5c07874a04b" target="_blank"><i class="fas fa-mobile-screen"></i> Misirakyat</a>
-                    <a href="https://pakhajiali.github.io/menu/" target="_blank"><i class="fas fa-globe"></i> Classic Site</a>
                 </div>
                 <div class="footer-copy">
                     <p>&copy; 2026 Restoran Pak Haji Ali &amp; Muiz Hot Chicken - Subang Jaya (USJ 8). All rights reserved.</p>
@@ -199,7 +180,6 @@
         </footer>
     </main>
 
-    <!-- ===== SCRIPTS ===== -->
     <script src="shared/data.js"></script>
     <script src="script.js"></script>
 </body>
