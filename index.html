@@ -62,7 +62,7 @@
             </div>
         </section>
 
-        <!-- ===== GOOGLE MAPS SECTION (NO API KEY) ===== -->
+        <!-- ===== GOOGLE MAPS SECTION ===== -->
         <section class="map-section" id="map-section">
             <div class="map-container">
                 <div class="map-embed">
@@ -136,8 +136,14 @@
                 <h2>Welcome to <span>Restoran Pak Haji Ali <br>&amp; Muiz Hot Chicken</span></h2>
                 <p>Established on <strong>1 May 2026</strong>, our JAKIM Halal-certified restaurant in <strong>Subang Jaya (USJ 8)</strong> specializes in crispy <strong>Muiz Hot Chicken</strong>, authentic <strong>Nasi Kandar</strong>, and delicious <strong>Malaysian-Thai cuisine</strong>.</p>
                 <div class="about-certifications">
-                    <div class="cert-item"><img src="/images/jakim-halal-cert-product.webp" alt="JAKIM Halal" loading="lazy" /><span>JAKIM Halal</span></div>
-                    <div class="cert-item"><img src="/images/mesti-cert.webp" alt="MeSTI" loading="lazy" /><span>MeSTI Certified</span></div>
+                    <div class="cert-item">
+                        <img src="/images/jakim-halal-cert-product.webp" alt="JAKIM Halal" loading="lazy" />
+                        <span>JAKIM Halal</span>
+                    </div>
+                    <div class="cert-item">
+                        <img src="/images/mesti-cert.webp" alt="MeSTI" loading="lazy" />
+                        <span>MeSTI Certified</span>
+                    </div>
                 </div>
             </div>
         </section>
@@ -154,6 +160,27 @@
                     <a href="/android/" class="app-modal-card android" data-platform="android"><i class="fab fa-android"></i><span>Android</span><small>Material</small></a>
                     <a href="/web/" class="app-modal-card web" data-platform="web"><i class="fas fa-desktop"></i><span>Web</span><small>Desktop</small></a>
                     <a href="https://pakhajiali.github.io/menu/" target="_blank" rel="noopener" class="app-modal-card legacy" data-platform="legacy"><i class="fas fa-globe"></i><span>Legacy</span><small>Classic</small></a>
+                </div>
+            </div>
+        </div>
+
+        <!-- ===== ITEM DETAIL MODAL ===== -->
+        <div class="item-modal" id="itemModal">
+            <div class="item-modal-overlay" id="itemModalOverlay"></div>
+            <div class="item-modal-content">
+                <button class="item-modal-close" id="itemModalClose"><i class="fas fa-times"></i></button>
+                <div class="item-modal-image">
+                    <img id="itemModalImg" src="" alt="Item Image" />
+                </div>
+                <div class="item-modal-info">
+                    <h2 id="itemModalName">Item Name</h2>
+                    <p class="item-modal-desc" id="itemModalDesc">Description</p>
+                    <div class="item-modal-price" id="itemModalPrice">RM0.00</div>
+                    <div class="item-modal-actions">
+                        <a href="#" id="itemModalAppBtn" class="btn-app-order">
+                            <i class="fas fa-shopping-bag"></i> Order in App
+                        </a>
+                    </div>
                 </div>
             </div>
         </div>
@@ -183,4 +210,4 @@
     <script src="shared/data.js"></script>
     <script src="script.js"></script>
 </body>
-</html>
+                                                                                                                                                                                                                              </html>
