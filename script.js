@@ -123,7 +123,7 @@
         }).join('');
     }
 
-    // ----- ITEM DETAIL MODAL -----
+    // ----- ITEM DETAIL MODAL (Platform-Aware) -----
     var itemModal = document.getElementById('itemModal');
     var itemOverlay = document.getElementById('itemModalOverlay');
     var itemClose = document.getElementById('itemModalClose');
@@ -138,9 +138,31 @@
         itemName.textContent = name;
         itemDesc.textContent = desc || '';
         itemPrice.textContent = 'RM' + parseFloat(price).toFixed(2);
-        // Link to the app (web app with menu page)
-        var appBase = window.location.pathname.includes('/muizhotchicken/') ? '/muizhotchicken/web/' : '/web/';
-        itemAppBtn.href = appBase + '#menu';
+
+        // ----- DETECT PLATFORM (Smart) -----
+        var currentPath = window.location.pathname;
+        var platform = 'web'; // default fallback
+
+        // 1. Detect from URL path
+        if (currentPath.includes('/ios/')) {
+            platform = 'ios';
+        } else if (currentPath.includes('/android/')) {
+            platform = 'android';
+        } else if (currentPath.includes('/web/')) {
+            platform = 'web';
+        } else {
+            // 2. If on landing page, check localStorage for preferred platform
+            var pref = localStorage.getItem('preferred-platform');
+            if (pref && ['ios', 'android', 'web'].indexOf(pref) !== -1) {
+                platform = pref;
+            }
+        }
+
+        // 3. Build the app link with the detected platform
+        var base = currentPath.includes('/muizhotchicken/') ? '/muizhotchicken/' : '/';
+        itemAppBtn.href = base + platform + '/#menu';
+
+        // Open modal
         itemModal.classList.add('open');
         document.body.style.overflow = 'hidden';
     };
