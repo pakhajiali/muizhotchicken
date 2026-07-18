@@ -1056,3 +1056,10 @@ img {
         font-size: 20px;
     }
 }
+.app-modal-card.legacy i {
+    color: #f59e0b;
+}
+
+.app-modal-card.legacy:hover {
+    border-color: #f59e0b;
+}
