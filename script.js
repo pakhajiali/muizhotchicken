@@ -271,6 +271,27 @@
                 .catch(function(err) { console.log('❌ SW failed:', err); });
         });
     }
+   // ============================================================
+// FEATURED VIDEO - Hide Overlay After Autoplay Starts
+// ============================================================
+(function() {
+    var overlay = document.getElementById('playOverlay');
+    var wrapper = document.querySelector('.video-thumbnail-wrapper');
+
+    if (overlay && wrapper) {
+        // Hide overlay after 1.5 seconds (video autoplays muted)
+        setTimeout(function() {
+            wrapper.classList.add('loaded');
+            overlay.style.display = 'none';
+        }, 1500);
+
+        // Also hide on click (user interaction)
+        overlay.addEventListener('click', function() {
+            wrapper.classList.add('loaded');
+            overlay.style.display = 'none';
+        });
+    }
+})();
 
     console.log('🍗 iOS-style landing page loaded with external messages');
 })();
