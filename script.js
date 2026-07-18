@@ -65,13 +65,16 @@
                     '<img src="' + item.img + '" alt="' + escapeHtml(item.name) + '" loading="lazy" />' +
                     '<h4>' + escapeHtml(item.name) + '</h4>' +
                     '<div class="price">RM' + item.price.toFixed(2) + '</div>' +
-                    '<button class="add-btn" onclick="addToCart(\'' + escapeHtml(item.name) + '\', ' + item.price + ', \'' + item.img + '\', \'' + escapeHtml(item.desc) + '\')">+ Add</button>' +
+                    '<button class="add-btn" onclick="openItemModal(\'' + escapeHtml(item.name) + '\', ' + item.price + ', \'' + item.img + '\', \'' + escapeHtml(item.desc) + '\')">+ Add</button>' +
                     '</div>';
             }).join('');
             featuredGrid.querySelectorAll('.featured-item').forEach(function(el) {
                 el.addEventListener('click', function(e) {
-                    if (e.target.closest('.add-btn')) return;
-                    alert('🍗 ' + this.dataset.name + '\n' + this.dataset.desc + '\nPrice: RM' + parseFloat(this.dataset.price).toFixed(2));
+                    if (e.target.closest('.add-btn')) {
+                        openItemModal(this.dataset.name, this.dataset.price, this.dataset.img, this.dataset.desc);
+                        return;
+                    }
+                    openItemModal(this.dataset.name, this.dataset.price, this.dataset.img, this.dataset.desc);
                 });
             });
         }
@@ -90,7 +93,7 @@
                     '<p class="menu-item-desc">' + escapeHtml(item.desc) + '</p>' +
                     '<div class="menu-item-bottom">' +
                     '<span class="menu-item-price">RM' + item.price.toFixed(2) + '</span>' +
-                    '<button class="add-btn-small" onclick="addToCart(\'' + escapeHtml(item.name) + '\', ' + item.price + ', \'' + item.img + '\', \'' + escapeHtml(item.desc) + '\')">+ Add</button>' +
+                    '<button class="add-btn-small" onclick="openItemModal(\'' + escapeHtml(item.name) + '\', ' + item.price + ', \'' + item.img + '\', \'' + escapeHtml(item.desc) + '\')">+ Add</button>' +
                     '</div></div>';
             });
             html += '</div></div>';
@@ -98,8 +101,11 @@
         fullGrid.innerHTML = html;
         fullGrid.querySelectorAll('.menu-category-item').forEach(function(el) {
             el.addEventListener('click', function(e) {
-                if (e.target.closest('.add-btn-small')) return;
-                alert('🍗 ' + this.dataset.name + '\n' + this.dataset.desc + '\nPrice: RM' + parseFloat(this.dataset.price).toFixed(2));
+                if (e.target.closest('.add-btn-small')) {
+                    openItemModal(this.dataset.name, this.dataset.price, this.dataset.img, this.dataset.desc);
+                    return;
+                }
+                openItemModal(this.dataset.name, this.dataset.price, this.dataset.img, this.dataset.desc);
             });
         });
     }
@@ -117,10 +123,38 @@
         }).join('');
     }
 
-    // ----- CART FUNCTION (simple) -----
-    window.addToCart = function(name, price, img, desc) {
-        alert('🍗 Added to cart: ' + name + '\nPrice: RM' + price.toFixed(2) + '\n\n💡 Use the App for full cart management!');
+    // ----- ITEM DETAIL MODAL -----
+    var itemModal = document.getElementById('itemModal');
+    var itemOverlay = document.getElementById('itemModalOverlay');
+    var itemClose = document.getElementById('itemModalClose');
+    var itemImg = document.getElementById('itemModalImg');
+    var itemName = document.getElementById('itemModalName');
+    var itemDesc = document.getElementById('itemModalDesc');
+    var itemPrice = document.getElementById('itemModalPrice');
+    var itemAppBtn = document.getElementById('itemModalAppBtn');
+
+    window.openItemModal = function(name, price, img, desc) {
+        itemImg.src = img || 'images/placeholder.webp';
+        itemName.textContent = name;
+        itemDesc.textContent = desc || '';
+        itemPrice.textContent = 'RM' + parseFloat(price).toFixed(2);
+        // Link to the app (web app with menu page)
+        var appBase = window.location.pathname.includes('/muizhotchicken/') ? '/muizhotchicken/web/' : '/web/';
+        itemAppBtn.href = appBase + '#menu';
+        itemModal.classList.add('open');
+        document.body.style.overflow = 'hidden';
     };
+
+    function closeItemModal() {
+        itemModal.classList.remove('open');
+        document.body.style.overflow = '';
+    }
+
+    itemOverlay.addEventListener('click', closeItemModal);
+    itemClose.addEventListener('click', closeItemModal);
+    document.addEventListener('keydown', function(e) {
+        if (e.key === 'Escape') closeItemModal();
+    });
 
     // ----- HELPERS -----
     function escapeHtml(str) {
