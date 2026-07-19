@@ -293,24 +293,27 @@
     }
 })();
 
-   // ============================================================
-// CUSTOMER VIDEO - Hide Overlay After Autoplay Starts
+// ============================================================
+// CUSTOMER VIDEO - Overlay (No Autoplay)
 // ============================================================
 (function() {
     var overlay2 = document.getElementById('playOverlay2');
     var wrapper2 = document.querySelector('.customer-video .video-thumbnail-wrapper');
 
     if (overlay2 && wrapper2) {
-        // Hide overlay after 1.5 seconds (video autoplays muted)
-        setTimeout(function() {
-            wrapper2.classList.add('loaded');
-            overlay2.style.display = 'none';
-        }, 1500);
-
-        // Also hide on click (user interaction)
+        // Only hide on click (user interaction)
         overlay2.addEventListener('click', function() {
             wrapper2.classList.add('loaded');
             overlay2.style.display = 'none';
+            
+            // Load the video with autoplay when clicked
+            var iframe = wrapper2.querySelector('iframe');
+            if (iframe) {
+                var src = iframe.src;
+                if (!src.includes('autoplay=1')) {
+                    iframe.src = src + (src.includes('?') ? '&' : '?') + 'autoplay=1';
+                }
+            }
         });
     }
 })();
