@@ -1707,3 +1707,65 @@ main {
         border-radius: 10px;
     }
 }
+/* ---- Sponsored By Line (Clickable → Google Maps) ---- */
+.sponsored-by-line {
+    display: flex;
+    align-items: center;
+    flex-wrap: wrap;
+    gap: 6px 10px;
+    background: var(--bg);
+    padding: 8px 14px;
+    border-radius: var(--radius-sm);
+    border: 1px solid var(--separator);
+    margin: 4px 0 8px;
+    font-size: 14px;
+    text-decoration: none;
+    color: var(--text);
+    transition: var(--transition);
+    cursor: pointer;
+}
+
+.sponsored-by-line:hover {
+    border-color: #d62828;
+    background: var(--primary-surface, #fef0ef);
+    transform: scale(1.01);
+}
+
+[data-theme="dark"] .sponsored-by-line:hover {
+    border-color: #ff6b6b;
+    background: #3a1a1a;
+}
+
+.sponsored-by-label {
+    font-weight: 700;
+    color: var(--text-secondary);
+    text-transform: uppercase;
+    letter-spacing: 0.3px;
+    font-size: 11px;
+}
+
+.sponsored-by-text {
+    font-weight: 700;
+    color: var(--text);
+    font-size: 15px;
+}
+
+.sponsored-by-location {
+    font-weight: 400;
+    color: var(--text-tertiary);
+}
+
+.sponsored-by-arrow {
+    font-size: 13px;
+    color: #d62828;
+    transition: var(--transition);
+    margin-left: auto;
+}
+
+.sponsored-by-line:hover .sponsored-by-arrow {
+    transform: translateX(4px);
+}
+
+[data-theme="dark"] .sponsored-by-arrow {
+    color: #ff6b6b;
+}
