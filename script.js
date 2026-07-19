@@ -1,5 +1,6 @@
 /* ============================================================
    iOS-STYLE LANDING SCRIPT (Fallback to iOS)
+   MODIFIED: Does NOT override hardcoded menu/reviews
    ============================================================ */
 
 (function() {
@@ -55,10 +56,10 @@
     });
 
     // ============================================================
-    // RENDER FEATURED MENU (first 8)
+    // RENDER FEATURED MENU (ONLY IF EMPTY)
     // ============================================================
     var featuredGrid = document.getElementById('featuredGrid');
-    if (featuredGrid && window.MENU_DATA) {
+    if (featuredGrid && window.MENU_DATA && featuredGrid.children.length === 0) {
         var items = [];
         MENU_DATA.forEach(function(cat) {
             cat.items.forEach(function(item) {
@@ -87,10 +88,10 @@
     }
 
     // ============================================================
-    // RENDER FULL MENU (all categories)
+    // RENDER FULL MENU (ONLY IF EMPTY)
     // ============================================================
     var fullGrid = document.getElementById('fullMenuGrid');
-    if (fullGrid && window.MENU_DATA) {
+    if (fullGrid && window.MENU_DATA && fullGrid.children.length === 0) {
         var html = '';
         MENU_DATA.forEach(function(cat) {
             html += '<div class="menu-category"><h3 class="menu-category-title">' + escapeHtml(cat.category) + '</h3><div class="menu-category-grid">';
@@ -119,10 +120,10 @@
     }
 
     // ============================================================
-    // RENDER REVIEWS
+    // RENDER REVIEWS (ONLY IF EMPTY)
     // ============================================================
     var reviewsGrid = document.getElementById('reviewsGrid');
-    if (reviewsGrid && window.REVIEWS) {
+    if (reviewsGrid && window.REVIEWS && reviewsGrid.children.length === 0) {
         reviewsGrid.innerHTML = REVIEWS.map(function(r) {
             return '<div class="review-item">' +
                 '<div class="avatar">' + escapeHtml(r.name.charAt(0)) + '</div>' +
@@ -271,52 +272,53 @@
                 .catch(function(err) { console.log('❌ SW failed:', err); });
         });
     }
-   // ============================================================
-// FEATURED VIDEO - Hide Overlay After Autoplay Starts
-// ============================================================
-(function() {
-    var overlay = document.getElementById('playOverlay');
-    var wrapper = document.querySelector('.video-thumbnail-wrapper');
 
-    if (overlay && wrapper) {
-        // Hide overlay after 1.5 seconds (video autoplays muted)
-        setTimeout(function() {
-            wrapper.classList.add('loaded');
-            overlay.style.display = 'none';
-        }, 1500);
+    // ============================================================
+    // FEATURED VIDEO - Hide Overlay After Autoplay Starts
+    // ============================================================
+    (function() {
+        var overlay = document.getElementById('playOverlay');
+        var wrapper = document.querySelector('.video-thumbnail-wrapper');
 
-        // Also hide on click (user interaction)
-        overlay.addEventListener('click', function() {
-            wrapper.classList.add('loaded');
-            overlay.style.display = 'none';
-        });
-    }
-})();
+        if (overlay && wrapper) {
+            // Hide overlay after 1.5 seconds (video autoplays muted)
+            setTimeout(function() {
+                wrapper.classList.add('loaded');
+                overlay.style.display = 'none';
+            }, 1500);
 
-// ============================================================
-// CUSTOMER VIDEO - Overlay (No Autoplay)
-// ============================================================
-(function() {
-    var overlay2 = document.getElementById('playOverlay2');
-    var wrapper2 = document.querySelector('.customer-video .video-thumbnail-wrapper');
+            // Also hide on click (user interaction)
+            overlay.addEventListener('click', function() {
+                wrapper.classList.add('loaded');
+                overlay.style.display = 'none';
+            });
+        }
+    })();
 
-    if (overlay2 && wrapper2) {
-        // Only hide on click (user interaction)
-        overlay2.addEventListener('click', function() {
-            wrapper2.classList.add('loaded');
-            overlay2.style.display = 'none';
-            
-            // Load the video with autoplay when clicked
-            var iframe = wrapper2.querySelector('iframe');
-            if (iframe) {
-                var src = iframe.src;
-                if (!src.includes('autoplay=1')) {
-                    iframe.src = src + (src.includes('?') ? '&' : '?') + 'autoplay=1';
+    // ============================================================
+    // CUSTOMER VIDEO - Overlay (No Autoplay)
+    // ============================================================
+    (function() {
+        var overlay2 = document.getElementById('playOverlay2');
+        var wrapper2 = document.querySelector('.customer-video .video-thumbnail-wrapper');
+
+        if (overlay2 && wrapper2) {
+            // Only hide on click (user interaction)
+            overlay2.addEventListener('click', function() {
+                wrapper2.classList.add('loaded');
+                overlay2.style.display = 'none';
+                
+                // Load the video with autoplay when clicked
+                var iframe = wrapper2.querySelector('iframe');
+                if (iframe) {
+                    var src = iframe.src;
+                    if (!src.includes('autoplay=1')) {
+                        iframe.src = src + (src.includes('?') ? '&' : '?') + 'autoplay=1';
+                    }
                 }
-            }
-        });
-    }
-})();
+            });
+        }
+    })();
 
     console.log('🍗 iOS-style landing page loaded with external messages');
 })();
