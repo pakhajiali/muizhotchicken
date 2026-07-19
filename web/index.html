@@ -4,13 +4,11 @@
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
 
-    <!-- ===== PRIMARY SEO ===== -->
     <title>Restoran Pak Haji Ali & Muiz Hot Chicken - Subang Jaya (USJ 8) | Halal Crispy Chicken</title>
     <meta name="description" content="Restoran Pak Haji Ali & Muiz Hot Chicken - Subang Jaya (USJ 8). JAKIM Halal certified crispy Muiz Hot Chicken, authentic Nasi Kandar & Malaysian-Thai cuisine. Est. 2026. Dine-in, takeaway & delivery." />
     <meta name="robots" content="index, follow" />
     <link rel="canonical" href="https://muizhotchicken.com/web/" />
 
-    <!-- ===== OPEN GRAPH ===== -->
     <meta property="og:title" content="Restoran Pak Haji Ali & Muiz Hot Chicken - Subang Jaya (USJ 8) - Web" />
     <meta property="og:description" content="Restoran Pak Haji Ali & Muiz Hot Chicken - Subang Jaya (USJ 8). JAKIM Halal certified crispy Muiz Hot Chicken, Nasi Kandar & Tomyam. Order now!" />
     <meta property="og:image" content="https://muizhotchicken.com/logo.webp" />
@@ -22,13 +20,11 @@
     <meta property="og:site_name" content="Restoran Pak Haji Ali & Muiz Hot Chicken - Subang Jaya (USJ 8)" />
     <meta property="og:locale" content="en_MY" />
 
-    <!-- ===== TWITTER ===== -->
     <meta name="twitter:card" content="summary_large_image" />
     <meta name="twitter:title" content="Restoran Pak Haji Ali & Muiz Hot Chicken - Subang Jaya (USJ 8) - Web" />
     <meta name="twitter:description" content="Restoran Pak Haji Ali & Muiz Hot Chicken - Subang Jaya (USJ 8). JAKIM Halal certified crispy Muiz Hot Chicken." />
     <meta name="twitter:image" content="https://muizhotchicken.com/logo.webp" />
 
-    <!-- ===== PWA ===== -->
     <meta name="theme-color" content="#000000" id="themeColor" />
     <meta name="apple-mobile-web-app-capable" content="yes" />
     <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent" />
@@ -38,22 +34,15 @@
     <link rel="icon" type="image/png" sizes="96x96" href="/favicon-96x96.png" />
     <link rel="apple-touch-icon" href="/apple-touch-icon.png" />
 
-    <!-- ===== FONT AWESOME ===== -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css" />
-
-    <!-- ===== GOOGLE FONTS ===== -->
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&display=swap" rel="stylesheet" />
 
-    <!-- ============================================================
-         ALL STYLES EMBEDDED (Web Desktop Optimized)
-         ============================================================ -->
     <style>
         /* ===== RESET & BASE ===== */
         * { margin: 0; padding: 0; box-sizing: border-box; }
 
-        /* ===== LIGHT MODE (default) ===== */
         :root {
             --bg: #f8f9fa;
             --bg-secondary: #f1f3f5;
@@ -73,22 +62,18 @@
 
             --separator: #e9ecef;
             --separator-heavy: #d1d1d6;
-
             --shadow-sm: 0 1px 3px rgba(0,0,0,0.06);
             --shadow-md: 0 4px 16px rgba(0,0,0,0.08);
             --shadow-lg: 0 8px 32px rgba(0,0,0,0.12);
             --shadow-xl: 0 16px 48px rgba(0,0,0,0.16);
-
             --radius: 16px;
             --radius-sm: 10px;
             --radius-full: 9999px;
-
             --header-height: 80px;
             --nav-height: 56px;
             --transition: 0.25s cubic-bezier(0.4, 0, 0.2, 1);
         }
 
-        /* ===== DARK MODE ===== */
         [data-theme="dark"] {
             --bg: #121212;
             --bg-secondary: #1e1e1e;
@@ -99,13 +84,11 @@
             --text-tertiary: #8e8e93;
             --text-disabled: #636366;
             --text-inverse: #1c1c1e;
-
             --primary: #ffffff;
             --primary-dark: #e5e5ea;
             --primary-light: #f2f2f7;
             --primary-surface: #2c2c2e;
             --primary-gradient: linear-gradient(135deg, #f2f2f7, #aeaeb2);
-
             --separator: #38383a;
             --separator-heavy: #48484a;
             --shadow-sm: 0 1px 3px rgba(0,0,0,0.3);
@@ -115,7 +98,6 @@
         }
 
         html { scroll-behavior: smooth; }
-
         body {
             font-family: 'Inter', -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
             background: var(--bg);
@@ -136,30 +118,7 @@
         a { text-decoration: none; color: inherit; }
         button { font-family: inherit; cursor: pointer; border: none; background: none; }
 
-        /* ----- THEME TOGGLE (Web) ----- */
-        .theme-toggle-web {
-            position: fixed;
-            top: 90px;
-            right: 24px;
-            z-index: 999;
-            background: var(--card);
-            border: 1px solid var(--separator);
-            border-radius: 50%;
-            width: 44px;
-            height: 44px;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            font-size: 20px;
-            cursor: pointer;
-            transition: all 0.3s cubic-bezier(0.2,0.9,0.4,1);
-            box-shadow: var(--shadow-sm);
-            color: var(--text);
-        }
-        .theme-toggle-web:hover { transform: scale(1.08); box-shadow: var(--shadow-md); }
-        .theme-toggle-web:active { transform: scale(0.92); }
-
-        /* ----- HEADER ----- */
+        /* ===== HEADER ===== */
         .web-header {
             position: fixed;
             top: 0; left: 0; right: 0;
@@ -167,7 +126,6 @@
             box-shadow: var(--shadow-sm);
             z-index: 1000;
             border-bottom: 1px solid var(--separator);
-            transition: var(--transition);
         }
         .header-content {
             max-width: 1200px;
@@ -181,9 +139,13 @@
         .brand { display: flex; align-items: center; gap: 14px; }
         .logo-icon { font-size: 36px; line-height: 1; }
         .brand h1 { font-size: 22px; font-weight: 800; color: var(--text); letter-spacing: -0.3px; line-height: 1.1; }
-        .brand h1 span { color: var(--primary); }
         .brand p { font-size: 13px; color: var(--text-secondary); font-weight: 500; }
-        .header-actions { display: flex; align-items: center; gap: 14px; }
+
+        .header-actions {
+            display: flex;
+            align-items: center;
+            gap: 12px;
+        }
         .btn-wa-header {
             display: inline-flex; align-items: center; gap: 8px;
             background: #25D366; color: #fff;
@@ -193,6 +155,24 @@
         }
         .btn-wa-header:hover { transform: translateY(-2px); box-shadow: 0 4px 20px rgba(37,211,102,0.3); }
         .btn-wa-header:active { transform: scale(0.97); }
+
+        .theme-toggle-header {
+            background: var(--bg-secondary);
+            border: 1px solid var(--separator);
+            border-radius: 50%;
+            width: 40px;
+            height: 40px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 18px;
+            cursor: pointer;
+            transition: var(--transition);
+            color: var(--text);
+        }
+        .theme-toggle-header:hover { background: var(--primary-surface); transform: scale(1.05); }
+        .theme-toggle-header:active { transform: scale(0.92); }
+
         .cart-btn {
             position: relative;
             font-size: 22px;
@@ -220,7 +200,7 @@
         }
         .cart-btn .badge.show { display: flex; }
 
-        /* ----- NAVIGATION ----- */
+        /* ===== NAVIGATION ===== */
         .web-nav {
             max-width: 1200px;
             margin: 0 auto;
@@ -269,7 +249,7 @@
         }
         .web-nav .nav-badge.show { display: inline-flex; }
 
-        /* ----- CONTENT ----- */
+        /* ===== CONTENT ===== */
         .web-content {
             max-width: 1200px;
             margin: 0 auto;
@@ -285,7 +265,7 @@
         .section-title { font-size: 28px; font-weight: 800; letter-spacing: -0.5px; color: var(--text); margin-bottom: 4px; }
         .section-sub { font-size: 16px; color: var(--text-secondary); margin-bottom: 20px; }
 
-        /* ----- HERO ----- */
+        /* ===== HERO ===== */
         .hero {
             background: var(--primary-gradient);
             border-radius: var(--radius);
@@ -358,19 +338,43 @@
         }
         .hero-actions .btn:hover { transform: translateY(-2px); }
         .hero-actions .btn:active { transform: scale(0.97); }
-        [data-theme="light"] .btn-white { background: #fff; color: var(--primary); }
-        [data-theme="dark"] .btn-white { background: #000; color: var(--text-inverse); }
-        .btn-white:hover { box-shadow: 0 8px 32px rgba(0,0,0,0.15); }
+
+        /* Light mode */
+        [data-theme="light"] .btn-white {
+            background: #ffffff;
+            color: #1c1c1e;
+        }
+        [data-theme="light"] .btn-white:hover {
+            box-shadow: 0 8px 32px rgba(0,0,0,0.15);
+        }
         [data-theme="light"] .btn-outline-white {
-            background: transparent; color: #ffffff;
+            background: transparent;
+            color: #ffffff;
             border: 2px solid rgba(255,255,255,0.35);
         }
+        [data-theme="light"] .btn-outline-white:hover {
+            background: rgba(255,255,255,0.10);
+            border-color: rgba(255,255,255,0.6);
+        }
+
+        /* Dark mode */
+        [data-theme="dark"] .btn-white {
+            background: #000000;
+            color: #ffffff;
+        }
+        [data-theme="dark"] .btn-white:hover {
+            box-shadow: 0 8px 32px rgba(255,255,255,0.15);
+        }
         [data-theme="dark"] .btn-outline-white {
-            background: transparent; color: #000000;
+            background: transparent;
+            color: #000000;
             border: 2px solid rgba(0,0,0,0.25);
         }
-        .btn-outline-white:hover { background: rgba(255,255,255,0.10); border-color: rgba(255,255,255,0.6); }
-        [data-theme="dark"] .btn-outline-white:hover { background: rgba(0,0,0,0.08); border-color: rgba(0,0,0,0.4); }
+        [data-theme="dark"] .btn-outline-white:hover {
+            background: rgba(0,0,0,0.08);
+            border-color: rgba(0,0,0,0.4);
+        }
+
         .hero-stats {
             display: flex;
             gap: 40px;
@@ -386,7 +390,7 @@
         [data-theme="light"] .hero-stat span { color: #ffffff; }
         [data-theme="dark"] .hero-stat span { color: #000000; }
 
-        /* ----- STATS ----- */
+        /* ===== STATS ===== */
         .stats {
             display: grid;
             grid-template-columns: repeat(3, 1fr);
@@ -407,7 +411,7 @@
         .stat strong { display: block; font-size: 24px; font-weight: 800; color: var(--text); }
         .stat small { font-size: 14px; color: var(--text-tertiary); }
 
-        /* ----- SCROLL HORIZONTAL ----- */
+        /* ===== SCROLL HORIZONTAL ===== */
         .scroll-horizontal {
             display: flex; gap: 20px;
             overflow-x: auto; padding: 8px 0 20px;
@@ -454,7 +458,7 @@
         }
         .scroll-card .add-btn:hover { background: var(--primary-dark); transform: scale(1.04); }
 
-        /* ----- REVIEW CARDS ----- */
+        /* ===== REVIEW CARDS ===== */
         .review-card {
             flex: 0 0 340px;
             scroll-snap-align: start;
@@ -479,7 +483,7 @@
         .review-card .text { font-size: 14px; color: var(--text-secondary); font-style: italic; margin-top: 4px; line-height: 1.6; }
         .review-card .stars { color: #f59e0b; font-size: 14px; margin-top: 6px; }
 
-        /* ----- ABOUT SNIPPET ----- */
+        /* ===== ABOUT SNIPPET ===== */
         .about-snippet {
             background: var(--card);
             border-radius: var(--radius);
@@ -501,7 +505,7 @@
             border: 1px solid var(--separator);
         }
 
-        /* ----- MENU ----- */
+        /* ===== MENU ===== */
         .menu-categories {
             display: flex; gap: 10px; flex-wrap: wrap;
             padding: 4px 0 20px; margin-bottom: 4px;
@@ -564,7 +568,7 @@
         }
         .menu-item .add-small:hover { background: var(--primary-dark); transform: scale(1.04); }
 
-        /* ----- CART ----- */
+        /* ===== CART ===== */
         .cart-empty { text-align: center; padding: 60px 20px; color: var(--text-secondary); }
         .cart-empty i { font-size: 64px; color: var(--text-disabled); display: block; margin-bottom: 16px; }
         .cart-empty h3 { font-size: 24px; font-weight: 700; color: var(--text); }
@@ -599,7 +603,8 @@
         .cart-item .info .request { font-size: 13px; color: var(--text-tertiary); font-style: italic; margin-top: 2px; }
         .cart-item .controls { display: flex; align-items: center; gap: 8px; }
         .cart-item .controls button {
-            width: 32px; height: 32px; border-radius: 50%;
+            width: 32px; height: 32px;
+            border-radius: 50%;
             background: var(--bg-secondary);
             font-size: 16px; font-weight: 700;
             color: var(--text-secondary);
@@ -643,7 +648,7 @@
         }
         .cart-summary .checkout-btn:hover { background: #1da15a; transform: scale(1.02); }
 
-        /* ----- ORDERS ----- */
+        /* ===== ORDERS ===== */
         .order-card {
             background: var(--card);
             border-radius: var(--radius);
@@ -669,7 +674,7 @@
         .order-empty { text-align: center; padding: 60px 20px; color: var(--text-secondary); }
         .order-empty i { font-size: 56px; color: var(--text-disabled); display: block; margin-bottom: 16px; }
 
-        /* ----- PROFILE ----- */
+        /* ===== PROFILE ===== */
         .profile-grid {
             display: grid;
             grid-template-columns: 1fr 1fr;
@@ -750,7 +755,7 @@
             grid-column: 1 / -1;
         }
 
-        /* ----- MODAL ----- */
+        /* ===== MODAL ===== */
         .web-modal {
             position: fixed;
             inset: 0;
@@ -873,7 +878,7 @@
         }
         .modal-actions .btn-wa:hover { background: #1da15a; transform: scale(1.02); }
 
-        /* ----- TOAST ----- */
+        /* ===== TOAST ===== */
         .web-toast {
             position: fixed;
             bottom: 30px;
@@ -894,7 +899,7 @@
         }
         .web-toast.show { opacity: 1; transform: translateX(-50%) translateY(0); }
 
-        /* ----- FOOTER ----- */
+        /* ===== FOOTER ===== */
         .web-footer {
             background: var(--card);
             border-top: 1px solid var(--separator);
@@ -945,7 +950,7 @@
             color: var(--text-tertiary);
         }
 
-        /* ----- PLATFORM SWITCHER ----- */
+        /* ===== PLATFORM SWITCHER ===== */
         .platform-switcher {
             position: fixed;
             bottom: 30px;
@@ -1053,7 +1058,7 @@
         }
         .switcher-current strong { color: var(--text); }
 
-        /* ----- CLEAR ORDERS BUTTON ----- */
+        /* ===== CLEAR ORDERS BUTTON ===== */
         .clear-orders-btn {
             width: 100%;
             padding: 14px 24px;
@@ -1090,7 +1095,6 @@
             .footer-links { grid-template-columns: 1fr; }
             .profile-grid { grid-template-columns: 1fr; }
             .profile-links { grid-template-columns: 1fr 1fr; }
-            .theme-toggle-web { top: 76px; right: 16px; width: 40px; height: 40px; font-size: 18px; }
         }
 
         @media (max-width: 768px) {
@@ -1126,7 +1130,6 @@
             .switcher-toggle { padding: 10px 16px; font-size: 12px; }
             .switcher-toggle .switcher-label { display: none; }
             .switcher-menu { min-width: 190px; padding: 14px 16px 16px; right: 0; bottom: calc(100% + 10px); }
-            .theme-toggle-web { top: 68px; right: 12px; width: 36px; height: 36px; font-size: 16px; }
         }
 
         @media (max-width: 480px) {
@@ -1188,18 +1191,12 @@
             .switcher-menu { min-width: 170px; padding: 12px 14px 14px; }
             .switcher-option { padding: 6px 10px; font-size: 12px; gap: 8px; }
             .switcher-option i { font-size: 16px; width: 20px; }
-            .theme-toggle-web { top: 60px; right: 10px; width: 32px; height: 32px; font-size: 14px; }
         }
     </style>
 </head>
 <body>
 
-    <!-- ===== THEME TOGGLE ===== -->
-    <button class="theme-toggle-web" id="themeToggle" aria-label="Toggle theme">
-        <i class="fas fa-moon" id="themeIcon"></i>
-    </button>
-
-    <!-- ===== WEB HEADER ===== -->
+    <!-- ===== HEADER (with theme toggle) ===== -->
     <header class="web-header">
         <div class="header-content">
             <div class="brand">
@@ -1221,6 +1218,10 @@
                    target="_blank" rel="noopener" class="btn-wa-header">
                     <i class="fab fa-whatsapp"></i> Order Now
                 </a>
+                <!-- THEME TOGGLE (in header) -->
+                <button class="theme-toggle-header" id="themeToggleHeader" aria-label="Toggle theme">
+                    <i class="fas fa-moon" id="themeIcon"></i>
+                </button>
                 <button class="cart-btn" id="headerCartBtn" aria-label="Cart">
                     <i class="fas fa-shopping-bag"></i>
                     <span class="badge" id="headerCartBadge">0</span>
@@ -1228,7 +1229,7 @@
             </div>
         </div>
 
-        <!-- ===== WEB NAVIGATION ===== -->
+        <!-- ===== NAVIGATION ===== -->
         <nav class="web-nav" id="webNav" role="tablist">
             <button class="active" data-tab="home" role="tab" aria-selected="true">
                 <i class="fas fa-house"></i> Home
@@ -1249,7 +1250,7 @@
         </nav>
     </header>
 
-    <!-- ===== WEB CONTENT ===== -->
+    <!-- ===== CONTENT ===== -->
     <main class="web-content" id="webContent">
         <section class="page active" id="pageHome" data-page="home"></section>
         <section class="page" id="pageMenu" data-page="menu"></section>
@@ -1258,7 +1259,7 @@
         <section class="page" id="pageProfile" data-page="profile"></section>
     </main>
 
-    <!-- ===== WEB FOOTER ===== -->
+    <!-- ===== FOOTER ===== -->
     <footer class="web-footer">
         <div class="footer-content">
             <div class="footer-brand">
@@ -1297,7 +1298,7 @@
         </div>
     </footer>
 
-    <!-- ===== WEB MODAL ===== -->
+    <!-- ===== MODAL ===== -->
     <div class="web-modal" id="webModal">
         <div class="modal-sheet">
             <button class="modal-close" id="modalClose" aria-label="Close modal">
@@ -1368,11 +1369,8 @@
          ALL JAVASCRIPT EMBEDDED
          ============================================================ -->
     <script>
-        // ============================================================
-        // HARDCODED MENU DATA & REVIEWS
-        // ============================================================
+        // ===== HARDCODED MENU DATA & REVIEWS =====
         const MENU_DATA = [
-            // Most Ordered
             { category: "Most Ordered", items: [
                 { name: "Nasi Kandar Muiz Hot Chicken", desc: "Nasi kandar with signature Muiz hot chicken &amp; rich curry sauce.", price: 6.90, img: "/images/nasikandarmuizchicken.webp" },
                 { name: "Nasi Ayam Muiz Chicken", desc: "Aromatic chicken rice with tender Muiz-style fried chicken, sambal.", price: 8.90, img: "/images/nasiayammuizchicken.webp" },
@@ -1470,12 +1468,11 @@
         ];
 
         // ============================================================
-        // WEB APP LOGIC
+        // WEB APP LOGIC (full interactivity)
         // ============================================================
         (function() {
             'use strict';
 
-            // ---- STATE ----
             let cart = [];
             let orders = [];
             let currentTab = 'home';
@@ -1483,7 +1480,12 @@
             let modalData = null;
             let isModalOpen = false;
 
-            // ---- HELPERS ----
+            const FLAT_MENU = MENU_DATA.flatMap(cat => cat.items.map(item => ({
+                ...item,
+                category: cat.category
+            })));
+            const CATEGORIES = ['All', ...MENU_DATA.map(c => c.category)];
+
             function fmt(price) { return 'RM' + price.toFixed(2); }
             function escapeHtml(str) {
                 if (!str) return '';
@@ -1516,65 +1518,35 @@
             }
             function updateBadges() {
                 const total = cart.reduce((s, i) => s + i.qty, 0);
-                const headerBadge = document.getElementById('headerCartBadge');
-                if (headerBadge) {
-                    headerBadge.textContent = total;
-                    headerBadge.classList.toggle('show', total > 0);
-                }
-                const navBadge = document.getElementById('navCartBadge');
-                if (navBadge) {
-                    navBadge.textContent = total;
-                    navBadge.classList.toggle('show', total > 0);
-                }
+                const hb = document.getElementById('headerCartBadge');
+                if (hb) { hb.textContent = total; hb.classList.toggle('show', total > 0); }
+                const nb = document.getElementById('navCartBadge');
+                if (nb) { nb.textContent = total; nb.classList.toggle('show', total > 0); }
             }
             function getCartTotal() { return cart.reduce((s, i) => s + i.price * i.qty, 0); }
             function getCartItemCount() { return cart.reduce((s, i) => s + i.qty, 0); }
 
-            // ---- FLAT MENU ----
-            const FLAT_MENU = MENU_DATA.flatMap(cat => cat.items.map(item => ({
-                ...item,
-                category: cat.category
-            })));
-            const CATEGORIES = ['All', ...MENU_DATA.map(c => c.category)];
-
-            // ---- RENDER FUNCTIONS ----
+            // ---- RENDER FUNCTIONS (identical to previous, but kept for completeness) ----
             function renderHome() {
                 const container = document.getElementById('pageHome');
                 if (!container) return;
-
                 const featured = FLAT_MENU.slice(0, 8);
                 const featuredHTML = featured.map(item => `
-                    <div class="scroll-card"
-                         data-name="${escapeHtml(item.name)}"
-                         data-price="${item.price}"
-                         data-img="${item.img}"
-                         data-desc="${escapeHtml(item.desc)}">
+                    <div class="scroll-card" data-name="${escapeHtml(item.name)}" data-price="${item.price}" data-img="${item.img}" data-desc="${escapeHtml(item.desc)}">
                         <img src="${item.img}" alt="${escapeHtml(item.name)}" loading="lazy" />
                         <h4>${escapeHtml(item.name)}</h4>
                         <div class="price">${fmt(item.price)}</div>
-                        <button class="add-btn"
-                                data-name="${escapeHtml(item.name)}"
-                                data-price="${item.price}"
-                                data-img="${item.img}"
-                                data-desc="${escapeHtml(item.desc)}">
-                            + Add
-                        </button>
+                        <button class="add-btn" data-name="${escapeHtml(item.name)}" data-price="${item.price}" data-img="${item.img}" data-desc="${escapeHtml(item.desc)}">+ Add</button>
                     </div>
                 `).join('');
-
                 const reviewsHTML = REVIEWS.map(r => `
                     <div class="review-card">
                         <div class="avatar">${escapeHtml(r.name.charAt(0))}</div>
                         <div class="name">${escapeHtml(r.name)}</div>
-                        <div class="stars">
-                            <i class="fas fa-star"></i><i class="fas fa-star"></i>
-                            <i class="fas fa-star"></i><i class="fas fa-star"></i>
-                            <i class="fas fa-star"></i>
-                        </div>
+                        <div class="stars"><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i></div>
                         <div class="text">"${escapeHtml(r.text)}"</div>
                     </div>
                 `).join('');
-
                 container.innerHTML = `
                     <div class="hero">
                         <div class="hero-content">
@@ -1582,57 +1554,27 @@
                             <h2>Best Crispy Chicken<br />in Subang Jaya</h2>
                             <p>Est. 1 May 2026 • USJ 8 • Dine-in, takeaway &amp; delivery</p>
                             <div class="hero-actions">
-                                <button class="btn btn-white" onclick="switchTab('menu')">
-                                    <i class="fas fa-utensils"></i> View Menu
-                                </button>
-                                <a href="https://wa.me/60179081447?text=Hi%2C%20I%20want%20to%20place%20an%20order%20from%20Restoran%20Pak%20Haji%20Ali%20%26%20Muiz%20Hot%20Chicken%20-%20Subang%20Jaya%20(USJ%208)." 
-                                   target="_blank" rel="noopener" class="btn btn-outline-white">
-                                    <i class="fab fa-whatsapp"></i> Order Now
-                                </a>
+                                <button class="btn btn-white" onclick="switchTab('menu')"><i class="fas fa-utensils"></i> View Menu</button>
+                                <a href="https://wa.me/60179081447?text=Hi%2C%20I%20want%20to%20place%20an%20order%20from%20Restoran%20Pak%20Haji%20Ali%20%26%20Muiz%20Hot%20Chicken%20-%20Subang%20Jaya%20(USJ%208)." target="_blank" rel="noopener" class="btn btn-outline-white"><i class="fab fa-whatsapp"></i> Order Now</a>
                             </div>
                         </div>
                         <div class="hero-stats">
-                            <div class="hero-stat">
-                                <strong>200+</strong>
-                                <span>Branches</span>
-                            </div>
-                            <div class="hero-stat">
-                                <strong>5★</strong>
-                                <span>Google Rated</span>
-                            </div>
-                            <div class="hero-stat">
-                                <strong>9am–9pm</strong>
-                                <span>Open Daily</span>
-                            </div>
+                            <div class="hero-stat"><strong>200+</strong><span>Branches</span></div>
+                            <div class="hero-stat"><strong>5★</strong><span>Google Rated</span></div>
+                            <div class="hero-stat"><strong>9am–9pm</strong><span>Open Daily</span></div>
                         </div>
                     </div>
-
                     <div class="stats">
-                        <div class="stat">
-                            <i class="fas fa-drumstick-bite"></i>
-                            <strong>200+</strong>
-                            <small>Branches Nationwide</small>
-                        </div>
-                        <div class="stat">
-                            <i class="fas fa-star"></i>
-                            <strong>5★</strong>
-                            <small>Google Rated</small>
-                        </div>
-                        <div class="stat">
-                            <i class="fas fa-clock"></i>
-                            <strong>9am–9pm</strong>
-                            <small>Open Daily</small>
-                        </div>
+                        <div class="stat"><i class="fas fa-drumstick-bite"></i><strong>200+</strong><small>Branches Nationwide</small></div>
+                        <div class="stat"><i class="fas fa-star"></i><strong>5★</strong><small>Google Rated</small></div>
+                        <div class="stat"><i class="fas fa-clock"></i><strong>9am–9pm</strong><small>Open Daily</small></div>
                     </div>
-
                     <h3 class="section-title">🔥 Most Ordered</h3>
                     <p class="section-sub">Customer favourites</p>
                     <div class="scroll-horizontal">${featuredHTML}</div>
-
                     <h3 class="section-title" style="margin-top:24px;">💬 Customer Reviews</h3>
                     <p class="section-sub">What people are saying</p>
                     <div class="scroll-horizontal">${reviewsHTML}</div>
-
                     <div class="about-snippet">
                         <h3>Restoran <span>Pak Haji Ali</span> &amp; Muiz Hot Chicken</h3>
                         <p>Established on <strong>1 May 2026</strong>, we serve <strong>JAKIM Halal</strong> certified crispy Muiz Hot Chicken, authentic Nasi Kandar, and Malaysian-Thai favourites in <strong>Subang Jaya (USJ 8)</strong>.</p>
@@ -1645,45 +1587,26 @@
                             <span><i class="fas fa-pepper-hot"></i> Tomyam</span>
                         </div>
                     </div>
-
                     <div style="background:var(--card);border-radius:var(--radius);padding:20px 24px;box-shadow:var(--shadow-sm);margin-bottom:16px;border:1px solid var(--separator);">
                         <div style="display:flex;flex-wrap:wrap;gap:12px;align-items:center;justify-content:space-between;">
                             <div style="display:flex;align-items:center;gap:14px;">
                                 <span style="font-size:32px;">✅</span>
-                                <div>
-                                    <div style="font-weight:700;font-size:16px;color:var(--text);">JAKIM Halal &amp; MeSTI Certified</div>
-                                    <div style="font-size:14px;color:var(--text-tertiary);">Product &amp; premises certified</div>
-                                </div>
+                                <div><div style="font-weight:700;font-size:16px;color:var(--text);">JAKIM Halal &amp; MeSTI Certified</div><div style="font-size:14px;color:var(--text-tertiary);">Product &amp; premises certified</div></div>
                             </div>
-                            <button onclick="switchTab('profile')" 
-                                    style="font-size:14px;font-weight:600;color:var(--primary);background:none;border:none;cursor:pointer;font-family:inherit;padding:6px 0;">
-                                Learn more →
-                            </button>
+                            <button onclick="switchTab('profile')" style="font-size:14px;font-weight:600;color:var(--primary);background:none;border:none;cursor:pointer;font-family:inherit;padding:6px 0;">Learn more →</button>
                         </div>
                     </div>
                 `;
-
-                // Events for featured cards
                 container.querySelectorAll('.scroll-card').forEach(card => {
                     card.addEventListener('click', function() {
-                        openModal({
-                            name: this.dataset.name,
-                            price: parseFloat(this.dataset.price),
-                            img: this.dataset.img,
-                            desc: this.dataset.desc
-                        });
+                        openModal({ name: this.dataset.name, price: parseFloat(this.dataset.price), img: this.dataset.img, desc: this.dataset.desc });
                     });
                 });
                 container.querySelectorAll('.add-btn').forEach(btn => {
                     btn.addEventListener('click', function(e) {
                         e.stopPropagation();
                         const card = this.closest('.scroll-card');
-                        openModal({
-                            name: card.dataset.name,
-                            price: parseFloat(card.dataset.price),
-                            img: card.dataset.img,
-                            desc: card.dataset.desc
-                        });
+                        openModal({ name: card.dataset.name, price: parseFloat(card.dataset.price), img: card.dataset.img, desc: card.dataset.desc });
                     });
                 });
             }
@@ -1691,80 +1614,37 @@
             function renderMenu() {
                 const container = document.getElementById('pageMenu');
                 if (!container) return;
-
-                const categoriesHTML = CATEGORIES.map(cat => `
-                    <button class="${cat === currentCategory ? 'active' : ''}" data-cat="${cat}">
-                        ${cat}
-                    </button>
-                `).join('');
-
-                let items = FLAT_MENU;
-                if (currentCategory !== 'All') {
-                    items = FLAT_MENU.filter(i => i.category === currentCategory);
-                }
-
+                const categoriesHTML = CATEGORIES.map(cat => `<button class="${cat === currentCategory ? 'active' : ''}" data-cat="${cat}">${cat}</button>`).join('');
+                let items = currentCategory === 'All' ? FLAT_MENU : FLAT_MENU.filter(i => i.category === currentCategory);
                 const itemsHTML = items.map(item => `
-                    <div class="menu-item"
-                         data-name="${escapeHtml(item.name)}"
-                         data-price="${item.price}"
-                         data-img="${item.img}"
-                         data-desc="${escapeHtml(item.desc)}">
+                    <div class="menu-item" data-name="${escapeHtml(item.name)}" data-price="${item.price}" data-img="${item.img}" data-desc="${escapeHtml(item.desc)}">
                         <img src="${item.img}" alt="${escapeHtml(item.name)}" loading="lazy" />
                         <h4>${escapeHtml(item.name)}</h4>
                         <div class="desc">${escapeHtml(item.desc)}</div>
                         <div class="bottom">
                             <span class="price">${fmt(item.price)}</span>
-                            <button class="add-small"
-                                    data-name="${escapeHtml(item.name)}"
-                                    data-price="${item.price}"
-                                    data-img="${item.img}"
-                                    data-desc="${escapeHtml(item.desc)}">
-                                Add
-                            </button>
+                            <button class="add-small" data-name="${escapeHtml(item.name)}" data-price="${item.price}" data-img="${item.img}" data-desc="${escapeHtml(item.desc)}">Add</button>
                         </div>
                     </div>
                 `).join('');
-
                 container.innerHTML = `
-                    <div style="margin-bottom:4px;">
-                        <h2 class="section-title">Our Menu</h2>
-                        <p class="section-sub">Tap any item to customise</p>
-                    </div>
+                    <div style="margin-bottom:4px;"><h2 class="section-title">Our Menu</h2><p class="section-sub">Tap any item to customise</p></div>
                     <div class="menu-categories" id="menuCategories">${categoriesHTML}</div>
-                    <div class="menu-grid" id="menuGrid">
-                        ${items.length > 0 ? itemsHTML : '<div style="grid-column:1/-1;text-align:center;padding:60px 0;color:var(--text-tertiary);font-size:18px;">No items in this category</div>'}
-                    </div>
+                    <div class="menu-grid" id="menuGrid">${items.length > 0 ? itemsHTML : '<div style="grid-column:1/-1;text-align:center;padding:60px 0;color:var(--text-tertiary);font-size:18px;">No items in this category</div>'}</div>
                 `;
-
-                // Category events
                 container.querySelectorAll('.menu-categories button').forEach(btn => {
-                    btn.addEventListener('click', function() {
-                        currentCategory = this.dataset.cat;
-                        renderMenu();
-                    });
+                    btn.addEventListener('click', function() { currentCategory = this.dataset.cat; renderMenu(); });
                 });
-
-                // Menu item events
                 container.querySelectorAll('.menu-item').forEach(el => {
                     el.addEventListener('click', function() {
-                        openModal({
-                            name: this.dataset.name,
-                            price: parseFloat(this.dataset.price),
-                            img: this.dataset.img,
-                            desc: this.dataset.desc
-                        });
+                        openModal({ name: this.dataset.name, price: parseFloat(this.dataset.price), img: this.dataset.img, desc: this.dataset.desc });
                     });
                 });
                 container.querySelectorAll('.add-small').forEach(btn => {
                     btn.addEventListener('click', function(e) {
                         e.stopPropagation();
                         const el = this.closest('.menu-item');
-                        openModal({
-                            name: el.dataset.name,
-                            price: parseFloat(el.dataset.price),
-                            img: el.dataset.img,
-                            desc: el.dataset.desc
-                        });
+                        openModal({ name: el.dataset.name, price: parseFloat(el.dataset.price), img: el.dataset.img, desc: el.dataset.desc });
                     });
                 });
             }
@@ -1772,128 +1652,55 @@
             function renderCart() {
                 const container = document.getElementById('pageCart');
                 if (!container) return;
-
                 if (cart.length === 0) {
-                    container.innerHTML = `
-                        <h2 class="section-title">🛒 Your Cart</h2>
-                        <p class="section-sub">Add items to get started</p>
-                        <div class="cart-empty">
-                            <i class="fas fa-shopping-bag"></i>
-                            <h3>Your cart is empty</h3>
-                            <p>Add some delicious items from our menu!</p>
-                        </div>
-                    `;
+                    container.innerHTML = `<h2 class="section-title">🛒 Your Cart</h2><p class="section-sub">Add items to get started</p><div class="cart-empty"><i class="fas fa-shopping-bag"></i><h3>Your cart is empty</h3><p>Add some delicious items from our menu!</p></div>`;
                     return;
                 }
-
-                let html = `
-                    <h2 class="section-title">🛒 Your Cart</h2>
-                    <p class="section-sub">${getCartItemCount()} item${getCartItemCount() > 1 ? 's' : ''} in cart</p>
-                    <div class="cart-layout">
-                        <div class="cart-list">
-                `;
+                let html = `<h2 class="section-title">🛒 Your Cart</h2><p class="section-sub">${getCartItemCount()} item${getCartItemCount() > 1 ? 's' : ''} in cart</p><div class="cart-layout"><div class="cart-list">`;
                 cart.forEach((item, idx) => {
-                    html += `
-                        <div class="cart-item">
-                            <img src="${item.img || '/images/placeholder.webp'}" alt="${escapeHtml(item.name)}" loading="lazy" />
-                            <div class="info">
-                                <h4>${escapeHtml(item.name)}</h4>
-                                <div class="price">${fmt(item.price)}</div>
-                                ${item.request ? `<div class="request">📝 ${escapeHtml(item.request)}</div>` : ''}
-                            </div>
-                            <div class="controls">
-                                <button class="qty-dec" data-idx="${idx}">−</button>
-                                <span class="qty">${item.qty}</span>
-                                <button class="qty-inc" data-idx="${idx}">+</button>
-                                <button class="remove" data-idx="${idx}">✕</button>
-                            </div>
-                        </div>
-                    `;
+                    html += `<div class="cart-item"><img src="${item.img || '/images/placeholder.webp'}" alt="${escapeHtml(item.name)}" loading="lazy" /><div class="info"><h4>${escapeHtml(item.name)}</h4><div class="price">${fmt(item.price)}</div>${item.request ? `<div class="request">📝 ${escapeHtml(item.request)}</div>` : ''}</div><div class="controls"><button class="qty-dec" data-idx="${idx}">−</button><span class="qty">${item.qty}</span><button class="qty-inc" data-idx="${idx}">+</button><button class="remove" data-idx="${idx}">✕</button></div></div>`;
                 });
-                html += `
-                        </div>
-                        <div class="cart-summary">
-                            <h3>Order Summary</h3>
-                            <div class="row"><span>Subtotal</span><span>${fmt(getCartTotal())}</span></div>
-                            <div class="row total"><span>Total</span><span class="amount">${fmt(getCartTotal())}</span></div>
-                            <button class="checkout-btn" id="cartCheckoutBtn">
-                                <i class="fab fa-whatsapp"></i> Order via WhatsApp
-                            </button>
-                        </div>
-                    </div>
-                `;
+                html += `</div><div class="cart-summary"><h3>Order Summary</h3><div class="row"><span>Subtotal</span><span>${fmt(getCartTotal())}</span></div><div class="row total"><span>Total</span><span class="amount">${fmt(getCartTotal())}</span></div><button class="checkout-btn" id="cartCheckoutBtn"><i class="fab fa-whatsapp"></i> Order via WhatsApp</button></div></div>`;
                 container.innerHTML = html;
-
-                // Cart controls
                 container.querySelectorAll('.qty-dec').forEach(btn => {
                     btn.addEventListener('click', function() {
                         const idx = parseInt(this.dataset.idx);
                         if (cart[idx].qty > 1) cart[idx].qty--;
                         else cart.splice(idx, 1);
-                        saveCart();
-                        renderCart();
-                        updateBadges();
+                        saveCart(); renderCart(); updateBadges();
                     });
                 });
                 container.querySelectorAll('.qty-inc').forEach(btn => {
                     btn.addEventListener('click', function() {
                         const idx = parseInt(this.dataset.idx);
                         cart[idx].qty++;
-                        saveCart();
-                        renderCart();
-                        updateBadges();
+                        saveCart(); renderCart(); updateBadges();
                     });
                 });
                 container.querySelectorAll('.remove').forEach(btn => {
                     btn.addEventListener('click', function() {
                         const idx = parseInt(this.dataset.idx);
                         cart.splice(idx, 1);
-                        saveCart();
-                        renderCart();
-                        updateBadges();
+                        saveCart(); renderCart(); updateBadges();
                         toast('Item removed from cart');
                     });
                 });
-                const checkoutBtn = document.getElementById('cartCheckoutBtn');
-                if (checkoutBtn) checkoutBtn.addEventListener('click', placeOrder);
+                document.getElementById('cartCheckoutBtn').addEventListener('click', placeOrder);
             }
 
             function renderOrders() {
                 const container = document.getElementById('pageOrders');
                 if (!container) return;
-
                 if (orders.length === 0) {
-                    container.innerHTML = `
-                        <h2 class="section-title">📦 Order History</h2>
-                        <p class="section-sub">Your past orders</p>
-                        <div class="order-empty">
-                            <i class="fas fa-clock-rotate-left"></i>
-                            <h3>No orders yet</h3>
-                            <p>Your order history will appear here</p>
-                        </div>
-                    `;
+                    container.innerHTML = `<h2 class="section-title">📦 Order History</h2><p class="section-sub">Your past orders</p><div class="order-empty"><i class="fas fa-clock-rotate-left"></i><h3>No orders yet</h3><p>Your order history will appear here</p></div>`;
                     return;
                 }
-
-                let html = `
-                    <h2 class="section-title">📦 Order History</h2>
-                    <p class="section-sub">${orders.length} order${orders.length > 1 ? 's' : ''} placed</p>
-                `;
+                let html = `<h2 class="section-title">📦 Order History</h2><p class="section-sub">${orders.length} order${orders.length > 1 ? 's' : ''} placed</p>`;
                 orders.forEach((order, idx) => {
-                    html += `
-                        <div class="order-card">
-                            <div class="top">
-                                <span class="date">${order.date || 'Order #' + (idx + 1)}</span>
-                                <span class="status">✓ Completed</span>
-                            </div>
-                            <div class="items">${order.items.map(i => `${i.name} x${i.qty}`).join(' • ')}</div>
-                            <div class="total">${fmt(order.total)}</div>
-                        </div>
-                    `;
+                    html += `<div class="order-card"><div class="top"><span class="date">${order.date || 'Order #' + (idx + 1)}</span><span class="status">✓ Completed</span></div><div class="items">${order.items.map(i => `${i.name} x${i.qty}`).join(' • ')}</div><div class="total">${fmt(order.total)}</div></div>`;
                 });
                 html += `<button class="clear-orders-btn" id="clearOrdersBtn"><i class="fas fa-trash-can"></i> Clear All Orders</button>`;
                 container.innerHTML = html;
-
                 document.getElementById('clearOrdersBtn').addEventListener('click', function() {
                     if (orders.length === 0) return;
                     if (confirm('Are you sure you want to clear all order history? This cannot be undone.')) {
@@ -1908,30 +1715,12 @@
             function renderProfile() {
                 const container = document.getElementById('pageProfile');
                 if (!container) return;
-
                 container.innerHTML = `
                     <div class="profile-grid">
-                        <div class="profile-card">
-                            <div class="logo">🍗</div>
-                            <h2>Restoran Pak Haji Ali &amp; Muiz Hot Chicken</h2>
-                            <div class="sub">Subang Jaya (USJ 8)</div>
-                            <div class="badge-row">
-                                <span><i class="fas fa-certificate" style="color:var(--primary);"></i> JAKIM Halal</span>
-                                <span><i class="fas fa-shield-halved" style="color:var(--primary);"></i> MeSTI</span>
-                                <span><i class="fas fa-star" style="color:#f59e0b;"></i> 5★ Rated</span>
-                            </div>
-                        </div>
-
-                        <div class="profile-hours">
-                            <h4><i class="fas fa-clock" style="color:var(--primary);"></i> Opening Hours</h4>
-                            <p><i class="fas fa-calendar-day"></i> Monday – Sunday</p>
-                            <p><i class="fas fa-clock"></i> 9:00 AM – 9:00 PM</p>
-                        </div>
-
+                        <div class="profile-card"><div class="logo">🍗</div><h2>Restoran Pak Haji Ali &amp; Muiz Hot Chicken</h2><div class="sub">Subang Jaya (USJ 8)</div><div class="badge-row"><span><i class="fas fa-certificate" style="color:var(--primary);"></i> JAKIM Halal</span><span><i class="fas fa-shield-halved" style="color:var(--primary);"></i> MeSTI</span><span><i class="fas fa-star" style="color:#f59e0b;"></i> 5★ Rated</span></div></div>
+                        <div class="profile-hours"><h4><i class="fas fa-clock" style="color:var(--primary);"></i> Opening Hours</h4><p><i class="fas fa-calendar-day"></i> Monday – Sunday</p><p><i class="fas fa-clock"></i> 9:00 AM – 9:00 PM</p></div>
                         <div class="profile-links">
-                            <a href="https://wa.me/60179081447?text=Hi%2C%20I%20want%20to%20place%20an%20order%20from%20Restoran%20Pak%20Haji%20Ali%20%26%20Muiz%20Hot%20Chicken%20-%20Subang%20Jaya%20(USJ%208)." target="_blank" rel="noopener">
-                                <i class="fab fa-whatsapp"></i> WhatsApp
-                            </a>
+                            <a href="https://wa.me/60179081447?text=Hi%2C%20I%20want%20to%20place%20an%20order%20from%20Restoran%20Pak%20Haji%20Ali%20%26%20Muiz%20Hot%20Chicken%20-%20Subang%20Jaya%20(USJ%208)." target="_blank" rel="noopener"><i class="fab fa-whatsapp"></i> WhatsApp</a>
                             <a href="tel:+60179081447"><i class="fas fa-phone"></i> Call Us</a>
                             <a href="https://g.page/r/CUrZw9xvAXIPEBE" target="_blank" rel="noopener"><i class="fas fa-map-pin"></i> Google Maps</a>
                             <a href="https://g.page/r/CUrZw9xvAXIPEBE/review" target="_blank" rel="noopener"><i class="fas fa-star"></i> Leave Review</a>
@@ -1945,14 +1734,8 @@
                             <a href="https://pakhajiali.github.io/menu/catering/" target="_blank" rel="noopener"><i class="fas fa-utensils"></i> Halal Catering</a>
                             <a href="https://pakhajiali.github.io/menu/company-profile.html" target="_blank" rel="noopener"><i class="fas fa-file-pdf"></i> Company Profile</a>
                         </div>
-
-                        <div class="profile-notice">
-                            <p><i class="fas fa-location-dot" style="color:var(--primary);"></i> J2-00-04, Subang Perdana Phase 3, Persiaran Mulia, Goodyear Court 6, USJ 8, 47610 Subang Jaya, Selangor</p>
-                        </div>
-
-                        <div class="profile-notice" style="border-left-color: #f59e0b;">
-                            <p><i class="fas fa-triangle-exclamation" style="color:#f59e0b;"></i> <strong>Notice:</strong> We are an independent establishment at Goodyear Court 6, USJ 8. Not affiliated with Restoran Pak Ali in USJ 9.</p>
-                        </div>
+                        <div class="profile-notice"><p><i class="fas fa-location-dot" style="color:var(--primary);"></i> J2-00-04, Subang Perdana Phase 3, Persiaran Mulia, Goodyear Court 6, USJ 8, 47610 Subang Jaya, Selangor</p></div>
+                        <div class="profile-notice" style="border-left-color: #f59e0b;"><p><i class="fas fa-triangle-exclamation" style="color:#f59e0b;"></i> <strong>Notice:</strong> We are an independent establishment at Goodyear Court 6, USJ 8. Not affiliated with Restoran Pak Ali in USJ 9.</p></div>
                     </div>
                 `;
             }
@@ -1972,15 +1755,12 @@
                 document.body.style.overflow = 'hidden';
                 updateModalWaLink(product);
             }
-
             function closeModal() {
-                const modal = document.getElementById('webModal');
-                modal.classList.remove('open');
+                document.getElementById('webModal').classList.remove('open');
                 document.body.style.overflow = '';
                 modalData = null;
                 isModalOpen = false;
             }
-
             function updateModalWaLink(product) {
                 if (!product) return;
                 const qty = parseInt(document.getElementById('modalQty').value) || 1;
@@ -1990,23 +1770,13 @@
                 if (request) msg += `\n📝 Special: ${request}`;
                 document.getElementById('modalWaBtn').href = `https://wa.me/60179081447?text=${encodeURIComponent(msg)}`;
             }
-
             function addFromModal() {
                 if (!modalData) return;
                 const qty = parseInt(document.getElementById('modalQty').value) || 1;
                 const request = document.getElementById('modalRequest').value.trim();
                 const existing = cart.findIndex(i => i.name === modalData.name && i.request === request);
-                if (existing !== -1) {
-                    cart[existing].qty += qty;
-                } else {
-                    cart.push({
-                        name: modalData.name,
-                        price: modalData.price,
-                        qty: qty,
-                        img: modalData.img,
-                        request: request
-                    });
-                }
+                if (existing !== -1) cart[existing].qty += qty;
+                else cart.push({ name: modalData.name, price: modalData.price, qty, img: modalData.img, request });
                 saveCart();
                 renderCart();
                 updateBadges();
@@ -2029,7 +1799,7 @@
                 orders.push({
                     date: new Date().toLocaleString('en-MY', { day: '2-digit', month: 'short', year: 'numeric', hour: '2-digit', minute: '2-digit' }),
                     items: cart.map(i => ({ name: i.name, qty: i.qty })),
-                    total: total
+                    total
                 });
                 saveOrders();
                 renderOrders();
@@ -2050,20 +1820,19 @@
                     btn.classList.toggle('active', isActive);
                     btn.setAttribute('aria-selected', isActive ? 'true' : 'false');
                 });
-                document.querySelectorAll('.page').forEach(page => page.classList.remove('active'));
+                document.querySelectorAll('.page').forEach(p => p.classList.remove('active'));
                 const target = document.getElementById(`page${tabId.charAt(0).toUpperCase() + tabId.slice(1)}`);
                 if (target) target.classList.add('active');
-
-                if (tabId === 'home') renderHome();
-                else if (tabId === 'menu') renderMenu();
-                else if (tabId === 'cart') renderCart();
-                else if (tabId === 'orders') renderOrders();
-                else if (tabId === 'profile') renderProfile();
-
+                switch (tabId) {
+                    case 'home': renderHome(); break;
+                    case 'menu': renderMenu(); break;
+                    case 'cart': renderCart(); break;
+                    case 'orders': renderOrders(); break;
+                    case 'profile': renderProfile(); break;
+                }
                 window.scrollTo({ top: 0, behavior: 'smooth' });
             }
 
-            // ---- Expose to global ----
             window.switchTab = switchTab;
             window.openModal = openModal;
             window.closeModal = closeModal;
@@ -2072,20 +1841,12 @@
             document.addEventListener('DOMContentLoaded', function() {
                 loadCart();
                 loadOrders();
-
                 document.querySelectorAll('.web-nav button').forEach(btn => {
-                    btn.addEventListener('click', function() {
-                        switchTab(this.dataset.tab);
-                    });
+                    btn.addEventListener('click', function() { switchTab(this.dataset.tab); });
                 });
-                document.getElementById('headerCartBtn').addEventListener('click', function() {
-                    switchTab('cart');
-                });
+                document.getElementById('headerCartBtn').addEventListener('click', function() { switchTab('cart'); });
 
-                // Modal events
-                document.getElementById('webModal').addEventListener('click', function(e) {
-                    if (e.target === this) closeModal();
-                });
+                document.getElementById('webModal').addEventListener('click', function(e) { if (e.target === this) closeModal(); });
                 document.getElementById('modalClose').addEventListener('click', closeModal);
                 document.getElementById('modalQtyMinus').addEventListener('click', function() {
                     let v = parseInt(document.getElementById('modalQty').value) || 1;
@@ -2109,11 +1870,7 @@
                     if (modalData) updateModalWaLink(modalData);
                 });
                 document.getElementById('modalAddCart').addEventListener('click', addFromModal);
-
-                document.addEventListener('keydown', function(e) {
-                    if (e.key === 'Escape' && isModalOpen) closeModal();
-                });
-
+                document.addEventListener('keydown', function(e) { if (e.key === 'Escape' && isModalOpen) closeModal(); });
                 switchTab('home');
                 console.log('🖥️ Web Interface (hardcoded) loaded');
                 console.log(`📦 ${getCartItemCount()} items in cart`);
@@ -2121,52 +1878,37 @@
             });
         })();
 
-        // ============================================================
-        // THEME TOGGLE (standalone)
-        // ============================================================
+        // ===== THEME TOGGLE (header button) =====
         (function() {
             var saved = localStorage.getItem('muiz-theme') || 'light';
-            var toggle = document.getElementById('themeToggle');
+            var toggleBtn = document.getElementById('themeToggleHeader');
             var icon = document.getElementById('themeIcon');
             var color = document.getElementById('themeColor');
-
             function apply(theme) {
                 document.documentElement.setAttribute('data-theme', theme);
                 localStorage.setItem('muiz-theme', theme);
-                if (theme === 'dark') {
-                    icon.className = 'fas fa-sun';
-                    color.content = '#000000';
-                } else {
-                    icon.className = 'fas fa-moon';
-                    color.content = '#000000';
-                }
+                icon.className = theme === 'dark' ? 'fas fa-sun' : 'fas fa-moon';
+                color.content = '#000000';
             }
             apply(saved);
-            toggle.addEventListener('click', function() {
+            toggleBtn.addEventListener('click', function() {
                 var current = document.documentElement.getAttribute('data-theme') || 'light';
                 apply(current === 'light' ? 'dark' : 'light');
             });
         })();
 
-        // ============================================================
-        // PLATFORM SWITCHER
-        // ============================================================
+        // ===== PLATFORM SWITCHER =====
         (function() {
             var toggleBtn = document.getElementById('switcherToggle');
             var closeBtn = document.getElementById('switcherClose');
             var menu = document.getElementById('switcherMenu');
             var switcher = document.getElementById('platformSwitcher');
-
             function toggleMenu() { menu.classList.toggle('open'); }
             function closeMenu() { menu.classList.remove('open'); }
-
             toggleBtn.addEventListener('click', function(e) { e.stopPropagation(); toggleMenu(); });
             closeBtn.addEventListener('click', function(e) { e.stopPropagation(); closeMenu(); });
-            document.addEventListener('click', function(e) {
-                if (switcher && !switcher.contains(e.target)) closeMenu();
-            });
+            document.addEventListener('click', function(e) { if (switcher && !switcher.contains(e.target)) closeMenu(); });
             document.addEventListener('keydown', function(e) { if (e.key === 'Escape') closeMenu(); });
-
             document.getElementById('currentPlatformLabel').textContent = 'Web';
             document.querySelectorAll('.switcher-option').forEach(function(link) {
                 link.addEventListener('click', function(e) {
@@ -2176,9 +1918,7 @@
             });
         })();
 
-        // ============================================================
-        // SERVICE WORKER
-        // ============================================================
+        // ===== SERVICE WORKER =====
         if ('serviceWorker' in navigator) {
             window.addEventListener('load', function() {
                 navigator.serviceWorker.register('/sw.js')
@@ -2187,6 +1927,5 @@
             });
         }
     </script>
-
 </body>
 </html>
