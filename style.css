@@ -70,7 +70,7 @@ button { font-family: inherit; cursor: pointer; border: none; background: none; 
 /* ---- THEME TOGGLE ---- */
 .theme-toggle {
     position: fixed; top: 64px; right: 16px;
-    z-index: 999;
+    z-index: 1001;
     background: var(--card);
     border: 1px solid var(--separator);
     border-radius: 50%;
