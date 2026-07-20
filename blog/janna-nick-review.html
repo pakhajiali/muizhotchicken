@@ -6,7 +6,7 @@
 
     <!-- ===== HIGH-IMPACT SEO TITLE & META ===== -->
     <title>Janna Nick Loves Muiz Hot Chicken – 'Sumpah Sedap!' Review 2026</title>
-    <meta name="description" content="Janna Nick posted a rave review of Muiz Hot Chicken: 'sumpah sedap, support lokal, sedapnya macam mcd!' Watch her viral video and try the crispiest halal fried chicken in Subang Jaya." />
+    <meta name="description" content="Janna Nick says 'sumpah sedap, support lokal, sedapnya macam mcd!' about Muiz Hot Chicken. Watch her viral video and try the crispiest halal fried chicken in Subang Jaya." />
     <link rel="canonical" href="https://muizhotchicken.com/blog/janna-nick-loves-muiz-hot-chicken" />
 
     <!-- ===== OPEN GRAPH ===== -->
@@ -63,9 +63,93 @@
         .blog-container {
             max-width: 880px;
             margin: 0 auto;
-            padding: 2rem 1.5rem 0;
+            padding: 1.5rem 1.5rem 0;
             background: #ffffff;
             box-shadow: 0 0 40px rgba(0, 0, 0, 0.03);
+        }
+
+        /* ===== TOP BAR (Back button + Restaurant name with Map link) ===== */
+        .top-bar {
+            display: flex;
+            flex-wrap: wrap;
+            align-items: center;
+            justify-content: space-between;
+            gap: 0.8rem 1.5rem;
+            padding-bottom: 1rem;
+            border-bottom: 1px solid #f0e8e0;
+            margin-bottom: 1.5rem;
+        }
+
+        .back-home {
+            display: inline-flex;
+            align-items: center;
+            gap: 0.5rem;
+            color: #5a4a3c;
+            text-decoration: none;
+            font-weight: 500;
+            font-size: 0.95rem;
+            transition: color 0.2s;
+            white-space: nowrap;
+        }
+
+        .back-home i {
+            font-size: 1.1rem;
+            transition: transform 0.2s;
+        }
+
+        .back-home:hover {
+            color: #c0392b;
+        }
+
+        .back-home:hover i {
+            transform: translateX(-3px);
+        }
+
+        .top-bar-right {
+            display: flex;
+            align-items: center;
+            gap: 0.6rem;
+            flex-wrap: wrap;
+        }
+
+        .top-bar-right .resto-name {
+            font-weight: 600;
+            font-size: 0.95rem;
+            color: #1e1e1e;
+        }
+
+        .top-bar-right .resto-name i {
+            color: #c0392b;
+            margin-right: 4px;
+        }
+
+        .map-link {
+            display: inline-flex;
+            align-items: center;
+            gap: 0.4rem;
+            background: #f0e8e0;
+            color: #1e1e1e;
+            text-decoration: none;
+            font-size: 0.85rem;
+            font-weight: 500;
+            padding: 0.3rem 1rem;
+            border-radius: 50px;
+            transition: background 0.2s, color 0.2s;
+            white-space: nowrap;
+        }
+
+        .map-link i {
+            color: #c0392b;
+            font-size: 0.9rem;
+        }
+
+        .map-link:hover {
+            background: #c0392b;
+            color: #fff;
+        }
+
+        .map-link:hover i {
+            color: #fff;
         }
 
         /* ----- HERO IMAGE ----- */
@@ -73,7 +157,7 @@
             width: 100%;
             border-radius: 28px 28px 0 0;
             overflow: hidden;
-            margin-top: 1rem;
+            margin-top: 0.5rem;
             box-shadow: 0 10px 35px rgba(0, 0, 0, 0.08);
         }
 
@@ -389,49 +473,81 @@
             margin-top: 0.5rem;
         }
 
+        /* ===== RESPONSIVE ===== */
         @media (max-width: 640px) {
             .blog-container {
-                padding: 0 1rem;
+                padding: 1rem 1rem 0;
             }
+
+            .top-bar {
+                flex-direction: column;
+                align-items: stretch;
+                gap: 0.6rem;
+            }
+
+            .top-bar-right {
+                flex-wrap: wrap;
+                justify-content: flex-start;
+            }
+
+            .top-bar-right .resto-name {
+                font-size: 0.9rem;
+            }
+
+            .map-link {
+                font-size: 0.8rem;
+                padding: 0.2rem 0.8rem;
+            }
+
             .blog-title {
                 font-size: 1.9rem;
             }
+
             .blog-subtitle {
                 font-size: 1rem;
                 padding: 0.6rem 1rem;
             }
+
             .blog-body p,
             .blog-body ul li {
                 font-size: 1rem;
             }
+
             .pull-quote {
                 font-size: 1.2rem;
                 padding: 1.2rem 1.5rem;
                 flex-wrap: wrap;
             }
+
             .pull-quote .thumbs-up {
                 margin-left: 0;
                 width: 100%;
                 text-align: right;
             }
+
             .hero-image {
                 border-radius: 18px 18px 0 0;
             }
+
             .cta-box {
                 padding: 1.8rem 1.2rem;
             }
+
             .btn-cta {
                 padding: 0.8rem 1.8rem;
                 font-size: 0.95rem;
                 width: 100%;
             }
+
             .footer-inner {
                 flex-direction: column;
                 text-align: center;
             }
+
             .footer-social a {
                 margin: 0 0.8rem;
             }
+
             .blog-body h2 {
                 font-size: 1.5rem;
             }
@@ -442,12 +558,26 @@
 
     <div class="blog-container">
 
-        <!-- ===== HERO IMAGE (horizontal, rounded top corners) ===== -->
+        <!-- ===== TOP BAR ===== -->
+        <div class="top-bar">
+            <!-- Left: Back button -->
+            <a href="https://muizhotchicken.com/" class="back-home">
+                <i class="fas fa-arrow-left"></i> Back to Home
+            </a>
+
+            <!-- Right: Restaurant name + Google Maps link -->
+            <div class="top-bar-right">
+                <span class="resto-name">
+                    <i class="fas fa-store"></i> Restoran Pak Haji Ali &amp; Muiz Hot Chicken – Subang Jaya (USJ 8)
+                </span>
+                <a href="https://g.page/r/CUrZw9xvAXIPEBE" target="_blank" rel="noopener" class="map-link">
+                    <i class="fas fa-map-pin"></i> Google Maps
+                </a>
+            </div>
+        </div>
+
+        <!-- ===== HERO IMAGE ===== -->
         <div class="hero-image">
-            <!-- 
-                IMPORTANT: Replace the src with your actual Janna Nick image.
-                Use a wide 16:9 image for the best look.
-            -->
             <img src="/images/jannah-nick-recommends.webp"
             alt="Janna Nick gives a thumbs up to Muiz Hot Chicken – 'sumpah sedap, support lokal, sedapnya macam mcd'"
             loading="lazy" />
@@ -473,15 +603,13 @@
         <!-- ===== BLOG BODY ===== -->
         <article class="blog-body">
 
-            <!-- INTRO -->
             <p>
-                <strong>Janna Nick</strong>, one of Malaysia’s most beloved actresses and a true foodie at heart, 
-                recently took to social media to share her thoughts on <strong>Muiz Hot Chicken</strong>. 
-                In a now‑viral video, she gave our signature crispy fried chicken her ultimate seal of approval — 
+                <strong>Janna Nick</strong>, one of Malaysia’s most beloved actresses and a true foodie at heart,
+                recently took to social media to share her thoughts on <strong>Muiz Hot Chicken</strong>.
+                In a now‑viral video, she gave our signature crispy fried chicken her ultimate seal of approval —
                 complete with a <strong>thumbs‑up</strong> and a smile that says it all.
             </p>
 
-            <!-- PULL QUOTE WITH EXACT WORDS + THUMBS UP -->
             <div class="pull-quote">
                 <span class="quote-icon"><i class="fas fa-quote-right"></i></span>
                 <span class="quote-text">
@@ -492,14 +620,14 @@
             </div>
 
             <p>
-                The <strong>Janna Nick Muiz Hot Chicken</strong> video has already racked up thousands of views 
-                across YouTube and TikTok, with fans flooding the comments asking one question: 
-                <em>“Where can I get this?”</em> Her honest, unfiltered reaction — eyes lighting up, 
-                reaching for more, and that final <strong>thumbs‑up</strong> — is proof that great food 
+                The <strong>Janna Nick Muiz Hot Chicken</strong> video has already racked up thousands of views
+                across YouTube and TikTok, with fans flooding the comments asking one question:
+                <em>“Where can I get this?”</em> Her honest, unfiltered reaction — eyes lighting up,
+                reaching for more, and that final <strong>thumbs‑up</strong> — is proof that great food
                 speaks for itself.
             </p>
 
-            <!-- ===== VIDEO EMBED (YouTube) ===== -->
+            <!-- ===== VIDEO EMBED ===== -->
             <div class="video-section">
                 <span class="video-label"><i class="fab fa-youtube"></i> Watch Janna Nick's Review</span>
                 <div class="video-wrapper">
@@ -515,17 +643,17 @@
 
         <h2>What Makes Muiz Hot Chicken So Special?</h2>
         <p>
-            It’s not just hype — our <strong>Muiz Hot Chicken</strong> is the result of a carefully perfected 
-            recipe. We start with fresh, antibiotic‑free chicken, marinated for <strong>12 hours</strong> 
-            in a secret blend of 12 locally sourced herbs and spices. Then comes the magic: a proprietary 
-            <strong>double‑coating technique</strong> that locks in the juices and creates that signature 
+            It’s not just hype — our <strong>Muiz Hot Chicken</strong> is the result of a carefully perfected
+            recipe. We start with fresh, antibiotic‑free chicken, marinated for <strong>12 hours</strong>
+            in a secret blend of 12 locally sourced herbs and spices. Then comes the magic: a proprietary
+            <strong>double‑coating technique</strong> that locks in the juices and creates that signature
             shatter‑crisp crunch — one that stays crispy even during delivery.
         </p>
 
         <p>
-            “I’ve tried so many fried chicken brands, but this one is different,” Janna added in her post. 
-            “The spice blend is perfectly balanced, and the crunch is unreal. Honestly, it rivals the big 
-            international chains — but it’s proudly local and halal!” Her <strong>thumbs‑up</strong> at the 
+            “I’ve tried so many fried chicken brands, but this one is different,” Janna added in her post.
+            “The spice blend is perfectly balanced, and the crunch is unreal. Honestly, it rivals the big
+            international chains — but it’s proudly local and halal!” Her <strong>thumbs‑up</strong> at the
             end of the video says everything.
         </p>
 
@@ -539,23 +667,23 @@
 
         <h2>The Impact of Janna Nick's Viral Post</h2>
         <p>
-            Since Janna Nick shared her <strong>Muiz Hot Chicken review</strong> with that enthusiastic 
-            <strong>thumbs‑up</strong>, we’ve seen a huge surge in interest from all over Klang Valley — 
-            especially from students and families near <strong>Taylor’s Lakeside, Sunway University, Monash, 
+            Since Janna Nick shared her <strong>Muiz Hot Chicken review</strong> with that enthusiastic
+            <strong>thumbs‑up</strong>, we’ve seen a huge surge in interest from all over Klang Valley —
+            especially from students and families near <strong>Taylor’s Lakeside, Sunway University, Monash,
             and INTI</strong>. Everyone wants to taste the chicken that got a celebrity seal of approval.
         </p>
 
         <p>
-            Whether you’re craving a <strong>Cheese Regular Box</strong>, a fiery <strong>Korean Spicy Happy Box</strong>, 
-            or a comforting plate of <strong>Nasi Kandar</strong>, our menu has something that will have you 
+            Whether you’re craving a <strong>Cheese Regular Box</strong>, a fiery <strong>Korean Spicy Happy Box</strong>,
+            or a comforting plate of <strong>Nasi Kandar</strong>, our menu has something that will have you
             saying <em>“sumpah sedap”</em> just like Janna — and maybe even giving your own thumbs‑up.
         </p>
 
-        <!-- ===== CALL TO ACTION ===== -->
+        <!-- ===== CTA ===== -->
         <div class="cta-box">
             <h3>🍗 Try the Chicken Janna Nick Loved!</h3>
             <p>
-                Come taste our signature <strong>Muiz Hot Chicken</strong> at our Subang Jaya (USJ 8) outlet. 
+                Come taste our signature <strong>Muiz Hot Chicken</strong> at our Subang Jaya (USJ 8) outlet.
                 Crispy, halal, and absolutely irresistible — just like she said.
             </p>
             <div class="btn-group">
