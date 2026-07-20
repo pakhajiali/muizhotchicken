@@ -1769,3 +1769,67 @@ main {
 [data-theme="dark"] .sponsored-by-arrow {
     color: #ff6b6b;
 }
+/* ---- LANGUAGE SWITCHER ---- */
+.language-switcher {
+    display: flex;
+    align-items: center;
+    gap: 6px;
+    font-size: 13px;
+    font-weight: 500;
+}
+
+.language-switcher .lang-link {
+    color: #fff;
+    text-decoration: none;
+    padding: 2px 4px;
+    border-radius: 4px;
+    transition: background 0.2s, opacity 0.2s;
+    opacity: 0.7;
+}
+
+.language-switcher .lang-link:hover {
+    opacity: 1;
+    background: rgba(255,255,255,0.15);
+}
+
+.language-switcher .lang-link.active {
+    opacity: 1;
+    font-weight: 700;
+    text-decoration: underline;
+    text-underline-offset: 3px;
+}
+
+.language-switcher .lang-divider {
+    color: rgba(255,255,255,0.3);
+}
+
+/* Untuk app-banner agar kandungannya fleksibel */
+.app-banner-content {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    flex-wrap: wrap;
+    gap: 8px 16px;
+}
+
+.app-banner-left {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    flex-wrap: wrap;
+}
+
+@media (max-width: 600px) {
+    .app-banner-content {
+        flex-direction: column;
+        align-items: stretch;
+        text-align: center;
+    }
+    .app-banner-left {
+        justify-content: center;
+    }
+    .language-switcher {
+        justify-content: center;
+        font-size: 12px;
+    }
+}
