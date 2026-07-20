@@ -36,6 +36,26 @@
         modal.classList.add('open');
         document.body.style.overflow = 'hidden';
     });
+   // ===== ACTIVE LANGUAGE LINK =====
+(function() {
+    var links = document.querySelectorAll('.lang-link');
+    var currentPath = window.location.pathname;
+    var currentLang = 'en';
+    if (currentPath.startsWith('/ms/')) currentLang = 'ms';
+    else if (currentPath.startsWith('/zh/')) currentLang = 'zh';
+    // Juga jika path root atau /index.html -> en
+
+    links.forEach(function(link) {
+        var lang = link.dataset.lang;
+        if (lang === currentLang) {
+            link.classList.add('active');
+        }
+        // Pastikan pautan ke root berfungsi untuk en
+        if (lang === 'en' && (currentPath === '/' || currentPath === '/index.html' || currentPath === '')) {
+            link.classList.add('active');
+        }
+    });
+})();
 
     function closeModal() {
         modal.classList.remove('open');
