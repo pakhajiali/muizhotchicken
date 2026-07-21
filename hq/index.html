@@ -1,0 +1,1582 @@
+<!DOCTYPE html>
+<html lang="en" data-theme="light">
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover, maximum-scale=1.0, user-scalable=no" />
+
+    <title>Muiz Hot Chicken - Sponsored by Restoran Pak Haji Ali &amp; Muiz Hot Chicken</title>
+    <meta name="description" content="Muiz Hot Chicken HQ — Corporate headquarters of Malaysia's fastest-growing halal crispy chicken franchise. Sponsored by Restoran Pak Haji Ali & Muiz Hot Chicken (USJ 8)." />
+    <link rel="canonical" href="https://muizhotchicken.com/hq/" />
+    <meta property="og:title" content="Muiz Hot Chicken - Sponsored by Restoran Pak Haji Ali & Muiz Hot Chicken" />
+    <meta property="og:description" content="Muiz Hot Chicken HQ — Corporate headquarters of Malaysia's fastest-growing halal crispy chicken franchise." />
+    <meta property="og:image" content="https://muizhotchicken.com/logo.webp" />
+    <meta property="og:url" content="https://muizhotchicken.com/hq/" />
+    <meta property="og:type" content="website" />
+    <meta property="og:site_name" content="Muiz Hot Chicken HQ" />
+    <meta name="theme-color" content="#000000" id="themeColor" />
+    <link rel="icon" type="image/svg+xml" href="favicon.svg" />
+    <link rel="apple-touch-icon" href="apple-touch-icon.png" />
+
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css" />
+    <link rel="stylesheet" href="style.css" />
+
+    <style>
+        /* ── Base Reset & Variables ── */
+        :root {
+            --bg-primary: #faf8f6;
+            --bg-secondary: #f1ede8;
+            --bg-card: #ffffff;
+            --text-primary: #1a1410;
+            --text-secondary: #4a3f38;
+            --text-muted: #8a7a6e;
+            --border-color: #e8e0d8;
+            --border-color-light: #f0ebe6;
+            --accent: #fd8549;
+            --accent-dark: #e56e32;
+            --accent-glow: rgba(253, 133, 73, 0.15);
+            --shadow-sm: 0 4px 20px rgba(0, 0, 0, 0.06);
+            --shadow-md: 0 12px 40px rgba(0, 0, 0, 0.08);
+            --shadow-lg: 0 24px 80px rgba(0, 0, 0, 0.12);
+            --radius-lg: 24px;
+            --radius-md: 16px;
+            --radius-sm: 12px;
+            --transition: 0.35s cubic-bezier(0.34, 1.56, 0.64, 1);
+        }
+
+        [data-theme="dark"] {
+            --bg-primary: #0d0b0a;
+            --bg-secondary: #161210;
+            --bg-card: #1e1916;
+            --text-primary: #f0ece8;
+            --text-secondary: #c8beb6;
+            --text-muted: #8a7a6e;
+            --border-color: #2d2622;
+            --border-color-light: #25201c;
+            --shadow-sm: 0 4px 20px rgba(0, 0, 0, 0.3);
+            --shadow-md: 0 12px 40px rgba(0, 0, 0, 0.4);
+            --shadow-lg: 0 24px 80px rgba(0, 0, 0, 0.5);
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        html {
+            scroll-behavior: smooth;
+            -webkit-tap-highlight-color: transparent;
+        }
+
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, sans-serif;
+            background: var(--bg-primary);
+            color: var(--text-primary);
+            transition: background 0.4s ease, color 0.4s ease;
+            line-height: 1.6;
+            overflow-x: hidden;
+        }
+
+        a {
+            color: inherit;
+            text-decoration: none;
+        }
+
+        img {
+            max-width: 100%;
+            display: block;
+        }
+
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 1.5rem;
+        }
+
+        /* ── App Banner ── */
+        .app-banner {
+            background: var(--bg-secondary);
+            border-bottom: 1px solid var(--border-color);
+            padding: 0.6rem 1rem;
+            position: sticky;
+            top: 0;
+            z-index: 100;
+            backdrop-filter: blur(12px);
+            -webkit-backdrop-filter: blur(12px);
+            background: rgba(26, 20, 16, 0.92);
+            border-bottom: 1px solid rgba(255, 255, 255, 0.06);
+        }
+
+        [data-theme="light"] .app-banner {
+            background: rgba(250, 248, 246, 0.92);
+            border-bottom: 1px solid rgba(0, 0, 0, 0.06);
+        }
+
+        .app-banner-content {
+            max-width: 1200px;
+            margin: 0 auto;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            flex-wrap: wrap;
+            gap: 0.5rem 1rem;
+        }
+
+        .app-banner-left {
+            display: flex;
+            align-items: center;
+            gap: 0.6rem;
+            flex-wrap: wrap;
+        }
+
+        .app-banner-icon {
+            font-size: 1.2rem;
+        }
+
+        .app-banner-text {
+            font-size: 0.8rem;
+            color: var(--text-secondary);
+            opacity: 0.8;
+        }
+
+        .app-banner-text strong {
+            color: var(--text-primary);
+            opacity: 1;
+        }
+
+        .app-banner-btn {
+            display: inline-flex;
+            align-items: center;
+            gap: 0.4rem;
+            background: var(--accent);
+            color: #fff;
+            font-size: 0.7rem;
+            font-weight: 600;
+            padding: 0.3rem 1rem;
+            border-radius: 100px;
+            transition: background 0.3s ease, transform 0.2s ease;
+            letter-spacing: 0.02em;
+        }
+
+        .app-banner-btn:hover {
+            background: var(--accent-dark);
+            transform: scale(1.03);
+        }
+
+        .language-switcher {
+            display: flex;
+            align-items: center;
+            gap: 0.4rem;
+            font-size: 0.7rem;
+            color: var(--text-muted);
+        }
+
+        .lang-link {
+            padding: 0.2rem 0.4rem;
+            border-radius: 4px;
+            transition: color 0.2s, background 0.2s;
+            color: var(--text-muted);
+        }
+
+        .lang-link:hover {
+            color: var(--accent);
+            background: rgba(253, 133, 73, 0.08);
+        }
+
+        .lang-divider {
+            opacity: 0.3;
+        }
+
+        /* ── Theme Toggle ── */
+        .theme-toggle {
+            position: fixed;
+            bottom: 2rem;
+            right: 2rem;
+            z-index: 99;
+            width: 48px;
+            height: 48px;
+            border-radius: 50%;
+            border: 1px solid var(--border-color);
+            background: var(--bg-card);
+            color: var(--text-primary);
+            font-size: 1.2rem;
+            cursor: pointer;
+            box-shadow: var(--shadow-md);
+            transition: all 0.3s ease;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+
+        .theme-toggle:hover {
+            transform: scale(1.08);
+            box-shadow: var(--shadow-lg);
+            border-color: var(--accent);
+        }
+
+        /* ── HQ Hero ── */
+        .hq-hero {
+            padding: 3rem 1rem 4rem;
+            background: var(--bg-primary);
+            position: relative;
+            overflow: hidden;
+        }
+
+        .hq-hero::before {
+            content: '';
+            position: absolute;
+            top: -40%;
+            right: -20%;
+            width: 60%;
+            height: 80%;
+            background: radial-gradient(ellipse, rgba(253, 133, 73, 0.06), transparent 70%);
+            pointer-events: none;
+        }
+
+        .hq-hero-container {
+            max-width: 1200px;
+            margin: 0 auto;
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 3rem;
+            align-items: center;
+            position: relative;
+            z-index: 2;
+        }
+
+        .hq-hero-content {
+            display: flex;
+            flex-direction: column;
+            gap: 1.2rem;
+        }
+
+        .hq-hero-badges {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 0.6rem;
+        }
+
+        .badge-hq {
+            display: inline-flex;
+            align-items: center;
+            gap: 0.4rem;
+            font-size: 0.65rem;
+            font-weight: 700;
+            text-transform: uppercase;
+            letter-spacing: 0.06em;
+            padding: 0.35rem 1rem;
+            border-radius: 100px;
+            background: rgba(253, 133, 73, 0.1);
+            color: var(--accent);
+            border: 1px solid rgba(253, 133, 73, 0.12);
+        }
+
+        .badge-hq i {
+            font-size: 0.7rem;
+        }
+
+        .badge-hq.gold {
+            background: rgba(255, 215, 0, 0.1);
+            color: #d4a017;
+            border-color: rgba(255, 215, 0, 0.15);
+        }
+
+        .badge-hq.dark {
+            background: rgba(0, 0, 0, 0.06);
+            color: var(--text-secondary);
+            border-color: rgba(0, 0, 0, 0.06);
+        }
+
+        [data-theme="dark"] .badge-hq.dark {
+            background: rgba(255, 255, 255, 0.06);
+            border-color: rgba(255, 255, 255, 0.06);
+            color: var(--text-secondary);
+        }
+
+        .hq-hero-title {
+            font-size: clamp(2.4rem, 6vw, 4rem);
+            font-weight: 800;
+            letter-spacing: -0.03em;
+            line-height: 1.1;
+            color: var(--text-primary);
+        }
+
+        .hq-hero-title .highlight {
+            background: linear-gradient(135deg, #fd8549, #f57c3a, #e56e32);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+        }
+
+        .hq-hero-sub {
+            font-size: 1.1rem;
+            color: var(--text-secondary);
+            font-weight: 400;
+            opacity: 0.8;
+        }
+
+        .hq-hero-sub i {
+            color: var(--accent);
+            margin-right: 0.3rem;
+        }
+
+        .hq-hero-desc {
+            font-size: 1rem;
+            color: var(--text-secondary);
+            max-width: 520px;
+            line-height: 1.7;
+            opacity: 0.85;
+        }
+
+        .hq-hero-desc strong {
+            color: var(--text-primary);
+            opacity: 1;
+        }
+
+        .hq-hero-stats {
+            display: flex;
+            gap: 2.5rem;
+            padding-top: 0.5rem;
+            flex-wrap: wrap;
+        }
+
+        .stat {
+            display: flex;
+            flex-direction: column;
+        }
+
+        .stat strong {
+            font-size: 1.6rem;
+            font-weight: 800;
+            color: var(--text-primary);
+            letter-spacing: -0.02em;
+        }
+
+        .stat span {
+            font-size: 0.75rem;
+            color: var(--text-muted);
+            text-transform: uppercase;
+            letter-spacing: 0.04em;
+            font-weight: 500;
+        }
+
+        .hq-hero-actions {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 0.8rem;
+            padding-top: 0.5rem;
+        }
+
+        .btn-primary {
+            display: inline-flex;
+            align-items: center;
+            gap: 0.6rem;
+            background: var(--accent);
+            color: #fff;
+            font-weight: 600;
+            padding: 0.75rem 2rem;
+            border-radius: 100px;
+            transition: all 0.3s ease;
+            font-size: 0.9rem;
+            border: none;
+            cursor: pointer;
+        }
+
+        .btn-primary:hover {
+            background: var(--accent-dark);
+            transform: translateY(-2px);
+            box-shadow: 0 8px 30px rgba(253, 133, 73, 0.25);
+        }
+
+        .btn-outline {
+            display: inline-flex;
+            align-items: center;
+            gap: 0.6rem;
+            background: transparent;
+            color: var(--text-primary);
+            font-weight: 600;
+            padding: 0.75rem 2rem;
+            border-radius: 100px;
+            border: 1.5px solid var(--border-color);
+            transition: all 0.3s ease;
+            font-size: 0.9rem;
+            cursor: pointer;
+        }
+
+        .btn-outline:hover {
+            border-color: var(--accent);
+            color: var(--accent);
+            transform: translateY(-2px);
+            box-shadow: 0 8px 30px rgba(0, 0, 0, 0.04);
+        }
+
+        /* ── Sponsored By Line (Hero) ── */
+        .sponsored-by-line-hero {
+            display: inline-flex;
+            align-items: center;
+            gap: 0.6rem;
+            flex-wrap: wrap;
+            padding: 0.5rem 1.2rem;
+            background: rgba(253, 133, 73, 0.06);
+            border-radius: 100px;
+            border: 1px solid rgba(253, 133, 73, 0.08);
+            font-size: 0.75rem;
+            color: var(--text-secondary);
+            margin-top: 0.2rem;
+            transition: all 0.3s ease;
+        }
+
+        .sponsored-by-line-hero:hover {
+            background: rgba(253, 133, 73, 0.1);
+            border-color: rgba(253, 133, 73, 0.15);
+        }
+
+        .sponsored-by-line-hero i {
+            color: var(--accent);
+            font-size: 0.85rem;
+        }
+
+        .sponsored-by-line-hero a {
+            color: var(--accent);
+            font-weight: 600;
+            transition: color 0.2s;
+        }
+
+        .sponsored-by-line-hero a:hover {
+            color: var(--accent-dark);
+            text-decoration: underline;
+        }
+
+        /* ── Hero Image ── */
+        .hq-hero-image-wrapper {
+            position: relative;
+            border-radius: var(--radius-lg);
+            overflow: hidden;
+            box-shadow: var(--shadow-lg);
+            background: var(--bg-card);
+            transition: box-shadow 0.4s ease;
+        }
+
+        .hq-hero-image-wrapper:hover {
+            box-shadow: 0 30px 80px rgba(253, 133, 73, 0.12);
+        }
+
+        .hq-hero-image-wrapper img {
+            width: 100%;
+            height: auto;
+            aspect-ratio: 4 / 3;
+            object-fit: cover;
+            transition: transform 0.6s cubic-bezier(0.34, 1.56, 0.64, 1);
+        }
+
+        .hq-hero-image-wrapper:hover img {
+            transform: scale(1.02);
+        }
+
+        .hq-hero-image-wrapper .overlay-label {
+            position: absolute;
+            bottom: 1.2rem;
+            left: 1.2rem;
+            background: rgba(0, 0, 0, 0.7);
+            backdrop-filter: blur(8px);
+            -webkit-backdrop-filter: blur(8px);
+            color: #fff;
+            font-size: 0.7rem;
+            font-weight: 500;
+            padding: 0.4rem 1rem;
+            border-radius: 100px;
+            display: flex;
+            align-items: center;
+            gap: 0.4rem;
+            letter-spacing: 0.04em;
+            border: 1px solid rgba(255, 255, 255, 0.08);
+        }
+
+        .hq-hero-image-wrapper .overlay-label i {
+            color: var(--accent);
+        }
+
+        /* ── Featured Video ── */
+        .featured-video {
+            padding: 4rem 1rem;
+            background: var(--bg-secondary);
+        }
+
+        .featured-video-container {
+            max-width: 1100px;
+            margin: 0 auto;
+        }
+
+        .featured-video-wrapper {
+            background: var(--bg-card);
+            border-radius: var(--radius-lg);
+            padding: 2rem 2rem 2.5rem;
+            box-shadow: var(--shadow-sm);
+            border: 1px solid var(--border-color-light);
+        }
+
+        .video-badge-wrap {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 0.6rem;
+            margin-bottom: 1.2rem;
+        }
+
+        .badge-video {
+            display: inline-flex;
+            align-items: center;
+            gap: 0.4rem;
+            font-size: 0.7rem;
+            font-weight: 600;
+            text-transform: uppercase;
+            letter-spacing: 0.04em;
+            padding: 0.3rem 1rem;
+            border-radius: 100px;
+            background: rgba(255, 0, 0, 0.08);
+            color: #dc3545;
+            border: 1px solid rgba(255, 0, 0, 0.1);
+        }
+
+        .badge-influencer {
+            display: inline-flex;
+            align-items: center;
+            gap: 0.4rem;
+            font-size: 0.7rem;
+            font-weight: 600;
+            padding: 0.3rem 1rem;
+            border-radius: 100px;
+            background: rgba(255, 215, 0, 0.1);
+            color: #d4a017;
+            border: 1px solid rgba(255, 215, 0, 0.12);
+        }
+
+        .video-main {
+            display: grid;
+            grid-template-columns: 1.4fr 1fr;
+            gap: 2rem;
+            align-items: start;
+        }
+
+        .video-thumbnail-wrapper {
+            position: relative;
+            border-radius: var(--radius-md);
+            overflow: hidden;
+            box-shadow: var(--shadow-sm);
+            background: #000;
+        }
+
+        .video-embed {
+            position: relative;
+            padding-bottom: 56.25%;
+            height: 0;
+            overflow: hidden;
+        }
+
+        .video-embed iframe {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            border: 0;
+        }
+
+        .video-info {
+            display: flex;
+            flex-direction: column;
+            gap: 0.8rem;
+        }
+
+        .video-info h3 {
+            font-size: 1.3rem;
+            font-weight: 700;
+            color: var(--text-primary);
+        }
+
+        .video-quote {
+            font-size: 1rem;
+            font-style: italic;
+            color: var(--text-secondary);
+            padding: 0.8rem 1.2rem;
+            background: var(--bg-secondary);
+            border-radius: var(--radius-sm);
+            border-left: 3px solid var(--accent);
+        }
+
+        .video-desc {
+            font-size: 0.9rem;
+            color: var(--text-secondary);
+            opacity: 0.8;
+        }
+
+        .video-actions {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 0.8rem;
+            padding-top: 0.5rem;
+        }
+
+        .btn-youtube {
+            display: inline-flex;
+            align-items: center;
+            gap: 0.5rem;
+            background: #ff0000;
+            color: #fff;
+            font-weight: 600;
+            font-size: 0.85rem;
+            padding: 0.6rem 1.5rem;
+            border-radius: 100px;
+            transition: all 0.3s ease;
+        }
+
+        .btn-youtube:hover {
+            background: #cc0000;
+            transform: translateY(-2px);
+            box-shadow: 0 8px 30px rgba(255, 0, 0, 0.2);
+            color: #fff;
+        }
+
+        .btn-order-now {
+            display: inline-flex;
+            align-items: center;
+            gap: 0.5rem;
+            background: var(--accent);
+            color: #fff;
+            font-weight: 600;
+            font-size: 0.85rem;
+            padding: 0.6rem 1.5rem;
+            border-radius: 100px;
+            transition: all 0.3s ease;
+        }
+
+        .btn-order-now:hover {
+            background: var(--accent-dark);
+            transform: translateY(-2px);
+            box-shadow: 0 8px 30px rgba(253, 133, 73, 0.2);
+            color: #fff;
+        }
+
+        /* ── About Section ── */
+        .about-section {
+            padding: 4rem 1rem;
+            background: var(--bg-primary);
+        }
+
+        .about-container {
+            max-width: 1100px;
+            margin: 0 auto;
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 3rem;
+            align-items: center;
+        }
+
+        .about-content {
+            display: flex;
+            flex-direction: column;
+            gap: 1.2rem;
+        }
+
+        .about-tag {
+            display: inline-flex;
+            align-items: center;
+            gap: 0.5rem;
+            font-size: 0.7rem;
+            font-weight: 600;
+            text-transform: uppercase;
+            letter-spacing: 0.06em;
+            padding: 0.3rem 1.2rem;
+            border-radius: 100px;
+            background: rgba(253, 133, 73, 0.1);
+            color: var(--accent);
+            border: 1px solid rgba(253, 133, 73, 0.12);
+            width: fit-content;
+        }
+
+        .about-content h2 {
+            font-size: clamp(2rem, 4vw, 2.8rem);
+            font-weight: 800;
+            letter-spacing: -0.02em;
+            color: var(--text-primary);
+        }
+
+        .about-content h2 span {
+            background: linear-gradient(135deg, #fd8549, #f57c3a);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+        }
+
+        .about-content p {
+            font-size: 1rem;
+            color: var(--text-secondary);
+            line-height: 1.8;
+            opacity: 0.85;
+        }
+
+        .about-content p strong {
+            color: var(--text-primary);
+            opacity: 1;
+        }
+
+        .about-certifications {
+            display: flex;
+            gap: 2rem;
+            flex-wrap: wrap;
+            padding-top: 0.5rem;
+        }
+
+        .cert-item {
+            display: flex;
+            align-items: center;
+            gap: 0.8rem;
+        }
+
+        .cert-item img {
+            width: 44px;
+            height: 44px;
+            object-fit: contain;
+            border-radius: 8px;
+            background: var(--bg-card);
+            padding: 4px;
+            border: 1px solid var(--border-color-light);
+        }
+
+        .cert-item span {
+            font-size: 0.8rem;
+            font-weight: 600;
+            color: var(--text-secondary);
+        }
+
+        .about-image {
+            border-radius: var(--radius-lg);
+            overflow: hidden;
+            box-shadow: var(--shadow-md);
+            background: var(--bg-card);
+        }
+
+        .about-image img {
+            width: 100%;
+            height: auto;
+            aspect-ratio: 4 / 3;
+            object-fit: cover;
+            transition: transform 0.6s ease;
+        }
+
+        .about-image:hover img {
+            transform: scale(1.02);
+        }
+
+        /* ── Location / Map ── */
+        .location-section {
+            padding: 4rem 1rem;
+            background: var(--bg-secondary);
+        }
+
+        .location-container {
+            max-width: 1100px;
+            margin: 0 auto;
+        }
+
+        .location-grid {
+            display: grid;
+            grid-template-columns: 1.4fr 1fr;
+            gap: 2rem;
+            align-items: stretch;
+        }
+
+        .map-embed {
+            border-radius: var(--radius-md);
+            overflow: hidden;
+            box-shadow: var(--shadow-sm);
+            background: var(--bg-card);
+            height: 100%;
+            min-height: 260px;
+        }
+
+        .map-embed iframe {
+            width: 100%;
+            height: 100%;
+            min-height: 260px;
+            border: 0;
+            display: block;
+        }
+
+        .location-details {
+            display: flex;
+            flex-direction: column;
+            gap: 1.2rem;
+            justify-content: center;
+            background: var(--bg-card);
+            padding: 2rem;
+            border-radius: var(--radius-md);
+            box-shadow: var(--shadow-sm);
+            border: 1px solid var(--border-color-light);
+        }
+
+        .location-details .loc-icon {
+            font-size: 1.8rem;
+            color: var(--accent);
+        }
+
+        .location-details h3 {
+            font-size: 1.3rem;
+            font-weight: 700;
+            color: var(--text-primary);
+        }
+
+        .location-details .address {
+            font-size: 0.95rem;
+            color: var(--text-secondary);
+            line-height: 1.7;
+        }
+
+        .location-details .address strong {
+            color: var(--text-primary);
+        }
+
+        .location-actions {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 0.8rem;
+            padding-top: 0.5rem;
+        }
+
+        .btn-google-maps {
+            display: inline-flex;
+            align-items: center;
+            gap: 0.5rem;
+            background: #4285f4;
+            color: #fff;
+            font-weight: 600;
+            font-size: 0.85rem;
+            padding: 0.6rem 1.5rem;
+            border-radius: 100px;
+            transition: all 0.3s ease;
+        }
+
+        .btn-google-maps:hover {
+            background: #3367d6;
+            transform: translateY(-2px);
+            box-shadow: 0 8px 30px rgba(66, 133, 244, 0.2);
+            color: #fff;
+        }
+
+        .btn-whatsapp-directions {
+            display: inline-flex;
+            align-items: center;
+            gap: 0.5rem;
+            background: #25d366;
+            color: #fff;
+            font-weight: 600;
+            font-size: 0.85rem;
+            padding: 0.6rem 1.5rem;
+            border-radius: 100px;
+            transition: all 0.3s ease;
+        }
+
+        .btn-whatsapp-directions:hover {
+            background: #1da851;
+            transform: translateY(-2px);
+            box-shadow: 0 8px 30px rgba(37, 211, 102, 0.2);
+            color: #fff;
+        }
+
+        /* ── Reviews ── */
+        .reviews-section {
+            padding: 4rem 1rem;
+            background: var(--bg-primary);
+        }
+
+        .reviews-container {
+            max-width: 1100px;
+            margin: 0 auto;
+        }
+
+        .section-header {
+            text-align: center;
+            margin-bottom: 2.5rem;
+        }
+
+        .section-header .section-tag {
+            display: inline-block;
+            font-size: 0.7rem;
+            font-weight: 600;
+            text-transform: uppercase;
+            letter-spacing: 0.06em;
+            padding: 0.3rem 1.2rem;
+            border-radius: 100px;
+            background: rgba(253, 133, 73, 0.08);
+            color: var(--accent);
+            border: 1px solid rgba(253, 133, 73, 0.08);
+            margin-bottom: 0.6rem;
+        }
+
+        .section-header h2 {
+            font-size: clamp(1.8rem, 3.5vw, 2.6rem);
+            font-weight: 800;
+            letter-spacing: -0.02em;
+            color: var(--text-primary);
+        }
+
+        .section-header p {
+            color: var(--text-secondary);
+            opacity: 0.7;
+            font-size: 1rem;
+        }
+
+        .reviews-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(220px, 1fr));
+            gap: 1.2rem;
+        }
+
+        .review-item {
+            background: var(--bg-card);
+            padding: 1.2rem 1.2rem 1.5rem;
+            border-radius: var(--radius-sm);
+            border: 1px solid var(--border-color-light);
+            box-shadow: var(--shadow-sm);
+            transition: all 0.3s ease;
+            display: flex;
+            flex-direction: column;
+            gap: 0.4rem;
+        }
+
+        .review-item:hover {
+            transform: translateY(-4px);
+            box-shadow: var(--shadow-md);
+            border-color: var(--accent);
+        }
+
+        .review-item .avatar {
+            width: 36px;
+            height: 36px;
+            border-radius: 50%;
+            background: var(--accent);
+            color: #fff;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-weight: 700;
+            font-size: 0.9rem;
+            text-transform: uppercase;
+        }
+
+        .review-item .name {
+            font-weight: 600;
+            font-size: 0.9rem;
+            color: var(--text-primary);
+        }
+
+        .review-item .stars {
+            color: #f5b342;
+            font-size: 0.8rem;
+            letter-spacing: 1px;
+        }
+
+        .review-item .text {
+            font-size: 0.85rem;
+            color: var(--text-secondary);
+            line-height: 1.5;
+            opacity: 0.85;
+            flex: 1;
+        }
+
+        .reviews-cta {
+            text-align: center;
+            margin-top: 2rem;
+        }
+
+        .btn-google {
+            display: inline-flex;
+            align-items: center;
+            gap: 0.6rem;
+            background: #4285f4;
+            color: #fff;
+            font-weight: 600;
+            font-size: 0.9rem;
+            padding: 0.7rem 2rem;
+            border-radius: 100px;
+            transition: all 0.3s ease;
+        }
+
+        .btn-google:hover {
+            background: #3367d6;
+            transform: translateY(-2px);
+            box-shadow: 0 8px 30px rgba(66, 133, 244, 0.2);
+            color: #fff;
+        }
+
+        /* ── Footer ── */
+        .footer {
+            background: var(--bg-secondary);
+            border-top: 1px solid var(--border-color);
+            padding: 2.5rem 1rem 1.5rem;
+        }
+
+        .footer-content {
+            max-width: 1100px;
+            margin: 0 auto;
+            display: flex;
+            flex-direction: column;
+            gap: 2rem;
+        }
+
+        .footer-brand h3 {
+            font-size: 1.2rem;
+            font-weight: 700;
+            color: var(--text-primary);
+            line-height: 1.3;
+        }
+
+        .footer-brand p {
+            font-size: 0.85rem;
+            color: var(--text-muted);
+        }
+
+        .footer-links {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 0.8rem 1.8rem;
+        }
+
+        .footer-links a {
+            font-size: 0.85rem;
+            color: var(--text-secondary);
+            transition: color 0.2s;
+            display: inline-flex;
+            align-items: center;
+            gap: 0.4rem;
+        }
+
+        .footer-links a:hover {
+            color: var(--accent);
+        }
+
+        .footer-links a i {
+            font-size: 1rem;
+            width: 1.2rem;
+            text-align: center;
+        }
+
+        .footer-copy {
+            border-top: 1px solid var(--border-color);
+            padding-top: 1.5rem;
+            font-size: 0.75rem;
+            color: var(--text-muted);
+            text-align: center;
+        }
+
+        /* ── Responsive ── */
+        @media (max-width: 900px) {
+            .hq-hero-container {
+                grid-template-columns: 1fr;
+                gap: 2rem;
+            }
+
+            .hq-hero-content {
+                order: 1;
+            }
+
+            .hq-hero-image-wrapper {
+                order: 0;
+            }
+
+            .hq-hero-image-wrapper img {
+                aspect-ratio: 16 / 9;
+            }
+
+            .video-main {
+                grid-template-columns: 1fr;
+                gap: 1.2rem;
+            }
+
+            .about-container {
+                grid-template-columns: 1fr;
+                gap: 2rem;
+            }
+
+            .about-image {
+                order: -1;
+            }
+
+            .location-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .location-details {
+                padding: 1.5rem;
+            }
+        }
+
+        @media (max-width: 600px) {
+            .hq-hero {
+                padding: 2rem 0.5rem 3rem;
+            }
+
+            .hq-hero-stats {
+                gap: 1.5rem;
+            }
+
+            .stat strong {
+                font-size: 1.3rem;
+            }
+
+            .featured-video-wrapper {
+                padding: 1rem 1rem 1.5rem;
+            }
+
+            .video-quote {
+                font-size: 0.9rem;
+                padding: 0.6rem 1rem;
+            }
+
+            .location-details {
+                padding: 1.2rem;
+            }
+
+            .app-banner-content {
+                flex-direction: column;
+                align-items: stretch;
+                gap: 0.4rem;
+            }
+
+            .app-banner-left {
+                flex-wrap: wrap;
+            }
+
+            .language-switcher {
+                justify-content: center;
+            }
+
+            .theme-toggle {
+                bottom: 1rem;
+                right: 1rem;
+                width: 42px;
+                height: 42px;
+                font-size: 1rem;
+            }
+
+            .reviews-grid {
+                grid-template-columns: 1fr 1fr;
+            }
+        }
+
+        @media (max-width: 400px) {
+            .reviews-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .hq-hero-actions {
+                flex-direction: column;
+                width: 100%;
+            }
+
+            .hq-hero-actions .btn-primary,
+            .hq-hero-actions .btn-outline {
+                justify-content: center;
+                width: 100%;
+            }
+        }
+
+        /* ── Smooth scroll offset ── */
+        .scroll-offset {
+            scroll-margin-top: 70px;
+        }
+    </style>
+</head>
+<body>
+
+    <!-- ===== APP BANNER ===== -->
+    <div class="app-banner">
+        <div class="app-banner-content">
+            <div class="app-banner-left">
+                <span class="app-banner-icon">📱</span>
+                <span class="app-banner-text">Try our <strong>App Interface</strong> – faster &amp; smoother!</span>
+                <a href="#app-modal" class="app-banner-btn" id="appBannerBtn">
+                    <i class="fas fa-arrow-right"></i> Launch App
+                </a>
+            </div>
+            <div class="language-switcher">
+                <a href="/" class="lang-link" data-lang="en">English</a>
+                <span class="lang-divider">|</span>
+                <a href="/ms/" class="lang-link" data-lang="ms">Malay</a>
+                <span class="lang-divider">|</span>
+                <a href="/zh/" class="lang-link" data-lang="zh">中文</a>
+            </div>
+        </div>
+    </div>
+
+    <!-- ===== THEME TOGGLE ===== -->
+    <button class="theme-toggle" id="themeToggle" aria-label="Toggle theme">
+        <i class="fas fa-moon" id="themeIcon"></i>
+    </button>
+
+    <!-- ===== MAIN CONTENT ===== -->
+    <main>
+
+        <!-- ===== HQ HERO ===== -->
+        <section class="hq-hero" id="hqHero">
+            <div class="hq-hero-container">
+
+                <!-- Left: Content -->
+                <div class="hq-hero-content">
+                    <div class="hq-hero-badges">
+                        <span class="badge-hq"><i class="fas fa-building"></i> Corporate HQ</span>
+                        <span class="badge-hq gold"><i class="fas fa-crown"></i> Franchise Leader</span>
+                        <span class="badge-hq dark"><i class="fas fa-certificate"></i> Halal Certified</span>
+                    </div>
+
+                    <h1 class="hq-hero-title">
+                        Muiz Hot Chicken <br><span class="highlight">Headquarters</span>
+                    </h1>
+
+                    <p class="hq-hero-sub">
+                        <i class="fas fa-map-pin"></i> Malaysia's Fastest-Growing Halal Crispy Chicken Franchise
+                    </p>
+
+                    <p class="hq-hero-desc">
+                        Welcome to the corporate headquarters of <strong>Muiz Hot Chicken</strong> — home of the 12-hour marinated, double-coated crispy chicken that's taking Malaysia by storm. <strong>Est. 2026</strong>.
+                    </p>
+
+                    <!-- Sponsored By -->
+                    <div class="sponsored-by-line-hero">
+                        <i class="fas fa-handshake"></i>
+                        <span>Sponsored by</span>
+                        <a href="https://g.page/r/CUrZw9xvAXIPEBE" target="_blank" rel="noopener">
+                            Restoran Pak Haji Ali &amp; Muiz Hot Chicken – Subang Jaya (USJ 8)
+                        </a>
+                        <i class="fas fa-certificate" style="color: #fd8549; font-size: 0.65rem;"></i>
+                    </div>
+
+                    <div class="hq-hero-stats">
+                        <div class="stat">
+                            <strong>Est. 2026</strong>
+                            <span>Founded</span>
+                        </div>
+                        <div class="stat">
+                            <strong>50+</strong>
+                            <span>Franchise Outlets</span>
+                        </div>
+                        <div class="stat">
+                            <strong>5★</strong>
+                            <span>Customer Rating</span>
+                        </div>
+                    </div>
+
+                    <div class="hq-hero-actions">
+                        <a href="#about" class="btn-primary"><i class="fas fa-info-circle"></i> Learn More</a>
+                        <a href="https://muizhotchicken.com.my/" target="_blank" rel="noopener" class="btn-outline"><i class="fas fa-globe"></i> Visit Corporate Site</a>
+                    </div>
+                </div>
+
+                <!-- Right: Image -->
+                <div class="hq-hero-image-wrapper">
+                    <img
+                    src="https://muizhotchicken.com.my/wp-content/uploads/2025/04/Muiz-Hot-Chicken-Logo-Oren-by-My-Ekosistem-scaled.png"
+                    alt="Muiz Hot Chicken HQ – Corporate Headquarters"
+                    loading="lazy"
+                    />
+                    <div class="overlay-label">
+                        <i class="fas fa-building"></i> Muiz Hot Chicken · Corporate HQ
+                    </div>
+                </div>
+
+            </div>
+        </section>
+
+        <!-- ===== FEATURED VIDEO (JANNA NICK) ===== -->
+        <section class="featured-video" id="video">
+            <div class="featured-video-container">
+                <div class="featured-video-wrapper">
+                    <div class="video-badge-wrap">
+                        <span class="badge-video"><i class="fas fa-play-circle"></i> As Seen On</span>
+                        <span class="badge-influencer">⭐ Janna Nick</span>
+                        <span class="badge-video" style="background:rgba(253,133,73,0.08);color:var(--accent);border-color:rgba(253,133,73,0.1);"><i class="fas fa-fire"></i> Viral Sensation</span>
+                    </div>
+
+                    <div class="video-main">
+                        <div class="video-thumbnail-wrapper">
+                            <div class="video-embed">
+                                <iframe src="https://www.youtube.com/embed/oWS27QEYWXA?autoplay=1&muted=1&rel=0" title="Janna Nick tries Muiz Hot Chicken" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen>
+                                </iframe>
+                            </div>
+                        </div>
+
+                        <div class="video-info">
+                            <h3>🍗 Janna Nick Tries Muiz Hot Chicken!</h3>
+                            <p class="video-quote">"Sumpah sedap! Support lokal. Sedap macam McD!"</p>
+                            <p class="video-desc">
+                                Watch Malaysian actress &amp; food reviewer <strong>Janna Nick</strong> experience our signature crispy Muiz Hot Chicken. This video put us on the map — and now we're Malaysia's fastest-growing halal fried chicken franchise.
+                            </p>
+                            <div class="video-actions">
+                                <a href="https://youtube.com/shorts/oWS27QEYWXA" target="_blank" rel="noopener" class="btn-youtube">
+                                    <i class="fab fa-youtube"></i> Watch Full Video
+                                </a>
+                                <a href="https://g.page/r/CUrZw9xvAXIPEBE" target="_blank" rel="noopener" class="btn-order-now">
+                                    <i class="fas fa-store"></i> Visit Sponsor Outlet
+                                </a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- ===== ABOUT / HQ STORY ===== -->
+        <section class="about-section scroll-offset" id="about">
+            <div class="about-container">
+                <div class="about-content">
+                    <span class="about-tag"><i class="fas fa-certificate"></i> JAKIM Halal · MeSTI Certified</span>
+                    <h2>Welcome to <span>Muiz Hot Chicken</span> HQ</h2>
+                    <p>
+                        Established on <strong>1 May 2026</strong>, Muiz Hot Chicken was born from a simple vision: to create the crispiest, most flavorful halal fried chicken in Malaysia. Our secret? A <strong>12-hour marinade</strong> using 12 local herbs and spices, plus a proprietary double-coating technique that locks in crunch.
+                    </p>
+                    <p>
+                        Today, we're proud to be Malaysia's fastest-growing halal crispy chicken franchise, with <strong>50+ outlets</strong> nationwide and a passionate community of franchise partners. Our corporate headquarters oversees quality, innovation, and the Muiz standard that customers love.
+                    </p>
+                    <div class="about-certifications">
+                        <div class="cert-item">
+                            <img src="/images/jakim-halal-cert-product.webp" alt="JAKIM Halal" loading="lazy" />
+                            <span>JAKIM Halal</span>
+                        </div>
+                        <div class="cert-item">
+                            <img src="/images/mesti-cert.webp" alt="MeSTI" loading="lazy" />
+                            <span>MeSTI Certified</span>
+                        </div>
+                    </div>
+                </div>
+                <div class="about-image">
+                    <img
+                    src="https://muizhotchicken.com.my/wp-content/uploads/2025/04/Muiz-Hot-Chicken-Logo-Oren-by-My-Ekosistem-scaled.png"
+                    alt="Muiz Hot Chicken HQ Story"
+                    loading="lazy"
+                    />
+                </div>
+            </div>
+        </section>
+
+        <!-- ===== LOCATION / MAP ===== -->
+        <section class="location-section scroll-offset" id="location">
+            <div class="location-container">
+                <div class="section-header">
+                    <span class="section-tag"><i class="fas fa-map-pin"></i> Find Us</span>
+                    <h2>Sponsor Outlet Location</h2>
+                    <p>Visit our flagship sponsor restaurant in Subang Jaya</p>
+                </div>
+
+                <div class="location-grid">
+                    <div class="map-embed">
+                        <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3983.799281861561!2d101.590658!3d3.044170!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x31ccb4a4c4b4b4b3%3A0xb0c3f1c46d9bc94!2sRestoran%20Pak%20Haji%20Ali%20%26%20Muiz%20Hot%20Chicken!5e0!3m2!1sen!2smy!4v1650000000000!5m2!1sen!2smy" width="100%" height="100%" style="border:0;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade">
+                        </iframe>
+                    </div>
+
+                    <div class="location-details">
+                        <div class="loc-icon"><i class="fas fa-store"></i></div>
+                        <h3>Restoran Pak Haji Ali &amp; Muiz Hot Chicken</h3>
+                        <div class="address">
+                            <strong>J2-00-04, Subang Perdana Phase 3</strong><br />
+                            Persiaran Mulia, Goodyear Court 6, USJ 8<br />
+                            47610 Subang Jaya, Selangor<br />
+                            <span style="font-size:0.85rem;color:var(--text-muted);">
+                                <i class="fas fa-clock"></i> Open daily · 9:00 AM – 9:00 PM
+                            </span>
+                        </div>
+                        <div class="location-actions">
+                            <a href="https://g.page/r/CUrZw9xvAXIPEBE" target="_blank" rel="noopener" class="btn-google-maps">
+                                <i class="fab fa-google"></i> Open in Google Maps
+                            </a>
+                            <a href="https://wa.me/60179081447?text=Hi%2C%20I%20want%20directions%20to%20your%20restaurant" target="_blank" rel="noopener" class="btn-whatsapp-directions">
+                                <i class="fab fa-whatsapp"></i> Get Directions
+                            </a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- ===== REVIEWS ===== -->
+        <section class="reviews-section scroll-offset" id="reviews">
+            <div class="reviews-container">
+                <div class="section-header">
+                    <span class="section-tag"><i class="fas fa-star"></i> Testimonials</span>
+                    <h2>What Our Customers Say</h2>
+                    <p>Real reviews from real people who love Muiz Hot Chicken</p>
+                </div>
+
+                <div class="reviews-grid">
+                    <div class="review-item">
+                        <div class="avatar">s</div>
+                        <div class="name">salleh akhnas</div>
+                        <div class="stars"><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i></div>
+                        <div class="text">"Cheap and worth the price... the food is delicious too"</div>
+                    </div>
+                    <div class="review-item">
+                        <div class="avatar">y</div>
+                        <div class="name">Yana Mazlan</div>
+                        <div class="stars"><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i></div>
+                        <div class="text">"Friendly owner, the chicken muiz is unspeakably delicious, thank you."</div>
+                    </div>
+                    <div class="review-item">
+                        <div class="avatar">c</div>
+                        <div class="name">Christina</div>
+                        <div class="stars"><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i></div>
+                        <div class="text">"The chicken is delicious and big, the service is good and friendly."</div>
+                    </div>
+                    <div class="review-item">
+                        <div class="avatar">s</div>
+                        <div class="name">Siti Nur Alia</div>
+                        <div class="stars"><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i></div>
+                        <div class="text">"Muiz chicken is delicious and crispy. The cheese sauce is delicious."</div>
+                    </div>
+                    <div class="review-item">
+                        <div class="avatar">r</div>
+                        <div class="name">Rocket Man</div>
+                        <div class="stars"><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i></div>
+                        <div class="text">"This is newly opened mamak restaurant. The foods are delicious."</div>
+                    </div>
+                    <div class="review-item">
+                        <div class="avatar">a</div>
+                        <div class="name">azri syafiqq</div>
+                        <div class="stars"><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i></div>
+                        <div class="text">"Fast service, good ambience and amazing food"</div>
+                    </div>
+                </div>
+
+                <div class="reviews-cta">
+                    <a href="https://g.page/r/CUrZw9xvAXIPEBE/review" target="_blank" rel="noopener" class="btn-google">
+                        <i class="fab fa-google"></i> Leave a Review
+                    </a>
+                </div>
+            </div>
+        </section>
+
+        <!-- ===== FOOTER ===== -->
+        <footer class="footer">
+            <div class="footer-content">
+                <div class="footer-brand">
+                    <h3>Muiz Hot Chicken <span style="font-weight:400;color:var(--text-muted);font-size:0.9rem;">HQ</span></h3>
+                    <p>Corporate Headquarters · Sponsored by Restoran Pak Haji Ali &amp; Muiz Hot Chicken (USJ 8)</p>
+                </div>
+                <div class="footer-links">
+                    <a href="https://muizhotchicken.com.my/" target="_blank" rel="noopener"><i class="fas fa-globe"></i> Corporate Site</a>
+                    <a href="https://wa.me/60179081447" target="_blank" rel="noopener"><i class="fab fa-whatsapp"></i> WhatsApp</a>
+                    <a href="tel:+60179081447"><i class="fas fa-phone"></i> Call</a>
+                    <a href="https://g.page/r/CUrZw9xvAXIPEBE" target="_blank" rel="noopener"><i class="fas fa-map-pin"></i> Google Maps</a>
+                    <a href="https://www.facebook.com/61591075012810/" target="_blank" rel="noopener"><i class="fab fa-facebook"></i> Facebook</a>
+                    <a href="https://www.tiktok.com/@muiz.fried.chicken" target="_blank" rel="noopener"><i class="fab fa-tiktok"></i> TikTok</a>
+                    <a href="https://www.youtube.com/@MHCRestoranPakHajiAli" target="_blank" rel="noopener"><i class="fab fa-youtube"></i> YouTube</a>
+                </div>
+                <div class="footer-copy">
+                    <p>&copy; 2026 Muiz Hot Chicken HQ. All rights reserved. Sponsored by Restoran Pak Haji Ali &amp; Muiz Hot Chicken – Subang Jaya (USJ 8).</p>
+                </div>
+            </div>
+        </footer>
+
+    </main>
+
+    <!-- ===== APP MODAL (placeholder) ===== -->
+    <div class="app-modal" id="appModal" style="display:none;position:fixed;inset:0;z-index:200;background:rgba(0,0,0,0.6);backdrop-filter:blur(8px);align-items:center;justify-content:center;">
+        <div style="background:var(--bg-card);border-radius:24px;padding:2rem;max-width:420px;width:90%;box-shadow:var(--shadow-lg);position:relative;">
+            <button id="appModalClose" style="position:absolute;top:12px;right:16px;background:none;border:none;font-size:1.4rem;color:var(--text-muted);cursor:pointer;">&times;</button>
+            <h2 style="font-size:1.4rem;font-weight:700;margin-bottom:0.4rem;">Choose Your Experience</h2>
+            <p style="color:var(--text-secondary);margin-bottom:1.2rem;">Select your preferred platform</p>
+            <div style="display:grid;grid-template-columns:1fr 1fr;gap:0.8rem;">
+                <a href="/ios/" style="padding:0.8rem;border-radius:12px;background:var(--bg-secondary);text-align:center;color:var(--text-primary);font-weight:600;border:1px solid var(--border-color-light);"><i class="fab fa-apple" style="display:block;font-size:1.6rem;margin-bottom:0.2rem;"></i>iOS</a>
+                <a href="/android/" style="padding:0.8rem;border-radius:12px;background:var(--bg-secondary);text-align:center;color:var(--text-primary);font-weight:600;border:1px solid var(--border-color-light);"><i class="fab fa-android" style="display:block;font-size:1.6rem;margin-bottom:0.2rem;"></i>Android</a>
+                <a href="/web/" style="padding:0.8rem;border-radius:12px;background:var(--bg-secondary);text-align:center;color:var(--text-primary);font-weight:600;border:1px solid var(--border-color-light);"><i class="fas fa-desktop" style="display:block;font-size:1.6rem;margin-bottom:0.2rem;"></i>Web</a>
+                <a href="https://pakhajiali.github.io/menu/" target="_blank" style="padding:0.8rem;border-radius:12px;background:var(--bg-secondary);text-align:center;color:var(--text-primary);font-weight:600;border:1px solid var(--border-color-light);"><i class="fas fa-globe" style="display:block;font-size:1.6rem;margin-bottom:0.2rem;"></i>Legacy</a>
+            </div>
+        </div>
+    </div>
+
+    <!-- ===== SCRIPTS ===== -->
+    <script>
+        (function() {
+            'use strict';
+
+            // ── Theme Toggle ──
+            const themeToggle = document.getElementById('themeToggle');
+            const themeIcon = document.getElementById('themeIcon');
+            const html = document.documentElement;
+            const themeColorMeta = document.getElementById('themeColor');
+
+            function setTheme(theme) {
+                html.setAttribute('data-theme', theme);
+                themeIcon.className = theme === 'light' ? 'fas fa-moon' : 'fas fa-sun';
+                if (themeColorMeta) {
+                    themeColorMeta.setAttribute('content', theme === 'light' ? '#faf8f6' : '#0d0b0a');
+                }
+                localStorage.setItem('theme', theme);
+            }
+
+            const savedTheme = localStorage.getItem('theme');
+            if (savedTheme) {
+                setTheme(savedTheme);
+            } else if (window.matchMedia && window.matchMedia('(prefers-color-scheme: dark)').matches) {
+                setTheme('dark');
+            }
+
+            themeToggle.addEventListener('click', () => {
+                const current = html.getAttribute('data-theme');
+                setTheme(current === 'light' ? 'dark' : 'light');
+            });
+
+            // ── App Banner Modal ──
+            const appBannerBtn = document.getElementById('appBannerBtn');
+            const appModal = document.getElementById('appModal');
+            const appModalClose = document.getElementById('appModalClose');
+
+            function openModal() {
+                if (appModal) appModal.style.display = 'flex';
+            }
+
+            function closeModal() {
+                if (appModal) appModal.style.display = 'none';
+            }
+
+            if (appBannerBtn) {
+                appBannerBtn.addEventListener('click', (e) => {
+                    e.preventDefault();
+                    openModal();
+                });
+            }
+
+            if (appModalClose) {
+                appModalClose.addEventListener('click', closeModal);
+            }
+
+            if (appModal) {
+                appModal.addEventListener('click', (e) => {
+                    if (e.target === appModal) closeModal();
+                });
+            }
+
+            // ── Language switcher (placeholder) ──
+            document.querySelectorAll('.lang-link').forEach(link => {
+                link.addEventListener('click', (e) => {
+                    e.preventDefault();
+                    const lang = link.getAttribute('data-lang');
+                    alert(`🌐 Language switched to ${lang}. This is a placeholder — multi-language support coming soon.`);
+                });
+            });
+
+            // ── Smooth anchor scroll ──
+            document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+                anchor.addEventListener('click', function(e) {
+                    const targetId = this.getAttribute('href');
+                    if (targetId === '#') return;
+                    const target = document.querySelector(targetId);
+                    if (target) {
+                        e.preventDefault();
+                        target.scrollIntoView({ behavior: 'smooth', block: 'start' });
+                    }
+                });
+            });
+
+        })();
+    </script>
+
+</body>
+</html>
