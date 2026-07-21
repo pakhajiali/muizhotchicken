@@ -4,11 +4,11 @@
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover, maximum-scale=1.0, user-scalable=no" />
 
-    <title>Muiz Hot Chicken - Sponsored by Restoran Pak Haji Ali &amp; Muiz Hot Chicken</title>
-    <meta name="description" content="Muiz Hot Chicken HQ — Corporate headquarters of Malaysia's fastest-growing halal crispy chicken franchise. Sponsored by Restoran Pak Haji Ali & Muiz Hot Chicken (USJ 8)." />
+    <title>Muiz Hot Chicken HQ - Sponsored by Restoran Pak Haji Ali &amp; Muiz Hot Chicken</title>
+    <meta name="description" content="Muiz Hot Chicken HQ — Malaysia's fastest-growing halal crispy chicken franchise. Founded by Muhamad Muizzuddin Remle in 2013. Over 232 outlets nationwide." />
     <link rel="canonical" href="https://muizhotchicken.com/hq/" />
-    <meta property="og:title" content="Muiz Hot Chicken - Sponsored by Restoran Pak Haji Ali & Muiz Hot Chicken" />
-    <meta property="og:description" content="Muiz Hot Chicken HQ — Corporate headquarters of Malaysia's fastest-growing halal crispy chicken franchise." />
+    <meta property="og:title" content="Muiz Hot Chicken HQ - Sponsored by Restoran Pak Haji Ali &amp; Muiz Hot Chicken" />
+    <meta property="og:description" content="Muiz Hot Chicken HQ — Malaysia's fastest-growing halal crispy chicken franchise. Founded in 2013. 232+ outlets nationwide." />
     <meta property="og:image" content="https://muizhotchicken.com/logo.webp" />
     <meta property="og:url" content="https://muizhotchicken.com/hq/" />
     <meta property="og:type" content="website" />
@@ -156,6 +156,8 @@
             border-radius: 100px;
             transition: background 0.3s ease, transform 0.2s ease;
             letter-spacing: 0.02em;
+            border: none;
+            cursor: pointer;
         }
 
         .app-banner-btn:hover {
@@ -176,6 +178,7 @@
             border-radius: 4px;
             transition: color 0.2s, background 0.2s;
             color: var(--text-muted);
+            cursor: pointer;
         }
 
         .lang-link:hover {
@@ -185,6 +188,43 @@
 
         .lang-divider {
             opacity: 0.3;
+        }
+
+        /* ── Back to Menu Link ── */
+        .back-to-menu-link {
+            display: inline-flex;
+            align-items: center;
+            gap: 0.4rem;
+            font-size: 0.75rem;
+            font-weight: 600;
+            color: var(--accent);
+            padding: 0.3rem 0.8rem;
+            border-radius: 100px;
+            border: 1px solid rgba(253, 133, 73, 0.15);
+            background: rgba(253, 133, 73, 0.06);
+            transition: all 0.3s ease;
+            white-space: nowrap;
+        }
+
+        .back-to-menu-link:hover {
+            background: rgba(253, 133, 73, 0.12);
+            border-color: var(--accent);
+            transform: translateY(-1px);
+            box-shadow: 0 4px 12px rgba(253, 133, 73, 0.15);
+        }
+
+        .back-to-menu-link i {
+            font-size: 0.7rem;
+        }
+
+        [data-theme="dark"] .back-to-menu-link {
+            background: rgba(253, 133, 73, 0.08);
+            border-color: rgba(253, 133, 73, 0.12);
+            color: #fd8549;
+        }
+
+        [data-theme="dark"] .back-to-menu-link:hover {
+            background: rgba(253, 133, 73, 0.15);
         }
 
         /* ── Theme Toggle ── */
@@ -496,6 +536,186 @@
             color: var(--accent);
         }
 
+        /* ── Founder Section ── */
+        .founder-section {
+            padding: 4rem 1rem;
+            background: var(--bg-secondary);
+        }
+
+        .founder-container {
+            max-width: 1100px;
+            margin: 0 auto;
+            display: grid;
+            grid-template-columns: 1fr 1.2fr;
+            gap: 3rem;
+            align-items: center;
+        }
+
+        .founder-image {
+            border-radius: var(--radius-lg);
+            overflow: hidden;
+            box-shadow: var(--shadow-md);
+            background: var(--bg-card);
+        }
+
+        .founder-image img {
+            width: 100%;
+            height: auto;
+            aspect-ratio: 3 / 4;
+            object-fit: cover;
+            transition: transform 0.6s ease;
+        }
+
+        .founder-image:hover img {
+            transform: scale(1.02);
+        }
+
+        .founder-content {
+            display: flex;
+            flex-direction: column;
+            gap: 1.2rem;
+        }
+
+        .founder-tag {
+            display: inline-flex;
+            align-items: center;
+            gap: 0.5rem;
+            font-size: 0.7rem;
+            font-weight: 600;
+            text-transform: uppercase;
+            letter-spacing: 0.06em;
+            padding: 0.3rem 1.2rem;
+            border-radius: 100px;
+            background: rgba(253, 133, 73, 0.1);
+            color: var(--accent);
+            border: 1px solid rgba(253, 133, 73, 0.12);
+            width: fit-content;
+        }
+
+        .founder-content h2 {
+            font-size: clamp(2rem, 4vw, 2.8rem);
+            font-weight: 800;
+            letter-spacing: -0.02em;
+            color: var(--text-primary);
+        }
+
+        .founder-content h2 span {
+            background: linear-gradient(135deg, #fd8549, #f57c3a);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+        }
+
+        .founder-content .founder-title {
+            font-size: 1.1rem;
+            color: var(--text-secondary);
+            font-weight: 500;
+        }
+
+        .founder-content .founder-story {
+            font-size: 1rem;
+            color: var(--text-secondary);
+            line-height: 1.8;
+            opacity: 0.85;
+        }
+
+        .founder-content .founder-story strong {
+            color: var(--text-primary);
+            opacity: 1;
+        }
+
+        .founder-content .founder-story .highlight-date {
+            color: var(--accent);
+            font-weight: 700;
+        }
+
+        .founder-milestones {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 0.8rem;
+            padding-top: 0.5rem;
+        }
+
+        .milestone-item {
+            display: flex;
+            align-items: center;
+            gap: 0.6rem;
+            font-size: 0.85rem;
+            color: var(--text-secondary);
+        }
+
+        .milestone-item i {
+            color: var(--accent);
+            font-size: 0.9rem;
+            width: 1.4rem;
+            text-align: center;
+        }
+
+        /* ── Stats Section ── */
+        .stats-section {
+            padding: 4rem 1rem;
+            background: var(--bg-primary);
+        }
+
+        .stats-container {
+            max-width: 1100px;
+            margin: 0 auto;
+        }
+
+        .stats-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 1.5rem;
+            margin-top: 2rem;
+        }
+
+        .stat-card {
+            background: var(--bg-card);
+            border-radius: var(--radius-md);
+            padding: 2rem 1.5rem;
+            text-align: center;
+            border: 1px solid var(--border-color-light);
+            box-shadow: var(--shadow-sm);
+            transition: all 0.3s ease;
+        }
+
+        .stat-card:hover {
+            transform: translateY(-6px);
+            box-shadow: var(--shadow-md);
+            border-color: var(--accent);
+        }
+
+        .stat-card .stat-number {
+            font-size: 2.6rem;
+            font-weight: 800;
+            color: var(--accent);
+            letter-spacing: -0.02em;
+            line-height: 1.1;
+        }
+
+        .stat-card .stat-number .plus {
+            font-size: 1.8rem;
+            color: var(--text-muted);
+        }
+
+        .stat-card .stat-label {
+            font-size: 0.85rem;
+            color: var(--text-secondary);
+            margin-top: 0.4rem;
+            font-weight: 500;
+        }
+
+        .stat-card .stat-sub {
+            font-size: 0.7rem;
+            color: var(--text-muted);
+            margin-top: 0.2rem;
+        }
+
+        .stat-card.highlight {
+            background: linear-gradient(135deg, rgba(253, 133, 73, 0.06), rgba(253, 133, 73, 0.02));
+            border-color: rgba(253, 133, 73, 0.12);
+        }
+
         /* ── Featured Video ── */
         .featured-video {
             padding: 4rem 1rem;
@@ -627,6 +847,8 @@
             padding: 0.6rem 1.5rem;
             border-radius: 100px;
             transition: all 0.3s ease;
+            border: none;
+            cursor: pointer;
         }
 
         .btn-youtube:hover {
@@ -647,6 +869,8 @@
             padding: 0.6rem 1.5rem;
             border-radius: 100px;
             transition: all 0.3s ease;
+            border: none;
+            cursor: pointer;
         }
 
         .btn-order-now:hover {
@@ -654,117 +878,6 @@
             transform: translateY(-2px);
             box-shadow: 0 8px 30px rgba(253, 133, 73, 0.2);
             color: #fff;
-        }
-
-        /* ── About Section ── */
-        .about-section {
-            padding: 4rem 1rem;
-            background: var(--bg-primary);
-        }
-
-        .about-container {
-            max-width: 1100px;
-            margin: 0 auto;
-            display: grid;
-            grid-template-columns: 1fr 1fr;
-            gap: 3rem;
-            align-items: center;
-        }
-
-        .about-content {
-            display: flex;
-            flex-direction: column;
-            gap: 1.2rem;
-        }
-
-        .about-tag {
-            display: inline-flex;
-            align-items: center;
-            gap: 0.5rem;
-            font-size: 0.7rem;
-            font-weight: 600;
-            text-transform: uppercase;
-            letter-spacing: 0.06em;
-            padding: 0.3rem 1.2rem;
-            border-radius: 100px;
-            background: rgba(253, 133, 73, 0.1);
-            color: var(--accent);
-            border: 1px solid rgba(253, 133, 73, 0.12);
-            width: fit-content;
-        }
-
-        .about-content h2 {
-            font-size: clamp(2rem, 4vw, 2.8rem);
-            font-weight: 800;
-            letter-spacing: -0.02em;
-            color: var(--text-primary);
-        }
-
-        .about-content h2 span {
-            background: linear-gradient(135deg, #fd8549, #f57c3a);
-            -webkit-background-clip: text;
-            -webkit-text-fill-color: transparent;
-            background-clip: text;
-        }
-
-        .about-content p {
-            font-size: 1rem;
-            color: var(--text-secondary);
-            line-height: 1.8;
-            opacity: 0.85;
-        }
-
-        .about-content p strong {
-            color: var(--text-primary);
-            opacity: 1;
-        }
-
-        .about-certifications {
-            display: flex;
-            gap: 2rem;
-            flex-wrap: wrap;
-            padding-top: 0.5rem;
-        }
-
-        .cert-item {
-            display: flex;
-            align-items: center;
-            gap: 0.8rem;
-        }
-
-        .cert-item img {
-            width: 44px;
-            height: 44px;
-            object-fit: contain;
-            border-radius: 8px;
-            background: var(--bg-card);
-            padding: 4px;
-            border: 1px solid var(--border-color-light);
-        }
-
-        .cert-item span {
-            font-size: 0.8rem;
-            font-weight: 600;
-            color: var(--text-secondary);
-        }
-
-        .about-image {
-            border-radius: var(--radius-lg);
-            overflow: hidden;
-            box-shadow: var(--shadow-md);
-            background: var(--bg-card);
-        }
-
-        .about-image img {
-            width: 100%;
-            height: auto;
-            aspect-ratio: 4 / 3;
-            object-fit: cover;
-            transition: transform 0.6s ease;
-        }
-
-        .about-image:hover img {
-            transform: scale(1.02);
         }
 
         /* ── Location / Map ── */
@@ -835,6 +948,18 @@
             color: var(--text-primary);
         }
 
+        .location-details .address .est-badge {
+            display: inline-block;
+            font-size: 0.65rem;
+            font-weight: 600;
+            padding: 0.15rem 0.8rem;
+            border-radius: 100px;
+            background: rgba(253, 133, 73, 0.1);
+            color: var(--accent);
+            border: 1px solid rgba(253, 133, 73, 0.1);
+            margin-top: 0.3rem;
+        }
+
         .location-actions {
             display: flex;
             flex-wrap: wrap;
@@ -853,6 +978,8 @@
             padding: 0.6rem 1.5rem;
             border-radius: 100px;
             transition: all 0.3s ease;
+            border: none;
+            cursor: pointer;
         }
 
         .btn-google-maps:hover {
@@ -873,6 +1000,8 @@
             padding: 0.6rem 1.5rem;
             border-radius: 100px;
             transition: all 0.3s ease;
+            border: none;
+            cursor: pointer;
         }
 
         .btn-whatsapp-directions:hover {
@@ -999,6 +1128,8 @@
             padding: 0.7rem 2rem;
             border-radius: 100px;
             transition: all 0.3s ease;
+            border: none;
+            cursor: pointer;
         }
 
         .btn-google:hover {
@@ -1087,18 +1218,22 @@
                 aspect-ratio: 16 / 9;
             }
 
-            .video-main {
-                grid-template-columns: 1fr;
-                gap: 1.2rem;
-            }
-
-            .about-container {
+            .founder-container {
                 grid-template-columns: 1fr;
                 gap: 2rem;
             }
 
-            .about-image {
+            .founder-image {
                 order: -1;
+            }
+
+            .founder-image img {
+                aspect-ratio: 16 / 10;
+            }
+
+            .video-main {
+                grid-template-columns: 1fr;
+                gap: 1.2rem;
             }
 
             .location-grid {
@@ -1107,6 +1242,15 @@
 
             .location-details {
                 padding: 1.5rem;
+            }
+
+            .stats-grid {
+                grid-template-columns: repeat(2, 1fr);
+            }
+
+            .back-to-menu-link {
+                font-size: 0.65rem;
+                padding: 0.2rem 0.6rem;
             }
         }
 
@@ -1137,17 +1281,24 @@
             }
 
             .app-banner-content {
-                flex-direction: column;
-                align-items: stretch;
-                gap: 0.4rem;
+                flex-direction: row;
+                flex-wrap: wrap;
+                gap: 0.4rem 0.8rem;
             }
 
             .app-banner-left {
-                flex-wrap: wrap;
+                flex: 1 1 100%;
+                justify-content: center;
+            }
+
+            .back-to-menu-link {
+                order: 2;
+                font-size: 0.6rem;
+                padding: 0.15rem 0.6rem;
             }
 
             .language-switcher {
-                justify-content: center;
+                order: 3;
             }
 
             .theme-toggle {
@@ -1160,6 +1311,19 @@
 
             .reviews-grid {
                 grid-template-columns: 1fr 1fr;
+            }
+
+            .founder-milestones {
+                grid-template-columns: 1fr;
+            }
+
+            .stats-grid {
+                grid-template-columns: 1fr 1fr;
+                gap: 1rem;
+            }
+
+            .stat-card .stat-number {
+                font-size: 2rem;
             }
         }
 
@@ -1178,6 +1342,25 @@
                 justify-content: center;
                 width: 100%;
             }
+
+            .stats-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .app-banner-left {
+                flex-wrap: wrap;
+                justify-content: center;
+            }
+
+            .app-banner-text {
+                font-size: 0.7rem;
+                text-align: center;
+            }
+
+            .back-to-menu-link {
+                font-size: 0.55rem;
+                padding: 0.1rem 0.5rem;
+            }
         }
 
         /* ── Smooth scroll offset ── */
@@ -1191,19 +1374,27 @@
     <!-- ===== APP BANNER ===== -->
     <div class="app-banner">
         <div class="app-banner-content">
+            <!-- Left: App promo -->
             <div class="app-banner-left">
                 <span class="app-banner-icon">📱</span>
                 <span class="app-banner-text">Try our <strong>App Interface</strong> – faster &amp; smoother!</span>
-                <a href="#app-modal" class="app-banner-btn" id="appBannerBtn">
+                <button class="app-banner-btn" id="appBannerBtn">
                     <i class="fas fa-arrow-right"></i> Launch App
-                </a>
+                </button>
             </div>
+
+            <!-- Back to Menu Link -->
+            <a href="https://muizhotchicken.com" class="back-to-menu-link" title="Back to main menu">
+                <i class="fas fa-arrow-left"></i> Back to Menu
+            </a>
+
+            <!-- Language Switcher -->
             <div class="language-switcher">
-                <a href="/" class="lang-link" data-lang="en">English</a>
+                <span class="lang-link" data-lang="en">English</span>
                 <span class="lang-divider">|</span>
-                <a href="/ms/" class="lang-link" data-lang="ms">Malay</a>
+                <span class="lang-link" data-lang="ms">Malay</span>
                 <span class="lang-divider">|</span>
-                <a href="/zh/" class="lang-link" data-lang="zh">中文</a>
+                <span class="lang-link" data-lang="zh">中文</span>
             </div>
         </div>
     </div>
@@ -1224,8 +1415,8 @@
                 <div class="hq-hero-content">
                     <div class="hq-hero-badges">
                         <span class="badge-hq"><i class="fas fa-building"></i> Corporate HQ</span>
-                        <span class="badge-hq gold"><i class="fas fa-crown"></i> Franchise Leader</span>
-                        <span class="badge-hq dark"><i class="fas fa-certificate"></i> Halal Certified</span>
+                        <span class="badge-hq gold"><i class="fas fa-crown"></i> #1 Halal Crispy Chicken</span>
+                        <span class="badge-hq dark"><i class="fas fa-certificate"></i> JAKIM Halal</span>
                     </div>
 
                     <h1 class="hq-hero-title">
@@ -1237,7 +1428,9 @@
                     </p>
 
                     <p class="hq-hero-desc">
-                        Welcome to the corporate headquarters of <strong>Muiz Hot Chicken</strong> — home of the 12-hour marinated, double-coated crispy chicken that's taking Malaysia by storm. <strong>Est. 2026</strong>.
+                        Founded in <strong>2013</strong> by <strong>Muhamad Muizzuddin Remle</strong>, Muiz Hot Chicken
+                        started as a humble roadside stall in Parit Raja, Johor. Today, we're a nationwide sensation with
+                        <strong>232+ outlets</strong> and over <strong>1.1 million</strong> chicken pieces sold.
                     </p>
 
                     <!-- Sponsored By -->
@@ -1252,12 +1445,12 @@
 
                     <div class="hq-hero-stats">
                         <div class="stat">
-                            <strong>Est. 2026</strong>
+                            <strong>2013</strong>
                             <span>Founded</span>
                         </div>
                         <div class="stat">
-                            <strong>50+</strong>
-                            <span>Franchise Outlets</span>
+                            <strong>232+</strong>
+                            <span>Outlets</span>
                         </div>
                         <div class="stat">
                             <strong>5★</strong>
@@ -1266,8 +1459,8 @@
                     </div>
 
                     <div class="hq-hero-actions">
-                        <a href="#about" class="btn-primary"><i class="fas fa-info-circle"></i> Learn More</a>
-                        <a href="https://muizhotchicken.com.my/" target="_blank" rel="noopener" class="btn-outline"><i class="fas fa-globe"></i> Visit Corporate Site</a>
+                        <a href="#founder" class="btn-primary"><i class="fas fa-user"></i> Meet the Founder</a>
+                        <a href="https://muizhotchicken.com.my/" target="_blank" rel="noopener" class="btn-outline"><i class="fas fa-globe"></i> Corporate Site</a>
                     </div>
                 </div>
 
@@ -1279,10 +1472,116 @@
                     loading="lazy"
                     />
                     <div class="overlay-label">
-                        <i class="fas fa-building"></i> Muiz Hot Chicken · Corporate HQ
+                        <i class="fas fa-building"></i> Muiz Hot Chicken · Est. 2013
                     </div>
                 </div>
 
+            </div>
+        </section>
+
+        <!-- ===== FOUNDER SECTION ===== -->
+        <section class="founder-section scroll-offset" id="founder">
+            <div class="founder-container">
+                <div class="founder-image">
+                    <img
+                    src="https://muizhotchicken.com.my/wp-content/uploads/2025/04/Muiz-Hot-Chicken-Logo-Oren-by-My-Ekosistem-scaled.png"
+                    alt="Muhamad Muizzuddin Remle – Founder of Muiz Hot Chicken"
+                    loading="lazy"
+                    />
+                </div>
+
+                <div class="founder-content">
+                    <span class="founder-tag"><i class="fas fa-crown"></i> Kenali Founder</span>
+
+                    <h2>Muhamad <span>Muizzuddin</span> Remle</h2>
+
+                    <p class="founder-title">Pengasas Muiz Hot Chicken · Memulakan perniagaan pada usia 20 tahun</p>
+
+                    <p class="founder-story">
+                        <strong>Muhamad Muizzuddin Remle</strong> memulakan perniagaan menjual ayam goreng secara
+                        <em>kecil-kecilan</em> di tepi Jalan Temenggong Ahmad, Parit Raja, <strong>Johor</strong>.
+                    </p>
+
+                    <p class="founder-story">
+                        Beliau mula berniaga ayam goreng pada <span class="highlight-date">18 Februari 2013</span>,
+                        tiga hari selepas sambutan hari lahirnya yang <strong>ke-20</strong>. Katanya, ia menjadi tarikh
+                        keramat buatnya — malah tidak mungkin akan dilupakannya seumur hidup kerana ketika waktu itu
+                        beliau mula bergelar peniaga ayam goreng.
+                    </p>
+
+                    <p class="founder-story">
+                        Resepi ayam goreng yang rangup dan sedap ini <em>dipelajari</em> daripada
+                        <strong>ibu saudaranya</strong> ketika berusia 20 tahun.
+                    </p>
+
+                    <div class="founder-milestones">
+                        <div class="milestone-item">
+                            <i class="fas fa-calendar-check"></i>
+                            <span>18 Feb 2013 · Hari keramat</span>
+                        </div>
+                        <div class="milestone-item">
+                            <i class="fas fa-map-pin"></i>
+                            <span>Parit Raja, Johor</span>
+                        </div>
+                        <div class="milestone-item">
+                            <i class="fas fa-utensils"></i>
+                            <span>Resepi turun-temurun</span>
+                        </div>
+                        <div class="milestone-item">
+                            <i class="fas fa-rocket"></i>
+                            <span>232+ outlet seluruh Malaysia</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- ===== STATS SECTION ===== -->
+        <section class="stats-section scroll-offset" id="stats">
+            <div class="stats-container">
+                <div class="section-header">
+                    <span class="section-tag"><i class="fas fa-chart-line"></i> Pencapaian</span>
+                    <h2>Muiz Hot Chicken <span style="background:linear-gradient(135deg,#fd8549,#f57c3a);-webkit-background-clip:text;-webkit-text-fill-color:transparent;background-clip:text;">By the Numbers</span></h2>
+                    <p>Lebih 1 juta ketul ayam berjaya dijual di seluruh Malaysia sejak 2013!</p>
+                </div>
+
+                <div class="stats-grid">
+                    <div class="stat-card highlight">
+                        <div class="stat-number">1,143,412<span class="plus">+</span></div>
+                        <div class="stat-label">Ketul Ayam Terjual</div>
+                        <div class="stat-sub">Seluruh Malaysia sejak 2013</div>
+                    </div>
+
+                    <div class="stat-card">
+                        <div class="stat-number">95<span class="plus">%</span></div>
+                        <div class="stat-label">Pelanggan Repeat Order</div>
+                        <div class="stat-sub">Kesetiaan pelanggan yang tinggi</div>
+                    </div>
+
+                    <div class="stat-card">
+                        <div class="stat-number">50<span class="plus">M+</span></div>
+                        <div class="stat-label">Konten Viral</div>
+                        <div class="stat-sub">Ditonton puluhan juta pengguna</div>
+                    </div>
+
+                    <div class="stat-card highlight">
+                        <div class="stat-number">RM45<span class="plus">M+</span></div>
+                        <div class="stat-label">Jumlah Jualan Terkumpul</div>
+                        <div class="stat-sub">Seluruh francaisi Muiz Hot Chicken</div>
+                    </div>
+
+                    <div class="stat-card">
+                        <div class="stat-number">232<span class="plus">+</span></div>
+                        <div class="stat-label">Outlet / Cawangan</div>
+                        <div class="stat-sub">Dari Johor hingga ke Perlis</div>
+                    </div>
+
+                    <div class="stat-card">
+                        <div class="stat-number">2013</div>
+                        <div class="stat-label">Tahun Penubuhan</div>
+                        <div class="stat-sub">Bermula dari tepi jalan</div>
+                    </div>
+                </div>
             </div>
         </section>
 
@@ -1308,7 +1607,9 @@
                             <h3>🍗 Janna Nick Tries Muiz Hot Chicken!</h3>
                             <p class="video-quote">"Sumpah sedap! Support lokal. Sedap macam McD!"</p>
                             <p class="video-desc">
-                                Watch Malaysian actress &amp; food reviewer <strong>Janna Nick</strong> experience our signature crispy Muiz Hot Chicken. This video put us on the map — and now we're Malaysia's fastest-growing halal fried chicken franchise.
+                                Watch Malaysian actress &amp; food reviewer <strong>Janna Nick</strong> experience our
+                                signature crispy Muiz Hot Chicken. This video put us on the map — and now we're Malaysia's
+                                fastest-growing halal fried chicken franchise with <strong>232+ outlets</strong> nationwide.
                             </p>
                             <div class="video-actions">
                                 <a href="https://youtube.com/shorts/oWS27QEYWXA" target="_blank" rel="noopener" class="btn-youtube">
@@ -1324,46 +1625,13 @@
             </div>
         </section>
 
-        <!-- ===== ABOUT / HQ STORY ===== -->
-        <section class="about-section scroll-offset" id="about">
-            <div class="about-container">
-                <div class="about-content">
-                    <span class="about-tag"><i class="fas fa-certificate"></i> JAKIM Halal · MeSTI Certified</span>
-                    <h2>Welcome to <span>Muiz Hot Chicken</span> HQ</h2>
-                    <p>
-                        Established on <strong>1 May 2026</strong>, Muiz Hot Chicken was born from a simple vision: to create the crispiest, most flavorful halal fried chicken in Malaysia. Our secret? A <strong>12-hour marinade</strong> using 12 local herbs and spices, plus a proprietary double-coating technique that locks in crunch.
-                    </p>
-                    <p>
-                        Today, we're proud to be Malaysia's fastest-growing halal crispy chicken franchise, with <strong>50+ outlets</strong> nationwide and a passionate community of franchise partners. Our corporate headquarters oversees quality, innovation, and the Muiz standard that customers love.
-                    </p>
-                    <div class="about-certifications">
-                        <div class="cert-item">
-                            <img src="/images/jakim-halal-cert-product.webp" alt="JAKIM Halal" loading="lazy" />
-                            <span>JAKIM Halal</span>
-                        </div>
-                        <div class="cert-item">
-                            <img src="/images/mesti-cert.webp" alt="MeSTI" loading="lazy" />
-                            <span>MeSTI Certified</span>
-                        </div>
-                    </div>
-                </div>
-                <div class="about-image">
-                    <img
-                    src="https://muizhotchicken.com.my/wp-content/uploads/2025/04/Muiz-Hot-Chicken-Logo-Oren-by-My-Ekosistem-scaled.png"
-                    alt="Muiz Hot Chicken HQ Story"
-                    loading="lazy"
-                    />
-                </div>
-            </div>
-        </section>
-
-        <!-- ===== LOCATION / MAP ===== -->
+        <!-- ===== LOCATION / MAP (SPONSOR OUTLET) ===== -->
         <section class="location-section scroll-offset" id="location">
             <div class="location-container">
                 <div class="section-header">
-                    <span class="section-tag"><i class="fas fa-map-pin"></i> Find Us</span>
-                    <h2>Sponsor Outlet Location</h2>
-                    <p>Visit our flagship sponsor restaurant in Subang Jaya</p>
+                    <span class="section-tag"><i class="fas fa-map-pin"></i> Cawangan Tajaan</span>
+                    <h2>Restoran Pak Haji Ali &amp; Muiz Hot Chicken</h2>
+                    <p>Subang Jaya (USJ 8) · Dibuka 2026</p>
                 </div>
 
                 <div class="location-grid">
@@ -1382,6 +1650,8 @@
                             <span style="font-size:0.85rem;color:var(--text-muted);">
                                 <i class="fas fa-clock"></i> Open daily · 9:00 AM – 9:00 PM
                             </span>
+                            <br />
+                            <span class="est-badge"><i class="fas fa-calendar-alt"></i> Dibuka 2026</span>
                         </div>
                         <div class="location-actions">
                             <a href="https://g.page/r/CUrZw9xvAXIPEBE" target="_blank" rel="noopener" class="btn-google-maps">
@@ -1401,8 +1671,8 @@
             <div class="reviews-container">
                 <div class="section-header">
                     <span class="section-tag"><i class="fas fa-star"></i> Testimonials</span>
-                    <h2>What Our Customers Say</h2>
-                    <p>Real reviews from real people who love Muiz Hot Chicken</p>
+                    <h2>Apa Kata Pelanggan?</h2>
+                    <p>Ulasan sebenar dari peminat setia Muiz Hot Chicken</p>
                 </div>
 
                 <div class="reviews-grid">
@@ -1446,7 +1716,7 @@
 
                 <div class="reviews-cta">
                     <a href="https://g.page/r/CUrZw9xvAXIPEBE/review" target="_blank" rel="noopener" class="btn-google">
-                        <i class="fab fa-google"></i> Leave a Review
+                        <i class="fab fa-google"></i> Tinggalkan Ulasan
                     </a>
                 </div>
             </div>
@@ -1457,7 +1727,7 @@
             <div class="footer-content">
                 <div class="footer-brand">
                     <h3>Muiz Hot Chicken <span style="font-weight:400;color:var(--text-muted);font-size:0.9rem;">HQ</span></h3>
-                    <p>Corporate Headquarters · Sponsored by Restoran Pak Haji Ali &amp; Muiz Hot Chicken (USJ 8)</p>
+                    <p>Corporate Headquarters · Est. 2013 · Sponsored by Restoran Pak Haji Ali &amp; Muiz Hot Chicken (USJ 8)</p>
                 </div>
                 <div class="footer-links">
                     <a href="https://muizhotchicken.com.my/" target="_blank" rel="noopener"><i class="fas fa-globe"></i> Corporate Site</a>
@@ -1483,10 +1753,10 @@
             <h2 style="font-size:1.4rem;font-weight:700;margin-bottom:0.4rem;">Choose Your Experience</h2>
             <p style="color:var(--text-secondary);margin-bottom:1.2rem;">Select your preferred platform</p>
             <div style="display:grid;grid-template-columns:1fr 1fr;gap:0.8rem;">
-                <a href="/ios/" style="padding:0.8rem;border-radius:12px;background:var(--bg-secondary);text-align:center;color:var(--text-primary);font-weight:600;border:1px solid var(--border-color-light);"><i class="fab fa-apple" style="display:block;font-size:1.6rem;margin-bottom:0.2rem;"></i>iOS</a>
-                <a href="/android/" style="padding:0.8rem;border-radius:12px;background:var(--bg-secondary);text-align:center;color:var(--text-primary);font-weight:600;border:1px solid var(--border-color-light);"><i class="fab fa-android" style="display:block;font-size:1.6rem;margin-bottom:0.2rem;"></i>Android</a>
-                <a href="/web/" style="padding:0.8rem;border-radius:12px;background:var(--bg-secondary);text-align:center;color:var(--text-primary);font-weight:600;border:1px solid var(--border-color-light);"><i class="fas fa-desktop" style="display:block;font-size:1.6rem;margin-bottom:0.2rem;"></i>Web</a>
-                <a href="https://pakhajiali.github.io/menu/" target="_blank" style="padding:0.8rem;border-radius:12px;background:var(--bg-secondary);text-align:center;color:var(--text-primary);font-weight:600;border:1px solid var(--border-color-light);"><i class="fas fa-globe" style="display:block;font-size:1.6rem;margin-bottom:0.2rem;"></i>Legacy</a>
+                <a href="/ios/" style="padding:0.8rem;border-radius:12px;background:var(--bg-secondary);text-align:center;color:var(--text-primary);font-weight:600;border:1px solid var(--border-color-light);text-decoration:none;"><i class="fab fa-apple" style="display:block;font-size:1.6rem;margin-bottom:0.2rem;"></i>iOS</a>
+                <a href="/android/" style="padding:0.8rem;border-radius:12px;background:var(--bg-secondary);text-align:center;color:var(--text-primary);font-weight:600;border:1px solid var(--border-color-light);text-decoration:none;"><i class="fab fa-android" style="display:block;font-size:1.6rem;margin-bottom:0.2rem;"></i>Android</a>
+                <a href="/web/" style="padding:0.8rem;border-radius:12px;background:var(--bg-secondary);text-align:center;color:var(--text-primary);font-weight:600;border:1px solid var(--border-color-light);text-decoration:none;"><i class="fas fa-desktop" style="display:block;font-size:1.6rem;margin-bottom:0.2rem;"></i>Web</a>
+                <a href="https://pakhajiali.github.io/menu/" target="_blank" style="padding:0.8rem;border-radius:12px;background:var(--bg-secondary);text-align:center;color:var(--text-primary);font-weight:600;border:1px solid var(--border-color-light);text-decoration:none;"><i class="fas fa-globe" style="display:block;font-size:1.6rem;margin-bottom:0.2rem;"></i>Legacy</a>
             </div>
         </div>
     </div>
@@ -1555,8 +1825,7 @@
 
             // ── Language switcher (placeholder) ──
             document.querySelectorAll('.lang-link').forEach(link => {
-                link.addEventListener('click', (e) => {
-                    e.preventDefault();
+                link.addEventListener('click', () => {
                     const lang = link.getAttribute('data-lang');
                     alert(`🌐 Language switched to ${lang}. This is a placeholder — multi-language support coming soon.`);
                 });
