@@ -4,14 +4,14 @@
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
 
-    <!-- ===== MASTER SEO TITLE & META (Targeting the core keyword) ===== -->
+    <!-- ===== MASTER SEO TITLE & META ===== -->
     <title>Muiz Hot Chicken – The Crispiest Halal Fried Chicken in Malaysia | JAKIM Halal</title>
-    <meta name="description" content="Muiz Hot Chicken is Malaysia's crispiest halal fried chicken. 12-hour marinade, double-coated crunch, and 5★ rated. Janna Nick says 'sumpah sedap'. Order delivery or dine in at USJ 8." />
+    <meta name="description" content="Muiz Hot Chicken is Malaysia's crispiest halal fried chicken. 12-hour marinade, double-coated crunch, and 5★ rated. Janna Nick says 'sumpah sedap'. Available across Selangor & KL." />
     <link rel="canonical" href="https://muizhotchicken.com/blog/muiz-hot-chicken-the-crispiest-halal-fried-chicken" />
 
     <!-- ===== OPEN GRAPH ===== -->
     <meta property="og:title" content="Muiz Hot Chicken – The Crispiest Halal Fried Chicken in Malaysia" />
-    <meta property="og:description" content="Muiz Hot Chicken is the crispiest halal fried chicken in Malaysia. Marinated 12 hours, double-coated, and 5★ rated. Janna Nick says 'sumpah sedap'." />
+    <meta property="og:description" content="Muiz Hot Chicken is the crispiest halal fried chicken in Malaysia. Marinated 12 hours, double-coated. Available across Selangor & KL." />
     <meta property="og:image" content="https://muizhotchicken.com/images/logo.webp" />
     <meta property="og:url" content="https://muizhotchicken.com/blog/muiz-hot-chicken-the-crispiest-halal-fried-chicken" />
     <meta property="og:type" content="article" />
@@ -30,22 +30,17 @@
         }
     </script>
 
-    <!-- ===== SCHEMA: PRODUCT (Directly targeting the search intent) ===== -->
+    <!-- ===== SCHEMA: PRODUCT (NO AGGREGATE RATING) ===== -->
     <script type="application/ld+json">
         {
             "@context": "https://schema.org",
             "@type": "Product",
             "name": "Muiz Hot Chicken",
-            "description": "Crispy halal fried chicken marinated for 12 hours in 12 herbs and spices, double-coated for maximum crunch. 5★ rated.",
+            "description": "Crispy halal fried chicken marinated for 12 hours in 12 herbs and spices, double-coated for maximum crunch.",
             "image": "https://muizhotchicken.com/images/logo.webp",
             "brand": {
                 "@type": "Brand",
                 "name": "Muiz Hot Chicken"
-            },
-            "aggregateRating": {
-                "@type": "AggregateRating",
-                "ratingValue": "5",
-                "reviewCount": "250"
             },
             "offers": {
                 "@type": "Offer",
@@ -53,11 +48,15 @@
                 "price": "5.00",
                 "availability": "https://schema.org/InStock",
                 "url": "https://muizhotchicken.com/"
+            },
+            "areaServed": {
+                "@type": "State",
+                "name": "Selangor and Kuala Lumpur"
             }
         }
     </script>
 
-    <!-- ===== SCHEMA: FAQ (To win the "People Also Ask" box) ===== -->
+    <!-- ===== SCHEMA: FAQ ===== -->
     <script type="application/ld+json">
         {
             "@context": "https://schema.org",
@@ -78,10 +77,10 @@
                 }
             }, {
                 "@type": "Question",
-                "name": "Where can I buy Muiz Hot Chicken?",
+                "name": "Where can I buy Muiz Hot Chicken in Selangor?",
                 "acceptedAnswer": {
                     "@type": "Answer",
-                    "text": "You can buy Muiz Hot Chicken at our USJ 8 outlet, or via GrabFood, Foodpanda, ShopeeFood, and Misirakyat across Klang Valley."
+                    "text": "Muiz Hot Chicken is available across Selangor and KL via GrabFood, Foodpanda, ShopeeFood, and Misirakyat. Visit our USJ 8 outlet or order delivery."
                 }
             }, {
                 "@type": "Question",
@@ -108,49 +107,47 @@
             -webkit-text-fill-color: transparent;
             background-clip: text;
         }
-        .location-badge {
-            display: inline-flex;
-            align-items: center;
-            gap: 6px;
-            background: #fff7f0;
-            border: 1px solid #f0e8e0;
-            padding: 6px 16px;
-            border-radius: 50px;
-            font-size: 14px;
-            font-weight: 600;
-            color: #1e1e1e;
-            margin: 6px 4px;
-        }
-        .location-badge i {
-            color: #c0392b;
-        }
-        .cluster-links {
+        .location-grid {
             display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
-            gap: 12px;
+            grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
+            gap: 10px;
             margin: 20px 0;
         }
-        .cluster-links a {
+        .location-grid a {
             display: flex;
             align-items: center;
-            gap: 10px;
-            padding: 12px 16px;
+            gap: 8px;
+            padding: 10px 14px;
             background: #fcf8f5;
-            border-radius: 12px;
+            border-radius: 10px;
             border: 1px solid #f0e8e0;
             text-decoration: none;
             font-weight: 600;
+            font-size: 14px;
             color: #1e1e1e;
             transition: 0.2s;
         }
-        .cluster-links a:hover {
+        .location-grid a:hover {
             border-color: #c0392b;
             background: #fff;
             transform: translateY(-2px);
         }
-        .cluster-links a i {
+        .location-grid a i {
             color: #c0392b;
-            font-size: 18px;
+            font-size: 16px;
+        }
+        .cluster-section {
+            background: #fcf8f5;
+            border-radius: 16px;
+            padding: 24px;
+            margin: 24px 0;
+            border: 1px solid #f0e8e0;
+        }
+        .cluster-section h3 {
+            font-size: 20px;
+            font-weight: 700;
+            margin: 0 0 16px;
+            color: #1e1e1e;
         }
     </style>
 </head>
@@ -236,18 +233,58 @@
         </div>
 
         <!-- ========================================================= -->
-        <!-- ===== STRATEGIC CLUSTER INTERNAL LINKS ===== -->
-        <!-- This tells Google YOU are the authority on "Muiz Hot Chicken" across all locations -->
+        <!-- ===== COMPLETE LOCATION CLUSTER – SELANGOR & KL ===== -->
         <!-- ========================================================= -->
         <h2>📍 Find Muiz Hot Chicken Near You</h2>
-        <p>We serve the entire Klang Valley. Click below to find Muiz Hot Chicken specifically near you:</p>
-        <div class="cluster-links">
-            <a href="/blog/muiz-hot-chicken-subang-jaya"><i class="fas fa-map-pin"></i> Subang Jaya</a>
-            <a href="/blog/muiz-hot-chicken-bandar-puchong-jaya"><i class="fas fa-map-pin"></i> Puchong Jaya</a>
-            <a href="/blog/muiz-hot-chicken-ss15"><i class="fas fa-map-pin"></i> SS15 Subang</a>
-            <a href="/blog/muiz-hot-chicken-taylors"><i class="fas fa-map-pin"></i> Taylor's Lakeside</a>
-            <a href="/blog/muiz-hot-chicken-sunway"><i class="fas fa-map-pin"></i> Sunway University</a>
-            <a href="/blog/muiz-hot-chicken-taipan"><i class="fas fa-map-pin"></i> Taipan USJ</a>
+        <p>We deliver the crispiest halal fried chicken across <strong>Selangor &amp; Kuala Lumpur</strong>. Select your area below:</p>
+
+        <div class="cluster-section">
+            <h3><i class="fas fa-map-pin" style="color:#c0392b;"></i> Selangor</h3>
+            <div class="location-grid">
+                <a href="/blog/muiz-hot-chicken-subang-jaya"><i class="fas fa-location-dot"></i> Subang Jaya</a>
+                <a href="/blog/muiz-hot-chicken-ss15"><i class="fas fa-location-dot"></i> SS15 Subang</a>
+                <a href="/blog/muiz-hot-chicken-taipan"><i class="fas fa-location-dot"></i> Taipan USJ</a>
+                <a href="/blog/muiz-hot-chicken-sunway"><i class="fas fa-location-dot"></i> Sunway</a>
+                <a href="/blog/muiz-hot-chicken-bandar-puchong-jaya"><i class="fas fa-location-dot"></i> Bandar Puchong Jaya</a>
+                <a href="/blog/muiz-hot-chicken-puchong-prima"><i class="fas fa-location-dot"></i> Puchong Prima</a>
+                <a href="/blog/muiz-hot-chicken-shah-alam"><i class="fas fa-location-dot"></i> Shah Alam</a>
+                <a href="/blog/muiz-hot-chicken-petaling-jaya"><i class="fas fa-location-dot"></i> Petaling Jaya</a>
+                <a href="/blog/muiz-hot-chicken-klang"><i class="fas fa-location-dot"></i> Klang</a>
+                <a href="/blog/muiz-hot-chicken-cheras"><i class="fas fa-location-dot"></i> Cheras</a>
+                <a href="/blog/muiz-hot-chicken-ampang"><i class="fas fa-location-dot"></i> Ampang</a>
+                <a href="/blog/muiz-hot-chicken-kajang"><i class="fas fa-location-dot"></i> Kajang</a>
+                <a href="/blog/muiz-hot-chicken-bangi"><i class="fas fa-location-dot"></i> Bangi</a>
+                <a href="/blog/muiz-hot-chicken-cyberjaya"><i class="fas fa-location-dot"></i> Cyberjaya</a>
+                <a href="/blog/muiz-hot-chicken-putrajaya"><i class="fas fa-location-dot"></i> Putrajaya</a>
+                <a href="/blog/muiz-hot-chicken-semenyih"><i class="fas fa-location-dot"></i> Semenyih</a>
+                <a href="/blog/muiz-hot-chicken-rawang"><i class="fas fa-location-dot"></i> Rawang</a>
+                <a href="/blog/muiz-hot-chicken-selayang"><i class="fas fa-location-dot"></i> Selayang</a>
+                <a href="/blog/muiz-hot-chicken-gombak"><i class="fas fa-location-dot"></i> Gombak</a>
+                <a href="/blog/muiz-hot-chicken-kuala-selangor"><i class="fas fa-location-dot"></i> Kuala Selangor</a>
+            </div>
+        </div>
+
+        <div class="cluster-section">
+            <h3><i class="fas fa-map-pin" style="color:#c0392b;"></i> Kuala Lumpur</h3>
+            <div class="location-grid">
+                <a href="/blog/muiz-hot-chicken-klcc"><i class="fas fa-location-dot"></i> KLCC</a>
+                <a href="/blog/muiz-hot-chicken-bangsar"><i class="fas fa-location-dot"></i> Bangsar</a>
+                <a href="/blog/muiz-hot-chicken-damansara"><i class="fas fa-location-dot"></i> Damansara</a>
+                <a href="/blog/muiz-hot-chicken-wangsa-maju"><i class="fas fa-location-dot"></i> Wangsa Maju</a>
+                <a href="/blog/muiz-hot-chicken-setapak"><i class="fas fa-location-dot"></i> Setapak</a>
+                <a href="/blog/muiz-hot-chicken-cheras-kl"><i class="fas fa-location-dot"></i> Cheras KL</a>
+                <a href="/blog/muiz-hot-chicken-sentul"><i class="fas fa-location-dot"></i> Sentul</a>
+                <a href="/blog/muiz-hot-chicken-pudu"><i class="fas fa-location-dot"></i> Pudu</a>
+                <a href="/blog/muiz-hot-chicken-kepong"><i class="fas fa-location-dot"></i> Kepong</a>
+                <a href="/blog/muiz-hot-chicken-segambut"><i class="fas fa-location-dot"></i> Segambut</a>
+                <a href="/blog/muiz-hot-chicken-mont-kiara"><i class="fas fa-location-dot"></i> Mont Kiara</a>
+                <a href="/blog/muiz-hot-chicken-desa-parkcity"><i class="fas fa-location-dot"></i> Desa ParkCity</a>
+                <a href="/blog/muiz-hot-chicken-ttdi"><i class="fas fa-location-dot"></i> TTDI</a>
+                <a href="/blog/muiz-hot-chicken-sri-petaling"><i class="fas fa-location-dot"></i> Sri Petaling</a>
+                <a href="/blog/muiz-hot-chicken-bukit-jalil"><i class="fas fa-location-dot"></i> Bukit Jalil</a>
+                <a href="/blog/muiz-hot-chicken-old-klang-road"><i class="fas fa-location-dot"></i> Old Klang Road</a>
+                <a href="/blog/muiz-hot-chicken-mid-valley"><i class="fas fa-location-dot"></i> Mid Valley</a>
+            </div>
         </div>
 
         <h2>What Makes Muiz Hot Chicken the Best?</h2>
@@ -257,6 +294,7 @@
             <li><i class="fas fa-check-circle"></i> <strong>100% JAKIM Halal</strong> – Certified halal, so you can eat with confidence.</li>
             <li><i class="fas fa-check-circle"></i> <strong>Fresh, Never Frozen</strong> – Prepared fresh daily and fried to order.</li>
             <li><i class="fas fa-check-circle"></i> <strong>5★ Google Rating</strong> – Loved by thousands across Malaysia.</li>
+            <li><i class="fas fa-check-circle"></i> <strong>200+ Branches</strong> – Part of a trusted halal brand nationwide.</li>
         </ul>
 
         <h2>Perfect For Every Occasion</h2>
@@ -281,6 +319,16 @@
                 <h4 style="margin:8px 0 0;">Events</h4>
                 <p style="font-size:13px;color:#666;margin:4px 0 0;">Catering available</p>
             </div>
+            <div style="background:#fcf8f5;padding:16px;border-radius:12px;text-align:center;border:1px solid #f0e8e0;">
+                <i class="fas fa-moon" style="font-size:32px;color:#c0392b;"></i>
+                <h4 style="margin:8px 0 0;">Supper</h4>
+                <p style="font-size:13px;color:#666;margin:4px 0 0;">Late-night cravings</p>
+            </div>
+            <div style="background:#fcf8f5;padding:16px;border-radius:12px;text-align:center;border:1px solid #f0e8e0;">
+                <i class="fas fa-utensils" style="font-size:32px;color:#c0392b;"></i>
+                <h4 style="margin:8px 0 0;">Dine-in</h4>
+                <p style="font-size:13px;color:#666;margin:4px 0 0;">USJ 8 outlet</p>
+            </div>
         </div>
 
         <h2>What Malaysians Are Saying About Muiz Hot Chicken</h2>
@@ -290,15 +338,15 @@
                 <p style="margin:6px 0 0;font-weight:600;color:#1e1e1e;">— Aina, Subang Jaya</p>
             </div>
             <div style="background:#fcf8f5;border-radius:12px;padding:16px;border-left:4px solid #c0392b;">
-                <p style="font-style:italic;margin:0;font-size:0.95rem;">"Ordered for our office lunch – everyone raved about it. Best halal fried chicken in Klang Valley!"</p>
+                <p style="font-style:italic;margin:0;font-size:0.95rem;">"Ordered for our office lunch in Taipan – everyone raved about it. Best halal fried chicken in Klang Valley!"</p>
                 <p style="margin:6px 0 0;font-weight:600;color:#1e1e1e;">— Ravi, Taipan</p>
             </div>
             <div style="background:#fcf8f5;border-radius:12px;padding:16px;border-left:4px solid #c0392b;">
-                <p style="font-style:italic;margin:0;font-size:0.95rem;">"I'm a student at Taylor's and Muiz Hot Chicken is my go-to comfort food."</p>
+                <p style="font-style:italic;margin:0;font-size:0.95rem;">"I'm a student at Taylor's and Muiz Hot Chicken is my go-to comfort food. Under RM15 – perfect for my budget!"</p>
                 <p style="margin:6px 0 0;font-weight:600;color:#1e1e1e;">— Lina, Lakeside</p>
             </div>
             <div style="background:#fcf8f5;border-radius:12px;padding:16px;border-left:4px solid #c0392b;">
-                <p style="font-style:italic;margin:0;font-size:0.95rem;">"Drove all the way from Puchong just to try it. Worth every minute!"</p>
+                <p style="font-style:italic;margin:0;font-size:0.95rem;">"Drove all the way from Puchong to USJ 8 just to try it after seeing Janna Nick's video. Worth every minute!"</p>
                 <p style="margin:6px 0 0;font-weight:600;color:#1e1e1e;">— Hafiz, Puchong</p>
             </div>
         </div>
@@ -314,12 +362,16 @@
                 <p>Yes, Muiz Hot Chicken is fully JAKIM Halal certified and MeSTI certified for food safety.</p>
             </div>
             <div class="faq-item">
-                <h3>Where can I buy Muiz Hot Chicken?</h3>
-                <p>You can dine in at our USJ 8 outlet, order delivery via GrabFood, Foodpanda, ShopeeFood, or Misirakyat, or order directly via WhatsApp at +6017-908 1447.</p>
+                <h3>Where can I buy Muiz Hot Chicken in Selangor or KL?</h3>
+                <p>We deliver across the entire Klang Valley. Order via GrabFood, Foodpanda, ShopeeFood, or Misirakyat. You can also dine in at our USJ 8 outlet.</p>
             </div>
             <div class="faq-item">
                 <h3>What makes Muiz Hot Chicken different from other fried chicken?</h3>
                 <p>Our 12‑hour marinade and double‑coating technique create a unique crunch that stays crispy even during delivery. The blend of 12 local herbs and spices gives it a depth of flavour you won't find anywhere else.</p>
+            </div>
+            <div class="faq-item">
+                <h3>Does Muiz Hot Chicken deliver to my area?</h3>
+                <p>We deliver to all major areas in Selangor and KL. Check our location list above or order via our delivery partners.</p>
             </div>
         </div>
 
@@ -327,8 +379,8 @@
         <div class="cta-box">
             <h3>🍗 Try the Crispiest Halal Fried Chicken in Malaysia</h3>
             <p>
-                <strong>Muiz Hot Chicken</strong> is waiting for you – whether you're in Subang Jaya, Puchong,
-                or anywhere in Klang Valley. Order delivery or dine in at USJ 8.
+                <strong>Muiz Hot Chicken</strong> is waiting for you – whether you're in Subang Jaya, KLCC,
+                or anywhere in between. Order delivery or dine in at USJ 8.
             </p>
             <div class="btn-group">
                 <a href="https://muizhotchicken.com/#fullMenu" class="btn-cta">
