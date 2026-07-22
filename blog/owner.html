@@ -1,0 +1,543 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+    <!-- ===== SEO TITLE & META ===== -->
+    <title>Meet the Owner – Mohamed Ali | Restoran Pak Haji Ali & Muiz Hot Chicken</title>
+    <meta name="description" content="Meet Mohamed Ali Bin Syed Sultan Ibrahim – owner of Restoran Pak Haji Ali & Muiz Hot Chicken, creator of Mobile Muslim (Quran & Qibla app with Jawi script), and full-stack web developer." />
+    <link rel="canonical" href="https://muizhotchicken.com/blog/owner" />
+
+    <!-- ===== OPEN GRAPH ===== -->
+    <meta property="og:title" content="Meet the Owner – Mohamed Ali | Restoran Pak Haji Ali & Muiz Hot Chicken" />
+    <meta property="og:description" content="Meet Mohamed Ali – restaurant owner, creator of Mobile Muslim (Quran & Qibla app with Jawi script), and the developer behind this restaurant's website." />
+    <meta property="og:image" content="https://muizhotchicken.com/images/logo.webp" />
+    <meta property="og:url" content="https://muizhotchicken.com/blog/owner" />
+    <meta property="og:type" content="article" />
+    <meta name="twitter:card" content="summary_large_image" />
+
+    <!-- ===== SCHEMA: BREADCRUMB ===== -->
+    <script type="application/ld+json">
+        {
+            "@context": "https://schema.org",
+            "@type": "BreadcrumbList",
+            "itemListElement": [
+                { "@type": "ListItem", "position": 1, "name": "Home", "item": "https://muizhotchicken.com/" },
+                { "@type": "ListItem", "position": 2, "name": "Blog", "item": "https://muizhotchicken.com/blog/" },
+                { "@type": "ListItem", "position": 3, "name": "Meet the Owner", "item": "https://muizhotchicken.com/blog/owner" }
+            ]
+        }
+    </script>
+
+    <!-- ===== SCHEMA: PERSON ===== -->
+    <script type="application/ld+json">
+        {
+            "@context": "https://schema.org",
+            "@type": "Person",
+            "name": "Mohamed Ali Bin Syed Sultan Ibrahim",
+            "jobTitle": "Restaurant Owner & Developer",
+            "description": "Owner of Restoran Pak Haji Ali & Muiz Hot Chicken, creator of Mobile Muslim (Quran & Qibla app with Jawi script), and full-stack web developer.",
+            "worksFor": {
+                "@type": "Restaurant",
+                "name": "Restoran Pak Haji Ali & Muiz Hot Chicken"
+            },
+            "url": "https://muizhotchicken.com/blog/owner",
+            "sameAs": [
+                "https://www.linkedin.com/in/mohamed-ali-bin-syed-sultan-ibrahim/"
+            ]
+        }
+    </script>
+
+    <!-- ===== SCHEMA: SOFTWARE APPLICATION (Mobile Muslim) ===== -->
+    <script type="application/ld+json">
+        {
+            "@context": "https://schema.org",
+            "@type": "SoftwareApplication",
+            "name": "Mobile Muslim",
+            "description": "Islamic Quran and Qibla app featuring full Jawi script support, complete Quran reading, and accurate Qibla direction.",
+            "applicationCategory": "Lifestyle",
+            "operatingSystem": "Android",
+            "url": "https://play.google.com/store/apps/details?id=com.mohamedali.uctati.mobilemuslim",
+            "author": {
+                "@type": "Person",
+                "name": "Mohamed Ali Bin Syed Sultan Ibrahim"
+            }
+        }
+    </script>
+
+    <!-- ===== SCHEMA: FAQ ===== -->
+    <script type="application/ld+json">
+        {
+            "@context": "https://schema.org",
+            "@type": "FAQPage",
+            "mainEntity": [{
+                "@type": "Question",
+                "name": "Who is the owner of Restoran Pak Haji Ali & Muiz Hot Chicken?",
+                "acceptedAnswer": {
+                    "@type": "Answer",
+                    "text": "The owner is Mohamed Ali Bin Syed Sultan Ibrahim – a passionate entrepreneur, restaurant owner, app developer, and full-stack web developer."
+                }
+            }, {
+                "@type": "Question",
+                "name": "What is Mobile Muslim?",
+                "acceptedAnswer": {
+                    "@type": "Answer",
+                    "text": "Mobile Muslim is an Islamic Quran and Qibla app created by Mohamed Ali. It features complete Quran reading with Jawi script support and accurate Qibla direction. Available on Google Play Store."
+                }
+            }, {
+                "@type": "Question",
+                "name": "Who created this restaurant's website?",
+                "acceptedAnswer": {
+                    "@type": "Answer",
+                    "text": "The restaurant's website was created by the owner himself, Mohamed Ali – a full-stack web developer who built the site from scratch."
+                }
+            }, {
+                "@type": "Question",
+                "name": "Is the restaurant JAKIM Halal certified?",
+                "acceptedAnswer": {
+                    "@type": "Answer",
+                    "text": "Yes, the restaurant is fully JAKIM Halal certified and MeSTI certified by the Ministry of Health Malaysia."
+                }
+            }, {
+                "@type": "Question",
+                "name": "Where is the restaurant located?",
+                "acceptedAnswer": {
+                    "@type": "Answer",
+                    "text": "The restaurant is located at J2-00-04, Subang Perdana Phase 3, Persiaran Mulia, Goodyear Court 6, USJ 8, Subang Jaya."
+                }
+            }]
+        }
+    </script>
+
+    <!-- ===== FONT AWESOME ===== -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css" />
+
+    <!-- ===== SHARED STYLES ===== -->
+    <link rel="stylesheet" href="/css/style.css" />
+
+    <style>
+        .blog-title .highlight {
+            color: #c0392b;
+            background: linear-gradient(145deg, #c0392b, #e74c3c);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+        }
+
+        .owner-highlight-card {
+            background: #fcf8f5;
+            border-radius: 16px;
+            padding: 20px 24px;
+            border-left: 4px solid #c0392b;
+            margin: 20px 0;
+            transition: 0.2s;
+        }
+
+        .owner-highlight-card:hover {
+            transform: translateX(4px);
+            box-shadow: 0 4px 20px rgba(0, 0, 0, 0.04);
+        }
+
+        .owner-highlight-card .card-icon {
+            font-size: 28px;
+            display: block;
+            margin-bottom: 6px;
+        }
+
+        .owner-highlight-card h3 {
+            font-size: 1.2rem;
+            font-weight: 700;
+            color: #1e1e1e;
+            margin: 0 0 6px;
+        }
+
+        .owner-highlight-card p {
+            font-size: 1rem;
+            color: #333;
+            line-height: 1.7;
+            margin: 0;
+        }
+
+        .owner-highlight-card .card-link {
+            display: inline-flex;
+            align-items: center;
+            gap: 6px;
+            color: #c0392b;
+            font-weight: 700;
+            text-decoration: none;
+            margin-top: 10px;
+            transition: 0.2s;
+        }
+
+        .owner-highlight-card .card-link:hover {
+            color: #a93226;
+            transform: translateX(4px);
+        }
+
+        .owner-highlight-card.gold {
+            border-left-color: #ffb703;
+        }
+
+        .owner-highlight-card.blue {
+            border-left-color: #0077B5;
+        }
+
+        .owner-highlight-card.purple {
+            border-left-color: #6C2E9A;
+        }
+
+        .owner-highlight-card.green {
+            border-left-color: #2ecc71;
+        }
+
+        .app-features {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
+            gap: 12px;
+            margin: 16px 0 20px;
+        }
+
+        .app-feature {
+            background: #fcf8f5;
+            border-radius: 12px;
+            padding: 16px;
+            text-align: center;
+            border: 1px solid #f0e8e0;
+            transition: 0.2s;
+        }
+
+        .app-feature:hover {
+            border-color: #c0392b;
+            transform: translateY(-3px);
+        }
+
+        .app-feature .icon {
+            font-size: 32px;
+            display: block;
+            margin-bottom: 4px;
+        }
+
+        .app-feature h4 {
+            font-size: 15px;
+            font-weight: 700;
+            color: #1e1e1e;
+            margin: 0 0 2px;
+        }
+
+        .app-feature p {
+            font-size: 13px;
+            color: #666;
+            margin: 0;
+        }
+
+        .contact-box {
+            background: #fef0ef;
+            border-radius: 16px;
+            padding: 20px 24px;
+            border-left: 4px solid #c0392b;
+            margin: 16px 0;
+        }
+
+        .contact-box p {
+            margin: 6px 0;
+            font-size: 1rem;
+        }
+
+        .contact-box a {
+            color: #c0392b;
+            font-weight: 600;
+            text-decoration: none;
+        }
+
+        .contact-box a:hover {
+            text-decoration: underline;
+        }
+
+        .contact-box .whatsapp-link {
+            color: #25D366;
+        }
+
+        .social-links-box {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 12px;
+            margin: 16px 0;
+        }
+
+        .social-links-box a {
+            display: inline-flex;
+            align-items: center;
+            gap: 8px;
+            padding: 10px 20px;
+            border-radius: 40px;
+            font-weight: 600;
+            font-size: 14px;
+            text-decoration: none;
+            transition: 0.3s ease;
+        }
+
+        .social-links-box a:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 6px 20px rgba(0, 0, 0, 0.12);
+        }
+
+        .social-links-box .linkedin {
+            background: #0077B5;
+            color: #fff;
+        }
+
+        .social-links-box .linkedin:hover {
+            background: #005e8c;
+        }
+
+        .social-links-box .playstore {
+            background: #3ddc84;
+            color: #1a1a2e;
+        }
+
+        .social-links-box .playstore:hover {
+            background: #2bb673;
+        }
+
+        .social-links-box .website-link {
+            background: #1a1a2e;
+            color: #fff;
+        }
+
+        .social-links-box .website-link:hover {
+            background: #c0392b;
+        }
+    </style>
+</head>
+<body>
+
+    <div class="blog-container">
+
+        <!-- ===== TOP BAR ===== -->
+        <div class="top-bar">
+            <a href="https://muizhotchicken.com/" class="back-home">
+                <i class="fas fa-arrow-left"></i> Back to Home
+            </a>
+            <div class="top-bar-right">
+                <span class="resto-name">
+                    <i class="fas fa-store"></i> Restoran Pak Haji Ali &amp; Muiz Hot Chicken – Subang Jaya (USJ 8)
+                </span>
+                <a href="https://g.page/r/CUrZw9xvAXIPEBE" target="_blank" rel="noopener" class="map-link">
+                    <i class="fas fa-map-pin"></i> Google Maps
+                </a>
+            </div>
+        </div>
+
+        <!-- ===== HERO IMAGE ===== -->
+        <div class="hero-image">
+            <img src="/images/logo.webp" alt="Meet the Owner – Mohamed Ali | Restoran Pak Haji Ali & Muiz Hot Chicken" loading="eager" />
+        </div>
+
+        <!-- ===== BLOG HEADER ===== -->
+        <header class="blog-header">
+            <div class="blog-meta">
+                <span><i class="fas fa-calendar-alt"></i> July 22, 2026</span>
+                <span><i class="fas fa-tag"></i> Owner</span>
+                <span><i class="fas fa-clock"></i> 4 min read</span>
+                <span><i class="fas fa-star" style="color:#f1c40f;"></i> 5★ Rated</span>
+            </div>
+            <h1 class="blog-title">
+                Meet the Owner – <span class="highlight">Mohamed Ali Bin Syed Sultan Ibrahim</span>
+            </h1>
+            <div class="blog-subtitle">
+                <i class="fas fa-quote-left"></i>
+                Restaurant owner · App developer · Full-stack web developer · Building a legacy in Subang Jaya.
+            </div>
+        </header>
+
+        <!-- ===== BLOG BODY ===== -->
+        <article class="blog-body">
+
+            <p>
+                <strong>Mohamed Ali Bin Syed Sultan Ibrahim</strong> is a passionate entrepreneur, restaurant owner,
+                app developer, and full-stack web developer based in <strong>Subang Jaya, Malaysia</strong>. He is the
+                proud owner of <strong>Restoran Pak Haji Ali &amp; Muiz Hot Chicken</strong>, a JAKIM Halal‑certified
+                restaurant that has quickly become a local favourite in <strong>USJ 8</strong>.
+            </p>
+
+            <p>
+                Beyond the restaurant, Mohamed is the creator and developer of <strong>Mobile Muslim</strong> – an
+                Islamic Quran and Qibla app available on the Google Play Store. The app features complete Quranic
+                reading with <strong>full Jawi script support</strong> and accurate <strong>Qibla direction</strong>,
+                helping Muslims connect with their faith through accessible digital tools.
+            </p>
+
+            <p>
+                As a full‑stack web developer, Mohamed built this entire restaurant website from scratch – designing,
+                coding, and deploying every page you see here. His unique combination of culinary entrepreneurship
+                and technical expertise allows him to bridge the gap between traditional hospitality and modern
+                digital experiences.
+            </p>
+
+            <!-- ===== SOCIAL LINKS ===== -->
+            <div class="social-links-box">
+                <a href="https://www.linkedin.com/in/mohamed-ali-bin-syed-sultan-ibrahim/" target="_blank" rel="noopener" class="linkedin">
+                    <i class="fab fa-linkedin"></i> Connect on LinkedIn
+                </a>
+                <a href="https://play.google.com/store/apps/details?id=com.mohamedali.uctati.mobilemuslim" target="_blank" rel="noopener" class="playstore">
+                    <i class="fab fa-google-play"></i> Get Mobile Muslim
+                </a>
+                <a href="/blog/owner" class="website-link">
+                    <i class="fas fa-globe"></i> View Owner Profile
+                </a>
+            </div>
+
+            <h2>🏗️ Building a Legacy in Subang Jaya</h2>
+
+            <div class="owner-highlight-card">
+                <span class="card-icon">🍗</span>
+                <h3>Restaurant Vision</h3>
+                <p>Mohamed envisioned a restaurant that would serve as a pillar of the Subang Jaya community – a place where families, students, and professionals could enjoy authentic halal food in a welcoming environment. Located at <strong>Goodyear Court 6, USJ 8</strong>, the restaurant is perfectly positioned to serve students from <strong>Taylor's University</strong>, <strong>Sunway University</strong>, <strong>Monash University</strong>, and the surrounding community.</p>
+            </div>
+
+            <div class="owner-highlight-card gold">
+                <span class="card-icon">🛡️</span>
+                <h3>Commitment to Halal Integrity</h3>
+                <p>One of Mohamed's top priorities is maintaining the highest standards of halal integrity. The restaurant holds both <strong>JAKIM Halal</strong> and <strong>MeSTI</strong> certifications, ensuring every dish is prepared with complete peace of mind. <em>"It's not just about the food; it's about trust,"</em> he emphasizes. <em>"Our customers trust us to provide halal food that is safe, delicious, and prepared with care."</em></p>
+            </div>
+
+            <div class="owner-highlight-card purple">
+                <span class="card-icon">🔮</span>
+                <h3>Future Vision</h3>
+                <p>Looking ahead, Mohamed plans to expand the restaurant's presence through more catering services for corporate events, weddings, and private parties. <em>"We want to be the go-to choice for halal catering in Subang Jaya,"</em> he says. With his dedication and entrepreneurial spirit, the restaurant is on a path to becoming a household name in the Klang Valley.</p>
+            </div>
+
+            <h2>📖 Mobile Muslim – Quran &amp; Qibla App</h2>
+
+            <div class="owner-highlight-card blue">
+                <span class="card-icon">📱</span>
+                <h3>Created &amp; Developed by Mohamed Ali</h3>
+                <p><strong>Mobile Muslim</strong> is an Islamic app designed to help Muslims deepen their spiritual connection. It features a complete <strong>Quran</strong> for reading and reference, with <strong>full Jawi script</strong> support for an authentic reading experience. The app also includes an accurate <strong>Qibla direction</strong> compass to help users find the direction of the Kaaba from anywhere in the world.</p>
+                <p>The app reflects Mohamed's commitment to serving the Muslim community – combining traditional Islamic values with modern technology to make daily spiritual practices more accessible.</p>
+                <a href="https://play.google.com/store/apps/details?id=com.mohamedali.uctati.mobilemuslim" target="_blank" rel="noopener" class="card-link">
+                    <i class="fab fa-google-play"></i> Download Mobile Muslim on Google Play
+                    <i class="fas fa-arrow-right"></i>
+                </a>
+            </div>
+
+            <div class="app-features">
+                <div class="app-feature">
+                    <span class="icon">📖</span>
+                    <h4>Quran with Jawi</h4>
+                    <p>Read the Quran with clear Jawi script and translations</p>
+                </div>
+                <div class="app-feature">
+                    <span class="icon">🧭</span>
+                    <h4>Qibla Direction</h4>
+                    <p>Accurate compass to find the direction of the Kaaba</p>
+                </div>
+                <div class="app-feature">
+                    <span class="icon">✍️</span>
+                    <h4>Jawi Script Support</h4>
+                    <p>Full Jawi script for an authentic reading experience</p>
+                </div>
+                <div class="app-feature">
+                    <span class="icon">🕌</span>
+                    <h4>Islamic Reference</h4>
+                    <p>Complete Quranic verses for daily spiritual guidance</p>
+                </div>
+            </div>
+
+            <h2>🌐 Building This Website</h2>
+
+            <div class="owner-highlight-card purple">
+                <span class="card-icon">💻</span>
+                <h3>Full-Stack Web Developer</h3>
+                <p>As a full-stack web developer, Mohamed built this entire restaurant website from scratch. Every page – from the menu to the company profile, blog, catering pages, and location pages – was designed, coded, and deployed by him. The site is optimized for <strong>SEO</strong>, <strong>mobile responsiveness</strong>, and <strong>performance</strong>, ensuring a seamless experience for all visitors.</p>
+                <p>The website features a custom <strong>shopping cart</strong> system, <strong>WhatsApp ordering</strong> integration, and multi-language support in <strong>English, Bahasa Malaysia, and Chinese</strong> – reflecting Mohamed's commitment to serving the diverse Subang Jaya community.</p>
+            </div>
+
+            <h2>📞 Contact &amp; Location</h2>
+
+            <div class="contact-box">
+                <p><i class="fas fa-location-dot" style="color:#c0392b;width:24px;"></i> <strong>Address:</strong> J2-00-04, Subang Perdana Phase 3, Persiaran Mulia, Goodyear Court 6, USJ 8, Subang Jaya</p>
+                <p><i class="fas fa-clock" style="color:#c0392b;width:24px;"></i> <strong>Hours:</strong> Open daily 9:00 AM – 9:00 PM</p>
+                <p><i class="fas fa-phone" style="color:#c0392b;width:24px;"></i> <strong>Phone:</strong> <a href="tel:+60179081447">+6017-908 1447</a></p>
+                <p><i class="fab fa-whatsapp" style="color:#25D366;width:24px;"></i> <strong>WhatsApp:</strong> <a href="https://wa.me/60179081447" target="_blank" class="whatsapp-link">Order via WhatsApp</a></p>
+            </div>
+
+            <h2>❓ Frequently Asked Questions</h2>
+            <div class="faq-section">
+                <div class="faq-item">
+                    <h3>Who is the owner of Restoran Pak Haji Ali & Muiz Hot Chicken?</h3>
+                    <p>The owner is <strong>Mohamed Ali Bin Syed Sultan Ibrahim</strong> – a passionate entrepreneur, restaurant owner, app developer, and full-stack web developer.</p>
+                </div>
+                <div class="faq-item">
+                    <h3>What is Mobile Muslim?</h3>
+                    <p><strong>Mobile Muslim</strong> is an Islamic Quran and Qibla app created by Mohamed Ali. It features complete Quran reading with <strong>Jawi script</strong> support and accurate <strong>Qibla direction</strong>. Available on the Google Play Store.</p>
+                </div>
+                <div class="faq-item">
+                    <h3>Who created this restaurant's website?</h3>
+                    <p>The restaurant's website was created by the owner himself, <strong>Mohamed Ali</strong> – a full-stack web developer who built the site from scratch.</p>
+                </div>
+                <div class="faq-item">
+                    <h3>Is the restaurant JAKIM Halal certified?</h3>
+                    <p>Yes, the restaurant is fully <strong>JAKIM Halal</strong> certified and <strong>MeSTI</strong> certified by the Ministry of Health Malaysia.</p>
+                </div>
+                <div class="faq-item">
+                    <h3>Where is the restaurant located?</h3>
+                    <p>The restaurant is located at <strong>J2-00-04, Subang Perdana Phase 3, Persiaran Mulia, Goodyear Court 6, USJ 8, Subang Jaya</strong>.</p>
+                </div>
+            </div>
+
+            <!-- ===== CTA BOX ===== -->
+            <div class="cta-box">
+                <h3>🍗 Connect &amp; Explore</h3>
+                <p>
+                    Learn more about <strong>Mohamed Ali</strong> and his journey – from building Mobile Muslim
+                    to running a JAKIM Halal restaurant in Subang Jaya. Connect with him on LinkedIn or
+                    try the Mobile Muslim app today!
+                </p>
+                <div class="btn-group">
+                    <a href="https://www.linkedin.com/in/mohamed-ali-bin-syed-sultan-ibrahim/" target="_blank" class="btn-cta">
+                        <i class="fab fa-linkedin"></i> Connect on LinkedIn
+                    </a>
+                    <a href="https://play.google.com/store/apps/details?id=com.mohamedali.uctati.mobilemuslim" target="_blank" class="btn-cta btn-cta-outline">
+                        <i class="fab fa-google-play"></i> Get Mobile Muslim
+                    </a>
+                </div>
+                <p style="margin-top:1.2rem;font-size:0.9rem !important;color:#7a6a5c;">
+                    <i class="fas fa-map-pin"></i> J2-00-04, Subang Perdana, Persiaran Mulia, USJ 8, Subang Jaya.
+                </p>
+            </div>
+
+        </article>
+
+        <!-- ===== FOOTER ===== -->
+        <footer class="blog-footer">
+            <div class="footer-inner">
+                <div class="footer-brand">
+                    <h3>Restoran Pak Haji Ali &amp; Muiz Hot Chicken</h3>
+                    <p>Subang Jaya (USJ 8) • JAKIM Halal • Est. 2026</p>
+                </div>
+                <div class="footer-social">
+                    <a href="https://www.facebook.com/61591075012810/" target="_blank" aria-label="Facebook">
+                        <i class="fab fa-facebook"></i>
+                    </a>
+                    <a href="https://www.tiktok.com/@muiz.fried.chicken" target="_blank" aria-label="TikTok">
+                        <i class="fab fa-tiktok"></i>
+                    </a>
+                    <a href="https://www.youtube.com/@MHCRestoranPakHajiAli" target="_blank" aria-label="YouTube">
+                        <i class="fab fa-youtube"></i>
+                    </a>
+                    <a href="https://g.page/r/CUrZw9xvAXIPEBE" target="_blank" aria-label="Google Maps">
+                        <i class="fas fa-map-pin"></i>
+                    </a>
+                </div>
+                <div class="footer-copy">
+                    &copy; 2026 Restoran Pak Haji Ali &amp; Muiz Hot Chicken — Subang Jaya (USJ 8).
+                </div>
+            </div>
+        </footer>
+
+    </div>
+    <!-- /blog-container -->
+
+</body>
+</html>
