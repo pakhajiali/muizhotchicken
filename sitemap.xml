@@ -63,6 +63,14 @@
     <!-- ===== BLOG POSTS ===== -->
     <!-- ================ -->
 
+    <!-- ===== MEET THE OWNER PAGE ===== -->
+<url>
+    <loc>https://muizhotchicken.com/blog/owner.html</loc>
+    <lastmod>2026-07-22</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.9</priority>
+</url>
+
     <!-- ===== NEW PILLAR PAGE (muiz-hot-chicken.html) ===== -->
     <url>
         <loc>https://muizhotchicken.com/blog/muiz-hot-chicken.html</loc>
