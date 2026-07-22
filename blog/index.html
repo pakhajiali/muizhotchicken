@@ -3,22 +3,22 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
-    <title>Restoran Pak Haji Ali & Muiz Hot Chicken - Blog</title>
-    <meta name="description" content="Read the latest stories, recipes, and updates from Restoran Pak Haji Ali & Muiz Hot Chicken - your favourite halal restaurant in Subang Jaya USJ 8.">
+    <title>Restoran Pak Haji Ali & Muiz Hot Chicken – Blog</title>
+    <meta name="description" content="Read the latest stories, recipes, and updates from Restoran Pak Haji Ali & Muiz Hot Chicken – your favourite halal restaurant in Subang Jaya USJ 8.">
     <meta name="robots" content="index, follow">
     <link rel="canonical" href="https://muizhotchicken.com/blog/">
 
     <!-- Open Graph -->
-    <meta property="og:title" content="Restoran Pak Haji Ali & Muiz Hot Chicken - Blog">
+    <meta property="og:title" content="Restoran Pak Haji Ali & Muiz Hot Chicken – Blog">
     <meta property="og:description" content="Read the latest stories, recipes, and updates from your favourite halal restaurant in Subang Jaya USJ 8.">
     <meta property="og:image" content="https://muizhotchicken.com/images/logo.webp">
     <meta property="og:url" content="https://muizhotchicken.com/blog/">
     <meta property="og:type" content="website">
-    <meta property="og:site_name" content="Restoran Pak Haji Ali & Muiz Hot Chicken - Subang Jaya (USJ 8)">
+    <meta property="og:site_name" content="Restoran Pak Haji Ali & Muiz Hot Chicken">
 
     <!-- Twitter -->
     <meta name="twitter:card" content="summary_large_image">
-    <meta name="twitter:title" content="Restoran Pak Haji Ali & Muiz Hot Chicken - Blog">
+    <meta name="twitter:title" content="Restoran Pak Haji Ali & Muiz Hot Chicken – Blog">
     <meta name="twitter:description" content="Read the latest stories, recipes, and updates from your favourite halal restaurant in Subang Jaya USJ 8.">
     <meta name="twitter:image" content="https://muizhotchicken.com/images/logo.webp">
 
@@ -26,58 +26,20 @@
     <link rel="icon" type="image/svg+xml" href="/favicon.svg">
     <link rel="shortcut icon" href="/favicon.ico">
 
-    <!-- Stylesheets -->
-    <link rel="stylesheet" href="/css/style.css">
+    <!-- Font Awesome -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+
+    <!-- ===== SHARED STYLES ===== -->
+    <link rel="stylesheet" href="/css/style.css">
 
     <style>
         /* ===== BLOG-SPECIFIC STYLES ===== */
-        .blog-header {
-            background: linear-gradient(145deg, #1a1a2e, #0f0f1a);
-            padding: 40px 20px;
-            text-align: center;
-            border-bottom: 3px solid #c0392b;
-            margin-bottom: 30px;
-        }
-
-        .header-container {
-            max-width: 1100px;
+        .blog-container {
+            max-width: 880px;
             margin: 0 auto;
-        }
-
-        .back-link {
-            display: inline-flex;
-            align-items: center;
-            gap: 8px;
-            color: rgba(255, 255, 255, 0.6);
-            font-weight: 600;
-            text-decoration: none;
-            transition: 0.3s;
-            margin-bottom: 16px;
-            font-size: 14px;
-        }
-
-        .back-link:hover {
-            color: #fff;
-        }
-
-        .blog-header h1 {
-            font-size: 42px;
-            font-weight: 800;
-            color: #fff;
-            margin: 0;
-        }
-
-        .blog-header p {
-            font-size: 18px;
-            color: rgba(255, 255, 255, 0.6);
-            margin: 8px 0 0;
-        }
-
-        .blog-main {
-            max-width: 1100px;
-            margin: 0 auto;
-            padding: 0 20px 60px;
+            padding: 1.5rem 1.5rem 0;
+            background: #ffffff;
+            box-shadow: 0 0 40px rgba(0, 0, 0, 0.03);
         }
 
         /* ===== TAGS FILTER ===== */
@@ -85,17 +47,17 @@
             display: flex;
             flex-wrap: wrap;
             gap: 8px;
-            margin-bottom: 30px;
-            padding-bottom: 20px;
-            border-bottom: 1px solid #eee;
+            margin: 1.5rem 0 2rem;
+            padding-bottom: 1.5rem;
+            border-bottom: 2px solid #f0e8e0;
         }
 
         .tag-btn {
-            padding: 8px 20px;
+            padding: 6px 18px;
             border-radius: 50px;
-            border: 2px solid #e8e8e8;
+            border: 2px solid #e8e0d8;
             background: #fff;
-            color: #555;
+            color: #5a4a3c;
             font-weight: 600;
             font-size: 13px;
             cursor: pointer;
@@ -116,80 +78,79 @@
         /* ===== POSTS GRID ===== */
         .posts-grid {
             display: grid;
-            grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
-            gap: 24px;
+            grid-template-columns: 1fr;
+            gap: 20px;
+            margin-bottom: 2rem;
         }
 
         .post-card {
             background: #fff;
             border-radius: 16px;
-            border: 1px solid #f0f0f0;
-            padding: 24px;
+            border: 1px solid #f0e8e0;
+            padding: 24px 28px;
             cursor: pointer;
-            transition: 0.3s ease;
-            opacity: 0;
-            transform: translateY(20px);
+            transition: 0.25s ease;
             box-shadow: 0 2px 8px rgba(0, 0, 0, 0.02);
-            display: flex;
-            flex-direction: column;
         }
 
         .post-card:hover {
-            transform: translateY(-6px);
+            transform: translateY(-4px);
             box-shadow: 0 12px 40px rgba(0, 0, 0, 0.06);
             border-color: #c0392b;
         }
 
         .post-card-tag {
             display: inline-block;
-            background: #f0f0f0;
+            background: #f0e8e0;
             color: #c0392b;
             font-size: 11px;
             font-weight: 700;
-            padding: 4px 12px;
+            padding: 4px 14px;
             border-radius: 50px;
             text-transform: uppercase;
             letter-spacing: 0.5px;
-            margin-bottom: 12px;
-            align-self: flex-start;
+            margin-bottom: 10px;
         }
 
         .post-card-meta {
             display: flex;
-            gap: 16px;
+            gap: 18px;
             font-size: 13px;
-            color: #888;
-            margin-bottom: 10px;
+            color: #7a6a5c;
+            margin-bottom: 8px;
         }
 
         .post-card-meta i {
             margin-right: 4px;
+            color: #c0392b;
         }
 
         .post-card-title {
-            font-size: 20px;
+            font-size: 22px;
             font-weight: 700;
-            color: #1a1a2e;
+            color: #1e1e1e;
             margin: 0 0 10px;
             line-height: 1.3;
         }
 
+        .post-card-title .highlight {
+            color: #c0392b;
+        }
+
         .post-card-excerpt {
             font-size: 15px;
-            color: #666;
-            line-height: 1.6;
-            flex-grow: 1;
-            margin: 0 0 16px;
+            color: #4a3a2c;
+            line-height: 1.7;
+            margin: 0 0 14px;
         }
 
         .post-card-read-more {
             font-weight: 700;
             color: #c0392b;
             font-size: 14px;
-            display: flex;
+            display: inline-flex;
             align-items: center;
             gap: 6px;
-            margin-top: auto;
         }
 
         .post-card-read-more i {
@@ -203,9 +164,7 @@
         /* ===== SINGLE POST VIEW ===== */
         .post-view {
             background: #fff;
-            border-radius: 20px;
-            padding: 24px 20px;
-            box-shadow: 0 4px 20px rgba(0, 0, 0, 0.02);
+            padding: 0 0 2rem 0;
         }
 
         .back-to-posts {
@@ -220,6 +179,7 @@
             cursor: pointer;
             padding: 0 0 20px 0;
             transition: 0.2s;
+            font-family: inherit;
         }
 
         .back-to-posts:hover {
@@ -228,14 +188,14 @@
         }
 
         .post-header {
-            border-bottom: 2px solid #f0f0f0;
+            border-bottom: 2px solid #f0e8e0;
             padding-bottom: 20px;
             margin-bottom: 24px;
         }
 
         .post-tag {
             display: inline-block;
-            background: #f0f0f0;
+            background: #f0e8e0;
             color: #c0392b;
             font-size: 12px;
             font-weight: 700;
@@ -249,40 +209,51 @@
         .post-title {
             font-size: 34px;
             font-weight: 800;
-            color: #1a1a2e;
+            color: #1e1e1e;
             line-height: 1.2;
             margin: 0 0 10px;
+        }
+
+        .post-title .highlight {
+            color: #c0392b;
+            background: linear-gradient(145deg, #c0392b, #e74c3c);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
         }
 
         .post-meta {
             display: flex;
             gap: 20px;
             font-size: 14px;
-            color: #888;
+            color: #7a6a5c;
         }
 
         .post-meta i {
             margin-right: 6px;
+            color: #c0392b;
         }
 
         .post-body {
             font-size: 17px;
             line-height: 1.8;
-            color: #333;
+            color: #2c2c2c;
         }
 
         .post-body h2 {
             font-size: 26px;
             font-weight: 700;
-            color: #1a1a2e;
+            color: #1e1e1e;
             margin-top: 32px;
             margin-bottom: 12px;
+            border-bottom: 3px solid #f0e8e0;
+            padding-bottom: 6px;
         }
 
         .post-body h3 {
             font-size: 20px;
             font-weight: 700;
-            color: #1a1a2e;
+            color: #1e1e1e;
             margin-top: 24px;
             margin-bottom: 8px;
         }
@@ -292,12 +263,13 @@
         }
 
         .post-body ul {
-            margin: 16px 0 20px 20px;
+            margin: 16px 0 20px 0;
             list-style: none;
+            padding: 0;
         }
 
         .post-body ul li {
-            padding-left: 24px;
+            padding-left: 28px;
             position: relative;
             margin-bottom: 8px;
         }
@@ -315,7 +287,7 @@
         }
 
         .post-body .faq-item {
-            border-bottom: 1px solid #eee;
+            border-bottom: 1px solid #f0e8e0;
             padding: 16px 0;
         }
 
@@ -323,26 +295,168 @@
             font-size: 17px;
             font-weight: 700;
             margin: 0 0 6px;
-            color: #1a1a2e;
+            color: #1e1e1e;
         }
 
         .post-body .faq-item p {
             font-size: 15px;
-            color: #555;
+            color: #4a3a2c;
             margin: 0;
+        }
+
+        .post-body .pull-quote {
+            background: #fff7f0;
+            border-left: 8px solid #c0392b;
+            padding: 1.5rem 2.5rem;
+            margin: 2.2rem 0;
+            border-radius: 0 16px 16px 0;
+            font-size: 1.4rem;
+            font-weight: 600;
+            color: #1e1e1e;
+            box-shadow: 0 4px 15px rgba(192, 57, 43, 0.06);
+            display: flex;
+            align-items: flex-start;
+            gap: 0.8rem;
+        }
+
+        .post-body .pull-quote .quote-icon {
+            color: #c0392b;
+            font-size: 2rem;
+            line-height: 1;
+            flex-shrink: 0;
+        }
+
+        .post-body .pull-quote .quote-text {
+            flex: 1;
+        }
+
+        .post-body .pull-quote .quote-text cite {
+            display: block;
+            font-size: 0.95rem;
+            font-weight: 400;
+            color: #7a6a5c;
+            margin-top: 6px;
+            font-style: normal;
+        }
+
+        .post-body .pull-quote .thumbs-up {
+            font-size: 2.2rem;
+            flex-shrink: 0;
+            align-self: center;
+        }
+
+        .post-body .cta-box {
+            background: linear-gradient(145deg, #fcf8f5, #f5ede5);
+            padding: 2.5rem;
+            border-radius: 24px;
+            text-align: center;
+            margin: 3rem 0 1rem;
+            border: 1px solid #f0e8e0;
+        }
+
+        .post-body .cta-box h3 {
+            font-size: 1.6rem;
+            font-weight: 700;
+            margin-bottom: 0.5rem;
+            border-bottom: none;
+            padding-bottom: 0;
+        }
+
+        .post-body .cta-box p {
+            font-size: 1rem !important;
+            margin-bottom: 1.5rem;
+            color: #4a3a2c;
+        }
+
+        .post-body .btn-group {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: center;
+            gap: 1rem;
+        }
+
+        .post-body .btn-cta {
+            display: inline-block;
+            background: #c0392b;
+            color: #fff;
+            font-weight: 600;
+            padding: 0.9rem 2.8rem;
+            border-radius: 50px;
+            text-decoration: none;
+            font-size: 1.05rem;
+            transition: background 0.2s, transform 0.1s;
+            box-shadow: 0 6px 18px rgba(192, 57, 43, 0.25);
+        }
+
+        .post-body .btn-cta i {
+            margin-right: 10px;
+        }
+
+        .post-body .btn-cta:hover {
+            background: #a93226;
+            transform: translateY(-2px);
+        }
+
+        .post-body .btn-cta-outline {
+            background: transparent;
+            color: #c0392b;
+            border: 2px solid #c0392b;
+            box-shadow: none;
+        }
+
+        .post-body .btn-cta-outline:hover {
+            background: #c0392b;
+            color: #fff;
+        }
+
+        .post-body .video-section {
+            margin: 2.8rem 0;
+        }
+
+        .post-body .video-label {
+            display: inline-block;
+            background: #c0392b;
+            color: #fff;
+            font-weight: 600;
+            font-size: 0.85rem;
+            padding: 0.3rem 1.2rem;
+            border-radius: 50px;
+            letter-spacing: 0.5px;
+            margin-bottom: 1rem;
+            text-transform: uppercase;
+        }
+
+        .post-body .video-wrapper {
+            position: relative;
+            padding-bottom: 56.25%;
+            height: 0;
+            overflow: hidden;
+            border-radius: 20px;
+            box-shadow: 0 15px 45px rgba(0, 0, 0, 0.15);
+            background: #000;
+        }
+
+        .post-body .video-wrapper iframe {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            border: 0;
+            border-radius: 20px;
         }
 
         /* ===== RELATED POSTS ===== */
         .related-posts {
             margin-top: 40px;
-            border-top: 2px solid #f0f0f0;
+            border-top: 2px solid #f0e8e0;
             padding-top: 28px;
         }
 
         .related-posts h3 {
             font-size: 20px;
             font-weight: 700;
-            color: #1a1a2e;
+            color: #1e1e1e;
             margin-bottom: 16px;
         }
 
@@ -353,12 +467,12 @@
         }
 
         .related-card {
-            background: #f8f9fa;
+            background: #fcf8f5;
             border-radius: 12px;
             padding: 16px;
             cursor: pointer;
             transition: 0.2s;
-            border: 1px solid #eee;
+            border: 1px solid #f0e8e0;
         }
 
         .related-card:hover {
@@ -369,118 +483,98 @@
         .related-card h4 {
             font-size: 15px;
             font-weight: 700;
-            color: #1a1a2e;
+            color: #1e1e1e;
             margin: 0 0 4px;
         }
 
         .related-card p {
             font-size: 13px;
-            color: #888;
+            color: #7a6a5c;
             margin: 0;
         }
 
-        /* ===== FOOTER ===== */
-        .blog-footer {
-            background: #1a1a2e;
-            color: #fff;
-            padding: 40px 20px;
-            margin-top: 40px;
+        /* ===== LOADING / EMPTY STATES ===== */
+        .empty-state {
+            grid-column: 1 / -1;
+            text-align: center;
+            padding: 60px 20px;
+            color: #7a6a5c;
         }
 
-        .footer-content {
-            max-width: 1100px;
-            margin: 0 auto;
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
-            gap: 30px;
-        }
-
-        .footer-brand h3 {
-            font-size: 18px;
-            font-weight: 700;
-            margin: 0 0 8px;
-        }
-
-        .footer-brand p {
-            color: rgba(255, 255, 255, 0.6);
-            font-size: 14px;
-        }
-
-        .footer-contact a,
-        .footer-hours p {
+        .empty-state i {
+            font-size: 48px;
+            margin-bottom: 16px;
             display: block;
-            color: rgba(255, 255, 255, 0.6);
-            text-decoration: none;
-            font-size: 14px;
-            margin-bottom: 6px;
-            transition: 0.2s;
-        }
-
-        .footer-contact a:hover {
-            color: #fff;
-        }
-
-        .footer-contact i,
-        .footer-hours i {
-            width: 20px;
             color: #c0392b;
         }
 
-        .footer-copy {
-            grid-column: 1 / -1;
-            text-align: center;
-            border-top: 1px solid rgba(255, 255, 255, 0.06);
-            padding-top: 20px;
-            margin-top: 10px;
-            font-size: 13px;
-            color: rgba(255, 255, 255, 0.4);
+        .empty-state h3 {
+            font-size: 24px;
+            font-weight: 700;
+            color: #1e1e1e;
+            margin: 0 0 8px;
         }
 
         /* ===== RESPONSIVE ===== */
-        @media (max-width: 768px) {
-            .blog-header h1 {
-                font-size: 30px;
+        @media (max-width: 640px) {
+            .blog-container {
+                padding: 1rem 1rem 0;
             }
+
+            .post-card {
+                padding: 18px 20px;
+            }
+
+            .post-card-title {
+                font-size: 19px;
+            }
+
             .post-title {
                 font-size: 26px;
             }
-            .posts-grid {
-                grid-template-columns: 1fr;
-            }
-            .related-grid {
-                grid-template-columns: 1fr 1fr;
-            }
-            .footer-content {
-                grid-template-columns: 1fr;
-                text-align: center;
-            }
-        }
 
-        @media (max-width: 480px) {
-            .blog-header {
-                padding: 24px 16px;
+            .post-body {
+                font-size: 15px;
             }
-            .blog-header h1 {
-                font-size: 24px;
+
+            .post-body .pull-quote {
+                font-size: 1.1rem;
+                padding: 1rem 1.5rem;
+                flex-wrap: wrap;
             }
-            .post-title {
-                font-size: 22px;
+
+            .post-body .pull-quote .thumbs-up {
+                margin-left: 0;
+                width: 100%;
+                text-align: right;
             }
+
+            .post-body .cta-box {
+                padding: 1.8rem 1.2rem;
+            }
+
+            .post-body .btn-cta {
+                padding: 0.8rem 1.8rem;
+                font-size: 0.95rem;
+                width: 100%;
+            }
+
             .related-grid {
                 grid-template-columns: 1fr;
             }
+
             .tags-filter {
                 gap: 6px;
             }
+
             .tag-btn {
                 font-size: 12px;
-                padding: 6px 14px;
+                padding: 5px 14px;
             }
         }
 
-        /* ===== PRINT ===== */
         @media print {
-            .blog-header,
+            .top-bar,
             .blog-footer,
             .tags-filter,
             .back-to-posts,
@@ -491,39 +585,60 @@
                 box-shadow: none !important;
                 padding: 0 !important;
             }
-            .post-body {
-                font-size: 14px !important;
-            }
         }
     </style>
 </head>
 <body>
 
-    <!-- ====== HEADER ====== -->
-    <header class="blog-header">
-        <div class="header-container">
-            <a href="https://muizhotchicken.com/" class="back-link">
+    <div class="blog-container">
+
+        <!-- ===== TOP BAR ===== -->
+        <div class="top-bar">
+            <a href="https://muizhotchicken.com/" class="back-home">
                 <i class="fas fa-arrow-left"></i> Back to Home
             </a>
-            <h1>Our Blog</h1>
-            <p>Stories, recipes, and updates from our kitchen</p>
+            <div class="top-bar-right">
+                <span class="resto-name">
+                    <i class="fas fa-store"></i> Restoran Pak Haji Ali &amp; Muiz Hot Chicken – Subang Jaya (USJ 8)
+                </span>
+                <a href="https://g.page/r/CUrZw9xvAXIPEBE" target="_blank" rel="noopener" class="map-link">
+                    <i class="fas fa-map-pin"></i> Google Maps
+                </a>
+            </div>
         </div>
-    </header>
 
-    <!-- ====== MAIN CONTENT ====== -->
-    <main class="blog-main" id="blogMain">
+        <!-- ===== HERO IMAGE ===== -->
+        <div class="hero-image">
+            <img src="/images/logo.webp" alt="Muiz Hot Chicken – Blog" loading="eager" />
+        </div>
 
-        <!-- Tags Filter -->
+        <!-- ===== BLOG HEADER ===== -->
+        <header class="blog-header">
+            <div class="blog-meta">
+                <span><i class="fas fa-pen-fancy"></i> Our Blog</span>
+                <span><i class="fas fa-tag"></i> Stories &amp; Updates</span>
+                <span><i class="fas fa-clock"></i> Fresh from the kitchen</span>
+            </div>
+            <h1 class="blog-title">
+                Stories &amp; Updates from <span class="highlight">Muiz Hot Chicken</span>
+            </h1>
+            <div class="blog-subtitle">
+                <i class="fas fa-quote-left"></i>
+                Recipes, news, and behind-the-scenes from your favourite halal restaurant in Subang Jaya.
+            </div>
+        </header>
+
+        <!-- ===== TAGS FILTER ===== -->
         <div class="tags-filter" id="tagsFilter">
             <button class="tag-btn active" data-tag="all">All Posts</button>
         </div>
 
-        <!-- Posts Grid -->
+        <!-- ===== POSTS GRID ===== -->
         <div class="posts-grid" id="postsGrid">
             <!-- Posts injected by JavaScript -->
         </div>
 
-        <!-- Individual Post View (hidden by default) -->
+        <!-- ===== SINGLE POST VIEW (hidden by default) ===== -->
         <div class="post-view" id="postView" style="display:none;">
             <button class="back-to-posts" id="backToPosts">
                 <i class="fas fa-arrow-left"></i> Back to all posts
@@ -531,31 +646,37 @@
             <div id="postContent"></div>
         </div>
 
-    </main>
+        <!-- ===== FOOTER ===== -->
+        <footer class="blog-footer">
+            <div class="footer-inner">
+                <div class="footer-brand">
+                    <h3>Restoran Pak Haji Ali &amp; Muiz Hot Chicken</h3>
+                    <p>Subang Jaya (USJ 8) • JAKIM Halal • Est. 2026</p>
+                </div>
+                <div class="footer-social">
+                    <a href="https://www.facebook.com/61591075012810/" target="_blank" aria-label="Facebook">
+                        <i class="fab fa-facebook"></i>
+                    </a>
+                    <a href="https://www.tiktok.com/@muiz.fried.chicken" target="_blank" aria-label="TikTok">
+                        <i class="fab fa-tiktok"></i>
+                    </a>
+                    <a href="https://www.youtube.com/@MHCRestoranPakHajiAli" target="_blank" aria-label="YouTube">
+                        <i class="fab fa-youtube"></i>
+                    </a>
+                    <a href="https://g.page/r/CUrZw9xvAXIPEBE" target="_blank" aria-label="Google Maps">
+                        <i class="fas fa-map-pin"></i>
+                    </a>
+                </div>
+                <div class="footer-copy">
+                    &copy; 2026 Restoran Pak Haji Ali &amp; Muiz Hot Chicken — Subang Jaya (USJ 8).
+                </div>
+            </div>
+        </footer>
 
-    <!-- ====== FOOTER ====== -->
-    <footer class="blog-footer">
-        <div class="footer-content">
-            <div class="footer-brand">
-                <h3>Restoran Pak Haji Ali <br>&amp; Muiz Hot Chicken</h3>
-                <p><i class="fas fa-location-dot"></i> Subang Jaya (USJ 8) &bull; <i class="fas fa-certificate"></i> JAKIM Halal</p>
-            </div>
-            <div class="footer-contact">
-                <a href="tel:+60179081447"><i class="fas fa-phone"></i> 017-908 1447</a>
-                <a href="https://wa.me/60179081447" target="_blank" rel="noopener noreferrer"><i class="fab fa-whatsapp"></i> WhatsApp</a>
-                <a href="https://g.page/r/CUrZw9xvAXIPEBE" target="_blank" rel="noopener noreferrer"><i class="fas fa-map-pin"></i> Google Maps</a>
-                <a href="mailto:syedcafeofficial@gmail.com"><i class="fas fa-envelope"></i> Email</a>
-            </div>
-            <div class="footer-hours">
-                <p><i class="fas fa-clock"></i> Open Daily: 9:00 AM – 9:00 PM</p>
-            </div>
-            <div class="footer-copy">
-                <p>&copy; 2026 Restoran Pak Haji Ali &amp; Muiz Hot Chicken - Subang Jaya (USJ 8). All rights reserved.</p>
-            </div>
-        </div>
-    </footer>
+    </div>
+    <!-- /blog-container -->
 
-    <!-- ====== SCRIPTS ====== -->
+    <!-- ===== SCRIPTS ===== -->
     <script>
         // ============================================
         // BLOG DATA
@@ -573,7 +694,7 @@
         const postContent = document.getElementById('postContent');
         const tagsFilter = document.getElementById('tagsFilter');
         const backToPostsBtn = document.getElementById('backToPosts');
-        const blogMain = document.getElementById('blogMain');
+        const blogMain = document.querySelector('.blog-container');
 
         // ============================================
         // FETCH POSTS
@@ -583,12 +704,14 @@
                 const response = await fetch(BLOG_DATA_URL);
                 if (!response.ok) throw new Error('Failed to load posts');
                 posts = await response.json();
+                // Sort by date (newest first)
+                posts.sort((a, b) => new Date(b.date) - new Date(a.date));
                 return posts;
             } catch (error) {
                 console.error('Error loading posts:', error);
                 postsGrid.innerHTML = `
-                    <div style="grid-column:1/-1;text-align:center;padding:60px 20px;color:#888;">
-                        <i class="fas fa-exclamation-circle" style="font-size:48px;margin-bottom:16px;display:block;"></i>
+                    <div class="empty-state">
+                        <i class="fas fa-exclamation-circle"></i>
                         <h3>Unable to load blog posts</h3>
                         <p>Please try again later.</p>
                     </div>
@@ -623,7 +746,7 @@
             });
         }
 
-         // ============================================
+        // ============================================
         // RENDER POSTS (Grid View)
         // ============================================
         function renderPosts() {
@@ -633,8 +756,8 @@
 
             if (filtered.length === 0) {
                 postsGrid.innerHTML = `
-                    <div style="grid-column:1/-1;text-align:center;padding:60px 20px;color:#888;">
-                        <i class="fas fa-search" style="font-size:48px;margin-bottom:16px;display:block;"></i>
+                    <div class="empty-state">
+                        <i class="fas fa-search"></i>
                         <h3>No posts found</h3>
                         <p>Try a different tag.</p>
                     </div>
@@ -644,19 +767,20 @@
 
             postsGrid.innerHTML = filtered.map(post => `
                 <article class="post-card" data-slug="${post.slug}">
-                    <div class="post-card-content">
+                    <div>
                         ${post.tags && post.tags.length > 0 ? `<span class="post-card-tag">${post.tags[0]}</span>` : ''}
                         <div class="post-card-meta">
                             <span><i class="far fa-calendar-alt"></i> ${formatDate(post.date)}</span>
                             <span><i class="far fa-clock"></i> ${getReadingTime(post.body)} min read</span>
                         </div>
                         <h2 class="post-card-title">${post.title}</h2>
-                        <p class="post-card-excerpt">${post.excerpt || stripHtml(post.body).slice(0, 140)}...</p>
+                        <p class="post-card-excerpt">${post.excerpt || stripHtml(post.body).slice(0, 150)}...</p>
                         <span class="post-card-read-more">Read More <i class="fas fa-arrow-right"></i></span>
                     </div>
                 </article>
             `).join('');
 
+            // Click handler for each card
             postsGrid.querySelectorAll('.post-card').forEach(card => {
                 card.addEventListener('click', function() {
                     const slug = this.dataset.slug;
@@ -666,7 +790,7 @@
         }
 
         // ============================================
-        // SHOW INDIVIDUAL POST (with FAQ Schema)
+        // SHOW INDIVIDUAL POST
         // ============================================
         function showPost(slug) {
             const post = posts.find(p => p.slug === slug);
@@ -703,9 +827,7 @@
                 `;
             }
 
-            // ============================================
-            // INJECT BLOG POSTING SCHEMA
-            // ============================================
+            // ===== SCHEMA: BlogPosting =====
             const schemaScript = document.createElement('script');
             schemaScript.type = 'application/ld+json';
             schemaScript.textContent = JSON.stringify({
@@ -714,7 +836,7 @@
                 "headline": post.title,
                 "description": post.excerpt || stripHtml(post.body).slice(0, 160),
                 "datePublished": post.date,
-                "dateModified": post.date,
+                "dateModified": post.date || post.date,
                 "author": {
                     "@type": "Organization",
                     "name": "Restoran Pak Haji Ali & Muiz Hot Chicken"
@@ -735,9 +857,7 @@
             schemaScript.setAttribute('data-post-schema', 'true');
             document.head.appendChild(schemaScript);
 
-            // ============================================
-            // INJECT FAQ SCHEMA (if FAQs exist)
-            // ============================================
+            // ===== SCHEMA: FAQ =====
             if (post.faqs && post.faqs.length > 0) {
                 const faqScript = document.createElement('script');
                 faqScript.type = 'application/ld+json';
@@ -757,9 +877,7 @@
                 document.head.appendChild(faqScript);
             }
 
-            // ============================================
-            // RENDER POST CONTENT
-            // ============================================
+            // ===== RENDER POST CONTENT =====
             postContent.innerHTML = `
                 <div class="post-header">
                     ${post.tags && post.tags.length > 0 ? `<span class="post-tag">${post.tags[0]}</span>` : ''}
@@ -773,6 +891,7 @@
                 ${relatedHtml}
             `;
 
+            // Related cards click handler
             postContent.querySelectorAll('.related-card').forEach(card => {
                 card.addEventListener('click', function() {
                     showPost(this.dataset.slug);
@@ -780,7 +899,8 @@
                 });
             });
 
-            document.title = `${post.title} - Restoran Pak Haji Ali & Muiz Hot Chicken Blog`;
+            // Update meta tags
+            document.title = `${post.title} – Restoran Pak Haji Ali & Muiz Hot Chicken Blog`;
             const metaDesc = document.querySelector('meta[name="description"]');
             if (metaDesc) {
                 metaDesc.content = post.excerpt || stripHtml(post.body).slice(0, 160);
@@ -820,35 +940,32 @@
         // ============================================
         // BACK TO POSTS
         // ============================================
-        backToPostsBtn.addEventListener('click', function() {
-            showPostsGrid();
-        });
-
         function showPostsGrid() {
             currentPostSlug = null;
             postsGrid.style.display = 'grid';
             tagsFilter.style.display = 'flex';
             postView.style.display = 'none';
 
-            document.title = 'Restoran Pak Haji Ali & Muiz Hot Chicken - Blog';
+            document.title = 'Restoran Pak Haji Ali & Muiz Hot Chicken – Blog';
             const metaDesc = document.querySelector('meta[name="description"]');
             if (metaDesc) {
-                metaDesc.content = 'Read the latest stories, recipes, and updates from Restoran Pak Haji Ali & Muiz Hot Chicken - your favourite halal restaurant in Subang Jaya USJ 8.';
+                metaDesc.content = 'Read the latest stories, recipes, and updates from Restoran Pak Haji Ali & Muiz Hot Chicken – your favourite halal restaurant in Subang Jaya USJ 8.';
             }
             const ogTitle = document.querySelector('meta[property="og:title"]');
             const ogDesc = document.querySelector('meta[property="og:description"]');
-            if (ogTitle) ogTitle.content = 'Restoran Pak Haji Ali & Muiz Hot Chicken - Blog';
+            if (ogTitle) ogTitle.content = 'Restoran Pak Haji Ali & Muiz Hot Chicken – Blog';
             if (ogDesc) ogDesc.content = 'Read the latest stories, recipes, and updates from your favourite halal restaurant in Subang Jaya USJ 8.';
 
-            // Remove all schemas
             document.querySelectorAll('script[data-post-schema]').forEach(el => el.remove());
             document.querySelectorAll('script[data-faq-schema]').forEach(el => el.remove());
 
             window.history.pushState({}, '', window.location.pathname);
         }
 
+        backToPostsBtn.addEventListener('click', showPostsGrid);
+
         // ============================================
-        // HANDLE URL ON LOAD
+        // URL HANDLING
         // ============================================
         function handleUrl() {
             const params = new URLSearchParams(window.location.search);
@@ -863,9 +980,6 @@
             showPostsGrid();
         }
 
-        // ============================================
-        // BACK BUTTON HANDLING
-        // ============================================
         window.addEventListener('popstate', function(e) {
             if (e.state && e.state.post) {
                 showPost(e.state.post);
@@ -875,32 +989,13 @@
         });
 
         // ============================================
-        // SCROLL REVEAL
-        // ============================================
-        function revealOnScroll() {
-            const cards = document.querySelectorAll('.post-card');
-            const windowHeight = window.innerHeight;
-            cards.forEach((card, i) => {
-                const top = card.getBoundingClientRect().top;
-                if (top < windowHeight - 80) {
-                    setTimeout(() => {
-                        card.style.opacity = '1';
-                        card.style.transform = 'translateY(0)';
-                    }, i * 80);
-                }
-            });
-        }
-
-        // ============================================
-        // INIT
+        // INIT – fast load, no delay
         // ============================================
         document.addEventListener('DOMContentLoaded', async function() {
             await fetchPosts();
             renderTags();
             renderPosts();
             handleUrl();
-            setTimeout(revealOnScroll, 300);
-            window.addEventListener('scroll', revealOnScroll);
         });
     </script>
 
