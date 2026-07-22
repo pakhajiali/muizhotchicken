@@ -348,4 +348,60 @@
         <priority>0.7</priority>
     </url>
 
+    <!-- ===== STATE PAGES ===== -->
+<url>
+    <loc>https://muizhotchicken.com/blog/muiz-hot-chicken-selangor.html</loc>
+    <lastmod>2026-07-22</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+</url>
+<url>
+    <loc>https://muizhotchicken.com/blog/muiz-hot-chicken-kuala-lumpur.html</loc>
+    <lastmod>2026-07-22</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+</url>
+<url>
+    <loc>https://muizhotchicken.com/blog/muiz-hot-chicken-kelantan.html</loc>
+    <lastmod>2026-07-22</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
+</url>
+<url>
+    <loc>https://muizhotchicken.com/blog/muiz-hot-chicken-terengganu.html</loc>
+    <lastmod>2026-07-22</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
+</url>
+<url>
+    <loc>https://muizhotchicken.com/blog/muiz-hot-chicken-pahang.html</loc>
+    <lastmod>2026-07-22</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
+</url>
+<url>
+    <loc>https://muizhotchicken.com/blog/muiz-hot-chicken-johor.html</loc>
+    <lastmod>2026-07-22</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
+</url>
+<url>
+    <loc>https://muizhotchicken.com/blog/muiz-hot-chicken-pulau-pinang.html</loc>
+    <lastmod>2026-07-22</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
+</url>
+<url>
+    <loc>https://muizhotchicken.com/blog/muiz-hot-chicken-perak.html</loc>
+    <lastmod>2026-07-22</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
+</url>
+<url>
+    <loc>https://muizhotchicken.com/blog/muiz-hot-chicken-kedah.html</loc>
+    <lastmod>2026-07-22</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
+</url>
+
 </urlset>
