@@ -431,4 +431,20 @@
     <changefreq>weekly</changefreq>
     <priority>1.0</priority>
 </url>
+
+    <!-- ===== ULTIMATE GUIDE PAGE (Foodpanda & Grab) ===== -->
+<url>
+    <loc>https://muizhotchicken.com/blog/muiz-hot-chicken-foodpanda-grab.html</loc>
+    <lastmod>2026-07-26</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.9</priority>
+</url>
+
+<!-- ===== ULTIMATE GUIDE PAGE (Restoran Pak Haji Ali USJ 8) ===== -->
+<url>
+    <loc>https://muizhotchicken.com/blog/ultimate-guide-muiz-hot-chicken-restoran-pak-haji-ali-usj-8.html</loc>
+    <lastmod>2026-07-26</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>1.0</priority>
+</url>
 </urlset>
