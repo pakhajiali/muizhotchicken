@@ -6,12 +6,12 @@
 
     <!-- ===== SEO TITLE & META ===== -->
     <title>Meet the Co-Founders – Ali & Nalif | Restoran Pak Haji Ali & Muiz Hot Chicken</title>
-    <meta name="description" content="Meet Ali (Master in Chemical Engineering, UCTATi) & Nalif (Degree in Mechanical Engineering, UMP) – brothers and co-founders of Restoran Pak Haji Ali & Muiz Hot Chicken. Full menu & halal dining in Subang Jaya." />
+    <meta name="description" content="Meet Ali (Master in Chemical Engineering, UCTATi) & Nalif (Degree in Mechanical Engineering, UMP) – brothers and co-founders of Restoran Pak Haji Ali & Muiz Hot Chicken. Full halal menu in Subang Jaya." />
     <link rel="canonical" href="https://muizhotchicken.com/blog/owner" />
 
     <!-- ===== OPEN GRAPH ===== -->
     <meta property="og:title" content="Meet the Co-Founders – Ali & Nalif | Restoran Pak Haji Ali & Muiz Hot Chicken" />
-    <meta property="og:description" content="Meet Ali (Master in Chemical Eng, UCTATi) & Nalif (Degree in Mechanical Eng, UMP) – brothers and co-founders of Restoran Pak Haji Ali & Muiz Hot Chicken." />
+    <meta property="og:description" content="Ali (Master in Chemical Eng, UCTATi) & Nalif (Degree in Mechanical Eng, UMP) – brothers and co-founders. Full halal menu in Subang Jaya." />
     <meta property="og:image" content="https://muizhotchicken.com/images/logo.webp" />
     <meta property="og:url" content="https://muizhotchicken.com/blog/owner" />
     <meta property="og:type" content="article" />
@@ -144,9 +144,6 @@
     <!-- ===== SHARED STYLES (main site CSS) ===== -->
     <link rel="stylesheet" href="/css/style.css" />
 
-    <!-- ===== SHARED STYLES (main site CSS) ===== -->
-    <link rel="stylesheet" href="/style.css" />
-
     <style>
         .blog-title .highlight {
             color: #c0392b;
@@ -233,6 +230,17 @@
         .contact-box a { color: #c0392b; font-weight: 600; text-decoration: none; }
         .contact-box a:hover { text-decoration: underline; }
         .contact-box .whatsapp-link { color: #25D366; }
+
+        /* Clean read-only menu items – no buttons */
+        .featured-item .price,
+        .menu-category-item .menu-item-price {
+            font-weight: 700;
+            color: #c0392b;
+        }
+        .featured-item .add-btn,
+        .menu-category-item .add-btn-small {
+            display: none !important;
+        }
 
         @media (max-width: 700px) {
             .cofounder-grid { grid-template-columns: 1fr; }
@@ -377,18 +385,7 @@
             </div>
 
             <!-- ============================================================ -->
-            <!-- ===== FEATURED MESSAGE (from messages.js) ===== -->
-            <!-- ============================================================ -->
-            <section class="featured-message" id="featuredMessage">
-                <div class="featured-message-container">
-                    <div class="featured-message-content" id="featuredMessageContent">
-                        <!-- This will be filled by script.js using messages.js -->
-                    </div>
-                </div>
-            </section>
-
-            <!-- ============================================================ -->
-            <!-- ===== MOST ORDERED MENU ===== -->
+            <!-- ===== MOST ORDERED MENU (read‑only) ===== -->
             <!-- ============================================================ -->
             <section class="featured" id="menu">
                 <div class="section-header">
@@ -396,59 +393,51 @@
                     <p class="section-sub">Customer favourites</p>
                 </div>
                 <div class="featured-grid" id="featuredGrid">
-                    <div class="featured-item" data-name="Nasi Kandar Muiz Hot Chicken" data-price="6.9" data-img="/images/nasikandarmuizchicken.webp" data-desc="Nasi kandar with signature Muiz hot chicken &amp; rich curry sauce.">
+                    <div class="featured-item">
                         <img src="/images/nasikandarmuizchicken.webp" alt="Nasi Kandar Muiz Hot Chicken" loading="lazy" />
                         <h4>Nasi Kandar Muiz Hot Chicken</h4>
                         <div class="price">RM6.90</div>
-                        <button class="add-btn" onclick="openItemModal('Nasi Kandar Muiz Hot Chicken', 6.9, '/images/nasikandarmuizchicken.webp', 'Nasi kandar with signature Muiz hot chicken &amp; rich curry sauce.')">+ Add</button>
                     </div>
-                    <div class="featured-item" data-name="Nasi Ayam Muiz Chicken" data-price="8.9" data-img="/images/nasiayammuizchicken.webp" data-desc="Aromatic chicken rice with tender Muiz-style fried chicken, sambal.">
+                    <div class="featured-item">
                         <img src="/images/nasiayammuizchicken.webp" alt="Nasi Ayam Muiz Chicken" loading="lazy" />
                         <h4>Nasi Ayam Muiz Chicken</h4>
                         <div class="price">RM8.90</div>
-                        <button class="add-btn" onclick="openItemModal('Nasi Ayam Muiz Chicken', 8.9, '/images/nasiayammuizchicken.webp', 'Aromatic chicken rice with tender Muiz-style fried chicken, sambal.')">+ Add</button>
                     </div>
-                    <div class="featured-item" data-name="Nasi Bujang" data-price="3.9" data-img="/images/nasibujang.webp" data-desc="White Rice + Omelette + Soup + Sambal">
+                    <div class="featured-item">
                         <img src="/images/nasibujang.webp" alt="Nasi Bujang" loading="lazy" />
                         <h4>Nasi Bujang</h4>
                         <div class="price">RM3.90</div>
-                        <button class="add-btn" onclick="openItemModal('Nasi Bujang', 3.9, '/images/nasibujang.webp', 'White Rice + Omelette + Soup + Sambal')">+ Add</button>
                     </div>
-                    <div class="featured-item" data-name="Bakso" data-price="5.9" data-img="/images/bakso.webp" data-desc="Authentic Indonesian beef meatball soup with savoury broth.">
+                    <div class="featured-item">
                         <img src="/images/bakso.webp" alt="Bakso" loading="lazy" />
                         <h4>Bakso</h4>
                         <div class="price">RM5.90</div>
-                        <button class="add-btn" onclick="openItemModal('Bakso', 5.9, '/images/bakso.webp', 'Authentic Indonesian beef meatball soup with savoury broth.')">+ Add</button>
                     </div>
-                    <div class="featured-item" data-name="Mee Pak Haji Ali" data-price="6.9" data-img="/images/meepakhajiali.webp" data-desc="Traditional recipe. Savoury noodles with special house blend.">
+                    <div class="featured-item">
                         <img src="/images/meepakhajiali.webp" alt="Mee Pak Haji Ali" loading="lazy" />
                         <h4>Mee Pak Haji Ali</h4>
                         <div class="price">RM6.90</div>
-                        <button class="add-btn" onclick="openItemModal('Mee Pak Haji Ali', 6.9, '/images/meepakhajiali.webp', 'Traditional recipe. Savoury noodles with special house blend.')">+ Add</button>
                     </div>
-                    <div class="featured-item" data-name="Original Regular Box" data-price="10" data-img="/images/originalregularbox.webp" data-desc="2 Pieces of Muiz Hot Chicken 🍗">
+                    <div class="featured-item">
                         <img src="/images/originalregularbox.webp" alt="Original Regular Box" loading="lazy" />
                         <h4>Original Regular Box</h4>
                         <div class="price">RM10.00</div>
-                        <button class="add-btn" onclick="openItemModal('Original Regular Box', 10, '/images/originalregularbox.webp', '2 Pieces of Muiz Hot Chicken 🍗')">+ Add</button>
                     </div>
-                    <div class="featured-item" data-name="Cheese Regular Box" data-price="12" data-img="/images/cheeseregularbox.webp" data-desc="2 Pieces + Cheese Sauce">
+                    <div class="featured-item">
                         <img src="/images/cheeseregularbox.webp" alt="Cheese Regular Box" loading="lazy" />
                         <h4>Cheese Regular Box</h4>
                         <div class="price">RM12.00</div>
-                        <button class="add-btn" onclick="openItemModal('Cheese Regular Box', 12, '/images/cheeseregularbox.webp', '2 Pieces + Cheese Sauce')">+ Add</button>
                     </div>
-                    <div class="featured-item" data-name="Korean Spicy Regular Box" data-price="13" data-img="/images/koreanspicyregularbox.webp" data-desc="2 Pieces + Korean Spicy Sauce">
+                    <div class="featured-item">
                         <img src="/images/koreanspicyregularbox.webp" alt="Korean Spicy Regular Box" loading="lazy" />
                         <h4>Korean Spicy Regular Box</h4>
                         <div class="price">RM13.00</div>
-                        <button class="add-btn" onclick="openItemModal('Korean Spicy Regular Box', 13, '/images/koreanspicyregularbox.webp', '2 Pieces + Korean Spicy Sauce')">+ Add</button>
                     </div>
                 </div>
             </section>
 
             <!-- ============================================================ -->
-            <!-- ===== FULL MENU (ALL CATEGORIES) ===== -->
+            <!-- ===== FULL MENU (ALL CATEGORIES – read‑only) ===== -->
             <!-- ============================================================ -->
             <section class="full-menu" id="fullMenu">
                 <div class="section-header">
@@ -456,39 +445,40 @@
                     <p class="section-sub">All our offerings – JAKIM Halal certified</p>
                 </div>
                 <div id="fullMenuGrid">
+
                     <!-- Most Ordered -->
                     <div class="menu-category">
                         <h3 class="menu-category-title">Most Ordered</h3>
                         <div class="menu-category-grid">
-                            <div class="menu-category-item" data-name="Nasi Kandar Muiz Hot Chicken" data-price="6.9" data-img="/images/nasikandarmuizchicken.webp" data-desc="Nasi kandar with signature Muiz hot chicken &amp; rich curry sauce.">
+                            <div class="menu-category-item">
                                 <img src="/images/nasikandarmuizchicken.webp" alt="Nasi Kandar Muiz Hot Chicken" loading="lazy" />
                                 <h4>Nasi Kandar Muiz Hot Chicken</h4>
                                 <p class="menu-item-desc">Nasi kandar with signature Muiz hot chicken &amp; rich curry sauce.</p>
-                                <div class="menu-item-bottom"><span class="menu-item-price">RM6.90</span><button class="add-btn-small" onclick="openItemModal('Nasi Kandar Muiz Hot Chicken', 6.9, '/images/nasikandarmuizchicken.webp', 'Nasi kandar with signature Muiz hot chicken &amp; rich curry sauce.')">+ Add</button></div>
+                                <div class="menu-item-bottom"><span class="menu-item-price">RM6.90</span></div>
                             </div>
-                            <div class="menu-category-item" data-name="Nasi Ayam Muiz Chicken" data-price="8.9" data-img="/images/nasiayammuizchicken.webp" data-desc="Aromatic chicken rice with tender Muiz-style fried chicken, sambal.">
+                            <div class="menu-category-item">
                                 <img src="/images/nasiayammuizchicken.webp" alt="Nasi Ayam Muiz Chicken" loading="lazy" />
                                 <h4>Nasi Ayam Muiz Chicken</h4>
                                 <p class="menu-item-desc">Aromatic chicken rice with tender Muiz-style fried chicken, sambal.</p>
-                                <div class="menu-item-bottom"><span class="menu-item-price">RM8.90</span><button class="add-btn-small" onclick="openItemModal('Nasi Ayam Muiz Chicken', 8.9, '/images/nasiayammuizchicken.webp', 'Aromatic chicken rice with tender Muiz-style fried chicken, sambal.')">+ Add</button></div>
+                                <div class="menu-item-bottom"><span class="menu-item-price">RM8.90</span></div>
                             </div>
-                            <div class="menu-category-item" data-name="Nasi Bujang" data-price="3.9" data-img="/images/nasibujang.webp" data-desc="White Rice + Omelette + Soup + Sambal">
+                            <div class="menu-category-item">
                                 <img src="/images/nasibujang.webp" alt="Nasi Bujang" loading="lazy" />
                                 <h4>Nasi Bujang</h4>
                                 <p class="menu-item-desc">White Rice + Omelette + Soup + Sambal</p>
-                                <div class="menu-item-bottom"><span class="menu-item-price">RM3.90</span><button class="add-btn-small" onclick="openItemModal('Nasi Bujang', 3.9, '/images/nasibujang.webp', 'White Rice + Omelette + Soup + Sambal')">+ Add</button></div>
+                                <div class="menu-item-bottom"><span class="menu-item-price">RM3.90</span></div>
                             </div>
-                            <div class="menu-category-item" data-name="Bakso" data-price="5.9" data-img="/images/bakso.webp" data-desc="Authentic Indonesian beef meatball soup with savoury broth.">
+                            <div class="menu-category-item">
                                 <img src="/images/bakso.webp" alt="Bakso" loading="lazy" />
                                 <h4>Bakso</h4>
                                 <p class="menu-item-desc">Authentic Indonesian beef meatball soup with savoury broth.</p>
-                                <div class="menu-item-bottom"><span class="menu-item-price">RM5.90</span><button class="add-btn-small" onclick="openItemModal('Bakso', 5.9, '/images/bakso.webp', 'Authentic Indonesian beef meatball soup with savoury broth.')">+ Add</button></div>
+                                <div class="menu-item-bottom"><span class="menu-item-price">RM5.90</span></div>
                             </div>
-                            <div class="menu-category-item" data-name="Mee Pak Haji Ali" data-price="6.9" data-img="/images/meepakhajiali.webp" data-desc="Traditional recipe. Savoury noodles with special house blend.">
+                            <div class="menu-category-item">
                                 <img src="/images/meepakhajiali.webp" alt="Mee Pak Haji Ali" loading="lazy" />
                                 <h4>Mee Pak Haji Ali</h4>
                                 <p class="menu-item-desc">Traditional recipe. Savoury noodles with special house blend.</p>
-                                <div class="menu-item-bottom"><span class="menu-item-price">RM6.90</span><button class="add-btn-small" onclick="openItemModal('Mee Pak Haji Ali', 6.9, '/images/meepakhajiali.webp', 'Traditional recipe. Savoury noodles with special house blend.')">+ Add</button></div>
+                                <div class="menu-item-bottom"><span class="menu-item-price">RM6.90</span></div>
                             </div>
                         </div>
                     </div>
@@ -497,29 +487,29 @@
                     <div class="menu-category">
                         <h3 class="menu-category-title">Muiz Hot Chicken Regular Box</h3>
                         <div class="menu-category-grid">
-                            <div class="menu-category-item" data-name="Original Regular Box" data-price="10" data-img="/images/originalregularbox.webp" data-desc="2 Pieces of Muiz Hot Chicken 🍗">
+                            <div class="menu-category-item">
                                 <img src="/images/originalregularbox.webp" alt="Original Regular Box" loading="lazy" />
                                 <h4>Original Regular Box</h4>
                                 <p class="menu-item-desc">2 Pieces of Muiz Hot Chicken 🍗</p>
-                                <div class="menu-item-bottom"><span class="menu-item-price">RM10.00</span><button class="add-btn-small" onclick="openItemModal('Original Regular Box', 10, '/images/originalregularbox.webp', '2 Pieces of Muiz Hot Chicken 🍗')">+ Add</button></div>
+                                <div class="menu-item-bottom"><span class="menu-item-price">RM10.00</span></div>
                             </div>
-                            <div class="menu-category-item" data-name="Cheese Regular Box" data-price="12" data-img="/images/cheeseregularbox.webp" data-desc="2 Pieces + Cheese Sauce">
+                            <div class="menu-category-item">
                                 <img src="/images/cheeseregularbox.webp" alt="Cheese Regular Box" loading="lazy" />
                                 <h4>Cheese Regular Box</h4>
                                 <p class="menu-item-desc">2 Pieces + Cheese Sauce</p>
-                                <div class="menu-item-bottom"><span class="menu-item-price">RM12.00</span><button class="add-btn-small" onclick="openItemModal('Cheese Regular Box', 12, '/images/cheeseregularbox.webp', '2 Pieces + Cheese Sauce')">+ Add</button></div>
+                                <div class="menu-item-bottom"><span class="menu-item-price">RM12.00</span></div>
                             </div>
-                            <div class="menu-category-item" data-name="Korean Spicy Regular Box" data-price="13" data-img="/images/koreanspicyregularbox.webp" data-desc="2 Pieces + Korean Spicy Sauce">
+                            <div class="menu-category-item">
                                 <img src="/images/koreanspicyregularbox.webp" alt="Korean Spicy Regular Box" loading="lazy" />
                                 <h4>Korean Spicy Regular Box</h4>
                                 <p class="menu-item-desc">2 Pieces + Korean Spicy Sauce</p>
-                                <div class="menu-item-bottom"><span class="menu-item-price">RM13.00</span><button class="add-btn-small" onclick="openItemModal('Korean Spicy Regular Box', 13, '/images/koreanspicyregularbox.webp', '2 Pieces + Korean Spicy Sauce')">+ Add</button></div>
+                                <div class="menu-item-bottom"><span class="menu-item-price">RM13.00</span></div>
                             </div>
-                            <div class="menu-category-item" data-name="Korean Cheese Regular Box" data-price="14" data-img="/images/koreancheeseregularbox.webp" data-desc="2 Pieces + Cheese + Korean Spicy">
+                            <div class="menu-category-item">
                                 <img src="/images/koreancheeseregularbox.webp" alt="Korean Cheese Regular Box" loading="lazy" />
                                 <h4>Korean Cheese Regular Box</h4>
                                 <p class="menu-item-desc">2 Pieces + Cheese + Korean Spicy</p>
-                                <div class="menu-item-bottom"><span class="menu-item-price">RM14.00</span><button class="add-btn-small" onclick="openItemModal('Korean Cheese Regular Box', 14, '/images/koreancheeseregularbox.webp', '2 Pieces + Cheese + Korean Spicy')">+ Add</button></div>
+                                <div class="menu-item-bottom"><span class="menu-item-price">RM14.00</span></div>
                             </div>
                         </div>
                     </div>
@@ -528,29 +518,29 @@
                     <div class="menu-category">
                         <h3 class="menu-category-title">Muiz Hot Chicken Happy Box</h3>
                         <div class="menu-category-grid">
-                            <div class="menu-category-item" data-name="Original Happy Box" data-price="25" data-img="/images/originalhappybox.webp" data-desc="5 Pieces of Muiz Hot Chicken 🍗">
+                            <div class="menu-category-item">
                                 <img src="/images/originalhappybox.webp" alt="Original Happy Box" loading="lazy" />
                                 <h4>Original Happy Box</h4>
                                 <p class="menu-item-desc">5 Pieces of Muiz Hot Chicken 🍗</p>
-                                <div class="menu-item-bottom"><span class="menu-item-price">RM25.00</span><button class="add-btn-small" onclick="openItemModal('Original Happy Box', 25, '/images/originalhappybox.webp', '5 Pieces of Muiz Hot Chicken 🍗')">+ Add</button></div>
+                                <div class="menu-item-bottom"><span class="menu-item-price">RM25.00</span></div>
                             </div>
-                            <div class="menu-category-item" data-name="Cheese Happy Box" data-price="29" data-img="/images/cheesehappybox.webp" data-desc="5 Pieces + 2 Cheese Sauce">
+                            <div class="menu-category-item">
                                 <img src="/images/cheesehappybox.webp" alt="Cheese Happy Box" loading="lazy" />
                                 <h4>Cheese Happy Box</h4>
                                 <p class="menu-item-desc">5 Pieces + 2 Cheese Sauce</p>
-                                <div class="menu-item-bottom"><span class="menu-item-price">RM29.00</span><button class="add-btn-small" onclick="openItemModal('Cheese Happy Box', 29, '/images/cheesehappybox.webp', '5 Pieces + 2 Cheese Sauce')">+ Add</button></div>
+                                <div class="menu-item-bottom"><span class="menu-item-price">RM29.00</span></div>
                             </div>
-                            <div class="menu-category-item" data-name="Korean Spicy Happy Box" data-price="31" data-img="/images/koreanspicyhappybox.webp" data-desc="5 Pieces + 2 Korean Spicy">
+                            <div class="menu-category-item">
                                 <img src="/images/koreanspicyhappybox.webp" alt="Korean Spicy Happy Box" loading="lazy" />
                                 <h4>Korean Spicy Happy Box</h4>
                                 <p class="menu-item-desc">5 Pieces + 2 Korean Spicy</p>
-                                <div class="menu-item-bottom"><span class="menu-item-price">RM31.00</span><button class="add-btn-small" onclick="openItemModal('Korean Spicy Happy Box', 31, '/images/koreanspicyhappybox.webp', '5 Pieces + 2 Korean Spicy')">+ Add</button></div>
+                                <div class="menu-item-bottom"><span class="menu-item-price">RM31.00</span></div>
                             </div>
-                            <div class="menu-category-item" data-name="Korean Cheese Happy Box" data-price="33" data-img="/images/koreancheesehappybox.webp" data-desc="5 Pieces + Cheese + Korean Spicy">
+                            <div class="menu-category-item">
                                 <img src="/images/koreancheesehappybox.webp" alt="Korean Cheese Happy Box" loading="lazy" />
                                 <h4>Korean Cheese Happy Box</h4>
                                 <p class="menu-item-desc">5 Pieces + Cheese + Korean Spicy</p>
-                                <div class="menu-item-bottom"><span class="menu-item-price">RM33.00</span><button class="add-btn-small" onclick="openItemModal('Korean Cheese Happy Box', 33, '/images/koreancheesehappybox.webp', '5 Pieces + Cheese + Korean Spicy')">+ Add</button></div>
+                                <div class="menu-item-bottom"><span class="menu-item-price">RM33.00</span></div>
                             </div>
                         </div>
                     </div>
@@ -559,11 +549,11 @@
                     <div class="menu-category">
                         <h3 class="menu-category-title">Chicken Tenders</h3>
                         <div class="menu-category-grid">
-                            <div class="menu-category-item" data-name="Chicken Tenders" data-price="9.9" data-img="/images/chickentenders.webp" data-desc="Choose flavour: Mala • Peri-Peri • Thai Lime • Charcoal">
+                            <div class="menu-category-item">
                                 <img src="/images/chickentenders.webp" alt="Chicken Tenders" loading="lazy" />
                                 <h4>Chicken Tenders</h4>
                                 <p class="menu-item-desc">Choose flavour: Mala • Peri-Peri • Thai Lime • Charcoal</p>
-                                <div class="menu-item-bottom"><span class="menu-item-price">RM9.90</span><button class="add-btn-small" onclick="openItemModal('Chicken Tenders', 9.9, '/images/chickentenders.webp', 'Choose flavour: Mala • Peri-Peri • Thai Lime • Charcoal')">+ Add</button></div>
+                                <div class="menu-item-bottom"><span class="menu-item-price">RM9.90</span></div>
                             </div>
                         </div>
                     </div>
@@ -572,29 +562,29 @@
                     <div class="menu-category">
                         <h3 class="menu-category-title">Nasi Penyet</h3>
                         <div class="menu-category-grid">
-                            <div class="menu-category-item" data-name="Nasi Ayam Muiz Penyet" data-price="8.9" data-img="/images/nasiayammuizpenyet.webp" data-desc="Smashed chicken with sambal, served with rice.">
+                            <div class="menu-category-item">
                                 <img src="/images/nasiayammuizpenyet.webp" alt="Nasi Ayam Muiz Penyet" loading="lazy" />
                                 <h4>Nasi Ayam Muiz Penyet</h4>
                                 <p class="menu-item-desc">Smashed chicken with sambal, served with rice.</p>
-                                <div class="menu-item-bottom"><span class="menu-item-price">RM8.90</span><button class="add-btn-small" onclick="openItemModal('Nasi Ayam Muiz Penyet', 8.9, '/images/nasiayammuizpenyet.webp', 'Smashed chicken with sambal, served with rice.')">+ Add</button></div>
+                                <div class="menu-item-bottom"><span class="menu-item-price">RM8.90</span></div>
                             </div>
-                            <div class="menu-category-item" data-name="Nasi Daging Penyet" data-price="8.9" data-img="/images/nasidagingpenyet.webp" data-desc="Smashed beef with sambal, served with rice.">
+                            <div class="menu-category-item">
                                 <img src="/images/nasidagingpenyet.webp" alt="Nasi Daging Penyet" loading="lazy" />
                                 <h4>Nasi Daging Penyet</h4>
                                 <p class="menu-item-desc">Smashed beef with sambal, served with rice.</p>
-                                <div class="menu-item-bottom"><span class="menu-item-price">RM8.90</span><button class="add-btn-small" onclick="openItemModal('Nasi Daging Penyet', 8.9, '/images/nasidagingpenyet.webp', 'Smashed beef with sambal, served with rice.')">+ Add</button></div>
+                                <div class="menu-item-bottom"><span class="menu-item-price">RM8.90</span></div>
                             </div>
-                            <div class="menu-category-item" data-name="Nasi Ikan Keli Penyet" data-price="8.9" data-img="/images/nasiikankelipenyet.webp" data-desc="Smashed catfish with sambal, served with rice.">
+                            <div class="menu-category-item">
                                 <img src="/images/nasiikankelipenyet.webp" alt="Nasi Ikan Keli Penyet" loading="lazy" />
                                 <h4>Nasi Ikan Keli Penyet</h4>
                                 <p class="menu-item-desc">Smashed catfish with sambal, served with rice.</p>
-                                <div class="menu-item-bottom"><span class="menu-item-price">RM8.90</span><button class="add-btn-small" onclick="openItemModal('Nasi Ikan Keli Penyet', 8.9, '/images/nasiikankelipenyet.webp', 'Smashed catfish with sambal, served with rice.')">+ Add</button></div>
+                                <div class="menu-item-bottom"><span class="menu-item-price">RM8.90</span></div>
                             </div>
-                            <div class="menu-category-item" data-name="Nasi Ikan Kembung Penyet" data-price="8.9" data-img="/images/nasiikankembungpenyet.webp" data-desc="Smashed mackerel with sambal, served with rice.">
+                            <div class="menu-category-item">
                                 <img src="/images/nasiikankembungpenyet.webp" alt="Nasi Ikan Kembung Penyet" loading="lazy" />
                                 <h4>Nasi Ikan Kembung Penyet</h4>
                                 <p class="menu-item-desc">Smashed mackerel with sambal, served with rice.</p>
-                                <div class="menu-item-bottom"><span class="menu-item-price">RM8.90</span><button class="add-btn-small" onclick="openItemModal('Nasi Ikan Kembung Penyet', 8.9, '/images/nasiikankembungpenyet.webp', 'Smashed mackerel with sambal, served with rice.')">+ Add</button></div>
+                                <div class="menu-item-bottom"><span class="menu-item-price">RM8.90</span></div>
                             </div>
                         </div>
                     </div>
@@ -603,29 +593,29 @@
                     <div class="menu-category">
                         <h3 class="menu-category-title">Nasi Goreng Kampung</h3>
                         <div class="menu-category-grid">
-                            <div class="menu-category-item" data-name="Nasi Goreng Kampung" data-price="7.5" data-img="/images/nasigorengkampung.webp" data-desc="Classic village-style fried rice">
+                            <div class="menu-category-item">
                                 <img src="/images/nasigorengkampung.webp" alt="Nasi Goreng Kampung" loading="lazy" />
                                 <h4>Nasi Goreng Kampung</h4>
                                 <p class="menu-item-desc">Classic village-style fried rice</p>
-                                <div class="menu-item-bottom"><span class="menu-item-price">RM7.50</span><button class="add-btn-small" onclick="openItemModal('Nasi Goreng Kampung', 7.5, '/images/nasigorengkampung.webp', 'Classic village-style fried rice')">+ Add</button></div>
+                                <div class="menu-item-bottom"><span class="menu-item-price">RM7.50</span></div>
                             </div>
-                            <div class="menu-category-item" data-name="Nasi Goreng Kampung Ayam" data-price="11.9" data-img="/images/nasigorengkampungayam.webp" data-desc="With chicken">
+                            <div class="menu-category-item">
                                 <img src="/images/nasigorengkampungayam.webp" alt="Nasi Goreng Kampung Ayam" loading="lazy" />
                                 <h4>Nasi Goreng Kampung Ayam</h4>
                                 <p class="menu-item-desc">With chicken</p>
-                                <div class="menu-item-bottom"><span class="menu-item-price">RM11.90</span><button class="add-btn-small" onclick="openItemModal('Nasi Goreng Kampung Ayam', 11.9, '/images/nasigorengkampungayam.webp', 'With chicken')">+ Add</button></div>
+                                <div class="menu-item-bottom"><span class="menu-item-price">RM11.90</span></div>
                             </div>
-                            <div class="menu-category-item" data-name="Nasi Goreng Kampung Daging" data-price="11.9" data-img="/images/nasigorengkampungdaging.webp" data-desc="With beef">
+                            <div class="menu-category-item">
                                 <img src="/images/nasigorengkampungdaging.webp" alt="Nasi Goreng Kampung Daging" loading="lazy" />
                                 <h4>Nasi Goreng Kampung Daging</h4>
                                 <p class="menu-item-desc">With beef</p>
-                                <div class="menu-item-bottom"><span class="menu-item-price">RM11.90</span><button class="add-btn-small" onclick="openItemModal('Nasi Goreng Kampung Daging', 11.9, '/images/nasigorengkampungdaging.webp', 'With beef')">+ Add</button></div>
+                                <div class="menu-item-bottom"><span class="menu-item-price">RM11.90</span></div>
                             </div>
-                            <div class="menu-category-item" data-name="Nasi Goreng Kampung Seafood" data-price="13.9" data-img="/images/nasigorengkampungseafood.webp" data-desc="With seafood">
+                            <div class="menu-category-item">
                                 <img src="/images/nasigorengkampungseafood.webp" alt="Nasi Goreng Kampung Seafood" loading="lazy" />
                                 <h4>Nasi Goreng Kampung Seafood</h4>
                                 <p class="menu-item-desc">With seafood</p>
-                                <div class="menu-item-bottom"><span class="menu-item-price">RM13.90</span><button class="add-btn-small" onclick="openItemModal('Nasi Goreng Kampung Seafood', 13.9, '/images/nasigorengkampungseafood.webp', 'With seafood')">+ Add</button></div>
+                                <div class="menu-item-bottom"><span class="menu-item-price">RM13.90</span></div>
                             </div>
                         </div>
                     </div>
@@ -634,29 +624,29 @@
                     <div class="menu-category">
                         <h3 class="menu-category-title">Nasi Goreng Cina</h3>
                         <div class="menu-category-grid">
-                            <div class="menu-category-item" data-name="Nasi Goreng Cina" data-price="6" data-img="/images/nasigorengcina.webp" data-desc="Classic Chinese fried rice">
+                            <div class="menu-category-item">
                                 <img src="/images/nasigorengcina.webp" alt="Nasi Goreng Cina" loading="lazy" />
                                 <h4>Nasi Goreng Cina</h4>
                                 <p class="menu-item-desc">Classic Chinese fried rice</p>
-                                <div class="menu-item-bottom"><span class="menu-item-price">RM6.00</span><button class="add-btn-small" onclick="openItemModal('Nasi Goreng Cina', 6, '/images/nasigorengcina.webp', 'Classic Chinese fried rice')">+ Add</button></div>
+                                <div class="menu-item-bottom"><span class="menu-item-price">RM6.00</span></div>
                             </div>
-                            <div class="menu-category-item" data-name="Nasi Goreng Cina Ayam" data-price="10.9" data-img="/images/nasigorengcinaayam.webp" data-desc="With chicken">
+                            <div class="menu-category-item">
                                 <img src="/images/nasigorengcinaayam.webp" alt="Nasi Goreng Cina Ayam" loading="lazy" />
                                 <h4>Nasi Goreng Cina Ayam</h4>
                                 <p class="menu-item-desc">With chicken</p>
-                                <div class="menu-item-bottom"><span class="menu-item-price">RM10.90</span><button class="add-btn-small" onclick="openItemModal('Nasi Goreng Cina Ayam', 10.9, '/images/nasigorengcinaayam.webp', 'With chicken')">+ Add</button></div>
+                                <div class="menu-item-bottom"><span class="menu-item-price">RM10.90</span></div>
                             </div>
-                            <div class="menu-category-item" data-name="Nasi Goreng Cina Daging" data-price="10.9" data-img="/images/nasigorengcinadaging.webp" data-desc="With beef">
+                            <div class="menu-category-item">
                                 <img src="/images/nasigorengcinadaging.webp" alt="Nasi Goreng Cina Daging" loading="lazy" />
                                 <h4>Nasi Goreng Cina Daging</h4>
                                 <p class="menu-item-desc">With beef</p>
-                                <div class="menu-item-bottom"><span class="menu-item-price">RM10.90</span><button class="add-btn-small" onclick="openItemModal('Nasi Goreng Cina Daging', 10.9, '/images/nasigorengcinadaging.webp', 'With beef')">+ Add</button></div>
+                                <div class="menu-item-bottom"><span class="menu-item-price">RM10.90</span></div>
                             </div>
-                            <div class="menu-category-item" data-name="Nasi Goreng Cina Seafood" data-price="12.9" data-img="/images/nasigorengcinaseafood.webp" data-desc="With seafood">
+                            <div class="menu-category-item">
                                 <img src="/images/nasigorengcinaseafood.webp" alt="Nasi Goreng Cina Seafood" loading="lazy" />
                                 <h4>Nasi Goreng Cina Seafood</h4>
                                 <p class="menu-item-desc">With seafood</p>
-                                <div class="menu-item-bottom"><span class="menu-item-price">RM12.90</span><button class="add-btn-small" onclick="openItemModal('Nasi Goreng Cina Seafood', 12.9, '/images/nasigorengcinaseafood.webp', 'With seafood')">+ Add</button></div>
+                                <div class="menu-item-bottom"><span class="menu-item-price">RM12.90</span></div>
                             </div>
                         </div>
                     </div>
@@ -665,29 +655,29 @@
                     <div class="menu-category">
                         <h3 class="menu-category-title">Nasi Goreng Tomyam</h3>
                         <div class="menu-category-grid">
-                            <div class="menu-category-item" data-name="Nasi Goreng Tomyam Biasa" data-price="8.5" data-img="/images/nasigorengtomyambiasa.webp" data-desc="Tomyam fried rice">
+                            <div class="menu-category-item">
                                 <img src="/images/nasigorengtomyambiasa.webp" alt="Nasi Goreng Tomyam Biasa" loading="lazy" />
                                 <h4>Nasi Goreng Tomyam Biasa</h4>
                                 <p class="menu-item-desc">Tomyam fried rice</p>
-                                <div class="menu-item-bottom"><span class="menu-item-price">RM8.50</span><button class="add-btn-small" onclick="openItemModal('Nasi Goreng Tomyam Biasa', 8.5, '/images/nasigorengtomyambiasa.webp', 'Tomyam fried rice')">+ Add</button></div>
+                                <div class="menu-item-bottom"><span class="menu-item-price">RM8.50</span></div>
                             </div>
-                            <div class="menu-category-item" data-name="Nasi Goreng Tomyam Ayam" data-price="12.9" data-img="/images/nasigorengtomyamayam.webp" data-desc="With chicken">
+                            <div class="menu-category-item">
                                 <img src="/images/nasigorengtomyamayam.webp" alt="Nasi Goreng Tomyam Ayam" loading="lazy" />
                                 <h4>Nasi Goreng Tomyam Ayam</h4>
                                 <p class="menu-item-desc">With chicken</p>
-                                <div class="menu-item-bottom"><span class="menu-item-price">RM12.90</span><button class="add-btn-small" onclick="openItemModal('Nasi Goreng Tomyam Ayam', 12.9, '/images/nasigorengtomyamayam.webp', 'With chicken')">+ Add</button></div>
+                                <div class="menu-item-bottom"><span class="menu-item-price">RM12.90</span></div>
                             </div>
-                            <div class="menu-category-item" data-name="Nasi Goreng Tomyam Daging" data-price="12.9" data-img="/images/nasigorengtomyamdaging.webp" data-desc="With beef">
+                            <div class="menu-category-item">
                                 <img src="/images/nasigorengtomyamdaging.webp" alt="Nasi Goreng Tomyam Daging" loading="lazy" />
                                 <h4>Nasi Goreng Tomyam Daging</h4>
                                 <p class="menu-item-desc">With beef</p>
-                                <div class="menu-item-bottom"><span class="menu-item-price">RM12.90</span><button class="add-btn-small" onclick="openItemModal('Nasi Goreng Tomyam Daging', 12.9, '/images/nasigorengtomyamdaging.webp', 'With beef')">+ Add</button></div>
+                                <div class="menu-item-bottom"><span class="menu-item-price">RM12.90</span></div>
                             </div>
-                            <div class="menu-category-item" data-name="Nasi Goreng Tomyam Seafood" data-price="14.9" data-img="/images/nasigorengtomyamseafood.webp" data-desc="With seafood">
+                            <div class="menu-category-item">
                                 <img src="/images/nasigorengtomyamseafood.webp" alt="Nasi Goreng Tomyam Seafood" loading="lazy" />
                                 <h4>Nasi Goreng Tomyam Seafood</h4>
                                 <p class="menu-item-desc">With seafood</p>
-                                <div class="menu-item-bottom"><span class="menu-item-price">RM14.90</span><button class="add-btn-small" onclick="openItemModal('Nasi Goreng Tomyam Seafood', 14.9, '/images/nasigorengtomyamseafood.webp', 'With seafood')">+ Add</button></div>
+                                <div class="menu-item-bottom"><span class="menu-item-price">RM14.90</span></div>
                             </div>
                         </div>
                     </div>
@@ -696,101 +686,101 @@
                     <div class="menu-category">
                         <h3 class="menu-category-title">Nasi Goreng</h3>
                         <div class="menu-category-grid">
-                            <div class="menu-category-item" data-name="Nasi Goreng Vegetarian" data-price="6" data-img="/images/nasigorengvegetarian.webp" data-desc="Vegetarian fried rice with fresh vegetables.">
+                            <div class="menu-category-item">
                                 <img src="/images/nasigorengvegetarian.webp" alt="Nasi Goreng Vegetarian" loading="lazy" />
                                 <h4>Nasi Goreng Vegetarian</h4>
                                 <p class="menu-item-desc">Vegetarian fried rice with fresh vegetables.</p>
-                                <div class="menu-item-bottom"><span class="menu-item-price">RM6.00</span><button class="add-btn-small" onclick="openItemModal('Nasi Goreng Vegetarian', 6, '/images/nasigorengvegetarian.webp', 'Vegetarian fried rice with fresh vegetables.')">+ Add</button></div>
+                                <div class="menu-item-bottom"><span class="menu-item-price">RM6.00</span></div>
                             </div>
-                            <div class="menu-category-item" data-name="Nasi Goreng Biasa" data-price="6.5" data-img="/images/nasigorengbiasa.webp" data-desc="Classic plain fried rice.">
+                            <div class="menu-category-item">
                                 <img src="/images/nasigorengbiasa.webp" alt="Nasi Goreng Biasa" loading="lazy" />
                                 <h4>Nasi Goreng Biasa</h4>
                                 <p class="menu-item-desc">Classic plain fried rice.</p>
-                                <div class="menu-item-bottom"><span class="menu-item-price">RM6.50</span><button class="add-btn-small" onclick="openItemModal('Nasi Goreng Biasa', 6.5, '/images/nasigorengbiasa.webp', 'Classic plain fried rice.')">+ Add</button></div>
+                                <div class="menu-item-bottom"><span class="menu-item-price">RM6.50</span></div>
                             </div>
-                            <div class="menu-category-item" data-name="Nasi Goreng Cili Api" data-price="6.5" data-img="/images/nasigorengciliapi.webp" data-desc="Spicy fried rice with bird's eye chili.">
+                            <div class="menu-category-item">
                                 <img src="/images/nasigorengciliapi.webp" alt="Nasi Goreng Cili Api" loading="lazy" />
                                 <h4>Nasi Goreng Cili Api</h4>
                                 <p class="menu-item-desc">Spicy fried rice with bird's eye chili.</p>
-                                <div class="menu-item-bottom"><span class="menu-item-price">RM6.50</span><button class="add-btn-small" onclick="openItemModal('Nasi Goreng Cili Api', 6.5, '/images/nasigorengciliapi.webp', 'Spicy fried rice with bird\'s eye chili.')">+ Add</button></div>
+                                <div class="menu-item-bottom"><span class="menu-item-price">RM6.50</span></div>
                             </div>
-                            <div class="menu-category-item" data-name="Nasi Goreng Kicap" data-price="6.8" data-img="/images/nasigorengkicap.webp" data-desc="Fried rice with sweet soy sauce.">
+                            <div class="menu-category-item">
                                 <img src="/images/nasigorengkicap.webp" alt="Nasi Goreng Kicap" loading="lazy" />
                                 <h4>Nasi Goreng Kicap</h4>
                                 <p class="menu-item-desc">Fried rice with sweet soy sauce.</p>
-                                <div class="menu-item-bottom"><span class="menu-item-price">RM6.80</span><button class="add-btn-small" onclick="openItemModal('Nasi Goreng Kicap', 6.8, '/images/nasigorengkicap.webp', 'Fried rice with sweet soy sauce.')">+ Add</button></div>
+                                <div class="menu-item-bottom"><span class="menu-item-price">RM6.80</span></div>
                             </div>
-                            <div class="menu-category-item" data-name="Nasi Goreng Mamak" data-price="7" data-img="/images/nasigorengmamak.webp" data-desc="Mamak-style fried rice with aromatic spices.">
+                            <div class="menu-category-item">
                                 <img src="/images/nasigorengmamak.webp" alt="Nasi Goreng Mamak" loading="lazy" />
                                 <h4>Nasi Goreng Mamak</h4>
                                 <p class="menu-item-desc">Mamak-style fried rice with aromatic spices.</p>
-                                <div class="menu-item-bottom"><span class="menu-item-price">RM7.00</span><button class="add-btn-small" onclick="openItemModal('Nasi Goreng Mamak', 7, '/images/nasigorengmamak.webp', 'Mamak-style fried rice with aromatic spices.')">+ Add</button></div>
+                                <div class="menu-item-bottom"><span class="menu-item-price">RM7.00</span></div>
                             </div>
-                            <div class="menu-category-item" data-name="Nasi Goreng Belacan" data-price="7" data-img="/images/nasigorengbelacan.webp" data-desc="Fried rice with shrimp paste for a savoury kick.">
+                            <div class="menu-category-item">
                                 <img src="/images/nasigorengbelacan.webp" alt="Nasi Goreng Belacan" loading="lazy" />
                                 <h4>Nasi Goreng Belacan</h4>
                                 <p class="menu-item-desc">Fried rice with shrimp paste for a savoury kick.</p>
-                                <div class="menu-item-bottom"><span class="menu-item-price">RM7.00</span><button class="add-btn-small" onclick="openItemModal('Nasi Goreng Belacan', 7, '/images/nasigorengbelacan.webp', 'Fried rice with shrimp paste for a savoury kick.')">+ Add</button></div>
+                                <div class="menu-item-bottom"><span class="menu-item-price">RM7.00</span></div>
                             </div>
-                            <div class="menu-category-item" data-name="Nasi Goreng Ikan Bilis" data-price="7.5" data-img="/images/nasigorengikanbilis.webp" data-desc="Fried rice with crispy anchovies.">
+                            <div class="menu-category-item">
                                 <img src="/images/nasigorengikanbilis.webp" alt="Nasi Goreng Ikan Bilis" loading="lazy" />
                                 <h4>Nasi Goreng Ikan Bilis</h4>
                                 <p class="menu-item-desc">Fried rice with crispy anchovies.</p>
-                                <div class="menu-item-bottom"><span class="menu-item-price">RM7.50</span><button class="add-btn-small" onclick="openItemModal('Nasi Goreng Ikan Bilis', 7.5, '/images/nasigorengikanbilis.webp', 'Fried rice with crispy anchovies.')">+ Add</button></div>
+                                <div class="menu-item-bottom"><span class="menu-item-price">RM7.50</span></div>
                             </div>
-                            <div class="menu-category-item" data-name="Nasi Goreng Sardin" data-price="8.5" data-img="/images/nasigorengsardin.webp" data-desc="Fried rice with sardines in spicy sauce.">
+                            <div class="menu-category-item">
                                 <img src="/images/nasigorengsardin.webp" alt="Nasi Goreng Sardin" loading="lazy" />
                                 <h4>Nasi Goreng Sardin</h4>
                                 <p class="menu-item-desc">Fried rice with sardines in spicy sauce.</p>
-                                <div class="menu-item-bottom"><span class="menu-item-price">RM8.50</span><button class="add-btn-small" onclick="openItemModal('Nasi Goreng Sardin', 8.5, '/images/nasigorengsardin.webp', 'Fried rice with sardines in spicy sauce.')">+ Add</button></div>
+                                <div class="menu-item-bottom"><span class="menu-item-price">RM8.50</span></div>
                             </div>
-                            <div class="menu-category-item" data-name="Nasi Goreng Pattaya" data-price="8.5" data-img="/images/nasigorengpattaya.webp" data-desc="Fried rice wrapped in a thin egg omelette.">
+                            <div class="menu-category-item">
                                 <img src="/images/nasigorengpattaya.webp" alt="Nasi Goreng Pattaya" loading="lazy" />
                                 <h4>Nasi Goreng Pattaya</h4>
                                 <p class="menu-item-desc">Fried rice wrapped in a thin egg omelette.</p>
-                                <div class="menu-item-bottom"><span class="menu-item-price">RM8.50</span><button class="add-btn-small" onclick="openItemModal('Nasi Goreng Pattaya', 8.5, '/images/nasigorengpattaya.webp', 'Fried rice wrapped in a thin egg omelette.')">+ Add</button></div>
+                                <div class="menu-item-bottom"><span class="menu-item-price">RM8.50</span></div>
                             </div>
-                            <div class="menu-category-item" data-name="Nasi Goreng Ikan Masin" data-price="9" data-img="/images/nasigorengikanmasin.webp" data-desc="Fried rice with salted fish for a savoury flavour.">
+                            <div class="menu-category-item">
                                 <img src="/images/nasigorengikanmasin.webp" alt="Nasi Goreng Ikan Masin" loading="lazy" />
                                 <h4>Nasi Goreng Ikan Masin</h4>
                                 <p class="menu-item-desc">Fried rice with salted fish for a savoury flavour.</p>
-                                <div class="menu-item-bottom"><span class="menu-item-price">RM9.00</span><button class="add-btn-small" onclick="openItemModal('Nasi Goreng Ikan Masin', 9, '/images/nasigorengikanmasin.webp', 'Fried rice with salted fish for a savoury flavour.')">+ Add</button></div>
+                                <div class="menu-item-bottom"><span class="menu-item-price">RM9.00</span></div>
                             </div>
-                            <div class="menu-category-item" data-name="Nasi Goreng Ayam" data-price="9.5" data-img="/images/nasigorengayam.webp" data-desc="Fried rice with chicken pieces.">
+                            <div class="menu-category-item">
                                 <img src="/images/nasigorengayam.webp" alt="Nasi Goreng Ayam" loading="lazy" />
                                 <h4>Nasi Goreng Ayam</h4>
                                 <p class="menu-item-desc">Fried rice with chicken pieces.</p>
-                                <div class="menu-item-bottom"><span class="menu-item-price">RM9.50</span><button class="add-btn-small" onclick="openItemModal('Nasi Goreng Ayam', 9.5, '/images/nasigorengayam.webp', 'Fried rice with chicken pieces.')">+ Add</button></div>
+                                <div class="menu-item-bottom"><span class="menu-item-price">RM9.50</span></div>
                             </div>
-                            <div class="menu-category-item" data-name="Nasi Goreng Daging" data-price="9.8" data-img="/images/nasigorengdaging.webp" data-desc="Fried rice with beef pieces.">
+                            <div class="menu-category-item">
                                 <img src="/images/nasigorengdaging.webp" alt="Nasi Goreng Daging" loading="lazy" />
                                 <h4>Nasi Goreng Daging</h4>
                                 <p class="menu-item-desc">Fried rice with beef pieces.</p>
-                                <div class="menu-item-bottom"><span class="menu-item-price">RM9.80</span><button class="add-btn-small" onclick="openItemModal('Nasi Goreng Daging', 9.8, '/images/nasigorengdaging.webp', 'Fried rice with beef pieces.')">+ Add</button></div>
+                                <div class="menu-item-bottom"><span class="menu-item-price">RM9.80</span></div>
                             </div>
-                            <div class="menu-category-item" data-name="Nasi Goreng Paprik" data-price="10.5" data-img="/images/nasigorengpaprik.webp" data-desc="Fried rice with spicy paprik sauce.">
+                            <div class="menu-category-item">
                                 <img src="/images/nasigorengpaprik.webp" alt="Nasi Goreng Paprik" loading="lazy" />
                                 <h4>Nasi Goreng Paprik</h4>
                                 <p class="menu-item-desc">Fried rice with spicy paprik sauce.</p>
-                                <div class="menu-item-bottom"><span class="menu-item-price">RM10.50</span><button class="add-btn-small" onclick="openItemModal('Nasi Goreng Paprik', 10.5, '/images/nasigorengpaprik.webp', 'Fried rice with spicy paprik sauce.')">+ Add</button></div>
+                                <div class="menu-item-bottom"><span class="menu-item-price">RM10.50</span></div>
                             </div>
-                            <div class="menu-category-item" data-name="Nasi Goreng Masak Kunyit" data-price="10.5" data-img="/images/nasigorengmasakkunyit.webp" data-desc="Fried rice with turmeric for a fragrant flavour.">
+                            <div class="menu-category-item">
                                 <img src="/images/nasigorengmasakkunyit.webp" alt="Nasi Goreng Masak Kunyit" loading="lazy" />
                                 <h4>Nasi Goreng Masak Kunyit</h4>
                                 <p class="menu-item-desc">Fried rice with turmeric for a fragrant flavour.</p>
-                                <div class="menu-item-bottom"><span class="menu-item-price">RM10.50</span><button class="add-btn-small" onclick="openItemModal('Nasi Goreng Masak Kunyit', 10.5, '/images/nasigorengmasakkunyit.webp', 'Fried rice with turmeric for a fragrant flavour.')">+ Add</button></div>
+                                <div class="menu-item-bottom"><span class="menu-item-price">RM10.50</span></div>
                             </div>
-                            <div class="menu-category-item" data-name="Nasi Goreng Seafood" data-price="12" data-img="/images/nasigorengseafood.webp" data-desc="Fried rice with prawns and squid.">
+                            <div class="menu-category-item">
                                 <img src="/images/nasigorengseafood.webp" alt="Nasi Goreng Seafood" loading="lazy" />
                                 <h4>Nasi Goreng Seafood</h4>
                                 <p class="menu-item-desc">Fried rice with prawns and squid.</p>
-                                <div class="menu-item-bottom"><span class="menu-item-price">RM12.00</span><button class="add-btn-small" onclick="openItemModal('Nasi Goreng Seafood', 12, '/images/nasigorengseafood.webp', 'Fried rice with prawns and squid.')">+ Add</button></div>
+                                <div class="menu-item-bottom"><span class="menu-item-price">RM12.00</span></div>
                             </div>
-                            <div class="menu-category-item" data-name="Nasi Goreng USA" data-price="12.5" data-img="/images/nasigorengusa.webp" data-desc="Chicken or Beef">
+                            <div class="menu-category-item">
                                 <img src="/images/nasigorengusa.webp" alt="Nasi Goreng USA" loading="lazy" />
                                 <h4>Nasi Goreng USA</h4>
                                 <p class="menu-item-desc">Chicken or Beef</p>
-                                <div class="menu-item-bottom"><span class="menu-item-price">RM12.50</span><button class="add-btn-small" onclick="openItemModal('Nasi Goreng USA', 12.5, '/images/nasigorengusa.webp', 'Chicken or Beef')">+ Add</button></div>
+                                <div class="menu-item-bottom"><span class="menu-item-price">RM12.50</span></div>
                             </div>
                         </div>
                     </div>
@@ -799,113 +789,113 @@
                     <div class="menu-category">
                         <h3 class="menu-category-title">Ala Carte</h3>
                         <div class="menu-category-grid">
-                            <div class="menu-category-item" data-name="Nasi Putih" data-price="2" data-img="/images/nasiputih.webp" data-desc="White rice.">
+                            <div class="menu-category-item">
                                 <img src="/images/nasiputih.webp" alt="Nasi Putih" loading="lazy" />
                                 <h4>Nasi Putih</h4>
                                 <p class="menu-item-desc">White rice.</p>
-                                <div class="menu-item-bottom"><span class="menu-item-price">RM2.00</span><button class="add-btn-small" onclick="openItemModal('Nasi Putih', 2, '/images/nasiputih.webp', 'White rice.')">+ Add</button></div>
+                                <div class="menu-item-bottom"><span class="menu-item-price">RM2.00</span></div>
                             </div>
-                            <div class="menu-category-item" data-name="Telur Mata" data-price="1.5" data-img="/images/telurmata.webp" data-desc="Sunny side up egg.">
+                            <div class="menu-category-item">
                                 <img src="/images/telurmata.webp" alt="Telur Mata" loading="lazy" />
                                 <h4>Telur Mata</h4>
                                 <p class="menu-item-desc">Sunny side up egg.</p>
-                                <div class="menu-item-bottom"><span class="menu-item-price">RM1.50</span><button class="add-btn-small" onclick="openItemModal('Telur Mata', 1.5, '/images/telurmata.webp', 'Sunny side up egg.')">+ Add</button></div>
+                                <div class="menu-item-bottom"><span class="menu-item-price">RM1.50</span></div>
                             </div>
-                            <div class="menu-category-item" data-name="Telur Dadar" data-price="2.5" data-img="/images/telurdadar.webp" data-desc="Omelette egg.">
+                            <div class="menu-category-item">
                                 <img src="/images/telurdadar.webp" alt="Telur Dadar" loading="lazy" />
                                 <h4>Telur Dadar</h4>
                                 <p class="menu-item-desc">Omelette egg.</p>
-                                <div class="menu-item-bottom"><span class="menu-item-price">RM2.50</span><button class="add-btn-small" onclick="openItemModal('Telur Dadar', 2.5, '/images/telurdadar.webp', 'Omelette egg.')">+ Add</button></div>
+                                <div class="menu-item-bottom"><span class="menu-item-price">RM2.50</span></div>
                             </div>
-                            <div class="menu-category-item" data-name="Telur Separuh Masak" data-price="3" data-img="/images/telurseparuhmasak.webp" data-desc="Half-boiled egg.">
+                            <div class="menu-category-item">
                                 <img src="/images/telurseparuhmasak.webp" alt="Telur Separuh Masak" loading="lazy" />
                                 <h4>Telur Separuh Masak</h4>
                                 <p class="menu-item-desc">Half-boiled egg.</p>
-                                <div class="menu-item-bottom"><span class="menu-item-price">RM3.00</span><button class="add-btn-small" onclick="openItemModal('Telur Separuh Masak', 3, '/images/telurseparuhmasak.webp', 'Half-boiled egg.')">+ Add</button></div>
+                                <div class="menu-item-bottom"><span class="menu-item-price">RM3.00</span></div>
                             </div>
-                            <div class="menu-category-item" data-name="Telur Dadar Cheese" data-price="4.5" data-img="/images/telurdadarcheese.webp" data-desc="Omelette egg with cheese.">
+                            <div class="menu-category-item">
                                 <img src="/images/telurdadarcheese.webp" alt="Telur Dadar Cheese" loading="lazy" />
                                 <h4>Telur Dadar Cheese</h4>
                                 <p class="menu-item-desc">Omelette egg with cheese.</p>
-                                <div class="menu-item-bottom"><span class="menu-item-price">RM4.50</span><button class="add-btn-small" onclick="openItemModal('Telur Dadar Cheese', 4.5, '/images/telurdadarcheese.webp', 'Omelette egg with cheese.')">+ Add</button></div>
+                                <div class="menu-item-bottom"><span class="menu-item-price">RM4.50</span></div>
                             </div>
-                            <div class="menu-category-item" data-name="Muiz Hot Chicken" data-price="5" data-img="/images/muizhotchicken.webp" data-desc="Signature crispy fried chicken.">
+                            <div class="menu-category-item">
                                 <img src="/images/muizhotchicken.webp" alt="Muiz Hot Chicken" loading="lazy" />
                                 <h4>Muiz Hot Chicken</h4>
                                 <p class="menu-item-desc">Signature crispy fried chicken.</p>
-                                <div class="menu-item-bottom"><span class="menu-item-price">RM5.00</span><button class="add-btn-small" onclick="openItemModal('Muiz Hot Chicken', 5, '/images/muizhotchicken.webp', 'Signature crispy fried chicken.')">+ Add</button></div>
+                                <div class="menu-item-bottom"><span class="menu-item-price">RM5.00</span></div>
                             </div>
-                            <div class="menu-category-item" data-name="Ikan Kembung Goreng" data-price="5.5" data-img="/images/ikankembunggoreng.webp" data-desc="Fried mackerel fish.">
+                            <div class="menu-category-item">
                                 <img src="/images/ikankembunggoreng.webp" alt="Ikan Kembung Goreng" loading="lazy" />
                                 <h4>Ikan Kembung Goreng</h4>
                                 <p class="menu-item-desc">Fried mackerel fish.</p>
-                                <div class="menu-item-bottom"><span class="menu-item-price">RM5.50</span><button class="add-btn-small" onclick="openItemModal('Ikan Kembung Goreng', 5.5, '/images/ikankembunggoreng.webp', 'Fried mackerel fish.')">+ Add</button></div>
+                                <div class="menu-item-bottom"><span class="menu-item-price">RM5.50</span></div>
                             </div>
-                            <div class="menu-category-item" data-name="Ikan Keli Goreng" data-price="5.9" data-img="/images/ikankeligoreng.webp" data-desc="Fried catfish.">
+                            <div class="menu-category-item">
                                 <img src="/images/ikankeligoreng.webp" alt="Ikan Keli Goreng" loading="lazy" />
                                 <h4>Ikan Keli Goreng</h4>
                                 <p class="menu-item-desc">Fried catfish.</p>
-                                <div class="menu-item-bottom"><span class="menu-item-price">RM5.90</span><button class="add-btn-small" onclick="openItemModal('Ikan Keli Goreng', 5.9, '/images/ikankeligoreng.webp', 'Fried catfish.')">+ Add</button></div>
+                                <div class="menu-item-bottom"><span class="menu-item-price">RM5.90</span></div>
                             </div>
-                            <div class="menu-category-item" data-name="Ayam Masak Kunyit" data-price="6.9" data-img="/images/ayammasakkunyit.webp" data-desc="Chicken cooked with turmeric.">
+                            <div class="menu-category-item">
                                 <img src="/images/ayammasakkunyit.webp" alt="Ayam Masak Kunyit" loading="lazy" />
                                 <h4>Ayam Masak Kunyit</h4>
                                 <p class="menu-item-desc">Chicken cooked with turmeric.</p>
-                                <div class="menu-item-bottom"><span class="menu-item-price">RM6.90</span><button class="add-btn-small" onclick="openItemModal('Ayam Masak Kunyit', 6.9, '/images/ayammasakkunyit.webp', 'Chicken cooked with turmeric.')">+ Add</button></div>
+                                <div class="menu-item-bottom"><span class="menu-item-price">RM6.90</span></div>
                             </div>
-                            <div class="menu-category-item" data-name="Daging Masak Kunyit" data-price="6.9" data-img="/images/dagingmasakkunyit.webp" data-desc="Beef cooked with turmeric.">
+                            <div class="menu-category-item">
                                 <img src="/images/dagingmasakkunyit.webp" alt="Daging Masak Kunyit" loading="lazy" />
                                 <h4>Daging Masak Kunyit</h4>
                                 <p class="menu-item-desc">Beef cooked with turmeric.</p>
-                                <div class="menu-item-bottom"><span class="menu-item-price">RM6.90</span><button class="add-btn-small" onclick="openItemModal('Daging Masak Kunyit', 6.9, '/images/dagingmasakkunyit.webp', 'Beef cooked with turmeric.')">+ Add</button></div>
+                                <div class="menu-item-bottom"><span class="menu-item-price">RM6.90</span></div>
                             </div>
-                            <div class="menu-category-item" data-name="Ayam Masak Merah" data-price="6.9" data-img="/images/ayammasakmerah.webp" data-desc="Chicken cooked in spicy red sauce.">
+                            <div class="menu-category-item">
                                 <img src="/images/ayammasakmerah.webp" alt="Ayam Masak Merah" loading="lazy" />
                                 <h4>Ayam Masak Merah</h4>
                                 <p class="menu-item-desc">Chicken cooked in spicy red sauce.</p>
-                                <div class="menu-item-bottom"><span class="menu-item-price">RM6.90</span><button class="add-btn-small" onclick="openItemModal('Ayam Masak Merah', 6.9, '/images/ayammasakmerah.webp', 'Chicken cooked in spicy red sauce.')">+ Add</button></div>
+                                <div class="menu-item-bottom"><span class="menu-item-price">RM6.90</span></div>
                             </div>
-                            <div class="menu-category-item" data-name="Daging Masak Merah" data-price="6.9" data-img="/images/dagingmasakmerah.webp" data-desc="Beef cooked in spicy red sauce.">
+                            <div class="menu-category-item">
                                 <img src="/images/dagingmasakmerah.webp" alt="Daging Masak Merah" loading="lazy" />
                                 <h4>Daging Masak Merah</h4>
                                 <p class="menu-item-desc">Beef cooked in spicy red sauce.</p>
-                                <div class="menu-item-bottom"><span class="menu-item-price">RM6.90</span><button class="add-btn-small" onclick="openItemModal('Daging Masak Merah', 6.9, '/images/dagingmasakmerah.webp', 'Beef cooked in spicy red sauce.')">+ Add</button></div>
+                                <div class="menu-item-bottom"><span class="menu-item-price">RM6.90</span></div>
                             </div>
-                            <div class="menu-category-item" data-name="Sup Sayur" data-price="5" data-img="/images/supsayur.webp" data-desc="Vegetable soup.">
+                            <div class="menu-category-item">
                                 <img src="/images/supsayur.webp" alt="Sup Sayur" loading="lazy" />
                                 <h4>Sup Sayur</h4>
                                 <p class="menu-item-desc">Vegetable soup.</p>
-                                <div class="menu-item-bottom"><span class="menu-item-price">RM5.00</span><button class="add-btn-small" onclick="openItemModal('Sup Sayur', 5, '/images/supsayur.webp', 'Vegetable soup.')">+ Add</button></div>
+                                <div class="menu-item-bottom"><span class="menu-item-price">RM5.00</span></div>
                             </div>
-                            <div class="menu-category-item" data-name="Sup Ayam" data-price="8" data-img="/images/supayam.webp" data-desc="Chicken soup.">
+                            <div class="menu-category-item">
                                 <img src="/images/supayam.webp" alt="Sup Ayam" loading="lazy" />
                                 <h4>Sup Ayam</h4>
                                 <p class="menu-item-desc">Chicken soup.</p>
-                                <div class="menu-item-bottom"><span class="menu-item-price">RM8.00</span><button class="add-btn-small" onclick="openItemModal('Sup Ayam', 8, '/images/supayam.webp', 'Chicken soup.')">+ Add</button></div>
+                                <div class="menu-item-bottom"><span class="menu-item-price">RM8.00</span></div>
                             </div>
-                            <div class="menu-category-item" data-name="Sup Daging" data-price="8" data-img="/images/supdaging.webp" data-desc="Beef soup.">
+                            <div class="menu-category-item">
                                 <img src="/images/supdaging.webp" alt="Sup Daging" loading="lazy" />
                                 <h4>Sup Daging</h4>
                                 <p class="menu-item-desc">Beef soup.</p>
-                                <div class="menu-item-bottom"><span class="menu-item-price">RM8.00</span><button class="add-btn-small" onclick="openItemModal('Sup Daging', 8, '/images/supdaging.webp', 'Beef soup.')">+ Add</button></div>
+                                <div class="menu-item-bottom"><span class="menu-item-price">RM8.00</span></div>
                             </div>
-                            <div class="menu-category-item" data-name="Tomyam Ayam" data-price="8.9" data-img="/images/tomyamayam.webp" data-desc="Spicy and sour tomyam soup with chicken.">
+                            <div class="menu-category-item">
                                 <img src="/images/tomyamayam.webp" alt="Tomyam Ayam" loading="lazy" />
                                 <h4>Tomyam Ayam</h4>
                                 <p class="menu-item-desc">Spicy and sour tomyam soup with chicken.</p>
-                                <div class="menu-item-bottom"><span class="menu-item-price">RM8.90</span><button class="add-btn-small" onclick="openItemModal('Tomyam Ayam', 8.9, '/images/tomyamayam.webp', 'Spicy and sour tomyam soup with chicken.')">+ Add</button></div>
+                                <div class="menu-item-bottom"><span class="menu-item-price">RM8.90</span></div>
                             </div>
-                            <div class="menu-category-item" data-name="Tomyam Daging" data-price="8.9" data-img="/images/tomyamdaging.webp" data-desc="Spicy and sour tomyam soup with beef.">
+                            <div class="menu-category-item">
                                 <img src="/images/tomyamdaging.webp" alt="Tomyam Daging" loading="lazy" />
                                 <h4>Tomyam Daging</h4>
                                 <p class="menu-item-desc">Spicy and sour tomyam soup with beef.</p>
-                                <div class="menu-item-bottom"><span class="menu-item-price">RM8.90</span><button class="add-btn-small" onclick="openItemModal('Tomyam Daging', 8.9, '/images/tomyamdaging.webp', 'Spicy and sour tomyam soup with beef.')">+ Add</button></div>
+                                <div class="menu-item-bottom"><span class="menu-item-price">RM8.90</span></div>
                             </div>
-                            <div class="menu-category-item" data-name="Tomyam Seafood" data-price="11.9" data-img="/images/tomyamseafood.webp" data-desc="Spicy and sour tomyam soup with prawns and squid.">
+                            <div class="menu-category-item">
                                 <img src="/images/tomyamseafood.webp" alt="Tomyam Seafood" loading="lazy" />
                                 <h4>Tomyam Seafood</h4>
                                 <p class="menu-item-desc">Spicy and sour tomyam soup with prawns and squid.</p>
-                                <div class="menu-item-bottom"><span class="menu-item-price">RM11.90</span><button class="add-btn-small" onclick="openItemModal('Tomyam Seafood', 11.9, '/images/tomyamseafood.webp', 'Spicy and sour tomyam soup with prawns and squid.')">+ Add</button></div>
+                                <div class="menu-item-bottom"><span class="menu-item-price">RM11.90</span></div>
                             </div>
                         </div>
                     </div>
@@ -997,53 +987,6 @@
 
     </div>
     <!-- /blog-container -->
-
-    <!-- ============================================================ -->
-    <!-- ===== APP MODAL (required by script.js) ===== -->
-    <!-- ============================================================ -->
-    <div class="app-modal" id="appModal">
-        <div class="app-modal-overlay" id="appModalOverlay"></div>
-        <div class="app-modal-content">
-            <button class="app-modal-close" id="appModalClose"><i class="fas fa-times"></i></button>
-            <h2>Choose Your Experience</h2>
-            <p>Select your preferred platform</p>
-            <div class="app-modal-cards">
-                <a href="/ios/" class="app-modal-card ios" data-platform="ios"><i class="fab fa-apple"></i><span>iOS</span><small>Cupertino</small></a>
-                <a href="/android/" class="app-modal-card android" data-platform="android"><i class="fab fa-android"></i><span>Android</span><small>Material</small></a>
-                <a href="/web/" class="app-modal-card web" data-platform="web"><i class="fas fa-desktop"></i><span>Web</span><small>Desktop</small></a>
-                <a href="https://pakhajiali.github.io/menu/" target="_blank" rel="noopener" class="app-modal-card legacy" data-platform="legacy"><i class="fas fa-globe"></i><span>Legacy</span><small>Classic</small></a>
-            </div>
-        </div>
-    </div>
-
-    <!-- ============================================================ -->
-    <!-- ===== ITEM DETAIL MODAL (required by script.js) ===== -->
-    <!-- ============================================================ -->
-    <div class="item-modal" id="itemModal">
-        <div class="item-modal-overlay" id="itemModalOverlay"></div>
-        <div class="item-modal-content">
-            <button class="item-modal-close" id="itemModalClose"><i class="fas fa-times"></i></button>
-            <div class="item-modal-image">
-                <img id="itemModalImg" src="" alt="Item Image" />
-            </div>
-            <div class="item-modal-info">
-                <h2 id="itemModalName">Item Name</h2>
-                <p class="item-modal-desc" id="itemModalDesc">Description</p>
-                <div class="item-modal-price" id="itemModalPrice">RM0.00</div>
-                <div class="item-modal-actions">
-                    <a href="#" id="itemModalAppBtn" class="btn-app-order">
-                        <i class="fas fa-shopping-bag"></i> Order in App
-                    </a>
-                </div>
-            </div>
-        </div>
-    </div>
-
-    <!-- ============================================================ -->
-    <!-- ===== SCRIPTS (main site) ===== -->
-    <!-- ============================================================ -->
-    <script src="/messages.js"></script>
-    <script src="/script.js"></script>
 
 </body>
 </html>
