@@ -173,6 +173,20 @@
         .owner-highlight-card.purple { border-left-color: #6C2E9A; }
         .owner-highlight-card.orange { border-left-color: #e67e22; }
 
+        /* Force reset top space — removes the empty gap above the top bar */
+html, body {
+    margin: 0;
+    padding: 0;
+}
+.blog-container {
+    padding-top: 0;
+    margin-top: 0;
+}
+.top-bar {
+    margin-top: 0 !important;
+    padding-top: 12px;  /* Keep a clean top padding */
+}
+
         .cofounder-grid {
             display: grid;
             grid-template-columns: 1fr 1fr;
