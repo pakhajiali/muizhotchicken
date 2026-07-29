@@ -6,8 +6,3 @@ Sitemap: https://muizhotchicken.com/sitemap.xml
 
 # Optional: slow down crawlers to save server resources (adjust if needed)
 # Crawl-delay: 1
-
-# Disallow private/system paths (just in case)
-Disallow: /.git/
-Disallow: /shared/
-Disallow: /images/
