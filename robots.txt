@@ -1,8 +1,11 @@
+# Robots.txt for Muiz Hot Chicken
+# Allow all search engines to crawl the entire site
+
 User-agent: *
 Allow: /
 
-# Sitemap location
+# Sitemap location (updated 2026-07-29)
 Sitemap: https://muizhotchicken.com/sitemap.xml
 
-# Optional: slow down crawlers to save server resources (adjust if needed)
-# Crawl-delay: 1
+# Polite crawling: slows down crawlers to reduce server load
+Crawl-delay: 1
