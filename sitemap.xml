@@ -289,15 +289,15 @@
     </url>
     <url>
         <loc>https://muizhotchicken.com/blog/muiz-hot-chicken-ttdi.html</loc>
-        <lastmod>2026-07-22</lastmod>
+        <lastmod>2026-07-29</lastmod>
         <changefreq>weekly</changefreq>
-        <priority>0.7</priority>
+        <priority>0.8</priority>
     </url>
     <url>
         <loc>https://muizhotchicken.com/blog/muiz-hot-chicken-wangsa-maju.html</loc>
-        <lastmod>2026-07-22</lastmod>
+        <lastmod>2026-07-29</lastmod>
         <changefreq>weekly</changefreq>
-        <priority>0.7</priority>
+        <priority>0.8</priority>
     </url>
 
     <!-- ===== OTHER BLOG POSTS ===== -->
@@ -352,6 +352,30 @@
     <url>
         <loc>https://muizhotchicken.com/blog/what-makes-muiz-hot-chicken-special-subang-jaya.html</loc>
         <lastmod>2026-07-22</lastmod>
+        <changefreq>weekly</changefreq>
+        <priority>0.7</priority>
+    </url>
+    <url>
+        <loc>https://muizhotchicken.com/blog/journey.html</loc>
+        <lastmod>2026-07-29</lastmod>
+        <changefreq>weekly</changefreq>
+        <priority>0.7</priority>
+    </url>
+    <url>
+        <loc>https://muizhotchicken.com/blog/muiz-hot-chicken-franchise.html</loc>
+        <lastmod>2026-07-29</lastmod>
+        <changefreq>weekly</changefreq>
+        <priority>0.8</priority>
+    </url>
+    <url>
+        <loc>https://muizhotchicken.com/blog/muiz-hot-chicken-lamine-yamal-lookalike-kelantan.html</loc>
+        <lastmod>2026-07-29</lastmod>
+        <changefreq>weekly</changefreq>
+        <priority>0.7</priority>
+    </url>
+    <url>
+        <loc>https://muizhotchicken.com/blog/muiz-hot-chicken-vs-mcd-kfc.html</loc>
+        <lastmod>2026-07-29</lastmod>
         <changefreq>weekly</changefreq>
         <priority>0.7</priority>
     </url>
