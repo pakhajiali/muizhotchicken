@@ -17,7 +17,9 @@
     <meta property="og:type" content="article" />
     <meta name="twitter:card" content="summary_large_image" />
 
-    <!-- ===== SCHEMA: BREADCRUMB (with itemListElement) ===== -->
+    <!-- ========================================================= -->
+    <!-- ===== SCHEMA: BREADCRUMBLIST (with itemListElement) ===== -->
+    <!-- ========================================================= -->
     <script type="application/ld+json">
         {
             "@context": "https://schema.org",
@@ -30,19 +32,51 @@
         }
     </script>
 
-    <!-- ===== SCHEMA: WEBPAGE ===== -->
+    <!-- ========================================================= -->
+    <!-- ===== SCHEMA: ITEMLIST (career steps as list items) ===== -->
+    <!-- ========================================================= -->
     <script type="application/ld+json">
         {
             "@context": "https://schema.org",
-            "@type": "WebPage",
-            "name": "The Journey – From Engineer to Restaurateur",
-            "description": "The inspiring journey of Mohamed Ali – from chemical engineer to founder of Restoran Pak Haji Ali & Muiz Hot Chicken, a JAKIM Halal restaurant in Subang Jaya.",
-            "url": "https://muizhotchicken.com/blog/journey",
-            "breadcrumb": { "@id": "https://muizhotchicken.com/blog/journey#breadcrumb" }
+            "@type": "ItemList",
+            "itemListElement": [
+                {
+                    "@type": "ListItem",
+                    "position": 1,
+                    "name": "Executive Assistant at Peace World Fire Extinguisher",
+                    "description": "6-month internship learning corporate operations, management, and safety systems."
+                },
+                {
+                    "@type": "ListItem",
+                    "position": 2,
+                    "name": "Sales Manager at Perniagaan Normahas",
+                    "description": "Led sales strategies in the pharmaceutical industry, building client relationships in a highly regulated environment."
+                },
+                {
+                    "@type": "ListItem",
+                    "position": 3,
+                    "name": "Launched Grabeats Cloud Kitchen",
+                    "description": "Started a cloud kitchen in Damansara Damai, focusing purely on delivery orders."
+                },
+                {
+                    "@type": "ListItem",
+                    "position": 4,
+                    "name": "Founded Restoran Pak Haji Ali & Muiz Hot Chicken",
+                    "description": "Pivoted to a physical JAKIM Halal-certified restaurant in Subang Jaya, integrating full-stack web development, custom shopping cart, and WhatsApp ordering."
+                },
+                {
+                    "@type": "ListItem",
+                    "position": 5,
+                    "name": "Created Mobile Muslim App",
+                    "description": "Developed an Islamic app featuring complete Quran with Jawi script and an accurate Qibla compass."
+                }
+            ]
         }
     </script>
 
-    <!-- ===== SCHEMA: HOWTO (Journey Steps – this is the "itemListElement" you asked for!) ===== -->
+    <!-- ========================================================= -->
+    <!-- ===== SCHEMA: HOWTO (alternative step‑by‑step) ========= -->
+    <!-- ========================================================= -->
     <script type="application/ld+json">
         {
             "@context": "https://schema.org",
@@ -84,6 +118,18 @@
         }
     </script>
 
+    <!-- ===== SCHEMA: WEBPAGE ===== -->
+    <script type="application/ld+json">
+        {
+            "@context": "https://schema.org",
+            "@type": "WebPage",
+            "name": "The Journey – From Engineer to Restaurateur",
+            "description": "The inspiring journey of Mohamed Ali – from chemical engineer to founder of Restoran Pak Haji Ali & Muiz Hot Chicken, a JAKIM Halal restaurant in Subang Jaya.",
+            "url": "https://muizhotchicken.com/blog/journey",
+            "breadcrumb": { "@id": "https://muizhotchicken.com/blog/journey#breadcrumb" }
+        }
+    </script>
+
     <!-- ===== SCHEMA: ARTICLE ===== -->
     <script type="application/ld+json">
         {
@@ -109,7 +155,7 @@
         }
     </script>
 
-    <!-- ===== SCHEMA: PERSON (ALI) with full details ===== -->
+    <!-- ===== SCHEMA: PERSON (ALI) ===== -->
     <script type="application/ld+json">
         {
             "@context": "https://schema.org",
@@ -343,7 +389,7 @@
                 His journey began in the world of chemical engineering, where he earned his <strong>Master’s degree in Chemical Engineering Technology</strong> from <strong>UCTATi</strong>, honing a rigorous, problem-solving mindset. This analytical foundation set the stage for a career that has spanned the sales, pharmaceutical, and tech industries before leading him to his true passion: entrepreneurship.
             </p>
 
-            <!-- ===== TIMELINE (matches HowTo schema) ===== -->
+            <!-- ===== TIMELINE (matches ItemList & HowTo schemas) ===== -->
             <h2>From Corporate to Creator</h2>
             <div class="journey-timeline">
 
@@ -423,7 +469,7 @@
                 </a>
             </div>
 
-            <!-- ===== FAQ SECTION (for SEO) ===== -->
+            <!-- ===== FAQ SECTION ===== -->
             <h2>❓ Frequently Asked Questions</h2>
             <div class="faq-section">
                 <div class="faq-item">
