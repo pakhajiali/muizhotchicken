@@ -1,7 +1,7 @@
-/* HUMANSTXT.TXT – Credits for muizhotchicken.com */
+/* HUMANS.TXT – Credits for muizhotchicken.com */
 
 /* TEAM */
-Restaurant Owner: Pak Haji Ali & Muiz Hot Chicken team
+Restaurant Owner: Mohamed Ali bin Syed Sultan Ibrahim
 Lead Developer & Full Stack Engineer: Mohamed Ali Bin Syed Sultan Ibrahim
 
 /* TECHNOLOGY */
@@ -12,4 +12,4 @@ Tools: Font Awesome, Custom CSS, JSON-LD for SEO
 /* STANDARDS */
 Structured Data: Schema.org (Restaurant, LocalBusiness, BreadcrumbList)
 Security: HTTPS
-Last Updated: 2026-07-21
+Last Updated: 2026-07-29
