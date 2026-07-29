@@ -17,7 +17,7 @@
     <meta property="og:type" content="article" />
     <meta name="twitter:card" content="summary_large_image" />
 
-    <!-- ===== SCHEMA: BREADCRUMB ===== -->
+    <!-- ===== SCHEMA: BREADCRUMB (with itemListElement) ===== -->
     <script type="application/ld+json">
         {
             "@context": "https://schema.org",
@@ -39,6 +39,48 @@
             "description": "The inspiring journey of Mohamed Ali – from chemical engineer to founder of Restoran Pak Haji Ali & Muiz Hot Chicken, a JAKIM Halal restaurant in Subang Jaya.",
             "url": "https://muizhotchicken.com/blog/journey",
             "breadcrumb": { "@id": "https://muizhotchicken.com/blog/journey#breadcrumb" }
+        }
+    </script>
+
+    <!-- ===== SCHEMA: HOWTO (Journey Steps – this is the "itemListElement" you asked for!) ===== -->
+    <script type="application/ld+json">
+        {
+            "@context": "https://schema.org",
+            "@type": "HowTo",
+            "name": "Journey from Engineer to Restaurateur",
+            "description": "The step-by-step career journey of Mohamed Ali, from chemical engineering to founding a halal restaurant in Subang Jaya.",
+            "step": [
+                {
+                    "@type": "HowToStep",
+                    "position": 1,
+                    "name": "Executive Assistant at Peace World Fire Extinguisher",
+                    "text": "6-month internship learning corporate operations, management, and safety systems."
+                },
+                {
+                    "@type": "HowToStep",
+                    "position": 2,
+                    "name": "Sales Manager at Perniagaan Normahas",
+                    "text": "Led sales strategies in the pharmaceutical industry, building client relationships in a highly regulated environment."
+                },
+                {
+                    "@type": "HowToStep",
+                    "position": 3,
+                    "name": "Launched Grabeats Cloud Kitchen",
+                    "text": "Started a cloud kitchen in Damansara Damai, focusing purely on delivery orders."
+                },
+                {
+                    "@type": "HowToStep",
+                    "position": 4,
+                    "name": "Founded Restoran Pak Haji Ali & Muiz Hot Chicken",
+                    "text": "Pivoted to a physical JAKIM Halal-certified restaurant in Subang Jaya, integrating full-stack web development, custom shopping cart, and WhatsApp ordering."
+                },
+                {
+                    "@type": "HowToStep",
+                    "position": 5,
+                    "name": "Created Mobile Muslim App",
+                    "text": "Developed an Islamic app featuring complete Quran with Jawi script and an accurate Qibla compass."
+                }
+            ]
         }
     </script>
 
@@ -95,7 +137,7 @@
         }
     </script>
 
-    <!-- ===== SCHEMA: FAQ (optional but good) ===== -->
+    <!-- ===== SCHEMA: FAQ ===== -->
     <script type="application/ld+json">
         {
             "@context": "https://schema.org",
@@ -105,14 +147,21 @@
                 "name": "What inspired Mohamed Ali to start a restaurant?",
                 "acceptedAnswer": {
                     "@type": "Answer",
-                    "text": "Mohamed Ali combined his engineering problem-solving skills with his passion for food and technology to create a digital-first, JAKIM Halal restaurant in Subang Jaya. He wanted to build a legacy that serves the community with delicious halal food and modern convenience."
+                    "text": "Mohamed Ali combined his engineering problem-solving skills with his passion for food and technology to create a digital-first, JAKIM Halal restaurant in Subang Jaya."
                 }
             }, {
                 "@type": "Question",
                 "name": "What is Mobile Muslim?",
                 "acceptedAnswer": {
                     "@type": "Answer",
-                    "text": "Mobile Muslim is an Islamic app created by Mohamed Ali. It offers a complete Quran with Jawi script and an accurate Qibla compass, helping Muslims connect with their faith through technology."
+                    "text": "Mobile Muslim is an Islamic app created by Mohamed Ali. It offers a complete Quran with Jawi script and an accurate Qibla compass."
+                }
+            }, {
+                "@type": "Question",
+                "name": "What makes Restoran Pak Haji Ali & Muiz Hot Chicken different?",
+                "acceptedAnswer": {
+                    "@type": "Answer",
+                    "text": "It’s a hybrid of authentic Nasi Kandar, crispy Muiz Hot Chicken, and Malaysian-Thai cuisine – all JAKIM Halal certified. The restaurant is fully digitalised with online ordering, multi-language support, and a seamless customer experience."
                 }
             }]
         }
@@ -194,6 +243,42 @@
             font-size: 0.85rem;
             color: #333;
         }
+        .social-links-box {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 12px;
+            margin: 16px 0;
+        }
+        .social-links-box a {
+            display: inline-flex;
+            align-items: center;
+            gap: 8px;
+            padding: 10px 20px;
+            border-radius: 40px;
+            font-weight: 600;
+            font-size: 14px;
+            text-decoration: none;
+            transition: 0.3s ease;
+        }
+        .social-links-box a:hover { transform: translateY(-3px); box-shadow: 0 6px 20px rgba(0,0,0,0.12); }
+        .social-links-box .linkedin { background: #0077B5; color: #fff; }
+        .social-links-box .linkedin:hover { background: #005e8c; }
+        .social-links-box .playstore { background: #3ddc84; color: #1a1a2e; }
+        .social-links-box .playstore:hover { background: #2bb673; }
+        .social-links-box .website-link { background: #1a1a2e; color: #fff; }
+        .social-links-box .website-link:hover { background: #c0392b; }
+        .contact-box {
+            background: #fef0ef;
+            border-radius: 16px;
+            padding: 20px 24px;
+            border-left: 4px solid #c0392b;
+            margin: 16px 0;
+        }
+        .contact-box p { margin: 6px 0; font-size: 1rem; }
+        .contact-box a { color: #c0392b; font-weight: 600; text-decoration: none; }
+        .contact-box a:hover { text-decoration: underline; }
+        .contact-box .whatsapp-link { color: #25D366; }
+
         @media (max-width: 700px) {
             .journey-step {
                 flex-direction: column;
@@ -258,7 +343,7 @@
                 His journey began in the world of chemical engineering, where he earned his <strong>Master’s degree in Chemical Engineering Technology</strong> from <strong>UCTATi</strong>, honing a rigorous, problem-solving mindset. This analytical foundation set the stage for a career that has spanned the sales, pharmaceutical, and tech industries before leading him to his true passion: entrepreneurship.
             </p>
 
-            <!-- ===== TIMELINE ===== -->
+            <!-- ===== TIMELINE (matches HowTo schema) ===== -->
             <h2>From Corporate to Creator</h2>
             <div class="journey-timeline">
 
