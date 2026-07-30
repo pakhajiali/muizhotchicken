@@ -471,4 +471,12 @@
     <changefreq>weekly</changefreq>
     <priority>1.0</priority>
 </url>
+
+    <!-- ===== SUCCESS STORY BLOG POST ===== -->
+<url>
+    <loc>https://muizhotchicken.com/blog/muiz-hot-chicken-rm45-million-success-story.html</loc>
+    <lastmod>2026-07-30</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.9</priority>
+</url>
 </urlset>
