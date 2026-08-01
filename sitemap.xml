@@ -492,4 +492,15 @@
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
 </url>
+    <url>
+    <loc>https://muizhotchicken.com/blog/recommended-muiz-hot-chicken-outlet.html</loc>
+    <lastmod>2026-08-01</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.9</priority>
+    <image:image>
+        <image:loc>https://muizhotchicken.com/images/muithotchicken.webp</image:loc>
+        <image:title>Muiz Hot Chicken – #1 Recommended Crispy Chicken Outlet</image:title>
+        <image:caption>Legendary crispy Muiz Hot Chicken served at Restoran Pak Haji Ali – the #1 recommended outlet in Subang Jaya.</image:caption>
+    </image:image>
+</url>
 </urlset>
