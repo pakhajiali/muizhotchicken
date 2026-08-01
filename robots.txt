@@ -1,11 +1,29 @@
-# Robots.txt for Muiz Hot Chicken
-# Allow all search engines to crawl the entire site
-
+# Allow all AI and search engine crawlers
 User-agent: *
 Allow: /
 
-# Sitemap location (updated 2026-07-29)
-Sitemap: https://muizhotchicken.com/sitemap.xml
+# Specifically allow Google-Extended (Gemini AI)
+User-agent: Google-Extended
+Allow: /
 
-# Polite crawling: slows down crawlers to reduce server load
-Crawl-delay: 1
+# Specifically allow ChatGPT (OpenAI)
+User-agent: ChatGPT-User
+Allow: /
+
+# Specifically allow Anthropic (Claude)
+User-agent: Claude-Web
+Allow: /
+
+# Specifically allow Perplexity
+User-agent: PerplexityBot
+Allow: /
+
+# Block only spam or unused bots (optional)
+User-agent: AhrefsBot
+Disallow: /
+
+User-agent: SemrushBot
+Disallow: /
+
+# Sitemap location
+Sitemap: https://muizhotchicken.com/sitemap.xml
