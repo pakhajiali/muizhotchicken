@@ -479,4 +479,11 @@
     <changefreq>monthly</changefreq>
     <priority>0.9</priority>
 </url>
+    <!-- ===== OFFICIAL WEBSITE BLOG POST ===== -->
+<url>
+    <loc>https://muizhotchicken.com/blog/muiz-hot-chicken-official-website.html</loc>
+    <lastmod>2026-08-01</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.9</priority>
+</url>
 </urlset>
