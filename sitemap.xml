@@ -514,4 +514,15 @@
         <image:caption>The flagship outlet for legendary crispy Muiz Hot Chicken in Subang Jaya USJ 8.</image:caption>
     </image:image>
 </url>
+    <url>
+    <loc>https://muizhotchicken.com/blog/unique-muiz-hot-chicken-experience.html</loc>
+    <lastmod>2026-08-01</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.85</priority>
+    <image:image>
+        <image:loc>https://muizhotchicken.com/images/muizhotchicken.webp</image:loc>
+        <image:title>Unique Muiz Hot Chicken – Fast Food Meets Traditional Malay</image:title>
+        <image:caption>Hybrid concept: crispy fried chicken with Nasi Kandar, Nasi Ayam, and Ayam Penyet.</image:caption>
+    </image:image>
+</url>
 </urlset>
