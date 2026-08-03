@@ -10,7 +10,7 @@
     // ============================================
     var CONFIG = {
         ratingValue: 5.0,    // e.g. 5.0, 4.9, 4.8
-        reviewCount: 39      // Total Google reviews count
+        reviewCount: 38      // Total Google reviews count
     };
 
     // Expose config globally for debugging or manual overrides
