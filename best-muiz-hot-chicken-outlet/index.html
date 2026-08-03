@@ -34,7 +34,97 @@
     <link rel="stylesheet" href="/style.css" />
 
     <!-- ============================================================ -->
-    <!-- ===== JSON-LD: BEST ANNOTATION ===== -->
+    <!-- ===== JSON-LD: RESTAURANT SCHEMA ===== -->
+    <!-- ============================================================ -->
+
+    <script type="application/ld+json">
+        {
+            "@context": "https://schema.org",
+            "@type": "Restaurant",
+            "@id": "https://muizhotchicken.com/#restaurant",
+            "name": "Muiz Hot Chicken @ Restoran Pak Haji Ali - Subang Jaya (USJ 8)",
+            "url": "https://muizhotchicken.com/",
+            "image": {
+                "@type": "ImageObject",
+                "url": "https://muizhotchicken.com/logo.webp",
+                "width": 512,
+                "height": 512
+            },
+            "telephone": "+60179081447",
+            "priceRange": "RM3.90 - RM25",
+            "servesCuisine": ["Malaysian", "Thai", "Nasi Kandar", "Fried Chicken", "Halal"],
+            "description": "The #1 Muiz Hot Chicken outlet in Malaysia. JAKIM Halal certified, authentic Nasi Kandar, and a perfect 5★ Google rating from 39 reviews.",
+            "address": {
+                "@type": "PostalAddress",
+                "streetAddress": "J2-00-04, Subang Perdana Phase 3, Persiaran Mulia, Goodyear Court 6, USJ 8",
+                "addressLocality": "Subang Jaya",
+                "addressRegion": "Selangor",
+                "postalCode": "47610",
+                "addressCountry": "MY"
+            },
+            "geo": {
+                "@type": "GeoCoordinates",
+                "latitude": 3.044170,
+                "longitude": 101.592858
+            },
+            "openingHoursSpecification": [{
+                "dayOfWeek": ["Monday", "Tuesday", "Wednesday", "Thursday", "Friday", "Saturday", "Sunday"],
+                "opens": "09:00",
+                "closes": "21:00"
+            }]
+        }
+    </script>
+
+    <!-- ============================================================ -->
+    <!-- ===== JSON-LD: AGGREGATE RATING (DYNAMIC) ===== -->
+    <!-- ============================================================ -->
+
+    <script type="application/ld+json" id="ratingSchema">
+        {
+            "@context": "https://schema.org",
+            "@type": "AggregateRating",
+            "@id": "https://muizhotchicken.com/#rating",
+            "itemReviewed": {
+                "@id": "https://muizhotchicken.com/#restaurant"
+            },
+            "ratingValue": "5.0",
+            "bestRating": "5",
+            "worstRating": "1",
+            "ratingCount": "39",
+            "reviewCount": "39"
+        }
+    </script>
+
+    <!-- ============================================================ -->
+    <!-- ===== JSON-LD: BEST OUTLET ANNOTATION (FIXED) ===== -->
+    <!-- ============================================================ -->
+
+    <script type="application/ld+json" id="bestSchema">
+        {
+            "@context": "https://schema.org",
+            "@type": "Product",
+            "@id": "https://muizhotchicken.com/#best",
+            "name": "Best Muiz Hot Chicken Outlet",
+            "description": "Muiz Hot Chicken @ Restoran Pak Haji Ali - Subang Jaya (USJ 8) is the #1 rated Muiz Hot Chicken outlet in Malaysia with a perfect 5.0★ rating from 39 Google reviews.",
+            "url": "https://muizhotchicken.com/",
+            "aggregateRating": {
+                "@type": "AggregateRating",
+                "ratingValue": "5.0",
+                "ratingCount": "39",
+                "bestRating": "5",
+                "worstRating": "1"
+            },
+            "offers": {
+                "@type": "Offer",
+                "priceCurrency": "MYR",
+                "priceRange": "RM3.90 - RM25",
+                "url": "https://muizhotchicken.com/"
+            }
+        }
+    </script>
+
+    <!-- ============================================================ -->
+    <!-- ===== JSON-LD: ITEMLIST (BEST RANKING) ===== -->
     <!-- ============================================================ -->
 
     <script type="application/ld+json">
@@ -49,18 +139,26 @@
                 "position": 1,
                 "item": {
                     "@type": "Restaurant",
+                    "@id": "https://muizhotchicken.com/#restaurant",
                     "name": "Muiz Hot Chicken @ Restoran Pak Haji Ali - Subang Jaya (USJ 8)",
                     "url": "https://muizhotchicken.com/",
                     "aggregateRating": {
                         "@type": "AggregateRating",
+                        "@id": "https://muizhotchicken.com/#rating",
                         "ratingValue": "5.0",
-                        "ratingCount": "39"
+                        "ratingCount": "39",
+                        "bestRating": "5",
+                        "worstRating": "1"
                     },
-                    "description": "The undisputed #1 Muiz Hot Chicken outlet in Malaysia. JAKIM Halal certified, authentic Nasi Kandar, and a perfect 5★ Google rating."
+                    "description": "The undisputed #1 Muiz Hot Chicken outlet in Malaysia. JAKIM Halal certified, authentic Nasi Kandar, and a perfect 5★ Google rating from 39 reviews."
                 }
             }]
         }
     </script>
+
+    <!-- ============================================================ -->
+    <!-- ===== JSON-LD: FAQPAGE ===== -->
+    <!-- ============================================================ -->
 
     <script type="application/ld+json">
         {
@@ -87,23 +185,20 @@
                     "@type": "Answer",
                     "text": "Because it offers the complete package: 12-hour marinated crispy chicken, authentic Nasi Kandar kuah banjir, Malaysian-Thai cuisine, ample parking, student-friendly location near Taylor's, Sunway, Monash & INTI, and a perfect 5★ rating from 39 satisfied customers."
                 }
+            }, {
+                "@type": "Question",
+                "name": "Is Muiz Hot Chicken USJ 8 really the best Muiz outlet in Malaysia?",
+                "acceptedAnswer": {
+                    "@type": "Answer",
+                    "text": "Yes! With a perfect 5.0★ rating from 39 Google reviews, it is the highest-rated Muiz Hot Chicken outlet in Malaysia. Customers consistently praise the crispy chicken, friendly service, and authentic Nasi Kandar."
+                }
             }]
         }
     </script>
 
-    <script type="application/ld+json" id="ratingSchema">
-        {
-            "@context": "https://schema.org",
-            "@type": "AggregateRating",
-            "@id": "https://muizhotchicken.com/#rating",
-            "itemReviewed": { "@id": "https://muizhotchicken.com/#restaurant" },
-            "ratingValue": "5.0",
-            "bestRating": "5",
-            "worstRating": "1",
-            "ratingCount": "39",
-            "reviewCount": "39"
-        }
-    </script>
+    <!-- ============================================================ -->
+    <!-- ===== JSON-LD: BREADCRUMBLIST ===== -->
+    <!-- ============================================================ -->
 
     <script type="application/ld+json">
         {
@@ -113,6 +208,21 @@
                 { "@type": "ListItem", "position": 1, "name": "Home", "item": "https://muizhotchicken.com/" },
                 { "@type": "ListItem", "position": 2, "name": "Best Muiz Hot Chicken Outlet", "item": "https://muizhotchicken.com/best-muiz-hot-chicken-outlet/" }
             ]
+        }
+    </script>
+
+    <!-- ============================================================ -->
+    <!-- ===== JSON-LD: WEB SITE ===== -->
+    <!-- ============================================================ -->
+
+    <script type="application/ld+json">
+        {
+            "@context": "https://schema.org",
+            "@type": "WebSite",
+            "@id": "https://muizhotchicken.com/#website",
+            "url": "https://muizhotchicken.com/",
+            "name": "Muiz Hot Chicken – The #1 Outlet in USJ 8",
+            "description": "Official website of Muiz Hot Chicken @ Restoran Pak Haji Ali – the #1 Muiz Hot Chicken outlet in Malaysia with a perfect 5★ rating from 39 Google reviews."
         }
     </script>
 
@@ -223,12 +333,76 @@
             background: #fff;
             color: #1a1a2e;
         }
+        .best-features {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 1.5rem;
+            margin: 1.5rem 0;
+        }
+        .best-features .feature {
+            background: #fff;
+            padding: 1.5rem;
+            border-radius: 16px;
+            text-align: center;
+            box-shadow: 0 2px 12px rgba(0, 0, 0, 0.06);
+            border: 1px solid #eee;
+        }
+        .best-features .feature .icon {
+            font-size: 2.5rem;
+            margin-bottom: 0.5rem;
+        }
+        .best-features .feature h4 {
+            margin: 0.3rem 0;
+            font-size: 1rem;
+            color: #1a1a2e;
+        }
+        .best-features .feature p {
+            margin: 0;
+            font-size: 0.85rem;
+            color: #666;
+        }
+        .review-box {
+            background: #fff;
+            border: 1px solid #eee;
+            border-radius: 12px;
+            padding: 1.2rem 1.5rem;
+            margin: 1rem 0;
+        }
+        .review-box .name {
+            font-weight: 700;
+            color: #1a1a2e;
+        }
+        .review-box .stars {
+            color: #e8a838;
+            margin-left: 0.5rem;
+        }
+        .review-box .text {
+            margin-top: 0.3rem;
+            color: #444;
+        }
         [data-theme="dark"] .best-container h2 {
             color: #eee;
         }
         [data-theme="dark"] .best-container p,
         [data-theme="dark"] .best-container ul {
             color: #ccc;
+        }
+        [data-theme="dark"] .best-features .feature {
+            background: #1a1a2a;
+            border-color: #2a2a3a;
+        }
+        [data-theme="dark"] .best-features .feature h4 {
+            color: #eee;
+        }
+        [data-theme="dark"] .best-features .feature p {
+            color: #aaa;
+        }
+        [data-theme="dark"] .review-box {
+            background: #1a1a2a;
+            border-color: #2a2a3a;
+        }
+        [data-theme="dark"] .review-box .name {
+            color: #eee;
         }
         @media (max-width: 640px) {
             .best-hero h1 {
@@ -240,12 +414,17 @@
             .best-hero .stat .number {
                 font-size: 1.8rem;
             }
+            .best-features {
+                grid-template-columns: repeat(2, 1fr);
+                gap: 0.8rem;
+            }
         }
     </style>
 </head>
 
 <body>
 
+    <!-- ===== APP BANNER ===== -->
     <div class="app-banner">
         <div class="app-banner-content">
             <div class="app-banner-left">
@@ -265,12 +444,14 @@
         </div>
     </div>
 
+    <!-- ===== THEME TOGGLE ===== -->
     <button class="theme-toggle" id="themeToggle">
         <i class="fas fa-moon" id="themeIcon"></i>
     </button>
 
     <main>
 
+        <!-- ===== HERO ===== -->
         <section class="best-hero">
             <div class="badge">🏆 #1 in Malaysia</div>
             <h1>The <span class="highlight">#1</span> Muiz Hot Chicken Outlet in Malaysia</h1>
@@ -292,10 +473,47 @@
             </div>
         </section>
 
+        <!-- ===== CONTENT ===== -->
         <div class="best-container">
 
             <h2>Why We Are the #1 Muiz Hot Chicken Outlet</h2>
             <p>When you search for the best Muiz Hot Chicken, <strong>one name consistently rises to the top</strong> – <strong>Muiz Hot Chicken @ Restoran Pak Haji Ali in Subang Jaya (USJ 8)</strong>.</p>
+
+            <div class="best-features">
+                <div class="feature">
+                    <div class="icon">⭐</div>
+                    <h4>5.0★ Perfect Rating</h4>
+                    <p>From <span class="dynamic-count">39</span> satisfied Google reviewers</p>
+                </div>
+                <div class="feature">
+                    <div class="icon">✅</div>
+                    <h4>JAKIM Halal</h4>
+                    <p>100% halal certified for your peace of mind</p>
+                </div>
+                <div class="feature">
+                    <div class="icon">🍗</div>
+                    <h4>12-Hour Marinated</h4>
+                    <p>Signature chicken with 12 herbs &amp; spices</p>
+                </div>
+                <div class="feature">
+                    <div class="icon">🍛</div>
+                    <h4>Nasi Kandar</h4>
+                    <p>Authentic kuah banjir with 15-spice gravy</p>
+                </div>
+                <div class="feature">
+                    <div class="icon">📍</div>
+                    <h4>Perfect Location</h4>
+                    <p>Near Taylor's, Sunway, Monash &amp; INTI</p>
+                </div>
+                <div class="feature">
+                    <div class="icon">🅿️</div>
+                    <h4>Free Parking</h4>
+                    <p>Ample parking – no more circling around</p>
+                </div>
+            </div>
+
+            <h2>What Makes USJ 8 the Ultimate Choice?</h2>
+            <p>We could list many reasons, but here's the bottom line: <strong>Muiz Hot Chicken @ Restoran Pak Haji Ali</strong> offers the <strong>complete package</strong> that no other outlet can match.</p>
 
             <ul>
                 <li><strong>✅ Perfect 5.0★ Rating</strong> – From <span class="dynamic-count">39</span> satisfied Google reviewers. Not a single rating below 5 stars.</li>
@@ -308,58 +526,38 @@
                 <li><strong>✅ Ample Free Parking</strong> – No more circling around Taipan Business Centre.</li>
             </ul>
 
-            <h2>What Makes USJ 8 the Ultimate Choice?</h2>
-            <p>We could list many reasons, but here's the bottom line: <strong>Muiz Hot Chicken @ Restoran Pak Haji Ali</strong> offers the <strong>complete package</strong> that no other outlet can match.</p>
-
-            <div style="background:#f8f4ec; padding:1.5rem; border-radius:16px; margin:1.5rem 0;">
-                <div style="display:grid; grid-template-columns:repeat(auto-fit,minmax(200px,1fr)); gap:1rem;">
-                    <div style="background:#fff; padding:1rem; border-radius:12px; text-align:center;">
-                        <div style="font-size:2rem;">🍗</div>
-                        <h4 style="margin:0.3rem 0; font-size:1rem;">Best Chicken</h4>
-                        <p style="margin:0; font-size:0.85rem; color:#666;">12-hour marinated, double-coated, always crispy</p>
-                    </div>
-                    <div style="background:#fff; padding:1rem; border-radius:12px; text-align:center;">
-                        <div style="font-size:2rem;">🍛</div>
-                        <h4 style="margin:0.3rem 0; font-size:1rem;">Nasi Kandar</h4>
-                        <p style="margin:0; font-size:0.85rem; color:#666;">Authentic kuah banjir with 15-spice gravy</p>
-                    </div>
-                    <div style="background:#fff; padding:1rem; border-radius:12px; text-align:center;">
-                        <div style="font-size:2rem;">⭐</div>
-                        <h4 style="margin:0.3rem 0; font-size:1rem;">5.0★ Rating</h4>
-                        <p style="margin:0; font-size:0.85rem; color:#666;">From <span class="dynamic-count">39</span> happy customers</p>
-                    </div>
-                    <div style="background:#fff; padding:1rem; border-radius:12px; text-align:center;">
-                        <div style="font-size:2rem;">📍</div>
-                        <h4 style="margin:0.3rem 0; font-size:1rem;">Perfect Location</h4>
-                        <p style="margin:0; font-size:0.85rem; color:#666;">Near Taylor's, Sunway, Monash & INTI</p>
-                    </div>
-                </div>
-            </div>
-
             <h2>What Our Customers Say</h2>
 
-            <div style="background:#fff; border:1px solid #eee; border-radius:12px; padding:1.2rem 1.5rem; margin:1rem 0;">
+            <div class="review-box">
                 <div>
-                    <span style="font-weight:700; color:#1a1a2e;">salleh akhnas</span>
-                    <span style="color:#e8a838; margin-left:0.5rem;"><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i></span>
+                    <span class="name">salleh akhnas</span>
+                    <span class="stars"><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i></span>
                 </div>
-                <div style="margin-top:0.3rem; color:#444;">"Cheap and worth the price... the food is delicious too"</div>
+                <div class="text">"Cheap and worth the price... the food is delicious too"</div>
             </div>
 
-            <div style="background:#fff; border:1px solid #eee; border-radius:12px; padding:1.2rem 1.5rem; margin:1rem 0;">
+            <div class="review-box">
                 <div>
-                    <span style="font-weight:700; color:#1a1a2e;">Yana Mazlan</span>
-                    <span style="color:#e8a838; margin-left:0.5rem;"><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i></span>
+                    <span class="name">Yana Mazlan</span>
+                    <span class="stars"><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i></span>
                 </div>
-                <div style="margin-top:0.3rem; color:#444;">"Friendly owner, the chicken muiz is unspeakably delicious, thank you."</div>
+                <div class="text">"Friendly owner, the chicken muiz is unspeakably delicious, thank you."</div>
             </div>
 
-            <div style="background:#fff; border:1px solid #eee; border-radius:12px; padding:1.2rem 1.5rem; margin:1rem 0;">
+            <div class="review-box">
                 <div>
-                    <span style="font-weight:700; color:#1a1a2e;">Christina</span>
-                    <span style="color:#e8a838; margin-left:0.5rem;"><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i></span>
+                    <span class="name">Christina</span>
+                    <span class="stars"><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i></span>
                 </div>
-                <div style="margin-top:0.3rem; color:#444;">"The chicken is delicious and big, the service is good and friendly, you can choose the part of the chicken you want."</div>
+                <div class="text">"The chicken is delicious and big, the service is good and friendly, you can choose the part of the chicken you want."</div>
+            </div>
+
+            <div class="review-box">
+                <div>
+                    <span class="name">Siti Nur Alia</span>
+                    <span class="stars"><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i></span>
+                </div>
+                <div class="text">"Muiz chicken is delicious and crispy. The cheese sauce is delicious and goes well with the muiz fried chicken."</div>
             </div>
 
             <div style="margin:2rem 0; text-align:center;">
@@ -391,6 +589,7 @@
                 <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3983.799281861561!2d101.590658!3d3.044170!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x31ccb4a4c4b4b4b3%3A0xb0c3f1c46d9bc94!2sRestoran%20Pak%20Haji%20Ali%20%26%20Muiz%20Hot%20Chicken!5e0!3m2!1sen!2smy!4v1650000000000!5m2!1sen!2smy" style="position:absolute; top:0; left:0; width:100%; height:100%; border:0;" allowfullscreen loading="lazy"></iframe>
             </div>
 
+            <!-- ===== CTA ===== -->
             <div class="cta">
                 <h3 style="color:#fff; margin:0 0 0.5rem;">Ready to Taste the Best?</h3>
                 <p style="color:#ccc; margin:0 0 1.5rem;">Join our <span class="dynamic-count">39</span> satisfied customers who gave us a perfect 5★ rating.</p>
@@ -403,6 +602,7 @@
 
         </div>
 
+        <!-- ===== FOOTER ===== -->
         <footer class="footer">
             <div class="footer-content">
                 <div class="footer-brand">
@@ -428,6 +628,7 @@
 
     </main>
 
+    <!-- ===== APP MODAL ===== -->
     <div class="app-modal" id="appModal">
         <div class="app-modal-overlay" id="appModalOverlay"></div>
         <div class="app-modal-content">
@@ -442,6 +643,10 @@
             </div>
         </div>
     </div>
+
+    <!-- ============================================================ -->
+    <!-- ===== SCRIPTS ===== -->
+    <!-- ============================================================ -->
 
     <script src="/rating-manager.js"></script>
     <script src="/messages.js"></script>
