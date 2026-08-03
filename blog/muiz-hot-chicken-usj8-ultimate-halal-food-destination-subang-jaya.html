@@ -206,7 +206,7 @@
         }
     </script>
 
-    <!-- 7. FAQPage (Focused on Location & Experience) -->
+    <!-- 7. FAQPage -->
     <script type="application/ld+json">
         {
             "@context": "https://schema.org",
@@ -280,7 +280,7 @@
         }
     </script>
 
-    <!-- 10. ItemList: Top 5 Must-Try Dishes -->
+    <!-- 10. ItemList: Top 5 Must-Try Dishes (WITH IMAGES) -->
     <script type="application/ld+json">
         {
             "@context": "https://schema.org",
@@ -289,17 +289,67 @@
             "description": "Customer favorites at the ultimate halal food destination in Subang Jaya.",
             "numberOfItems": 5,
             "itemListElement": [
-                { "@type": "ListItem", "position": 1, "item": { "@type": "Product", "name": "Nasi Kandar Muiz Hot Chicken", "description": "Signature crispy chicken with kuah banjir curries.", "offers": { "@type": "Offer", "price": "6.90", "priceCurrency": "MYR" } } },
-                { "@type": "ListItem", "position": 2, "item": { "@type": "Product", "name": "Original Regular Box", "description": "2 pieces of perfectly crispy Muiz Hot Chicken.", "offers": { "@type": "Offer", "price": "10.00", "priceCurrency": "MYR" } } },
-                { "@type": "ListItem", "position": 3, "item": { "@type": "Product", "name": "Cheese Happy Box", "description": "5 pieces with 2 cheese sauces – perfect for sharing.", "offers": { "@type": "Offer", "price": "29.00", "priceCurrency": "MYR" } } },
-                { "@type": "ListItem", "position": 4, "item": { "@type": "Product", "name": "Tomyam Seafood", "description": "Spicy and sour Thai-style soup with prawns and squid.", "offers": { "@type": "Offer", "price": "11.90", "priceCurrency": "MYR" } } },
-                { "@type": "ListItem", "position": 5, "item": { "@type": "Product", "name": "Nasi Bujang", "description": "Budget-friendly meal: rice, omelette, soup, and sambal.", "offers": { "@type": "Offer", "price": "3.90", "priceCurrency": "MYR" } } }
+                {
+                    "@type": "ListItem",
+                    "position": 1,
+                    "item": {
+                        "@type": "Product",
+                        "name": "Nasi Kandar Muiz Hot Chicken",
+                        "description": "Signature crispy chicken with kuah banjir curries.",
+                        "image": "https://muizhotchicken.com/images/nasikandarmuizchicken.webp",
+                        "offers": { "@type": "Offer", "price": "6.90", "priceCurrency": "MYR" }
+                    }
+                },
+                {
+                    "@type": "ListItem",
+                    "position": 2,
+                    "item": {
+                        "@type": "Product",
+                        "name": "Original Regular Box",
+                        "description": "2 pieces of perfectly crispy Muiz Hot Chicken.",
+                        "image": "https://muizhotchicken.com/images/originalregularbox.webp",
+                        "offers": { "@type": "Offer", "price": "10.00", "priceCurrency": "MYR" }
+                    }
+                },
+                {
+                    "@type": "ListItem",
+                    "position": 3,
+                    "item": {
+                        "@type": "Product",
+                        "name": "Cheese Happy Box",
+                        "description": "5 pieces with 2 cheese sauces – perfect for sharing.",
+                        "image": "https://muizhotchicken.com/images/cheesehappybox.webp",
+                        "offers": { "@type": "Offer", "price": "29.00", "priceCurrency": "MYR" }
+                    }
+                },
+                {
+                    "@type": "ListItem",
+                    "position": 4,
+                    "item": {
+                        "@type": "Product",
+                        "name": "Tomyam Seafood",
+                        "description": "Spicy and sour Thai-style soup with prawns and squid.",
+                        "image": "https://muizhotchicken.com/images/tomyamseafood.webp",
+                        "offers": { "@type": "Offer", "price": "11.90", "priceCurrency": "MYR" }
+                    }
+                },
+                {
+                    "@type": "ListItem",
+                    "position": 5,
+                    "item": {
+                        "@type": "Product",
+                        "name": "Nasi Bujang",
+                        "description": "Budget-friendly meal: rice, omelette, soup, and sambal.",
+                        "image": "https://muizhotchicken.com/images/nasibujang.webp",
+                        "offers": { "@type": "Offer", "price": "3.90", "priceCurrency": "MYR" }
+                    }
+                }
             ]
         }
     </script>
 
     <style>
-        /* ===== BLOG-SPECIFIC STYLES (Same as previous, keep consistency) ===== */
+        /* ===== BLOG-SPECIFIC STYLES ===== */
         .blog-hero {
             background: linear-gradient(135deg, #1a1a2e 0%, #16213e 50%, #0f3460 100%);
             padding: 4rem 1.5rem 3rem;
@@ -484,6 +534,60 @@
             margin-top: 0.3rem;
             color: #444;
         }
+
+        /* ---- NEW: Top Dishes Grid ---- */
+        .dishes-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(160px, 1fr));
+            gap: 1.5rem;
+            margin: 1.5rem 0 2rem;
+        }
+        .dishes-grid .dish-card {
+            background: #fff;
+            border: 1px solid #eee;
+            border-radius: 16px;
+            padding: 1rem;
+            text-align: center;
+            transition: transform 0.2s, box-shadow 0.2s;
+            box-shadow: 0 2px 8px rgba(0,0,0,0.04);
+        }
+        .dishes-grid .dish-card:hover {
+            transform: translateY(-4px);
+            box-shadow: 0 8px 25px rgba(0,0,0,0.08);
+        }
+        .dishes-grid .dish-card img {
+            width: 100%;
+            aspect-ratio: 1/1;
+            object-fit: cover;
+            border-radius: 12px;
+            background: #f8f4ec;
+        }
+        .dishes-grid .dish-card h4 {
+            margin: 0.6rem 0 0.2rem;
+            font-size: 0.95rem;
+            color: #1a1a2e;
+        }
+        .dishes-grid .dish-card .price {
+            font-weight: 700;
+            color: #e8a838;
+            font-size: 1rem;
+        }
+        .dishes-grid .dish-card .desc {
+            font-size: 0.8rem;
+            color: #666;
+            margin: 0.3rem 0 0;
+        }
+        [data-theme="dark"] .dishes-grid .dish-card {
+            background: #1a1a2a;
+            border-color: #2a2a3a;
+        }
+        [data-theme="dark"] .dishes-grid .dish-card h4 {
+            color: #eee;
+        }
+        [data-theme="dark"] .dishes-grid .dish-card .desc {
+            color: #aaa;
+        }
+
         .blog-footer {
             border-top: 2px solid #eee;
             padding-top: 2rem;
@@ -565,6 +669,9 @@
             .blog-hero .blog-rating-badge {
                 font-size: 0.9rem;
                 padding: 0.4rem 1rem;
+            }
+            .dishes-grid {
+                grid-template-columns: repeat(2, 1fr);
             }
         }
     </style>
@@ -656,6 +763,43 @@
                         <a href="https://g.page/r/CUrZw9xvAXIPEBE/review" target="_blank" class="cta-button" style="display:inline-block; font-size:0.9rem; padding:0.6rem 1.5rem;">
                             <i class="fab fa-google"></i> Add Your Review
                         </a>
+                    </div>
+                </div>
+
+                <!-- ===== SECTION: TOP 5 MUST-TRY DISHES (WITH IMAGES) ===== -->
+                <h2>Top 5 Must-Try Dishes at Muiz Hot Chicken USJ 8</h2>
+                <p>These customer favourites are the reason we're the highest-rated Muiz outlet. Each dish is crafted with care and packed with flavour.</p>
+
+                <div class="dishes-grid">
+                    <div class="dish-card">
+                        <img src="/images/nasikandarmuizchicken.webp" alt="Nasi Kandar Muiz Hot Chicken" loading="lazy" />
+                        <h4>Nasi Kandar Muiz Hot Chicken</h4>
+                        <div class="price">RM6.90</div>
+                        <div class="desc">Crispy chicken with kuah banjir curries</div>
+                    </div>
+                    <div class="dish-card">
+                        <img src="/images/originalregularbox.webp" alt="Original Regular Box" loading="lazy" />
+                        <h4>Original Regular Box</h4>
+                        <div class="price">RM10.00</div>
+                        <div class="desc">2 pieces of crispy Muiz Hot Chicken</div>
+                    </div>
+                    <div class="dish-card">
+                        <img src="/images/cheesehappybox.webp" alt="Cheese Happy Box" loading="lazy" />
+                        <h4>Cheese Happy Box</h4>
+                        <div class="price">RM29.00</div>
+                        <div class="desc">5 pieces + 2 cheese sauces – perfect for sharing</div>
+                    </div>
+                    <div class="dish-card">
+                        <img src="/images/tomyamseafood.webp" alt="Tomyam Seafood" loading="lazy" />
+                        <h4>Tomyam Seafood</h4>
+                        <div class="price">RM11.90</div>
+                        <div class="desc">Spicy & sour Thai-style soup with prawns & squid</div>
+                    </div>
+                    <div class="dish-card">
+                        <img src="/images/nasibujang.webp" alt="Nasi Bujang" loading="lazy" />
+                        <h4>Nasi Bujang</h4>
+                        <div class="price">RM3.90</div>
+                        <div class="desc">Budget-friendly: rice, omelette, soup, sambal</div>
                     </div>
                 </div>
 
