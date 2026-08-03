@@ -62,7 +62,6 @@
     <!-- ---- Stylesheet ---- -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css" />
     <link rel="stylesheet" href="/style.css" />
-    <script src="/rating-manager.js"></script>
 
     <!-- ============================================================ -->
     <!-- ===== STRUCTURED DATA (JSON-LD) – BLOG & RESTAURANT ===== -->
@@ -180,19 +179,19 @@
 
     <!-- 3. AggregateRating (39 reviews, 5 stars) -->
     <script type="application/ld+json" id="ratingSchema">
-{
-  "@context": "https://schema.org",
-  "@type": "AggregateRating",
-  "@id": "https://muizhotchicken.com/#rating",
-  "itemReviewed": { "@id": "https://muizhotchicken.com/#restaurant" },
-  "ratingValue": "5.0",
-  "bestRating": "5",
-  "worstRating": "1",
-  "ratingCount": "39",
-  "reviewCount": "39"
-}
-</script>
-    
+        {
+            "@context": "https://schema.org",
+            "@type": "AggregateRating",
+            "@id": "https://muizhotchicken.com/#rating",
+            "itemReviewed": { "@id": "https://muizhotchicken.com/#restaurant" },
+            "ratingValue": "5.0",
+            "bestRating": "5",
+            "worstRating": "1",
+            "ratingCount": "39",
+            "reviewCount": "39"
+        }
+    </script>
+
     <!-- 4. BreadcrumbList -->
     <script type="application/ld+json">
         {
@@ -728,7 +727,7 @@
         <section class="blog-hero">
             <div class="blog-badge"><i class="fas fa-star"></i> Editor's Pick</div>
             <h1>Best <span class="highlight">Muiz Hot Chicken</span> Outlet in Malaysia</h1>
-            <p style="font-size:1.15rem; max-width:700px; margin:0 auto; color:#ccc;">Why Restoran Pak Haji Ali in Subang Jaya (USJ 8) is the top-rated Muiz outlet with a perfect 5★ rating from 39 Google reviews.</p>
+            <p style="font-size:1.15rem; max-width:700px; margin:0 auto; color:#ccc;">Why Restoran Pak Haji Ali in Subang Jaya (USJ 8) is the top-rated Muiz outlet with a perfect <span class="dynamic-rating">5.0</span>★ rating from <span class="dynamic-count">39</span> Google reviews.</p>
             <div class="blog-meta">
                 <span><i class="fas fa-calendar-alt"></i> 3 August 2026</span>
                 <span><i class="fas fa-user"></i> Restoran Pak Haji Ali</span>
@@ -756,7 +755,7 @@
             <div class="blog-content">
 
                 <!-- ===== INTRO ===== -->
-                <p><strong>If you've ever asked "Which Muiz Hot Chicken outlet is the best?" – the answer is clear.</strong> Muiz Hot Chicken @ Restoran Pak Haji Ali in <strong>Subang Jaya (USJ 8)</strong> stands head and shoulders above the rest. With a perfect <strong>5.0★ rating from 39 Google reviews</strong>, JAKIM Halal certification, and a loyal following of customers who swear by its crispy chicken, this is the Muiz outlet you need to visit.</p>
+                <p><strong>If you've ever asked "Which Muiz Hot Chicken outlet is the best?" – the answer is clear.</strong> Muiz Hot Chicken @ Restoran Pak Haji Ali in <strong>Subang Jaya (USJ 8)</strong> stands head and shoulders above the rest. With a perfect <strong><span class="dynamic-rating">5.0</span>★ rating from <span class="dynamic-count">39</span> Google reviews</strong>, JAKIM Halal certification, and a loyal following of customers who swear by its crispy chicken, this is the Muiz outlet you need to visit.</p>
 
                 <div class="highlight-box">
                     <p style="margin:0; font-size:1.05rem;"><strong>🏆 Top-Rated Muiz Outlet</strong><br>
@@ -789,7 +788,7 @@
                 <p>Since opening on <strong>1 May 2026</strong>, this Subang Jaya outlet has quickly become the gold standard for Muiz Hot Chicken. Here's why it's the top choice for locals, students, and foodies alike:</p>
 
                 <ul>
-                    <li><strong>Perfect 5★ Rating</strong> – 39 Google reviews and counting, all giving a perfect score.</li>
+                    <li><strong>Perfect <span class="dynamic-rating">5.0</span>★ Rating</strong> – <span class="dynamic-count">39</span> Google reviews and counting, all giving a perfect score.</li>
                     <li><strong>JAKIM Halal Certified</strong> – 100% halal with official certification.</li>
                     <li><strong>MeSTI Certified</strong> – Ministry of Health food safety accreditation.</li>
                     <li><strong>12-Hour Marinated Chicken</strong> – Our signature crispy chicken is marinated in a blend of 12 herbs and spices.</li>
@@ -908,7 +907,7 @@
                 <div style="border:1px solid #eee; border-radius:12px; padding:0 1.5rem 1.5rem; margin:1.5rem 0;">
                     <div style="border-bottom:1px solid #eee; padding:1rem 0;">
                         <h4 style="margin:0; font-size:1.05rem; color:#1a1a2e;">Which Muiz Hot Chicken outlet is the best?</h4>
-                        <p style="margin:0.3rem 0 0 0; color:#555;">Muiz Hot Chicken @ Restoran Pak Haji Ali in Subang Jaya (USJ 8) is widely regarded as the best Muiz outlet, with a perfect 5★ rating from 39 Google reviews.</p>
+                        <p style="margin:0.3rem 0 0 0; color:#555;">Muiz Hot Chicken @ Restoran Pak Haji Ali in Subang Jaya (USJ 8) is widely regarded as the best Muiz outlet, with a perfect <span class="dynamic-rating">5.0</span>★ rating from <span class="dynamic-count">39</span> Google reviews.</p>
                     </div>
                     <div style="border-bottom:1px solid #eee; padding:1rem 0;">
                         <h4 style="margin:0; font-size:1.05rem; color:#1a1a2e;">Is the USJ 8 Muiz Hot Chicken outlet Halal certified?</h4>
@@ -916,7 +915,7 @@
                     </div>
                     <div style="border-bottom:1px solid #eee; padding:1rem 0;">
                         <h4 style="margin:0; font-size:1.05rem; color:#1a1a2e;">What is the Google rating of this outlet?</h4>
-                        <p style="margin:0.3rem 0 0 0; color:#555;">A perfect 5.0★ from 39 Google reviews – the highest-rated Muiz Hot Chicken outlet in Malaysia.</p>
+                        <p style="margin:0.3rem 0 0 0; color:#555;">A perfect <span class="dynamic-rating">5.0</span>★ from <span class="dynamic-count">39</span> Google reviews – the highest-rated Muiz Hot Chicken outlet in Malaysia.</p>
                     </div>
                     <div style="padding:1rem 0 0 0;">
                         <h4 style="margin:0; font-size:1.05rem; color:#1a1a2e;">Where is the best Muiz Hot Chicken outlet located?</h4>
@@ -1000,7 +999,14 @@
 
     </main>
 
-    <!-- ===== SCRIPTS ===== -->
+    <!-- ============================================================ -->
+    <!-- ===== SCRIPTS ============================================== -->
+    <!-- ============================================================ -->
+
+    <!-- Load the central rating manager (single source of truth) -->
+    <script src="/rating-manager.js"></script>
+
+    <!-- Additional scripts (messages and main site scripts) -->
     <script src="/messages.js"></script>
     <script src="/script.js"></script>
 
