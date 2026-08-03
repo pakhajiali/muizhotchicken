@@ -62,6 +62,7 @@
     <!-- ---- Stylesheet ---- -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css" />
     <link rel="stylesheet" href="/style.css" />
+    <script src="/rating-manager.js"></script>
 
     <!-- ============================================================ -->
     <!-- ===== STRUCTURED DATA (JSON-LD) – BLOG & RESTAURANT ===== -->
@@ -178,22 +179,20 @@
     </script>
 
     <!-- 3. AggregateRating (39 reviews, 5 stars) -->
-    <script type="application/ld+json">
-        {
-            "@context": "https://schema.org",
-            "@type": "AggregateRating",
-            "@id": "https://muizhotchicken.com/#rating",
-            "itemReviewed": {
-                "@id": "https://muizhotchicken.com/#restaurant"
-            },
-            "ratingValue": "5.0",
-            "bestRating": "5",
-            "worstRating": "1",
-            "ratingCount": "39",
-            "reviewCount": "39"
-        }
-    </script>
-
+    <script type="application/ld+json" id="ratingSchema">
+{
+  "@context": "https://schema.org",
+  "@type": "AggregateRating",
+  "@id": "https://muizhotchicken.com/#rating",
+  "itemReviewed": { "@id": "https://muizhotchicken.com/#restaurant" },
+  "ratingValue": "5.0",
+  "bestRating": "5",
+  "worstRating": "1",
+  "ratingCount": "39",
+  "reviewCount": "39"
+}
+</script>
+    
     <!-- 4. BreadcrumbList -->
     <script type="application/ld+json">
         {
@@ -737,7 +736,7 @@
             </div>
             <div class="blog-rating-badge">
                 <span class="stars"><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i></span>
-                <span class="count">5.0 ★ (39 reviews)</span>
+                <span class="count"><span id="heroRating">5.0</span> ★ (<span id="heroCount">39</span> reviews)</span>
                 <span style="color:#aaa; font-size:0.8rem; margin-left:0.3rem;">| JAKIM Halal</span>
             </div>
         </section>
@@ -768,11 +767,11 @@
                 <div class="rating-summary">
                     <div>
                         <span class="big-star"><i class="fas fa-star"></i></span>
-                        <span class="big-number">5.0</span>
+                        <span class="big-number" id="bigRating">5.0</span>
                     </div>
                     <div>
                         <div style="font-weight:700; font-size:1.2rem; color:#1a1a2e;">Perfect Rating</div>
-                        <div class="review-count">Based on <strong>39 Google reviews</strong></div>
+                        <div class="review-count">Based on <strong id="bigCount">39</strong> Google reviews</div>
                         <div style="color:#888; font-size:0.9rem; margin-top:0.2rem;">
                             <i class="fas fa-check-circle" style="color:#2ecc71;"></i> 100% of customers recommend
                         </div>
@@ -982,7 +981,7 @@
                     <h3>Restoran Pak Haji Ali <br>&amp; Muiz Hot Chicken</h3>
                     <p>Subang Jaya (USJ 8) • JAKIM Halal</p>
                     <p style="font-size:0.85rem; color:#888; margin-top:0.3rem;">
-                        <i class="fas fa-star" style="color:#e8a838;"></i> 5.0 ★ (39 reviews)
+                        <i class="fas fa-star" style="color:#e8a838;"></i> <span id="footerRating">5.0</span> ★ (<span id="footerCount">39</span> reviews)
                     </p>
                 </div>
                 <div class="footer-links">
