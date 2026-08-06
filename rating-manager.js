@@ -10,7 +10,7 @@
     // ============================================
     var CONFIG = {
         ratingValue: 5.0,    // Current average rating (e.g., 5.0, 4.9)
-        reviewCount: 39,     // Total Google reviews count
+        reviewCount: 40,     // Total Google reviews count
         outletName: "Muiz Hot Chicken @ Restoran Pak Haji Ali - Subang Jaya (USJ 8)"
     };
 
