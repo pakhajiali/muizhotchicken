@@ -246,6 +246,37 @@
             flex: 0 0 auto;
         }
 
+        /* ── QUICK ADD MENU ── */
+        .quick-menu {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 0.5rem;
+            margin-top: 0.8rem;
+            padding-top: 0.8rem;
+            border-top: 1px solid var(--border);
+        }
+        .quick-menu .quick-btn {
+            background: var(--surface2);
+            border: 1px solid var(--border);
+            border-radius: 30px;
+            padding: 0.25rem 0.9rem;
+            font-size: 0.75rem;
+            font-weight: 500;
+            cursor: pointer;
+            transition: 0.2s;
+            color: var(--text);
+            white-space: nowrap;
+        }
+        .quick-menu .quick-btn:hover {
+            background: var(--primary-light);
+            border-color: var(--primary-dark);
+            transform: scale(1.02);
+        }
+        .quick-menu .quick-btn .price-tag {
+            opacity: 0.7;
+            font-weight: 400;
+        }
+
         /* ── ORDER BUILDER ── */
         .order-list {
             display: flex;
@@ -641,7 +672,7 @@
             </div>
         </header>
 
-        <!-- ADD ITEM CARD -->
+        <!-- ADD ITEM & QUICK MENU CARD -->
         <section class="card" id="addItemCard">
             <div class="card-title"><i class="fas fa-plus-circle"></i> Add Item to Order</div>
             <div class="add-item-form">
@@ -653,6 +684,20 @@
                 <div style="font-size:0.75rem;color:var(--text2);">
                     <i class="fas fa-info-circle"></i> Item will be added with quantity 1. Adjust quantity in the order list below.
                 </div>
+            </div>
+            <div class="quick-menu">
+                <span style="font-size:0.75rem;font-weight:600;color:var(--text2);padding-right:0.3rem;">Quick add:</span>
+                <button class="quick-btn" data-name="Nasi Kandar Muiz Chicken" data-price="6.90">Nasi Kandar Muiz <span class="price-tag">RM6.90</span></button>
+                <button class="quick-btn" data-name="Nasi Ayam Muiz Chicken" data-price="8.90">Nasi Ayam Muiz <span class="price-tag">RM8.90</span></button>
+                <button class="quick-btn" data-name="Original Regular Box" data-price="10.00">Original Box <span class="price-tag">RM10.00</span></button>
+                <button class="quick-btn" data-name="Cheese Regular Box" data-price="12.00">Cheese Box <span class="price-tag">RM12.00</span></button>
+                <button class="quick-btn" data-name="Korean Spicy Regular Box" data-price="13.00">Korean Spicy Box <span class="price-tag">RM13.00</span></button>
+                <button class="quick-btn" data-name="Nasi Bujang" data-price="3.90">Nasi Bujang <span class="price-tag">RM3.90</span></button>
+                <button class="quick-btn" data-name="Bakso" data-price="5.90">Bakso <span class="price-tag">RM5.90</span></button>
+                <button class="quick-btn" data-name="Mee Pak Haji Ali" data-price="6.90">Mee Pak Haji Ali <span class="price-tag">RM6.90</span></button>
+                <button class="quick-btn" data-name="Chicken Tenders" data-price="9.90">Chicken Tenders <span class="price-tag">RM9.90</span></button>
+                <button class="quick-btn" data-name="Nasi Goreng Kampung" data-price="7.50">Nasi Goreng Kampung <span class="price-tag">RM7.50</span></button>
+                <button class="quick-btn" data-name="Tomyam Seafood" data-price="11.90">Tomyam Seafood <span class="price-tag">RM11.90</span></button>
             </div>
         </section>
 
@@ -738,6 +783,7 @@
             const bluetoothBtn = document.getElementById('bluetoothBtn');
             const copyBtn = document.getElementById('copyBtn');
             const downloadBtn = document.getElementById('downloadBtn');
+            const quickBtns = document.querySelectorAll('.quick-btn');
 
             // ───────────────────────────────────────────────
             //  STATE
@@ -758,7 +804,7 @@
             }
 
             // ───────────────────────────────────────────────
-            //  ADD ITEM TO ORDER
+            //  ADD ITEM TO ORDER (from form)
             // ───────────────────────────────────────────────
             function addItemToOrder() {
                 const name = itemNameInput.value.trim();
@@ -766,19 +812,37 @@
                 if (!name) { showToast('Please enter an item name.'); return; }
                 if (isNaN(price) || price < 0) { showToast('Please enter a valid price.'); return; }
 
-                if (!order[name]) {
-                    order[name] = { qty: 0, price: price };
-                }
-                order[name].qty += 1;
-                // If price changed, update it (optional)
-                order[name].price = price;
-
-                renderOrder();
-                updateReceipt();
+                addOrUpdateOrder(name, price);
                 itemNameInput.value = '';
                 itemPriceInput.value = '';
                 showToast(`Added "${name}" (RM${price.toFixed(2)})`);
                 itemNameInput.focus();
+            }
+
+            // ───────────────────────────────────────────────
+            //  QUICK ADD (from pre-defined menu)
+            // ───────────────────────────────────────────────
+            function quickAddItem(e) {
+                const btn = e.currentTarget;
+                const name = btn.getAttribute('data-name');
+                const price = parseFloat(btn.getAttribute('data-price'));
+                if (!name || isNaN(price)) return;
+                addOrUpdateOrder(name, price);
+                showToast(`+1 × ${name} (RM${price.toFixed(2)})`);
+            }
+
+            // ───────────────────────────────────────────────
+            //  CORE: add or update order
+            // ───────────────────────────────────────────────
+            function addOrUpdateOrder(name, price) {
+                if (!order[name]) {
+                    order[name] = { qty: 0, price: price };
+                }
+                order[name].qty += 1;
+                // Update price if changed (e.g., from form with different price)
+                order[name].price = price;
+                renderOrder();
+                updateReceipt();
             }
 
             // ───────────────────────────────────────────────
@@ -1239,6 +1303,10 @@
             downloadBtn.addEventListener('click', downloadReceipt);
             deliveryFeeInput.addEventListener('input', updateReceipt);
 
+            quickBtns.forEach(btn => {
+                btn.addEventListener('click', quickAddItem);
+            });
+
             // ───────────────────────────────────────────────
             //  INIT
             // ───────────────────────────────────────────────
@@ -1249,7 +1317,7 @@
             window.resetAll = resetAll;
 
             console.log('🧾 Receipt Generator ready.');
-            console.log('📋 Add items directly to the order.');
+            console.log('📋 Quick-add menu items pre-loaded.');
 
         })();
     </script>
