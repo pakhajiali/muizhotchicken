@@ -7,7 +7,7 @@
     <link rel="icon" type="image/svg+xml" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'%3E%3Ctext y='.9em' font-size='90'%3E🧾%3C/text%3E%3C/svg%3E" />
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css" />
     <style>
-        /* ── RESET & BASE ── */
+        /* ── RESET & BASE (same as before) ── */
         *,
         *::before,
         *::after {
@@ -79,8 +79,6 @@
                 grid-template-columns: 1fr;
             }
         }
-
-        /* ── CARDS ── */
         .card {
             background: var(--surface);
             border-radius: var(--radius);
@@ -101,8 +99,6 @@
         .card-title i {
             font-size: 1.2rem;
         }
-
-        /* ── HEADER / TOP BAR ── */
         .top-bar {
             grid-column: 1 / -1;
             display: flex;
@@ -149,8 +145,6 @@
             border-radius: 30px;
             white-space: nowrap;
         }
-
-        /* ── BUTTONS ── */
         .btn {
             display: inline-flex;
             align-items: center;
@@ -217,17 +211,11 @@
         .btn-bluetooth:hover {
             background: #1f7a9a;
         }
-
-        /* ── ADD ITEM FORM ── */
-        .add-item-form {
-            display: flex;
-            flex-direction: column;
-            gap: 0.8rem;
-        }
         .add-item-form .row {
             display: flex;
             gap: 0.6rem;
             flex-wrap: wrap;
+            margin-bottom: 0.8rem;
         }
         .add-item-form .row input {
             flex: 1 1 120px;
@@ -242,42 +230,48 @@
         .add-item-form .row input:focus {
             outline: 2px solid var(--primary-light);
         }
-        .add-item-form .row .btn {
-            flex: 0 0 auto;
+        .quick-menu-wrap {
+            max-height: 280px;
+            overflow-y: auto;
+            padding-right: 0.3rem;
+            margin-top: 0.8rem;
+            border-top: 1px solid var(--border);
+            padding-top: 0.8rem;
         }
-
-        /* ── QUICK ADD MENU ── */
+        .quick-menu-wrap .category-label {
+            font-size: 0.7rem;
+            font-weight: 700;
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
+            color: var(--text2);
+            margin: 0.5rem 0 0.3rem 0.3rem;
+        }
         .quick-menu {
             display: flex;
             flex-wrap: wrap;
-            gap: 0.5rem;
-            margin-top: 0.8rem;
-            padding-top: 0.8rem;
-            border-top: 1px solid var(--border);
+            gap: 0.4rem;
         }
-        .quick-menu .quick-btn {
+        .quick-btn {
             background: var(--surface2);
             border: 1px solid var(--border);
             border-radius: 30px;
-            padding: 0.25rem 0.9rem;
-            font-size: 0.75rem;
+            padding: 0.2rem 0.8rem;
+            font-size: 0.7rem;
             font-weight: 500;
             cursor: pointer;
             transition: 0.2s;
             color: var(--text);
             white-space: nowrap;
         }
-        .quick-menu .quick-btn:hover {
+        .quick-btn:hover {
             background: var(--primary-light);
             border-color: var(--primary-dark);
             transform: scale(1.02);
         }
-        .quick-menu .quick-btn .price-tag {
+        .quick-btn .price-tag {
             opacity: 0.7;
             font-weight: 400;
         }
-
-        /* ── ORDER BUILDER ── */
         .order-list {
             display: flex;
             flex-direction: column;
@@ -286,13 +280,6 @@
             overflow-y: auto;
             padding-right: 0.3rem;
             margin-bottom: 0.8rem;
-        }
-        .order-list::-webkit-scrollbar {
-            width: 4px;
-        }
-        .order-list::-webkit-scrollbar-thumb {
-            background: var(--border);
-            border-radius: 10px;
         }
         .order-item-row {
             display: flex;
@@ -352,7 +339,6 @@
             text-align: center;
             padding: 1rem 0;
         }
-
         .delivery-fee-row {
             display: flex;
             align-items: center;
@@ -378,15 +364,12 @@
         .delivery-fee-row input:focus {
             outline: 2px solid var(--primary-light);
         }
-
         .order-actions-row {
             display: flex;
             flex-wrap: wrap;
             gap: 0.5rem;
             margin-top: 0.5rem;
         }
-
-        /* ── RECEIPT PREVIEW ── */
         .receipt-preview {
             grid-column: 1 / -1;
             display: grid;
@@ -398,7 +381,6 @@
                 grid-template-columns: 1fr;
             }
         }
-
         .receipt-paper {
             background: var(--print-bg);
             color: var(--print-text);
@@ -477,7 +459,6 @@
             opacity: 1;
             margin-bottom: 0.2rem;
         }
-
         .receipt-actions {
             display: flex;
             flex-direction: column;
@@ -495,8 +476,6 @@
             flex: 1 1 auto;
             justify-content: center;
         }
-
-        /* ── THEME TOGGLE ── */
         .theme-toggle {
             position: fixed;
             bottom: 1.5rem;
@@ -517,8 +496,6 @@
         .theme-toggle:hover {
             transform: scale(1.08);
         }
-
-        /* ── TOAST ── */
         .toast {
             position: fixed;
             bottom: 5rem;
@@ -541,13 +518,15 @@
             opacity: 1;
             transform: translateX(-50%) translateY(0);
         }
-
-        /* ── PRINT STYLES ── */
         @media print {
+            html,
             body {
-                background: #fff !important;
-                padding: 0 !important;
+                height: auto !important;
+                min-height: 0 !important;
                 margin: 0 !important;
+                padding: 0 !important;
+                background: #fff !important;
+                display: block !important;
             }
             .app-container {
                 display: block !important;
@@ -569,35 +548,41 @@
                 margin: 0 !important;
                 grid-template-columns: 1fr !important;
                 gap: 0 !important;
+                page-break-after: avoid !important;
+                page-break-inside: avoid !important;
+                overflow: visible !important;
             }
             .receipt-paper {
                 max-width: 100% !important;
+                width: 100% !important;
                 border: none !important;
                 box-shadow: none !important;
                 border-radius: 0 !important;
-                padding: 1.2rem !important;
-                margin: 0 !important;
+                padding: 1.2rem 1.2rem 1rem !important;
+                margin: 0 auto !important;
                 background: #fff !important;
                 color: #000 !important;
+                page-break-after: avoid !important;
+                page-break-inside: avoid !important;
+                overflow: visible !important;
+                font-size: 0.8rem !important;
             }
             .receipt-paper .receipt-header h2 {
-                font-size: 1.2rem !important;
-            }
-            .receipt-paper .receipt-footer .thankyou {
-                font-size: 1rem !important;
-            }
-            .receipt-paper .receipt-item {
-                font-size: 0.9rem !important;
-            }
-            .receipt-paper .receipt-totals .line {
-                font-size: 0.9rem !important;
-            }
-            .receipt-paper .receipt-totals .line.total {
                 font-size: 1.1rem !important;
             }
+            .receipt-paper .receipt-footer .thankyou {
+                font-size: 0.9rem !important;
+            }
+            .receipt-paper .receipt-item {
+                font-size: 0.8rem !important;
+            }
+            .receipt-paper .receipt-totals .line {
+                font-size: 0.8rem !important;
+            }
+            .receipt-paper .receipt-totals .line.total {
+                font-size: 1rem !important;
+            }
         }
-
-        /* ── RESPONSIVE TWEAKS ── */
         .badge-halal {
             display: inline-block;
             background: var(--primary-light);
@@ -610,24 +595,6 @@
         }
         .badge-halal i {
             margin-right: 0.2rem;
-        }
-
-        .clear-btn {
-            background: transparent;
-            border: none;
-            color: var(--text2);
-            font-size: 0.75rem;
-            cursor: pointer;
-            text-decoration: underline;
-            padding: 0.2rem 0.5rem;
-        }
-        .clear-btn:hover {
-            color: var(--text);
-        }
-        .flex-between {
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
         }
         .text-muted {
             color: var(--text2);
@@ -677,27 +644,13 @@
             <div class="card-title"><i class="fas fa-plus-circle"></i> Add Item to Order</div>
             <div class="add-item-form">
                 <div class="row">
-                    <input type="text" id="itemNameInput" placeholder="Item name (e.g. Nasi Kandar)" />
+                    <input type="text" id="itemNameInput" placeholder="Item name" />
                     <input type="number" id="itemPriceInput" placeholder="Price (RM)" step="0.01" min="0" />
                     <button class="btn btn-success" id="addItemBtn"><i class="fas fa-plus"></i> Add</button>
                 </div>
-                <div style="font-size:0.75rem;color:var(--text2);">
-                    <i class="fas fa-info-circle"></i> Item will be added with quantity 1. Adjust quantity in the order list below.
-                </div>
             </div>
-            <div class="quick-menu">
-                <span style="font-size:0.75rem;font-weight:600;color:var(--text2);padding-right:0.3rem;">Quick add:</span>
-                <button class="quick-btn" data-name="Nasi Kandar Muiz Chicken" data-price="6.90">Nasi Kandar Muiz <span class="price-tag">RM6.90</span></button>
-                <button class="quick-btn" data-name="Nasi Ayam Muiz Chicken" data-price="8.90">Nasi Ayam Muiz <span class="price-tag">RM8.90</span></button>
-                <button class="quick-btn" data-name="Original Regular Box" data-price="10.00">Original Box <span class="price-tag">RM10.00</span></button>
-                <button class="quick-btn" data-name="Cheese Regular Box" data-price="12.00">Cheese Box <span class="price-tag">RM12.00</span></button>
-                <button class="quick-btn" data-name="Korean Spicy Regular Box" data-price="13.00">Korean Spicy Box <span class="price-tag">RM13.00</span></button>
-                <button class="quick-btn" data-name="Nasi Bujang" data-price="3.90">Nasi Bujang <span class="price-tag">RM3.90</span></button>
-                <button class="quick-btn" data-name="Bakso" data-price="5.90">Bakso <span class="price-tag">RM5.90</span></button>
-                <button class="quick-btn" data-name="Mee Pak Haji Ali" data-price="6.90">Mee Pak Haji Ali <span class="price-tag">RM6.90</span></button>
-                <button class="quick-btn" data-name="Chicken Tenders" data-price="9.90">Chicken Tenders <span class="price-tag">RM9.90</span></button>
-                <button class="quick-btn" data-name="Nasi Goreng Kampung" data-price="7.50">Nasi Goreng Kampung <span class="price-tag">RM7.50</span></button>
-                <button class="quick-btn" data-name="Tomyam Seafood" data-price="11.90">Tomyam Seafood <span class="price-tag">RM11.90</span></button>
+            <div class="quick-menu-wrap" id="quickMenuWrap">
+                <!-- Quick buttons will be generated here -->
             </div>
         </section>
 
@@ -719,7 +672,6 @@
 
         <!-- RECEIPT PREVIEW + ACTIONS -->
         <section class="receipt-preview" id="receiptSection">
-            <!-- Receipt Paper -->
             <div class="receipt-paper" id="receiptPaper">
                 <div class="receipt-header">
                     <h2>Restoran Pak Haji Ali</h2>
@@ -742,8 +694,6 @@
                     <div style="margin-top:0.2rem;font-size:0.6rem;">📱 Order via WhatsApp: +6017-908 1447</div>
                 </div>
             </div>
-
-            <!-- Actions -->
             <div class="receipt-actions">
                 <div class="btn-group">
                     <button class="btn btn-print" id="printBtn"><i class="fas fa-print"></i> Print</button>
@@ -761,390 +711,484 @@
     </div>
 
     <script>
-        (function() {
-            'use strict';
+        // ───────────────────────────────────────────────
+        //  FULL MENU DATA (copied from data.js)
+        // ───────────────────────────────────────────────
+        const MENU_DATA = [{
+            category: "Most Ordered",
+            items: [
+                { name: "Nasi Kandar Muiz Hot Chicken", price: 6.90 },
+                { name: "Nasi Ayam Muiz Chicken", price: 8.90 },
+                { name: "Nasi Bujang", price: 3.90 },
+                { name: "Bakso", price: 5.90 },
+                { name: "Mee Pak Haji Ali", price: 6.90 }
+            ]
+        }, {
+            category: "Muiz Hot Chicken Regular Box",
+            items: [
+                { name: "Original Regular Box", price: 10.00 },
+                { name: "Cheese Regular Box", price: 12.00 },
+                { name: "Korean Spicy Regular Box", price: 13.00 },
+                { name: "Korean Cheese Regular Box", price: 14.00 }
+            ]
+        }, {
+            category: "Muiz Hot Chicken Happy Box",
+            items: [
+                { name: "Original Happy Box", price: 25.00 },
+                { name: "Cheese Happy Box", price: 29.00 },
+                { name: "Korean Spicy Happy Box", price: 31.00 },
+                { name: "Korean Cheese Happy Box", price: 33.00 }
+            ]
+        }, {
+            category: "Chicken Tenders",
+            items: [
+                { name: "Chicken Tenders", price: 9.90 }
+            ]
+        }, {
+            category: "Nasi Penyet",
+            items: [
+                { name: "Nasi Ayam Muiz Penyet", price: 8.90 },
+                { name: "Nasi Daging Penyet", price: 8.90 },
+                { name: "Nasi Ikan Keli Penyet", price: 8.90 },
+                { name: "Nasi Ikan Kembung Penyet", price: 8.90 }
+            ]
+        }, {
+            category: "Nasi Goreng Kampung",
+            items: [
+                { name: "Nasi Goreng Kampung", price: 7.50 },
+                { name: "Nasi Goreng Kampung Ayam", price: 11.90 },
+                { name: "Nasi Goreng Kampung Daging", price: 11.90 },
+                { name: "Nasi Goreng Kampung Seafood", price: 13.90 }
+            ]
+        }, {
+            category: "Nasi Goreng Cina",
+            items: [
+                { name: "Nasi Goreng Cina", price: 6.00 },
+                { name: "Nasi Goreng Cina Ayam", price: 10.90 },
+                { name: "Nasi Goreng Cina Daging", price: 10.90 },
+                { name: "Nasi Goreng Cina Seafood", price: 12.90 }
+            ]
+        }, {
+            category: "Nasi Goreng Tomyam",
+            items: [
+                { name: "Nasi Goreng Tomyam Biasa", price: 8.50 },
+                { name: "Nasi Goreng Tomyam Ayam", price: 12.90 },
+                { name: "Nasi Goreng Tomyam Daging", price: 12.90 },
+                { name: "Nasi Goreng Tomyam Seafood", price: 14.90 }
+            ]
+        }, {
+            category: "Nasi Goreng",
+            items: [
+                { name: "Nasi Goreng Vegetarian", price: 6.00 },
+                { name: "Nasi Goreng Biasa", price: 6.50 },
+                { name: "Nasi Goreng Cili Api", price: 6.50 },
+                { name: "Nasi Goreng Kicap", price: 6.80 },
+                { name: "Nasi Goreng Mamak", price: 7.00 },
+                { name: "Nasi Goreng Belacan", price: 7.00 },
+                { name: "Nasi Goreng Ikan Bilis", price: 7.50 },
+                { name: "Nasi Goreng Sardin", price: 8.50 },
+                { name: "Nasi Goreng Pattaya", price: 8.50 },
+                { name: "Nasi Goreng Ikan Masin", price: 9.00 },
+                { name: "Nasi Goreng Ayam", price: 9.50 },
+                { name: "Nasi Goreng Daging", price: 9.80 },
+                { name: "Nasi Goreng Paprik", price: 10.50 },
+                { name: "Nasi Goreng Masak Kunyit", price: 10.50 },
+                { name: "Nasi Goreng Seafood", price: 12.00 },
+                { name: "Nasi Goreng USA", price: 12.50 }
+            ]
+        }, {
+            category: "Ala Carte",
+            items: [
+                { name: "Nasi Putih", price: 2.00 },
+                { name: "Telur Mata", price: 1.50 },
+                { name: "Telur Dadar", price: 2.50 },
+                { name: "Telur Separuh Masak", price: 3.00 },
+                { name: "Telur Dadar Cheese", price: 4.50 },
+                { name: "Muiz Hot Chicken", price: 5.00 },
+                { name: "Ikan Kembung Goreng", price: 5.50 },
+                { name: "Ikan Keli Goreng", price: 5.90 },
+                { name: "Ayam Masak Kunyit", price: 6.90 },
+                { name: "Daging Masak Kunyit", price: 6.90 },
+                { name: "Ayam Masak Merah", price: 6.90 },
+                { name: "Daging Masak Merah", price: 6.90 },
+                { name: "Sup Sayur", price: 5.00 },
+                { name: "Sup Ayam", price: 8.00 },
+                { name: "Sup Daging", price: 8.00 },
+                { name: "Tomyam Ayam", price: 8.90 },
+                { name: "Tomyam Daging", price: 8.90 },
+                { name: "Tomyam Seafood", price: 11.90 }
+            ]
+        }];
 
-            // ───────────────────────────────────────────────
-            //  DOM REFS
-            // ───────────────────────────────────────────────
-            const orderList = document.getElementById('orderList');
-            const receiptItems = document.getElementById('receiptItems');
-            const receiptSubtotal = document.getElementById('receiptSubtotal');
-            const receiptDelivery = document.getElementById('receiptDelivery');
-            const receiptTotal = document.getElementById('receiptTotal');
-            const receiptDateTime = document.getElementById('receiptDateTime');
-            const deliveryFeeInput = document.getElementById('deliveryFee');
-            const toastEl = document.getElementById('toast');
-            const itemNameInput = document.getElementById('itemNameInput');
-            const itemPriceInput = document.getElementById('itemPriceInput');
-            const addItemBtn = document.getElementById('addItemBtn');
-            const clearOrderBtn = document.getElementById('clearOrderBtn');
-            const printBtn = document.getElementById('printBtn');
-            const bluetoothBtn = document.getElementById('bluetoothBtn');
-            const copyBtn = document.getElementById('copyBtn');
-            const downloadBtn = document.getElementById('downloadBtn');
-            const quickBtns = document.querySelectorAll('.quick-btn');
+        // ───────────────────────────────────────────────
+        //  DOM REFS
+        // ───────────────────────────────────────────────
+        const orderList = document.getElementById('orderList');
+        const receiptItems = document.getElementById('receiptItems');
+        const receiptSubtotal = document.getElementById('receiptSubtotal');
+        const receiptDelivery = document.getElementById('receiptDelivery');
+        const receiptTotal = document.getElementById('receiptTotal');
+        const receiptDateTime = document.getElementById('receiptDateTime');
+        const deliveryFeeInput = document.getElementById('deliveryFee');
+        const toastEl = document.getElementById('toast');
+        const itemNameInput = document.getElementById('itemNameInput');
+        const itemPriceInput = document.getElementById('itemPriceInput');
+        const addItemBtn = document.getElementById('addItemBtn');
+        const clearOrderBtn = document.getElementById('clearOrderBtn');
+        const printBtn = document.getElementById('printBtn');
+        const bluetoothBtn = document.getElementById('bluetoothBtn');
+        const copyBtn = document.getElementById('copyBtn');
+        const downloadBtn = document.getElementById('downloadBtn');
+        const quickMenuWrap = document.getElementById('quickMenuWrap');
 
-            // ───────────────────────────────────────────────
-            //  STATE
-            // ───────────────────────────────────────────────
-            let order = {}; // { "itemName": { qty, price } }
+        // ───────────────────────────────────────────────
+        //  STATE
+        // ───────────────────────────────────────────────
+        let order = {};
 
-            // ───────────────────────────────────────────────
-            //  TOAST
-            // ───────────────────────────────────────────────
-            let toastTimer = null;
+        // ───────────────────────────────────────────────
+        //  TOAST
+        // ───────────────────────────────────────────────
+        let toastTimer = null;
 
-            function showToast(msg, duration = 2200) {
-                if (!toastEl) return;
-                toastEl.textContent = msg;
-                toastEl.classList.add('show');
-                clearTimeout(toastTimer);
-                toastTimer = setTimeout(() => toastEl.classList.remove('show'), duration);
+        function showToast(msg, duration = 2200) {
+            if (!toastEl) return;
+            toastEl.textContent = msg;
+            toastEl.classList.add('show');
+            clearTimeout(toastTimer);
+            toastTimer = setTimeout(() => toastEl.classList.remove('show'), duration);
+        }
+
+        // ───────────────────────────────────────────────
+        //  GENERATE QUICK BUTTONS FROM MENU_DATA
+        // ───────────────────────────────────────────────
+        function buildQuickMenu() {
+            quickMenuWrap.innerHTML = '';
+            MENU_DATA.forEach(category => {
+                const label = document.createElement('div');
+                label.className = 'category-label';
+                label.textContent = category.category;
+                quickMenuWrap.appendChild(label);
+
+                const container = document.createElement('div');
+                container.className = 'quick-menu';
+                category.items.forEach(item => {
+                    const btn = document.createElement('button');
+                    btn.className = 'quick-btn';
+                    btn.dataset.name = item.name;
+                    btn.dataset.price = item.price;
+                    btn.innerHTML = `${item.name} <span class="price-tag">RM${item.price.toFixed(2)}</span>`;
+                    btn.addEventListener('click', function(e) {
+                        const name = this.dataset.name;
+                        const price = parseFloat(this.dataset.price);
+                        addOrUpdateOrder(name, price);
+                        showToast(`+1 × ${name} (RM${price.toFixed(2)})`);
+                    });
+                    container.appendChild(btn);
+                });
+                quickMenuWrap.appendChild(container);
+            });
+        }
+
+        // ───────────────────────────────────────────────
+        //  ADD / UPDATE ORDER
+        // ───────────────────────────────────────────────
+        function addOrUpdateOrder(name, price) {
+            if (!order[name]) {
+                order[name] = { qty: 0, price: price };
             }
+            order[name].qty += 1;
+            order[name].price = price;
+            renderOrder();
+            updateReceipt();
+        }
 
-            // ───────────────────────────────────────────────
-            //  ADD ITEM TO ORDER (from form)
-            // ───────────────────────────────────────────────
-            function addItemToOrder() {
-                const name = itemNameInput.value.trim();
-                const price = parseFloat(itemPriceInput.value);
-                if (!name) { showToast('Please enter an item name.'); return; }
-                if (isNaN(price) || price < 0) { showToast('Please enter a valid price.'); return; }
+        // ───────────────────────────────────────────────
+        //  MANUAL ADD (from form)
+        // ───────────────────────────────────────────────
+        function addItemFromForm() {
+            const name = itemNameInput.value.trim();
+            const price = parseFloat(itemPriceInput.value);
+            if (!name) { showToast('Please enter an item name.'); return; }
+            if (isNaN(price) || price < 0) { showToast('Please enter a valid price.'); return; }
+            addOrUpdateOrder(name, price);
+            itemNameInput.value = '';
+            itemPriceInput.value = '';
+            showToast(`Added "${name}" (RM${price.toFixed(2)})`);
+            itemNameInput.focus();
+        }
 
-                addOrUpdateOrder(name, price);
-                itemNameInput.value = '';
-                itemPriceInput.value = '';
-                showToast(`Added "${name}" (RM${price.toFixed(2)})`);
-                itemNameInput.focus();
-            }
-
-            // ───────────────────────────────────────────────
-            //  QUICK ADD (from pre-defined menu)
-            // ───────────────────────────────────────────────
-            function quickAddItem(e) {
-                const btn = e.currentTarget;
-                const name = btn.getAttribute('data-name');
-                const price = parseFloat(btn.getAttribute('data-price'));
-                if (!name || isNaN(price)) return;
-                addOrUpdateOrder(name, price);
-                showToast(`+1 × ${name} (RM${price.toFixed(2)})`);
-            }
-
-            // ───────────────────────────────────────────────
-            //  CORE: add or update order
-            // ───────────────────────────────────────────────
-            function addOrUpdateOrder(name, price) {
-                if (!order[name]) {
-                    order[name] = { qty: 0, price: price };
-                }
-                order[name].qty += 1;
-                // Update price if changed (e.g., from form with different price)
-                order[name].price = price;
-                renderOrder();
-                updateReceipt();
-            }
-
-            // ───────────────────────────────────────────────
-            //  QUANTITY CONTROLS
-            // ───────────────────────────────────────────────
-            function changeQty(name, delta) {
-                if (!order[name]) return;
-                const newQty = order[name].qty + delta;
-                if (newQty <= 0) {
-                    delete order[name];
-                } else {
-                    order[name].qty = newQty;
-                }
-                renderOrder();
-                updateReceipt();
-            }
-
-            function removeOrderItem(name) {
+        // ───────────────────────────────────────────────
+        //  QUANTITY CONTROLS
+        // ───────────────────────────────────────────────
+        function changeQty(name, delta) {
+            if (!order[name]) return;
+            const newQty = order[name].qty + delta;
+            if (newQty <= 0) {
                 delete order[name];
-                renderOrder();
-                updateReceipt();
-                showToast(`Removed "${name}" from order`);
+            } else {
+                order[name].qty = newQty;
             }
+            renderOrder();
+            updateReceipt();
+        }
 
-            // ───────────────────────────────────────────────
-            //  CLEAR ORDER
-            // ───────────────────────────────────────────────
-            function clearOrder() {
-                if (Object.keys(order).length === 0) return;
-                if (!confirm('Clear all items from order?')) return;
-                order = {};
-                renderOrder();
-                updateReceipt();
-                showToast('Order cleared.');
+        function removeOrderItem(name) {
+            delete order[name];
+            renderOrder();
+            updateReceipt();
+            showToast(`Removed "${name}" from order`);
+        }
+
+        function clearOrder() {
+            if (Object.keys(order).length === 0) return;
+            if (!confirm('Clear all items from order?')) return;
+            order = {};
+            renderOrder();
+            updateReceipt();
+            showToast('Order cleared.');
+        }
+
+        // ───────────────────────────────────────────────
+        //  RENDER ORDER LIST
+        // ───────────────────────────────────────────────
+        function renderOrder() {
+            orderList.innerHTML = '';
+            const keys = Object.keys(order);
+            if (keys.length === 0) {
+                orderList.innerHTML = '<div class="order-empty">No items in order.</div>';
+                return;
             }
+            keys.forEach(name => {
+                const { qty, price } = order[name];
+                const row = document.createElement('div');
+                row.className = 'order-item-row';
+                row.innerHTML = `
+                    <span class="item-name">${escapeHtml(name)}</span>
+                    <div class="qty-control">
+                        <button class="qty-down" data-name="${escapeHtml(name)}"><i class="fas fa-minus"></i></button>
+                        <span>${qty}</span>
+                        <button class="qty-up" data-name="${escapeHtml(name)}"><i class="fas fa-plus"></i></button>
+                    </div>
+                    <span class="item-total">RM${(qty * price).toFixed(2)}</span>
+                    <button class="remove-btn" data-name="${escapeHtml(name)}"><i class="fas fa-trash"></i></button>
+                `;
+                orderList.appendChild(row);
+            });
+            // attach events
+            orderList.querySelectorAll('.qty-down').forEach(btn => {
+                btn.addEventListener('click', function() {
+                    const name = this.dataset.name;
+                    if (name) changeQty(name, -1);
+                });
+            });
+            orderList.querySelectorAll('.qty-up').forEach(btn => {
+                btn.addEventListener('click', function() {
+                    const name = this.dataset.name;
+                    if (name) changeQty(name, 1);
+                });
+            });
+            orderList.querySelectorAll('.remove-btn').forEach(btn => {
+                btn.addEventListener('click', function() {
+                    const name = this.dataset.name;
+                    if (name) removeOrderItem(name);
+                });
+            });
+        }
 
-            // ───────────────────────────────────────────────
-            //  RENDER ORDER LIST
-            // ───────────────────────────────────────────────
-            function renderOrder() {
-                if (!orderList) return;
-                orderList.innerHTML = '';
-                const keys = Object.keys(order);
-                if (keys.length === 0) {
-                    orderList.innerHTML = '<div class="order-empty">No items in order.</div>';
-                    return;
-                }
+        // ───────────────────────────────────────────────
+        //  UPDATE RECEIPT
+        // ───────────────────────────────────────────────
+        function updateReceipt() {
+            const now = new Date();
+            receiptDateTime.textContent = now.toLocaleString('en-MY', {
+                day: '2-digit',
+                month: 'short',
+                year: 'numeric',
+                hour: '2-digit',
+                minute: '2-digit',
+                second: '2-digit',
+                hour12: true
+            });
+
+            const keys = Object.keys(order);
+            let subtotal = 0;
+            receiptItems.innerHTML = '';
+            if (keys.length === 0) {
+                receiptItems.innerHTML = '<div style="text-align:center;opacity:0.5;padding:0.5rem 0;">No items</div>';
+            } else {
                 keys.forEach(name => {
                     const { qty, price } = order[name];
-                    const row = document.createElement('div');
-                    row.className = 'order-item-row';
-                    row.innerHTML = `
-                        <span class="item-name">${escapeHtml(name)}</span>
-                        <div class="qty-control">
-                            <button class="qty-down" data-name="${escapeHtml(name)}"><i class="fas fa-minus"></i></button>
-                            <span>${qty}</span>
-                            <button class="qty-up" data-name="${escapeHtml(name)}"><i class="fas fa-plus"></i></button>
-                        </div>
-                        <span class="item-total">RM${(qty * price).toFixed(2)}</span>
-                        <button class="remove-btn" data-name="${escapeHtml(name)}"><i class="fas fa-trash"></i></button>
+                    const total = qty * price;
+                    subtotal += total;
+                    const div = document.createElement('div');
+                    div.className = 'receipt-item';
+                    div.innerHTML = `
+                        <span><span class="qty">${qty}×</span> ${escapeHtml(name)}</span>
+                        <span>RM${total.toFixed(2)}</span>
                     `;
-                    orderList.appendChild(row);
-                });
-
-                // Attach event listeners
-                orderList.querySelectorAll('.qty-down').forEach(btn => {
-                    btn.addEventListener('click', function() {
-                        const name = this.getAttribute('data-name');
-                        if (name) changeQty(name, -1);
-                    });
-                });
-                orderList.querySelectorAll('.qty-up').forEach(btn => {
-                    btn.addEventListener('click', function() {
-                        const name = this.getAttribute('data-name');
-                        if (name) changeQty(name, 1);
-                    });
-                });
-                orderList.querySelectorAll('.remove-btn').forEach(btn => {
-                    btn.addEventListener('click', function() {
-                        const name = this.getAttribute('data-name');
-                        if (name) removeOrderItem(name);
-                    });
+                    receiptItems.appendChild(div);
                 });
             }
 
-            // ───────────────────────────────────────────────
-            //  UPDATE RECEIPT
-            // ───────────────────────────────────────────────
-            function updateReceipt() {
-                const now = new Date();
-                receiptDateTime.textContent = now.toLocaleString('en-MY', {
-                    day: '2-digit',
-                    month: 'short',
-                    year: 'numeric',
-                    hour: '2-digit',
-                    minute: '2-digit',
-                    second: '2-digit',
-                    hour12: true
+            const delivery = parseFloat(deliveryFeeInput.value) || 0;
+            const total = subtotal + delivery;
+            receiptSubtotal.textContent = `RM${subtotal.toFixed(2)}`;
+            receiptDelivery.textContent = `RM${delivery.toFixed(2)}`;
+            receiptTotal.textContent = `RM${total.toFixed(2)}`;
+        }
+
+        // ───────────────────────────────────────────────
+        //  RESET
+        // ───────────────────────────────────────────────
+        function resetAll() {
+            if (!confirm('Reset everything? This will clear the order.')) return;
+            order = {};
+            renderOrder();
+            updateReceipt();
+            deliveryFeeInput.value = '0.00';
+            itemNameInput.value = '';
+            itemPriceInput.value = '';
+            showToast('Reset complete.');
+        }
+
+        // ───────────────────────────────────────────────
+        //  PRINT & BLUETOOTH (same as before)
+        // ───────────────────────────────────────────────
+        function printReceipt() {
+            if (Object.keys(order).length === 0) {
+                showToast('Order is empty. Add items first.');
+                return;
+            }
+            window.print();
+        }
+
+        async function printBluetooth() {
+            if (Object.keys(order).length === 0) {
+                showToast('Order is empty. Add items first.');
+                return;
+            }
+            if (!navigator.bluetooth) {
+                showToast('⚠️ Web Bluetooth is not supported.');
+                return;
+            }
+            try {
+                const device = await navigator.bluetooth.requestDevice({
+                    filters: [
+                        { services: ['000018f0-0000-1000-8000-00805f9b34fb'] },
+                        { services: ['00001801-0000-1000-8000-00805f9b34fb'] },
+                        { services: ['00001802-0000-1000-8000-00805f9b34fb'] },
+                    ],
+                    optionalServices: [
+                        '000018f0-0000-1000-8000-00805f9b34fb',
+                        '00001801-0000-1000-8000-00805f9b34fb',
+                        '00001802-0000-1000-8000-00805f9b34fb'
+                    ]
                 });
-
-                const keys = Object.keys(order);
-                let subtotal = 0;
-
-                receiptItems.innerHTML = '';
-                if (keys.length === 0) {
-                    receiptItems.innerHTML = '<div style="text-align:center;opacity:0.5;padding:0.5rem 0;">No items</div>';
-                } else {
-                    keys.forEach(name => {
-                        const { qty, price } = order[name];
-                        const total = qty * price;
-                        subtotal += total;
-                        const div = document.createElement('div');
-                        div.className = 'receipt-item';
-                        div.innerHTML = `
-                            <span><span class="qty">${qty}×</span> ${escapeHtml(name)}</span>
-                            <span>RM${total.toFixed(2)}</span>
-                        `;
-                        receiptItems.appendChild(div);
-                    });
-                }
-
-                const delivery = parseFloat(deliveryFeeInput.value) || 0;
-                const total = subtotal + delivery;
-
-                receiptSubtotal.textContent = `RM${subtotal.toFixed(2)}`;
-                receiptDelivery.textContent = `RM${delivery.toFixed(2)}`;
-                receiptTotal.textContent = `RM${total.toFixed(2)}`;
-            }
-
-            // ───────────────────────────────────────────────
-            //  RESET ALL
-            // ───────────────────────────────────────────────
-            function resetAll() {
-                if (!confirm('Reset everything? This will clear the order.')) return;
-                order = {};
-                renderOrder();
-                updateReceipt();
-                deliveryFeeInput.value = '0.00';
-                itemNameInput.value = '';
-                itemPriceInput.value = '';
-                showToast('Reset complete.');
-            }
-
-            // ───────────────────────────────────────────────
-            //  PRINT (window.print)
-            // ───────────────────────────────────────────────
-            function printReceipt() {
-                if (Object.keys(order).length === 0) {
-                    showToast('Order is empty. Add items first.');
-                    return;
-                }
-                window.print();
-            }
-
-            // ───────────────────────────────────────────────
-            //  BLUETOOTH PRINTING (Web Bluetooth + ESC/POS)
-            // ───────────────────────────────────────────────
-            async function printBluetooth() {
-                if (Object.keys(order).length === 0) {
-                    showToast('Order is empty. Add items first.');
-                    return;
-                }
-
-                if (!navigator.bluetooth) {
-                    showToast('⚠️ Web Bluetooth is not supported on this browser.');
-                    return;
-                }
-
+                showToast(`Connecting to ${device.name || 'printer'}...`);
+                const server = await device.gatt.connect();
+                let service;
                 try {
-                    const device = await navigator.bluetooth.requestDevice({
-                        filters: [
-                            { services: ['000018f0-0000-1000-8000-00805f9b34fb'] },
-                            { services: ['00001801-0000-1000-8000-00805f9b34fb'] },
-                            { services: ['00001802-0000-1000-8000-00805f9b34fb'] },
-                        ],
-                        optionalServices: [
-                            '000018f0-0000-1000-8000-00805f9b34fb',
-                            '00001801-0000-1000-8000-00805f9b34fb',
-                            '00001802-0000-1000-8000-00805f9b34fb'
-                        ]
-                    });
-
-                    showToast(`Connecting to ${device.name || 'printer'}...`);
-
-                    const server = await device.gatt.connect();
-                    let service;
+                    service = await server.getPrimaryService('000018f0-0000-1000-8000-00805f9b34fb');
+                } catch (_) {
                     try {
-                        service = await server.getPrimaryService('000018f0-0000-1000-8000-00805f9b34fb');
-                    } catch (_) {
+                        service = await server.getPrimaryService('00001801-0000-1000-8000-00805f9b34fb');
+                    } catch (_2) {
                         try {
-                            service = await server.getPrimaryService('00001801-0000-1000-8000-00805f9b34fb');
-                        } catch (_2) {
-                            try {
-                                service = await server.getPrimaryService('00001802-0000-1000-8000-00805f9b34fb');
-                            } catch (_3) {
-                                throw new Error('Could not find a printer service.');
-                            }
+                            service = await server.getPrimaryService('00001802-0000-1000-8000-00805f9b34fb');
+                        } catch (_3) {
+                            throw new Error('Printer service not found.');
                         }
                     }
-
-                    let characteristic;
-                    try {
-                        characteristic = await service.getCharacteristic('00002a7e-0000-1000-8000-00805f9b34fb');
-                    } catch (_) {
-                        try {
-                            characteristic = await service.getCharacteristic('00002a7d-0000-1000-8000-00805f9b34fb');
-                        } catch (_2) {
-                            throw new Error('Could not find a writable characteristic.');
-                        }
-                    }
-
-                    const receiptData = buildEscPosReceipt();
-                    await characteristic.writeValue(receiptData);
-
-                    showToast(`✅ Printed to ${device.name || 'printer'}!`);
-                } catch (err) {
-                    console.error(err);
-                    showToast(`❌ Bluetooth error: ${err.message || 'Unknown error'}`);
                 }
+                let characteristic;
+                try {
+                    characteristic = await service.getCharacteristic('00002a7e-0000-1000-8000-00805f9b34fb');
+                } catch (_) {
+                    try {
+                        characteristic = await service.getCharacteristic('00002a7d-0000-1000-8000-00805f9b34fb');
+                    } catch (_2) {
+                        throw new Error('Writable characteristic not found.');
+                    }
+                }
+                const receiptData = buildEscPosReceipt();
+                await characteristic.writeValue(receiptData);
+                showToast(`✅ Printed to ${device.name || 'printer'}!`);
+            } catch (err) {
+                console.error(err);
+                showToast(`❌ Bluetooth error: ${err.message || 'Unknown'}`);
             }
+        }
 
-            // ─── Build ESC/POS byte array ───
-            function buildEscPosReceipt() {
-                const encoder = new TextEncoder();
-                const lines = [];
-
-                lines.push('===============================');
-                lines.push('  RESTORAN PAK HAJI ALI');
-                lines.push('  & MUIZ HOT CHICKEN');
-                lines.push('  JAKIM Halal · USJ 8');
-                lines.push('  📞 +6017-908 1447');
-                lines.push('===============================');
-                lines.push('');
-
-                const now = new Date();
-                const dt = now.toLocaleString('en-MY', {
-                    day: '2-digit',
-                    month: 'short',
-                    year: 'numeric',
-                    hour: '2-digit',
-                    minute: '2-digit',
-                    hour12: true
+        function buildEscPosReceipt() {
+            const encoder = new TextEncoder();
+            const lines = [];
+            lines.push('===============================');
+            lines.push('  RESTORAN PAK HAJI ALI');
+            lines.push('  & MUIZ HOT CHICKEN');
+            lines.push('  JAKIM Halal · USJ 8');
+            lines.push('  📞 +6017-908 1447');
+            lines.push('===============================');
+            lines.push('');
+            const now = new Date();
+            const dt = now.toLocaleString('en-MY', {
+                day: '2-digit',
+                month: 'short',
+                year: 'numeric',
+                hour: '2-digit',
+                minute: '2-digit',
+                hour12: true
+            });
+            lines.push(`  ${dt}`);
+            lines.push('');
+            let subtotal = 0;
+            const keys = Object.keys(order);
+            if (keys.length === 0) {
+                lines.push('  (empty order)');
+            } else {
+                keys.forEach(name => {
+                    const { qty, price } = order[name];
+                    const total = qty * price;
+                    subtotal += total;
+                    const line = `${qty}× ${name}`;
+                    const padded = line.padEnd(30, ' ');
+                    lines.push(`${padded}RM${total.toFixed(2)}`);
                 });
-                lines.push(`  ${dt}`);
-                lines.push('');
-
-                let subtotal = 0;
-                const keys = Object.keys(order);
-                if (keys.length === 0) {
-                    lines.push('  (empty order)');
-                } else {
-                    keys.forEach(name => {
-                        const { qty, price } = order[name];
-                        const total = qty * price;
-                        subtotal += total;
-                        const line = `${qty}× ${name}`;
-                        const padded = line.padEnd(30, ' ');
-                        lines.push(`${padded}RM${total.toFixed(2)}`);
-                    });
-                }
-
-                lines.push('');
-                lines.push('-------------------------------');
-
-                const delivery = parseFloat(deliveryFeeInput.value) || 0;
-                const total = subtotal + delivery;
-
-                lines.push(`  Subtotal    RM${subtotal.toFixed(2)}`);
-                lines.push(`  Delivery    RM${delivery.toFixed(2)}`);
-                lines.push(`  TOTAL       RM${total.toFixed(2)}`);
-                lines.push('-------------------------------');
-                lines.push('');
-                lines.push('  ✨ Thank you! ✨');
-                lines.push('  muizhotchicken.com');
-                lines.push('  📱 +6017-908 1447');
-                lines.push('===============================');
-                lines.push('');
-                lines.push('');
-
-                const text = lines.join('\n');
-                const bytes = encoder.encode(text);
-                const init = new Uint8Array([0x1B, 0x40]);
-                const cut = new Uint8Array([0x1D, 0x56, 0x42, 0x00]);
-                const result = new Uint8Array(init.length + bytes.length + cut.length);
-                result.set(init, 0);
-                result.set(bytes, init.length);
-                result.set(cut, init.length + bytes.length);
-                return result;
             }
+            lines.push('');
+            lines.push('-------------------------------');
+            const delivery = parseFloat(deliveryFeeInput.value) || 0;
+            const total = subtotal + delivery;
+            lines.push(`  Subtotal    RM${subtotal.toFixed(2)}`);
+            lines.push(`  Delivery    RM${delivery.toFixed(2)}`);
+            lines.push(`  TOTAL       RM${total.toFixed(2)}`);
+            lines.push('-------------------------------');
+            lines.push('');
+            lines.push('  ✨ Thank you! ✨');
+            lines.push('  muizhotchicken.com');
+            lines.push('  📱 +6017-908 1447');
+            lines.push('===============================');
+            lines.push('');
+            lines.push('');
+            const text = lines.join('\n');
+            const bytes = encoder.encode(text);
+            const init = new Uint8Array([0x1B, 0x40]);
+            const cut = new Uint8Array([0x1D, 0x56, 0x42, 0x00]);
+            const result = new Uint8Array(init.length + bytes.length + cut.length);
+            result.set(init, 0);
+            result.set(bytes, init.length);
+            result.set(cut, init.length + bytes.length);
+            return result;
+        }
 
-            // ───────────────────────────────────────────────
-            //  COPY RECEIPT AS TEXT
-            // ───────────────────────────────────────────────
-            function copyReceipt() {
-                if (Object.keys(order).length === 0) {
-                    showToast('Order is empty.');
-                    return;
-                }
-                const lines = buildTextReceipt();
-                navigator.clipboard.writeText(lines).then(() => {
-                    showToast('✅ Receipt copied to clipboard!');
-                }).catch(() => {
+        // ───────────────────────────────────────────────
+        //  COPY & DOWNLOAD
+        // ───────────────────────────────────────────────
+        function copyReceipt() {
+            if (Object.keys(order).length === 0) { showToast('Order is empty.'); return; }
+            const lines = buildTextReceipt();
+            navigator.clipboard.writeText(lines).then(() => showToast('✅ Receipt copied!'))
+                .catch(() => {
                     const ta = document.createElement('textarea');
                     ta.value = lines;
                     document.body.appendChild(ta);
@@ -1153,36 +1197,109 @@
                     ta.remove();
                     showToast('✅ Receipt copied!');
                 });
-            }
+        }
 
-            // ───────────────────────────────────────────────
-            //  DOWNLOAD .TXT
-            // ───────────────────────────────────────────────
-            function downloadReceipt() {
-                if (Object.keys(order).length === 0) {
-                    showToast('Order is empty.');
-                    return;
-                }
-                const lines = buildTextReceipt();
-                const blob = new Blob([lines], { type: 'text/plain;charset=utf-8' });
-                const url = URL.createObjectURL(blob);
-                const a = document.createElement('a');
-                a.href = url;
-                const now = new Date();
-                const ts = now.toISOString().slice(0, 10);
-                a.download = `receipt-${ts}.txt`;
-                document.body.appendChild(a);
-                a.click();
-                a.remove();
-                URL.revokeObjectURL(url);
-                showToast('✅ Receipt downloaded!');
-            }
+        function downloadReceipt() {
+            if (Object.keys(order).length === 0) { showToast('Order is empty.'); return; }
+            const lines = buildTextReceipt();
+            const blob = new Blob([lines], { type: 'text/plain;charset=utf-8' });
+            const url = URL.createObjectURL(blob);
+            const a = document.createElement('a');
+            a.href = url;
+            const now = new Date();
+            const ts = now.toISOString().slice(0, 10);
+            a.download = `receipt-${ts}.txt`;
+            document.body.appendChild(a);
+            a.click();
+            a.remove();
+            URL.revokeObjectURL(url);
+            showToast('✅ Receipt downloaded!');
+        }
 
-            // ─── Build plain text receipt ───
-            function buildTextReceipt() {
-                const lines = [];
+        function buildTextReceipt() {
+            const lines = [];
+            const now = new Date();
+            const dt = now.toLocaleString('en-MY', {
+                day: '2-digit',
+                month: 'short',
+                year: 'numeric',
+                hour: '2-digit',
+                minute: '2-digit',
+                hour12: true
+            });
+            lines.push('═══════════════════════════════════');
+            lines.push('  RESTORAN PAK HAJI ALI');
+            lines.push('  & MUIZ HOT CHICKEN');
+            lines.push('  JAKIM Halal · USJ 8');
+            lines.push('  📞 +6017-908 1447');
+            lines.push('───────────────────────────────────');
+            lines.push(`  ${dt}`);
+            lines.push('───────────────────────────────────');
+            let subtotal = 0;
+            const keys = Object.keys(order);
+            if (keys.length === 0) {
+                lines.push('  (empty order)');
+            } else {
+                keys.forEach(name => {
+                    const { qty, price } = order[name];
+                    const total = qty * price;
+                    subtotal += total;
+                    const line = `${qty}× ${name}`;
+                    const padded = line.padEnd(30, ' ');
+                    lines.push(`${padded}RM${total.toFixed(2)}`);
+                });
+            }
+            const delivery = parseFloat(deliveryFeeInput.value) || 0;
+            const total = subtotal + delivery;
+            lines.push('───────────────────────────────────');
+            lines.push(`  Subtotal    RM${subtotal.toFixed(2)}`);
+            lines.push(`  Delivery    RM${delivery.toFixed(2)}`);
+            lines.push(`  TOTAL       RM${total.toFixed(2)}`);
+            lines.push('═══════════════════════════════════');
+            lines.push('  ✨ Thank you! ✨');
+            lines.push('  muizhotchicken.com');
+            lines.push('  📱 +6017-908 1447');
+            lines.push('═══════════════════════════════════');
+            return lines.join('\n');
+        }
+
+        // ───────────────────────────────────────────────
+        //  UTILITY
+        // ───────────────────────────────────────────────
+        function escapeHtml(str) {
+            const div = document.createElement('div');
+            div.textContent = str;
+            return div.innerHTML;
+        }
+
+        // ───────────────────────────────────────────────
+        //  THEME TOGGLE
+        // ───────────────────────────────────────────────
+        const themeToggle = document.getElementById('themeToggle');
+        const themeIcon = document.getElementById('themeIcon');
+        let dark = localStorage.getItem('muiz_receipt_theme') === 'dark';
+
+        function applyTheme() {
+            document.documentElement.setAttribute('data-theme', dark ? 'dark' : 'light');
+            themeIcon.className = dark ? 'fas fa-sun' : 'fas fa-moon';
+            localStorage.setItem('muiz_receipt_theme', dark ? 'dark' : 'light');
+        }
+        if (themeToggle) {
+            themeToggle.addEventListener('click', () => {
+                dark = !dark;
+                applyTheme();
+            });
+        }
+        applyTheme();
+
+        // ───────────────────────────────────────────────
+        //  CLOCK
+        // ───────────────────────────────────────────────
+        function updateClock() {
+            const el = document.getElementById('currentDateTime');
+            if (el) {
                 const now = new Date();
-                const dt = now.toLocaleString('en-MY', {
+                el.textContent = now.toLocaleString('en-MY', {
                     day: '2-digit',
                     month: 'short',
                     year: 'numeric',
@@ -1190,136 +1307,41 @@
                     minute: '2-digit',
                     hour12: true
                 });
-
-                lines.push('═══════════════════════════════════');
-                lines.push('  RESTORAN PAK HAJI ALI');
-                lines.push('  & MUIZ HOT CHICKEN');
-                lines.push('  JAKIM Halal · USJ 8');
-                lines.push('  📞 +6017-908 1447');
-                lines.push('───────────────────────────────────');
-                lines.push(`  ${dt}`);
-                lines.push('───────────────────────────────────');
-
-                let subtotal = 0;
-                const keys = Object.keys(order);
-                if (keys.length === 0) {
-                    lines.push('  (empty order)');
-                } else {
-                    keys.forEach(name => {
-                        const { qty, price } = order[name];
-                        const total = qty * price;
-                        subtotal += total;
-                        const line = `${qty}× ${name}`;
-                        const padded = line.padEnd(30, ' ');
-                        lines.push(`${padded}RM${total.toFixed(2)}`);
-                    });
-                }
-
-                const delivery = parseFloat(deliveryFeeInput.value) || 0;
-                const total = subtotal + delivery;
-
-                lines.push('───────────────────────────────────');
-                lines.push(`  Subtotal    RM${subtotal.toFixed(2)}`);
-                lines.push(`  Delivery    RM${delivery.toFixed(2)}`);
-                lines.push(`  TOTAL       RM${total.toFixed(2)}`);
-                lines.push('═══════════════════════════════════');
-                lines.push('  ✨ Thank you! ✨');
-                lines.push('  muizhotchicken.com');
-                lines.push('  📱 +6017-908 1447');
-                lines.push('═══════════════════════════════════');
-
-                return lines.join('\n');
             }
+        }
+        updateClock();
+        setInterval(updateClock, 30000);
 
-            // ───────────────────────────────────────────────
-            //  UTILITY
-            // ───────────────────────────────────────────────
-            function escapeHtml(str) {
-                const div = document.createElement('div');
-                div.textContent = str;
-                return div.innerHTML;
-            }
+        // ───────────────────────────────────────────────
+        //  EVENT BINDINGS
+        // ───────────────────────────────────────────────
+        addItemBtn.addEventListener('click', addItemFromForm);
+        itemNameInput.addEventListener('keydown', (e) => {
+            if (e.key === 'Enter') { e.preventDefault();
+                itemPriceInput.focus(); }
+        });
+        itemPriceInput.addEventListener('keydown', (e) => {
+            if (e.key === 'Enter') { e.preventDefault();
+                addItemFromForm(); }
+        });
+        clearOrderBtn.addEventListener('click', clearOrder);
+        printBtn.addEventListener('click', printReceipt);
+        bluetoothBtn.addEventListener('click', printBluetooth);
+        copyBtn.addEventListener('click', copyReceipt);
+        downloadBtn.addEventListener('click', downloadReceipt);
+        deliveryFeeInput.addEventListener('input', updateReceipt);
 
-            // ───────────────────────────────────────────────
-            //  THEME TOGGLE
-            // ───────────────────────────────────────────────
-            const themeToggle = document.getElementById('themeToggle');
-            const themeIcon = document.getElementById('themeIcon');
-            let dark = localStorage.getItem('muiz_receipt_theme') === 'dark';
+        // ───────────────────────────────────────────────
+        //  INIT
+        // ───────────────────────────────────────────────
+        buildQuickMenu();
+        renderOrder();
+        updateReceipt();
 
-            function applyTheme() {
-                document.documentElement.setAttribute('data-theme', dark ? 'dark' : 'light');
-                themeIcon.className = dark ? 'fas fa-sun' : 'fas fa-moon';
-                localStorage.setItem('muiz_receipt_theme', dark ? 'dark' : 'light');
-            }
-            if (themeToggle) {
-                themeToggle.addEventListener('click', () => {
-                    dark = !dark;
-                    applyTheme();
-                });
-            }
-            applyTheme();
+        // Expose reset globally
+        window.resetAll = resetAll;
 
-            // ───────────────────────────────────────────────
-            //  CLOCK
-            // ───────────────────────────────────────────────
-            function updateClock() {
-                const el = document.getElementById('currentDateTime');
-                if (el) {
-                    const now = new Date();
-                    el.textContent = now.toLocaleString('en-MY', {
-                        day: '2-digit',
-                        month: 'short',
-                        year: 'numeric',
-                        hour: '2-digit',
-                        minute: '2-digit',
-                        hour12: true
-                    });
-                }
-            }
-            updateClock();
-            setInterval(updateClock, 30000);
-
-            // ───────────────────────────────────────────────
-            //  EVENT BINDINGS
-            // ───────────────────────────────────────────────
-            addItemBtn.addEventListener('click', addItemToOrder);
-            itemNameInput.addEventListener('keydown', (e) => {
-                if (e.key === 'Enter') {
-                    e.preventDefault();
-                    itemPriceInput.focus();
-                }
-            });
-            itemPriceInput.addEventListener('keydown', (e) => {
-                if (e.key === 'Enter') {
-                    e.preventDefault();
-                    addItemToOrder();
-                }
-            });
-            clearOrderBtn.addEventListener('click', clearOrder);
-            printBtn.addEventListener('click', printReceipt);
-            bluetoothBtn.addEventListener('click', printBluetooth);
-            copyBtn.addEventListener('click', copyReceipt);
-            downloadBtn.addEventListener('click', downloadReceipt);
-            deliveryFeeInput.addEventListener('input', updateReceipt);
-
-            quickBtns.forEach(btn => {
-                btn.addEventListener('click', quickAddItem);
-            });
-
-            // ───────────────────────────────────────────────
-            //  INIT
-            // ───────────────────────────────────────────────
-            renderOrder();
-            updateReceipt();
-
-            // Expose globally for reset
-            window.resetAll = resetAll;
-
-            console.log('🧾 Receipt Generator ready.');
-            console.log('📋 Quick-add menu items pre-loaded.');
-
-        })();
+        console.log('🧾 Receipt Generator ready with full menu quick-add.');
     </script>
 </body>
 </html>
