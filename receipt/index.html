@@ -1,0 +1,1257 @@
+<!DOCTYPE html>
+<html lang="en" data-theme="light">
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover, maximum-scale=1.0, user-scalable=no" />
+    <title>Receipt Generator · Restoran Pak Haji Ali &amp; Muiz Hot Chicken</title>
+    <link rel="icon" type="image/svg+xml" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'%3E%3Ctext y='.9em' font-size='90'%3E🧾%3C/text%3E%3C/svg%3E" />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css" />
+    <style>
+        /* ── RESET & BASE ── */
+        *,
+        *::before,
+        *::after {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+        }
+        :root {
+            --bg: #f6f2eb;
+            --surface: #ffffff;
+            --surface2: #f0ebe3;
+            --text: #1a1a2e;
+            --text2: #4a4a5a;
+            --border: #dcd5cc;
+            --primary: #b8860b;
+            --primary-light: #e8c87a;
+            --primary-dark: #8b6b0a;
+            --radius: 14px;
+            --shadow: 0 8px 30px rgba(0, 0, 0, 0.08);
+            --font: 'Segoe UI', system-ui, -apple-system, sans-serif;
+            --print-bg: #fff;
+            --print-text: #000;
+            --print-border: #ccc;
+        }
+        [data-theme="dark"] {
+            --bg: #1a1a2e;
+            --surface: #252540;
+            --surface2: #2f2f4a;
+            --text: #f0ede8;
+            --text2: #b8b0a8;
+            --border: #3a3a55;
+            --primary: #e8c87a;
+            --primary-light: #f0d89a;
+            --primary-dark: #b8860b;
+            --shadow: 0 8px 30px rgba(0, 0, 0, 0.4);
+            --print-bg: #fff;
+            --print-text: #000;
+            --print-border: #ccc;
+        }
+        html {
+            font-family: var(--font);
+            background: var(--bg);
+            color: var(--text);
+            transition: background 0.3s, color 0.3s;
+        }
+        body {
+            min-height: 100vh;
+            padding: 1rem;
+            display: flex;
+            justify-content: center;
+            align-items: flex-start;
+        }
+        .app-container {
+            max-width: 1300px;
+            width: 100%;
+            margin: 0 auto;
+            display: grid;
+            grid-template-columns: 1fr 1fr 1fr;
+            gap: 1.5rem;
+            align-items: start;
+        }
+        @media (max-width:1024px) {
+            .app-container {
+                grid-template-columns: 1fr 1fr;
+            }
+        }
+        @media (max-width:700px) {
+            .app-container {
+                grid-template-columns: 1fr;
+            }
+        }
+
+        /* ── CARDS ── */
+        .card {
+            background: var(--surface);
+            border-radius: var(--radius);
+            box-shadow: var(--shadow);
+            padding: 1.5rem 1.25rem;
+            border: 1px solid var(--border);
+            transition: background 0.3s, border 0.3s;
+        }
+        .card-title {
+            font-size: 1.1rem;
+            font-weight: 700;
+            display: flex;
+            align-items: center;
+            gap: 0.6rem;
+            margin-bottom: 1.2rem;
+            color: var(--primary-dark);
+        }
+        .card-title i {
+            font-size: 1.2rem;
+        }
+
+        /* ── HEADER / TOP BAR ── */
+        .top-bar {
+            grid-column: 1 / -1;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            flex-wrap: wrap;
+            gap: 0.8rem 1.5rem;
+            background: var(--surface);
+            border-radius: var(--radius);
+            padding: 1rem 1.5rem;
+            border: 1px solid var(--border);
+            box-shadow: var(--shadow);
+        }
+        .top-bar .brand {
+            display: flex;
+            align-items: center;
+            gap: 0.8rem;
+        }
+        .top-bar .brand h1 {
+            font-size: 1.2rem;
+            font-weight: 700;
+            line-height: 1.3;
+        }
+        .top-bar .brand h1 small {
+            display: block;
+            font-weight: 400;
+            font-size: 0.7rem;
+            color: var(--text2);
+        }
+        .top-bar .brand .logo-icon {
+            font-size: 2rem;
+        }
+        .top-bar .actions {
+            display: flex;
+            align-items: center;
+            gap: 0.6rem;
+            flex-wrap: wrap;
+        }
+        .top-bar .actions .datetime {
+            font-size: 0.8rem;
+            color: var(--text2);
+            background: var(--surface2);
+            padding: 0.3rem 0.8rem;
+            border-radius: 30px;
+            white-space: nowrap;
+        }
+
+        /* ── BUTTONS ── */
+        .btn {
+            display: inline-flex;
+            align-items: center;
+            gap: 0.5rem;
+            padding: 0.5rem 1.2rem;
+            border: none;
+            border-radius: 30px;
+            font-weight: 600;
+            font-size: 0.85rem;
+            cursor: pointer;
+            transition: 0.2s;
+            background: var(--surface2);
+            color: var(--text);
+            text-decoration: none;
+            white-space: nowrap;
+        }
+        .btn:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+        }
+        .btn-primary {
+            background: var(--primary-dark);
+            color: #fff;
+        }
+        .btn-primary:hover {
+            background: var(--primary);
+        }
+        .btn-success {
+            background: #2a7a4a;
+            color: #fff;
+        }
+        .btn-success:hover {
+            background: #1f8a4a;
+        }
+        .btn-danger {
+            background: #b13e3e;
+            color: #fff;
+        }
+        .btn-danger:hover {
+            background: #c44a4a;
+        }
+        .btn-outline {
+            background: transparent;
+            border: 2px solid var(--border);
+        }
+        .btn-outline:hover {
+            background: var(--surface2);
+        }
+        .btn-sm {
+            padding: 0.25rem 0.8rem;
+            font-size: 0.75rem;
+        }
+        .btn-print {
+            background: #1a3a5a;
+            color: #fff;
+        }
+        .btn-print:hover {
+            background: #1f4a6a;
+        }
+        .btn-bluetooth {
+            background: #1a6a8a;
+            color: #fff;
+        }
+        .btn-bluetooth:hover {
+            background: #1f7a9a;
+        }
+
+        /* ── ADD ITEM FORM ── */
+        .add-item-form {
+            display: flex;
+            flex-direction: column;
+            gap: 0.8rem;
+        }
+        .add-item-form .row {
+            display: flex;
+            gap: 0.6rem;
+            flex-wrap: wrap;
+        }
+        .add-item-form .row input {
+            flex: 1 1 120px;
+            padding: 0.5rem 0.8rem;
+            border: 1px solid var(--border);
+            border-radius: 30px;
+            background: var(--surface);
+            color: var(--text);
+            font-size: 0.85rem;
+            min-width: 80px;
+        }
+        .add-item-form .row input:focus {
+            outline: 2px solid var(--primary-light);
+        }
+        .add-item-form .row .btn {
+            flex: 0 0 auto;
+        }
+
+        /* ── ORDER BUILDER ── */
+        .order-list {
+            display: flex;
+            flex-direction: column;
+            gap: 0.4rem;
+            max-height: 320px;
+            overflow-y: auto;
+            padding-right: 0.3rem;
+            margin-bottom: 0.8rem;
+        }
+        .order-list::-webkit-scrollbar {
+            width: 4px;
+        }
+        .order-list::-webkit-scrollbar-thumb {
+            background: var(--border);
+            border-radius: 10px;
+        }
+        .order-item-row {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 0.4rem 0.8rem;
+            background: var(--surface2);
+            border-radius: 30px;
+            font-size: 0.85rem;
+            gap: 0.5rem;
+        }
+        .order-item-row .item-name {
+            flex: 1;
+            font-weight: 500;
+        }
+        .order-item-row .qty-control {
+            display: flex;
+            align-items: center;
+            gap: 0.4rem;
+        }
+        .order-item-row .qty-control button {
+            background: transparent;
+            border: none;
+            cursor: pointer;
+            font-size: 1rem;
+            color: var(--text2);
+            padding: 0 0.2rem;
+            transition: 0.2s;
+        }
+        .order-item-row .qty-control button:hover {
+            color: var(--text);
+        }
+        .order-item-row .qty-control span {
+            font-weight: 600;
+            min-width: 1.5rem;
+            text-align: center;
+        }
+        .order-item-row .item-total {
+            font-weight: 600;
+            color: var(--primary-dark);
+            white-space: nowrap;
+        }
+        .order-item-row .remove-btn {
+            background: transparent;
+            border: none;
+            color: #b13e3e;
+            cursor: pointer;
+            font-size: 0.8rem;
+            padding: 0 0.2rem;
+        }
+        .order-item-row .remove-btn:hover {
+            color: #c44a4a;
+        }
+        .order-empty {
+            color: var(--text2);
+            font-size: 0.85rem;
+            text-align: center;
+            padding: 1rem 0;
+        }
+
+        .delivery-fee-row {
+            display: flex;
+            align-items: center;
+            gap: 0.8rem;
+            margin-top: 0.8rem;
+            padding-top: 0.8rem;
+            border-top: 1px solid var(--border);
+        }
+        .delivery-fee-row label {
+            font-weight: 600;
+            font-size: 0.85rem;
+            white-space: nowrap;
+        }
+        .delivery-fee-row input {
+            width: 100px;
+            padding: 0.4rem 0.8rem;
+            border: 1px solid var(--border);
+            border-radius: 30px;
+            background: var(--surface);
+            color: var(--text);
+            font-size: 0.85rem;
+        }
+        .delivery-fee-row input:focus {
+            outline: 2px solid var(--primary-light);
+        }
+
+        .order-actions-row {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 0.5rem;
+            margin-top: 0.5rem;
+        }
+
+        /* ── RECEIPT PREVIEW ── */
+        .receipt-preview {
+            grid-column: 1 / -1;
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 1.5rem;
+        }
+        @media (max-width:800px) {
+            .receipt-preview {
+                grid-template-columns: 1fr;
+            }
+        }
+
+        .receipt-paper {
+            background: var(--print-bg);
+            color: var(--print-text);
+            border-radius: var(--radius);
+            padding: 1.8rem 1.8rem 1.5rem;
+            max-width: 380px;
+            margin: 0 auto;
+            width: 100%;
+            box-shadow: var(--shadow);
+            border: 1px solid var(--print-border);
+            font-family: 'Courier New', monospace;
+            font-size: 0.85rem;
+            line-height: 1.5;
+        }
+        .receipt-paper .receipt-header {
+            text-align: center;
+            border-bottom: 1px dashed var(--print-border);
+            padding-bottom: 0.8rem;
+            margin-bottom: 0.8rem;
+        }
+        .receipt-paper .receipt-header h2 {
+            font-size: 1.1rem;
+            font-weight: 700;
+            letter-spacing: 0.5px;
+        }
+        .receipt-paper .receipt-header .sub {
+            font-size: 0.7rem;
+            opacity: 0.7;
+        }
+        .receipt-paper .receipt-header .meta {
+            font-size: 0.7rem;
+            opacity: 0.7;
+            margin-top: 0.2rem;
+        }
+        .receipt-paper .receipt-items {
+            margin: 0.6rem 0;
+            border-bottom: 1px dashed var(--print-border);
+            padding-bottom: 0.6rem;
+        }
+        .receipt-paper .receipt-item {
+            display: flex;
+            justify-content: space-between;
+            padding: 0.1rem 0;
+            font-size: 0.8rem;
+        }
+        .receipt-paper .receipt-item .qty {
+            opacity: 0.7;
+            margin-right: 0.4rem;
+        }
+        .receipt-paper .receipt-totals {
+            margin-top: 0.4rem;
+        }
+        .receipt-paper .receipt-totals .line {
+            display: flex;
+            justify-content: space-between;
+            padding: 0.1rem 0;
+        }
+        .receipt-paper .receipt-totals .line.total {
+            font-weight: 700;
+            font-size: 1rem;
+            border-top: 2px solid var(--print-border);
+            margin-top: 0.3rem;
+            padding-top: 0.3rem;
+        }
+        .receipt-paper .receipt-footer {
+            text-align: center;
+            font-size: 0.7rem;
+            opacity: 0.7;
+            margin-top: 0.8rem;
+            border-top: 1px dashed var(--print-border);
+            padding-top: 0.6rem;
+        }
+        .receipt-paper .receipt-footer .thankyou {
+            font-size: 0.9rem;
+            font-weight: 600;
+            opacity: 1;
+            margin-bottom: 0.2rem;
+        }
+
+        .receipt-actions {
+            display: flex;
+            flex-direction: column;
+            gap: 0.8rem;
+            justify-content: center;
+            padding: 1rem;
+        }
+        .receipt-actions .btn-group {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 0.6rem;
+            justify-content: center;
+        }
+        .receipt-actions .btn-group .btn {
+            flex: 1 1 auto;
+            justify-content: center;
+        }
+
+        /* ── THEME TOGGLE ── */
+        .theme-toggle {
+            position: fixed;
+            bottom: 1.5rem;
+            right: 1.5rem;
+            width: 48px;
+            height: 48px;
+            border-radius: 50%;
+            border: none;
+            background: var(--surface);
+            color: var(--text);
+            font-size: 1.3rem;
+            box-shadow: var(--shadow);
+            cursor: pointer;
+            transition: 0.3s;
+            z-index: 999;
+            border: 1px solid var(--border);
+        }
+        .theme-toggle:hover {
+            transform: scale(1.08);
+        }
+
+        /* ── TOAST ── */
+        .toast {
+            position: fixed;
+            bottom: 5rem;
+            left: 50%;
+            transform: translateX(-50%) translateY(20px);
+            background: var(--surface);
+            color: var(--text);
+            padding: 0.8rem 1.8rem;
+            border-radius: 30px;
+            box-shadow: 0 8px 30px rgba(0, 0, 0, 0.2);
+            font-weight: 500;
+            border: 1px solid var(--border);
+            opacity: 0;
+            transition: 0.4s;
+            pointer-events: none;
+            z-index: 9999;
+            font-size: 0.9rem;
+        }
+        .toast.show {
+            opacity: 1;
+            transform: translateX(-50%) translateY(0);
+        }
+
+        /* ── PRINT STYLES ── */
+        @media print {
+            body {
+                background: #fff !important;
+                padding: 0 !important;
+                margin: 0 !important;
+            }
+            .app-container {
+                display: block !important;
+                max-width: 100% !important;
+                padding: 0 !important;
+                margin: 0 !important;
+                gap: 0 !important;
+            }
+            .top-bar,
+            .card:not(.receipt-preview),
+            .theme-toggle,
+            .toast,
+            .receipt-actions {
+                display: none !important;
+            }
+            .receipt-preview {
+                display: block !important;
+                padding: 0 !important;
+                margin: 0 !important;
+                grid-template-columns: 1fr !important;
+                gap: 0 !important;
+            }
+            .receipt-paper {
+                max-width: 100% !important;
+                border: none !important;
+                box-shadow: none !important;
+                border-radius: 0 !important;
+                padding: 1.2rem !important;
+                margin: 0 !important;
+                background: #fff !important;
+                color: #000 !important;
+            }
+            .receipt-paper .receipt-header h2 {
+                font-size: 1.2rem !important;
+            }
+            .receipt-paper .receipt-footer .thankyou {
+                font-size: 1rem !important;
+            }
+            .receipt-paper .receipt-item {
+                font-size: 0.9rem !important;
+            }
+            .receipt-paper .receipt-totals .line {
+                font-size: 0.9rem !important;
+            }
+            .receipt-paper .receipt-totals .line.total {
+                font-size: 1.1rem !important;
+            }
+        }
+
+        /* ── RESPONSIVE TWEAKS ── */
+        .badge-halal {
+            display: inline-block;
+            background: var(--primary-light);
+            color: var(--primary-dark);
+            font-size: 0.65rem;
+            font-weight: 700;
+            padding: 0.15rem 0.6rem;
+            border-radius: 30px;
+            letter-spacing: 0.3px;
+        }
+        .badge-halal i {
+            margin-right: 0.2rem;
+        }
+
+        .clear-btn {
+            background: transparent;
+            border: none;
+            color: var(--text2);
+            font-size: 0.75rem;
+            cursor: pointer;
+            text-decoration: underline;
+            padding: 0.2rem 0.5rem;
+        }
+        .clear-btn:hover {
+            color: var(--text);
+        }
+        .flex-between {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+        .text-muted {
+            color: var(--text2);
+            font-size: 0.75rem;
+        }
+        .mt-1 {
+            margin-top: 0.8rem;
+        }
+        .mb-1 {
+            margin-bottom: 0.8rem;
+        }
+    </style>
+</head>
+<body>
+
+    <!-- ─── TOAST ─── -->
+    <div class="toast" id="toast"></div>
+
+    <!-- ─── THEME TOGGLE ─── -->
+    <button class="theme-toggle" id="themeToggle" aria-label="Toggle theme">
+        <i class="fas fa-moon" id="themeIcon"></i>
+    </button>
+
+    <!-- ─── APP ─── -->
+    <div class="app-container" id="app">
+
+        <!-- TOP BAR -->
+        <header class="top-bar">
+            <div class="brand">
+                <span class="logo-icon">🧾</span>
+                <div>
+                    <h1>
+                        Receipt Generator
+                        <small>Restoran Pak Haji Ali &amp; Muiz Hot Chicken · Subang Jaya (USJ 8)</small>
+                    </h1>
+                </div>
+                <span class="badge-halal"><i class="fas fa-certificate"></i> JAKIM Halal</span>
+            </div>
+            <div class="actions">
+                <span class="datetime" id="currentDateTime">—</span>
+                <button class="btn btn-outline btn-sm" onclick="resetAll()"><i class="fas fa-undo"></i> Reset</button>
+            </div>
+        </header>
+
+        <!-- ADD ITEM CARD -->
+        <section class="card" id="addItemCard">
+            <div class="card-title"><i class="fas fa-plus-circle"></i> Add Item to Order</div>
+            <div class="add-item-form">
+                <div class="row">
+                    <input type="text" id="itemNameInput" placeholder="Item name (e.g. Nasi Kandar)" />
+                    <input type="number" id="itemPriceInput" placeholder="Price (RM)" step="0.01" min="0" />
+                    <button class="btn btn-success" id="addItemBtn"><i class="fas fa-plus"></i> Add</button>
+                </div>
+                <div style="font-size:0.75rem;color:var(--text2);">
+                    <i class="fas fa-info-circle"></i> Item will be added with quantity 1. Adjust quantity in the order list below.
+                </div>
+            </div>
+        </section>
+
+        <!-- ORDER BUILDER -->
+        <section class="card" id="orderBuilder">
+            <div class="card-title"><i class="fas fa-shopping-cart"></i> Current Order</div>
+            <div class="order-list" id="orderList">
+                <div class="order-empty">No items in order.</div>
+            </div>
+            <div class="delivery-fee-row">
+                <label><i class="fas fa-truck"></i> Delivery fee</label>
+                <input type="number" id="deliveryFee" value="0.00" step="0.01" min="0" />
+                <span class="text-muted">RM</span>
+            </div>
+            <div class="order-actions-row">
+                <button class="btn btn-danger btn-sm" id="clearOrderBtn"><i class="fas fa-trash"></i> Clear order</button>
+            </div>
+        </section>
+
+        <!-- RECEIPT PREVIEW + ACTIONS -->
+        <section class="receipt-preview" id="receiptSection">
+            <!-- Receipt Paper -->
+            <div class="receipt-paper" id="receiptPaper">
+                <div class="receipt-header">
+                    <h2>Restoran Pak Haji Ali</h2>
+                    <div style="font-weight:600;font-size:0.9rem;">&amp; Muiz Hot Chicken</div>
+                    <div class="sub">JAKIM Halal · USJ 8, Subang Jaya</div>
+                    <div class="meta" id="receiptDateTime">—</div>
+                    <div class="meta" style="font-size:0.65rem;">📞 +6017-908 1447</div>
+                </div>
+                <div class="receipt-items" id="receiptItems">
+                    <div style="text-align:center;opacity:0.5;padding:0.5rem 0;">No items</div>
+                </div>
+                <div class="receipt-totals" id="receiptTotals">
+                    <div class="line"><span>Subtotal</span><span id="receiptSubtotal">RM0.00</span></div>
+                    <div class="line"><span>Delivery</span><span id="receiptDelivery">RM0.00</span></div>
+                    <div class="line total"><span>TOTAL</span><span id="receiptTotal">RM0.00</span></div>
+                </div>
+                <div class="receipt-footer">
+                    <div class="thankyou">✨ Thank you! ✨</div>
+                    <div>Visit again · muizhotchicken.com</div>
+                    <div style="margin-top:0.2rem;font-size:0.6rem;">📱 Order via WhatsApp: +6017-908 1447</div>
+                </div>
+            </div>
+
+            <!-- Actions -->
+            <div class="receipt-actions">
+                <div class="btn-group">
+                    <button class="btn btn-print" id="printBtn"><i class="fas fa-print"></i> Print</button>
+                    <button class="btn btn-bluetooth" id="bluetoothBtn"><i class="fas fa-bluetooth-b"></i> Bluetooth</button>
+                </div>
+                <div class="btn-group">
+                    <button class="btn btn-outline" id="copyBtn"><i class="fas fa-copy"></i> Copy</button>
+                    <button class="btn btn-outline" id="downloadBtn"><i class="fas fa-download"></i> .txt</button>
+                </div>
+                <div style="font-size:0.7rem;color:var(--text2);text-align:center;margin-top:0.5rem;">
+                    <i class="fas fa-info-circle"></i> Bluetooth works with compatible thermal printers (ESC/POS).
+                </div>
+            </div>
+        </section>
+    </div>
+
+    <script>
+        (function() {
+            'use strict';
+
+            // ───────────────────────────────────────────────
+            //  DOM REFS
+            // ───────────────────────────────────────────────
+            const orderList = document.getElementById('orderList');
+            const receiptItems = document.getElementById('receiptItems');
+            const receiptSubtotal = document.getElementById('receiptSubtotal');
+            const receiptDelivery = document.getElementById('receiptDelivery');
+            const receiptTotal = document.getElementById('receiptTotal');
+            const receiptDateTime = document.getElementById('receiptDateTime');
+            const deliveryFeeInput = document.getElementById('deliveryFee');
+            const toastEl = document.getElementById('toast');
+            const itemNameInput = document.getElementById('itemNameInput');
+            const itemPriceInput = document.getElementById('itemPriceInput');
+            const addItemBtn = document.getElementById('addItemBtn');
+            const clearOrderBtn = document.getElementById('clearOrderBtn');
+            const printBtn = document.getElementById('printBtn');
+            const bluetoothBtn = document.getElementById('bluetoothBtn');
+            const copyBtn = document.getElementById('copyBtn');
+            const downloadBtn = document.getElementById('downloadBtn');
+
+            // ───────────────────────────────────────────────
+            //  STATE
+            // ───────────────────────────────────────────────
+            let order = {}; // { "itemName": { qty, price } }
+
+            // ───────────────────────────────────────────────
+            //  TOAST
+            // ───────────────────────────────────────────────
+            let toastTimer = null;
+
+            function showToast(msg, duration = 2200) {
+                if (!toastEl) return;
+                toastEl.textContent = msg;
+                toastEl.classList.add('show');
+                clearTimeout(toastTimer);
+                toastTimer = setTimeout(() => toastEl.classList.remove('show'), duration);
+            }
+
+            // ───────────────────────────────────────────────
+            //  ADD ITEM TO ORDER
+            // ───────────────────────────────────────────────
+            function addItemToOrder() {
+                const name = itemNameInput.value.trim();
+                const price = parseFloat(itemPriceInput.value);
+                if (!name) { showToast('Please enter an item name.'); return; }
+                if (isNaN(price) || price < 0) { showToast('Please enter a valid price.'); return; }
+
+                if (!order[name]) {
+                    order[name] = { qty: 0, price: price };
+                }
+                order[name].qty += 1;
+                // If price changed, update it (optional)
+                order[name].price = price;
+
+                renderOrder();
+                updateReceipt();
+                itemNameInput.value = '';
+                itemPriceInput.value = '';
+                showToast(`Added "${name}" (RM${price.toFixed(2)})`);
+                itemNameInput.focus();
+            }
+
+            // ───────────────────────────────────────────────
+            //  QUANTITY CONTROLS
+            // ───────────────────────────────────────────────
+            function changeQty(name, delta) {
+                if (!order[name]) return;
+                const newQty = order[name].qty + delta;
+                if (newQty <= 0) {
+                    delete order[name];
+                } else {
+                    order[name].qty = newQty;
+                }
+                renderOrder();
+                updateReceipt();
+            }
+
+            function removeOrderItem(name) {
+                delete order[name];
+                renderOrder();
+                updateReceipt();
+                showToast(`Removed "${name}" from order`);
+            }
+
+            // ───────────────────────────────────────────────
+            //  CLEAR ORDER
+            // ───────────────────────────────────────────────
+            function clearOrder() {
+                if (Object.keys(order).length === 0) return;
+                if (!confirm('Clear all items from order?')) return;
+                order = {};
+                renderOrder();
+                updateReceipt();
+                showToast('Order cleared.');
+            }
+
+            // ───────────────────────────────────────────────
+            //  RENDER ORDER LIST
+            // ───────────────────────────────────────────────
+            function renderOrder() {
+                if (!orderList) return;
+                orderList.innerHTML = '';
+                const keys = Object.keys(order);
+                if (keys.length === 0) {
+                    orderList.innerHTML = '<div class="order-empty">No items in order.</div>';
+                    return;
+                }
+                keys.forEach(name => {
+                    const { qty, price } = order[name];
+                    const row = document.createElement('div');
+                    row.className = 'order-item-row';
+                    row.innerHTML = `
+                        <span class="item-name">${escapeHtml(name)}</span>
+                        <div class="qty-control">
+                            <button class="qty-down" data-name="${escapeHtml(name)}"><i class="fas fa-minus"></i></button>
+                            <span>${qty}</span>
+                            <button class="qty-up" data-name="${escapeHtml(name)}"><i class="fas fa-plus"></i></button>
+                        </div>
+                        <span class="item-total">RM${(qty * price).toFixed(2)}</span>
+                        <button class="remove-btn" data-name="${escapeHtml(name)}"><i class="fas fa-trash"></i></button>
+                    `;
+                    orderList.appendChild(row);
+                });
+
+                // Attach event listeners
+                orderList.querySelectorAll('.qty-down').forEach(btn => {
+                    btn.addEventListener('click', function() {
+                        const name = this.getAttribute('data-name');
+                        if (name) changeQty(name, -1);
+                    });
+                });
+                orderList.querySelectorAll('.qty-up').forEach(btn => {
+                    btn.addEventListener('click', function() {
+                        const name = this.getAttribute('data-name');
+                        if (name) changeQty(name, 1);
+                    });
+                });
+                orderList.querySelectorAll('.remove-btn').forEach(btn => {
+                    btn.addEventListener('click', function() {
+                        const name = this.getAttribute('data-name');
+                        if (name) removeOrderItem(name);
+                    });
+                });
+            }
+
+            // ───────────────────────────────────────────────
+            //  UPDATE RECEIPT
+            // ───────────────────────────────────────────────
+            function updateReceipt() {
+                const now = new Date();
+                receiptDateTime.textContent = now.toLocaleString('en-MY', {
+                    day: '2-digit',
+                    month: 'short',
+                    year: 'numeric',
+                    hour: '2-digit',
+                    minute: '2-digit',
+                    second: '2-digit',
+                    hour12: true
+                });
+
+                const keys = Object.keys(order);
+                let subtotal = 0;
+
+                receiptItems.innerHTML = '';
+                if (keys.length === 0) {
+                    receiptItems.innerHTML = '<div style="text-align:center;opacity:0.5;padding:0.5rem 0;">No items</div>';
+                } else {
+                    keys.forEach(name => {
+                        const { qty, price } = order[name];
+                        const total = qty * price;
+                        subtotal += total;
+                        const div = document.createElement('div');
+                        div.className = 'receipt-item';
+                        div.innerHTML = `
+                            <span><span class="qty">${qty}×</span> ${escapeHtml(name)}</span>
+                            <span>RM${total.toFixed(2)}</span>
+                        `;
+                        receiptItems.appendChild(div);
+                    });
+                }
+
+                const delivery = parseFloat(deliveryFeeInput.value) || 0;
+                const total = subtotal + delivery;
+
+                receiptSubtotal.textContent = `RM${subtotal.toFixed(2)}`;
+                receiptDelivery.textContent = `RM${delivery.toFixed(2)}`;
+                receiptTotal.textContent = `RM${total.toFixed(2)}`;
+            }
+
+            // ───────────────────────────────────────────────
+            //  RESET ALL
+            // ───────────────────────────────────────────────
+            function resetAll() {
+                if (!confirm('Reset everything? This will clear the order.')) return;
+                order = {};
+                renderOrder();
+                updateReceipt();
+                deliveryFeeInput.value = '0.00';
+                itemNameInput.value = '';
+                itemPriceInput.value = '';
+                showToast('Reset complete.');
+            }
+
+            // ───────────────────────────────────────────────
+            //  PRINT (window.print)
+            // ───────────────────────────────────────────────
+            function printReceipt() {
+                if (Object.keys(order).length === 0) {
+                    showToast('Order is empty. Add items first.');
+                    return;
+                }
+                window.print();
+            }
+
+            // ───────────────────────────────────────────────
+            //  BLUETOOTH PRINTING (Web Bluetooth + ESC/POS)
+            // ───────────────────────────────────────────────
+            async function printBluetooth() {
+                if (Object.keys(order).length === 0) {
+                    showToast('Order is empty. Add items first.');
+                    return;
+                }
+
+                if (!navigator.bluetooth) {
+                    showToast('⚠️ Web Bluetooth is not supported on this browser.');
+                    return;
+                }
+
+                try {
+                    const device = await navigator.bluetooth.requestDevice({
+                        filters: [
+                            { services: ['000018f0-0000-1000-8000-00805f9b34fb'] },
+                            { services: ['00001801-0000-1000-8000-00805f9b34fb'] },
+                            { services: ['00001802-0000-1000-8000-00805f9b34fb'] },
+                        ],
+                        optionalServices: [
+                            '000018f0-0000-1000-8000-00805f9b34fb',
+                            '00001801-0000-1000-8000-00805f9b34fb',
+                            '00001802-0000-1000-8000-00805f9b34fb'
+                        ]
+                    });
+
+                    showToast(`Connecting to ${device.name || 'printer'}...`);
+
+                    const server = await device.gatt.connect();
+                    let service;
+                    try {
+                        service = await server.getPrimaryService('000018f0-0000-1000-8000-00805f9b34fb');
+                    } catch (_) {
+                        try {
+                            service = await server.getPrimaryService('00001801-0000-1000-8000-00805f9b34fb');
+                        } catch (_2) {
+                            try {
+                                service = await server.getPrimaryService('00001802-0000-1000-8000-00805f9b34fb');
+                            } catch (_3) {
+                                throw new Error('Could not find a printer service.');
+                            }
+                        }
+                    }
+
+                    let characteristic;
+                    try {
+                        characteristic = await service.getCharacteristic('00002a7e-0000-1000-8000-00805f9b34fb');
+                    } catch (_) {
+                        try {
+                            characteristic = await service.getCharacteristic('00002a7d-0000-1000-8000-00805f9b34fb');
+                        } catch (_2) {
+                            throw new Error('Could not find a writable characteristic.');
+                        }
+                    }
+
+                    const receiptData = buildEscPosReceipt();
+                    await characteristic.writeValue(receiptData);
+
+                    showToast(`✅ Printed to ${device.name || 'printer'}!`);
+                } catch (err) {
+                    console.error(err);
+                    showToast(`❌ Bluetooth error: ${err.message || 'Unknown error'}`);
+                }
+            }
+
+            // ─── Build ESC/POS byte array ───
+            function buildEscPosReceipt() {
+                const encoder = new TextEncoder();
+                const lines = [];
+
+                lines.push('===============================');
+                lines.push('  RESTORAN PAK HAJI ALI');
+                lines.push('  & MUIZ HOT CHICKEN');
+                lines.push('  JAKIM Halal · USJ 8');
+                lines.push('  📞 +6017-908 1447');
+                lines.push('===============================');
+                lines.push('');
+
+                const now = new Date();
+                const dt = now.toLocaleString('en-MY', {
+                    day: '2-digit',
+                    month: 'short',
+                    year: 'numeric',
+                    hour: '2-digit',
+                    minute: '2-digit',
+                    hour12: true
+                });
+                lines.push(`  ${dt}`);
+                lines.push('');
+
+                let subtotal = 0;
+                const keys = Object.keys(order);
+                if (keys.length === 0) {
+                    lines.push('  (empty order)');
+                } else {
+                    keys.forEach(name => {
+                        const { qty, price } = order[name];
+                        const total = qty * price;
+                        subtotal += total;
+                        const line = `${qty}× ${name}`;
+                        const padded = line.padEnd(30, ' ');
+                        lines.push(`${padded}RM${total.toFixed(2)}`);
+                    });
+                }
+
+                lines.push('');
+                lines.push('-------------------------------');
+
+                const delivery = parseFloat(deliveryFeeInput.value) || 0;
+                const total = subtotal + delivery;
+
+                lines.push(`  Subtotal    RM${subtotal.toFixed(2)}`);
+                lines.push(`  Delivery    RM${delivery.toFixed(2)}`);
+                lines.push(`  TOTAL       RM${total.toFixed(2)}`);
+                lines.push('-------------------------------');
+                lines.push('');
+                lines.push('  ✨ Thank you! ✨');
+                lines.push('  muizhotchicken.com');
+                lines.push('  📱 +6017-908 1447');
+                lines.push('===============================');
+                lines.push('');
+                lines.push('');
+
+                const text = lines.join('\n');
+                const bytes = encoder.encode(text);
+                const init = new Uint8Array([0x1B, 0x40]);
+                const cut = new Uint8Array([0x1D, 0x56, 0x42, 0x00]);
+                const result = new Uint8Array(init.length + bytes.length + cut.length);
+                result.set(init, 0);
+                result.set(bytes, init.length);
+                result.set(cut, init.length + bytes.length);
+                return result;
+            }
+
+            // ───────────────────────────────────────────────
+            //  COPY RECEIPT AS TEXT
+            // ───────────────────────────────────────────────
+            function copyReceipt() {
+                if (Object.keys(order).length === 0) {
+                    showToast('Order is empty.');
+                    return;
+                }
+                const lines = buildTextReceipt();
+                navigator.clipboard.writeText(lines).then(() => {
+                    showToast('✅ Receipt copied to clipboard!');
+                }).catch(() => {
+                    const ta = document.createElement('textarea');
+                    ta.value = lines;
+                    document.body.appendChild(ta);
+                    ta.select();
+                    document.execCommand('copy');
+                    ta.remove();
+                    showToast('✅ Receipt copied!');
+                });
+            }
+
+            // ───────────────────────────────────────────────
+            //  DOWNLOAD .TXT
+            // ───────────────────────────────────────────────
+            function downloadReceipt() {
+                if (Object.keys(order).length === 0) {
+                    showToast('Order is empty.');
+                    return;
+                }
+                const lines = buildTextReceipt();
+                const blob = new Blob([lines], { type: 'text/plain;charset=utf-8' });
+                const url = URL.createObjectURL(blob);
+                const a = document.createElement('a');
+                a.href = url;
+                const now = new Date();
+                const ts = now.toISOString().slice(0, 10);
+                a.download = `receipt-${ts}.txt`;
+                document.body.appendChild(a);
+                a.click();
+                a.remove();
+                URL.revokeObjectURL(url);
+                showToast('✅ Receipt downloaded!');
+            }
+
+            // ─── Build plain text receipt ───
+            function buildTextReceipt() {
+                const lines = [];
+                const now = new Date();
+                const dt = now.toLocaleString('en-MY', {
+                    day: '2-digit',
+                    month: 'short',
+                    year: 'numeric',
+                    hour: '2-digit',
+                    minute: '2-digit',
+                    hour12: true
+                });
+
+                lines.push('═══════════════════════════════════');
+                lines.push('  RESTORAN PAK HAJI ALI');
+                lines.push('  & MUIZ HOT CHICKEN');
+                lines.push('  JAKIM Halal · USJ 8');
+                lines.push('  📞 +6017-908 1447');
+                lines.push('───────────────────────────────────');
+                lines.push(`  ${dt}`);
+                lines.push('───────────────────────────────────');
+
+                let subtotal = 0;
+                const keys = Object.keys(order);
+                if (keys.length === 0) {
+                    lines.push('  (empty order)');
+                } else {
+                    keys.forEach(name => {
+                        const { qty, price } = order[name];
+                        const total = qty * price;
+                        subtotal += total;
+                        const line = `${qty}× ${name}`;
+                        const padded = line.padEnd(30, ' ');
+                        lines.push(`${padded}RM${total.toFixed(2)}`);
+                    });
+                }
+
+                const delivery = parseFloat(deliveryFeeInput.value) || 0;
+                const total = subtotal + delivery;
+
+                lines.push('───────────────────────────────────');
+                lines.push(`  Subtotal    RM${subtotal.toFixed(2)}`);
+                lines.push(`  Delivery    RM${delivery.toFixed(2)}`);
+                lines.push(`  TOTAL       RM${total.toFixed(2)}`);
+                lines.push('═══════════════════════════════════');
+                lines.push('  ✨ Thank you! ✨');
+                lines.push('  muizhotchicken.com');
+                lines.push('  📱 +6017-908 1447');
+                lines.push('═══════════════════════════════════');
+
+                return lines.join('\n');
+            }
+
+            // ───────────────────────────────────────────────
+            //  UTILITY
+            // ───────────────────────────────────────────────
+            function escapeHtml(str) {
+                const div = document.createElement('div');
+                div.textContent = str;
+                return div.innerHTML;
+            }
+
+            // ───────────────────────────────────────────────
+            //  THEME TOGGLE
+            // ───────────────────────────────────────────────
+            const themeToggle = document.getElementById('themeToggle');
+            const themeIcon = document.getElementById('themeIcon');
+            let dark = localStorage.getItem('muiz_receipt_theme') === 'dark';
+
+            function applyTheme() {
+                document.documentElement.setAttribute('data-theme', dark ? 'dark' : 'light');
+                themeIcon.className = dark ? 'fas fa-sun' : 'fas fa-moon';
+                localStorage.setItem('muiz_receipt_theme', dark ? 'dark' : 'light');
+            }
+            if (themeToggle) {
+                themeToggle.addEventListener('click', () => {
+                    dark = !dark;
+                    applyTheme();
+                });
+            }
+            applyTheme();
+
+            // ───────────────────────────────────────────────
+            //  CLOCK
+            // ───────────────────────────────────────────────
+            function updateClock() {
+                const el = document.getElementById('currentDateTime');
+                if (el) {
+                    const now = new Date();
+                    el.textContent = now.toLocaleString('en-MY', {
+                        day: '2-digit',
+                        month: 'short',
+                        year: 'numeric',
+                        hour: '2-digit',
+                        minute: '2-digit',
+                        hour12: true
+                    });
+                }
+            }
+            updateClock();
+            setInterval(updateClock, 30000);
+
+            // ───────────────────────────────────────────────
+            //  EVENT BINDINGS
+            // ───────────────────────────────────────────────
+            addItemBtn.addEventListener('click', addItemToOrder);
+            itemNameInput.addEventListener('keydown', (e) => {
+                if (e.key === 'Enter') {
+                    e.preventDefault();
+                    itemPriceInput.focus();
+                }
+            });
+            itemPriceInput.addEventListener('keydown', (e) => {
+                if (e.key === 'Enter') {
+                    e.preventDefault();
+                    addItemToOrder();
+                }
+            });
+            clearOrderBtn.addEventListener('click', clearOrder);
+            printBtn.addEventListener('click', printReceipt);
+            bluetoothBtn.addEventListener('click', printBluetooth);
+            copyBtn.addEventListener('click', copyReceipt);
+            downloadBtn.addEventListener('click', downloadReceipt);
+            deliveryFeeInput.addEventListener('input', updateReceipt);
+
+            // ───────────────────────────────────────────────
+            //  INIT
+            // ───────────────────────────────────────────────
+            renderOrder();
+            updateReceipt();
+
+            // Expose globally for reset
+            window.resetAll = resetAll;
+
+            console.log('🧾 Receipt Generator ready.');
+            console.log('📋 Add items directly to the order.');
+
+        })();
+    </script>
+</body>
+</html>
