@@ -7,7 +7,7 @@
     <link rel="icon" type="image/svg+xml" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'%3E%3Ctext y='.9em' font-size='90'%3E🧾%3C/text%3E%3C/svg%3E" />
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css" />
     <style>
-        /* ── RESET & BASE (same as before) ── */
+        /* ── RESET & BASE ── */
         *,
         *::before,
         *::after {
@@ -341,8 +341,9 @@
         }
         .delivery-fee-row {
             display: flex;
+            flex-wrap: wrap;
             align-items: center;
-            gap: 0.8rem;
+            gap: 0.6rem;
             margin-top: 0.8rem;
             padding-top: 0.8rem;
             border-top: 1px solid var(--border);
@@ -353,8 +354,8 @@
             white-space: nowrap;
         }
         .delivery-fee-row input {
-            width: 100px;
-            padding: 0.4rem 0.8rem;
+            width: 80px;
+            padding: 0.4rem 0.6rem;
             border: 1px solid var(--border);
             border-radius: 30px;
             background: var(--surface);
@@ -363,6 +364,31 @@
         }
         .delivery-fee-row input:focus {
             outline: 2px solid var(--primary-light);
+        }
+        .delivery-fee-row .fee-quick-btns {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 0.3rem;
+        }
+        .delivery-fee-row .fee-quick-btns .fee-btn {
+            background: var(--surface2);
+            border: 1px solid var(--border);
+            border-radius: 30px;
+            padding: 0.15rem 0.6rem;
+            font-size: 0.7rem;
+            font-weight: 600;
+            cursor: pointer;
+            transition: 0.2s;
+            color: var(--text);
+        }
+        .delivery-fee-row .fee-quick-btns .fee-btn:hover {
+            background: var(--primary-light);
+            border-color: var(--primary-dark);
+        }
+        .delivery-fee-row .fee-quick-btns .fee-btn.active {
+            background: var(--primary-dark);
+            color: #fff;
+            border-color: var(--primary-dark);
         }
         .order-actions-row {
             display: flex;
@@ -660,11 +686,26 @@
             <div class="order-list" id="orderList">
                 <div class="order-empty">No items in order.</div>
             </div>
+
+            <!-- DELIVERY FEE WITH QUICK BUTTONS -->
             <div class="delivery-fee-row">
-                <label><i class="fas fa-truck"></i> Delivery fee</label>
-                <input type="number" id="deliveryFee" value="0.00" step="0.01" min="0" />
+                <label><i class="fas fa-truck"></i> Delivery</label>
+                <input type="number" id="deliveryFee" value="0.00" step="0.50" min="0" />
                 <span class="text-muted">RM</span>
+                <div class="fee-quick-btns" id="feeQuickBtns">
+                    <button class="fee-btn" data-fee="1">RM1</button>
+                    <button class="fee-btn" data-fee="2">RM2</button>
+                    <button class="fee-btn" data-fee="3">RM3</button>
+                    <button class="fee-btn" data-fee="4">RM4</button>
+                    <button class="fee-btn" data-fee="5">RM5</button>
+                    <button class="fee-btn" data-fee="6">RM6</button>
+                    <button class="fee-btn" data-fee="7">RM7</button>
+                    <button class="fee-btn" data-fee="8">RM8</button>
+                    <button class="fee-btn" data-fee="9">RM9</button>
+                    <button class="fee-btn" data-fee="10">RM10</button>
+                </div>
             </div>
+
             <div class="order-actions-row">
                 <button class="btn btn-danger btn-sm" id="clearOrderBtn"><i class="fas fa-trash"></i> Clear order</button>
             </div>
@@ -840,6 +881,7 @@
         const copyBtn = document.getElementById('copyBtn');
         const downloadBtn = document.getElementById('downloadBtn');
         const quickMenuWrap = document.getElementById('quickMenuWrap');
+        const feeQuickBtns = document.getElementById('feeQuickBtns');
 
         // ───────────────────────────────────────────────
         //  STATE
@@ -887,6 +929,35 @@
                     container.appendChild(btn);
                 });
                 quickMenuWrap.appendChild(container);
+            });
+        }
+
+        // ───────────────────────────────────────────────
+        //  DELIVERY FEE QUICK BUTTONS
+        // ───────────────────────────────────────────────
+        function initFeeButtons() {
+            const btns = feeQuickBtns.querySelectorAll('.fee-btn');
+            btns.forEach(btn => {
+                btn.addEventListener('click', function() {
+                    const fee = parseFloat(this.dataset.fee);
+                    if (!isNaN(fee)) {
+                        deliveryFeeInput.value = fee.toFixed(2);
+                        // Update active state
+                        btns.forEach(b => b.classList.remove('active'));
+                        this.classList.add('active');
+                        updateReceipt();
+                        showToast(`Delivery fee set to RM${fee.toFixed(2)}`);
+                    }
+                });
+            });
+            // Also update active state when user types manually
+            deliveryFeeInput.addEventListener('input', function() {
+                const val = parseFloat(this.value);
+                btns.forEach(b => {
+                    const fee = parseFloat(b.dataset.fee);
+                    b.classList.toggle('active', !isNaN(val) && !isNaN(fee) && val === fee);
+                });
+                updateReceipt();
             });
         }
 
@@ -1045,10 +1116,12 @@
             if (!confirm('Reset everything? This will clear the order.')) return;
             order = {};
             renderOrder();
-            updateReceipt();
             deliveryFeeInput.value = '0.00';
+            // Clear active state on fee buttons
+            document.querySelectorAll('.fee-btn').forEach(b => b.classList.remove('active'));
             itemNameInput.value = '';
             itemPriceInput.value = '';
+            updateReceipt();
             showToast('Reset complete.');
         }
 
@@ -1335,13 +1408,14 @@
         //  INIT
         // ───────────────────────────────────────────────
         buildQuickMenu();
+        initFeeButtons();
         renderOrder();
         updateReceipt();
 
         // Expose reset globally
         window.resetAll = resetAll;
 
-        console.log('🧾 Receipt Generator ready with full menu quick-add.');
+        console.log('🧾 Receipt Generator ready with full menu quick-add + delivery fee shortcuts.');
     </script>
 </body>
 </html>
