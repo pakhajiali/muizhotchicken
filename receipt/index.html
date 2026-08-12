@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover, maximum-scale=1.0, user-scalable=no" />
-    <title>Receipt Generator · Restoran Pak Haji Ali &amp; Muiz Hot Chicken</title>
+    <title>Receipt Generator · Restoran Pak Haji Ali</title>
     <link rel="icon" type="image/svg+xml" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'%3E%3Ctext y='.9em' font-size='90'%3E🧾%3C/text%3E%3C/svg%3E" />
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css" />
     <style>
@@ -64,20 +64,9 @@
             max-width: 1300px;
             width: 100%;
             margin: 0 auto;
-            display: grid;
-            grid-template-columns: 1fr 1fr 1fr;
+            display: flex;
+            flex-direction: column;
             gap: 1.5rem;
-            align-items: start;
-        }
-        @media (max-width:1024px) {
-            .app-container {
-                grid-template-columns: 1fr 1fr;
-            }
-        }
-        @media (max-width:700px) {
-            .app-container {
-                grid-template-columns: 1fr;
-            }
         }
         .card {
             background: var(--surface);
@@ -99,8 +88,8 @@
         .card-title i {
             font-size: 1.2rem;
         }
+        /* ── TOP BAR ── */
         .top-bar {
-            grid-column: 1 / -1;
             display: flex;
             justify-content: space-between;
             align-items: center;
@@ -145,6 +134,7 @@
             border-radius: 30px;
             white-space: nowrap;
         }
+        /* ── BUTTONS ── */
         .btn {
             display: inline-flex;
             align-items: center;
@@ -211,6 +201,55 @@
         .btn-bluetooth:hover {
             background: #1f7a9a;
         }
+        /* ── TABS ── */
+        .tab-buttons {
+            display: flex;
+            gap: 1rem;
+            padding: 0.5rem 0;
+            border-bottom: 2px solid var(--border);
+            margin-bottom: 0;
+        }
+        .tab-btn {
+            padding: 0.6rem 1.5rem;
+            border-radius: 30px 30px 0 0;
+            border: 2px solid transparent;
+            border-bottom: none;
+            font-weight: 600;
+            font-size: 0.95rem;
+            cursor: pointer;
+            background: var(--surface2);
+            color: var(--text2);
+            transition: 0.2s;
+        }
+        .tab-btn:hover {
+            background: var(--primary-light);
+            color: var(--text);
+        }
+        .tab-btn.active {
+            background: var(--surface);
+            color: var(--primary-dark);
+            border-color: var(--border);
+            border-bottom: 2px solid var(--surface);
+            margin-bottom: -2px;
+        }
+        .tab-content {
+            display: block;
+            padding-top: 1.5rem;
+        }
+        .tab-content.hidden {
+            display: none;
+        }
+        /* ── TAKE ORDER TAB ── */
+        .order-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 1.5rem;
+        }
+        @media (max-width:1024px) {
+            .order-grid {
+                grid-template-columns: 1fr;
+            }
+        }
         .add-item-form .row {
             display: flex;
             gap: 0.6rem;
@@ -271,6 +310,26 @@
         .quick-btn .price-tag {
             opacity: 0.7;
             font-weight: 400;
+        }
+        .table-number-input {
+            display: flex;
+            align-items: center;
+            gap: 0.8rem;
+            margin: 0.8rem 0;
+        }
+        .table-number-input label {
+            font-weight: 600;
+            font-size: 0.9rem;
+        }
+        .table-number-input input {
+            width: 80px;
+            padding: 0.4rem 0.6rem;
+            border: 1px solid var(--border);
+            border-radius: 30px;
+            background: var(--surface);
+            color: var(--text);
+            font-size: 0.9rem;
+            text-align: center;
         }
         .order-list {
             display: flex;
@@ -362,9 +421,6 @@
             color: var(--text);
             font-size: 0.85rem;
         }
-        .delivery-fee-row input:focus {
-            outline: 2px solid var(--primary-light);
-        }
         .delivery-fee-row .fee-quick-btns {
             display: flex;
             flex-wrap: wrap;
@@ -396,11 +452,87 @@
             gap: 0.5rem;
             margin-top: 0.5rem;
         }
+        /* ── MANAGE ORDERS TAB ── */
+        .orders-list-container {
+            display: flex;
+            flex-direction: column;
+            gap: 1rem;
+        }
+        .order-card {
+            background: var(--surface2);
+            border-radius: var(--radius);
+            padding: 1rem 1.2rem;
+            border: 1px solid var(--border);
+            transition: 0.2s;
+        }
+        .order-card:hover {
+            border-color: var(--primary-light);
+            box-shadow: var(--shadow);
+        }
+        .order-card-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            flex-wrap: wrap;
+            gap: 0.5rem;
+            margin-bottom: 0.5rem;
+        }
+        .order-card-header .table-badge {
+            background: var(--primary-dark);
+            color: #fff;
+            padding: 0.2rem 0.8rem;
+            border-radius: 30px;
+            font-weight: 700;
+            font-size: 0.8rem;
+        }
+        .order-card-header .order-time {
+            font-size: 0.75rem;
+            color: var(--text2);
+        }
+        .order-card-items {
+            padding: 0.5rem 0;
+            border-top: 1px dashed var(--border);
+            border-bottom: 1px dashed var(--border);
+            margin: 0.5rem 0;
+            font-size: 0.85rem;
+        }
+        .order-card-items .item-line {
+            display: flex;
+            justify-content: space-between;
+            padding: 0.1rem 0;
+        }
+        .order-card-total {
+            font-weight: 700;
+            font-size: 1rem;
+            text-align: right;
+            color: var(--primary-dark);
+        }
+        .order-card-actions {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 0.5rem;
+            margin-top: 0.8rem;
+            justify-content: flex-end;
+        }
+        .empty-orders {
+            text-align: center;
+            color: var(--text2);
+            padding: 3rem 0;
+            font-size: 1rem;
+        }
+        .empty-orders i {
+            font-size: 3rem;
+            display: block;
+            margin-bottom: 1rem;
+            opacity: 0.4;
+        }
+        /* ── RECEIPT PREVIEW ── */
         .receipt-preview {
             grid-column: 1 / -1;
             display: grid;
             grid-template-columns: 1fr 1fr;
             gap: 1.5rem;
+            margin-top: 1.5rem;
         }
         @media (max-width:800px) {
             .receipt-preview {
@@ -502,6 +634,7 @@
             flex: 1 1 auto;
             justify-content: center;
         }
+        /* ── THEME TOGGLE ── */
         .theme-toggle {
             position: fixed;
             bottom: 1.5rem;
@@ -522,6 +655,7 @@
         .theme-toggle:hover {
             transform: scale(1.08);
         }
+        /* ── TOAST ── */
         .toast {
             position: fixed;
             bottom: 5rem;
@@ -562,10 +696,15 @@
                 gap: 0 !important;
             }
             .top-bar,
+            .tab-buttons,
             .card:not(.receipt-preview),
             .theme-toggle,
             .toast,
-            .receipt-actions {
+            .receipt-actions,
+            .order-actions-row,
+            .delivery-fee-row,
+            .quick-menu-wrap,
+            .add-item-form {
                 display: none !important;
             }
             .receipt-preview {
@@ -626,6 +765,14 @@
             color: var(--text2);
             font-size: 0.75rem;
         }
+        .edit-badge {
+            background: var(--primary);
+            color: #fff;
+            padding: 0.1rem 0.6rem;
+            border-radius: 30px;
+            font-size: 0.7rem;
+            font-weight: 600;
+        }
     </style>
 </head>
 <body>
@@ -635,6 +782,7 @@
 
     <div class="app-container" id="app">
 
+        <!-- TOP BAR -->
         <header class="top-bar">
             <div class="brand">
                 <span class="logo-icon">🧾</span>
@@ -649,83 +797,125 @@
             </div>
         </header>
 
-        <section class="card" id="addItemCard">
-            <div class="card-title"><i class="fas fa-plus-circle"></i> Add Item to Order</div>
-            <div class="add-item-form">
-                <div class="row">
-                    <input type="text" id="itemNameInput" placeholder="Item name" />
-                    <input type="number" id="itemPriceInput" placeholder="Price (RM)" step="0.01" min="0" />
-                    <button class="btn btn-success" id="addItemBtn"><i class="fas fa-plus"></i> Add</button>
-                </div>
-            </div>
-            <div class="quick-menu-wrap" id="quickMenuWrap"></div>
-        </section>
+        <!-- TABS -->
+        <div class="tab-buttons">
+            <button class="tab-btn active" data-tab="tab-take-order"><i class="fas fa-pen"></i> Take Order</button>
+            <button class="tab-btn" data-tab="tab-manage-orders"><i class="fas fa-list"></i> Manage Orders <span id="orderCountBadge" style="background:var(--primary-dark);color:#fff;border-radius:50%;padding:0 0.5rem;font-size:0.7rem;margin-left:0.3rem;">0</span></button>
+        </div>
 
-        <section class="card" id="orderBuilder">
-            <div class="card-title"><i class="fas fa-shopping-cart"></i> Current Order</div>
-            <div class="order-list" id="orderList"><div class="order-empty">No items in order.</div></div>
-            <div class="delivery-fee-row">
-                <label><i class="fas fa-truck"></i> Delivery</label>
-                <input type="number" id="deliveryFee" value="0.00" step="0.50" min="0" />
-                <span class="text-muted">RM</span>
-                <div class="fee-quick-btns" id="feeQuickBtns">
-                    <button class="fee-btn" data-fee="1">RM1</button>
-                    <button class="fee-btn" data-fee="2">RM2</button>
-                    <button class="fee-btn" data-fee="3">RM3</button>
-                    <button class="fee-btn" data-fee="4">RM4</button>
-                    <button class="fee-btn" data-fee="5">RM5</button>
-                    <button class="fee-btn" data-fee="6">RM6</button>
-                    <button class="fee-btn" data-fee="7">RM7</button>
-                    <button class="fee-btn" data-fee="8">RM8</button>
-                    <button class="fee-btn" data-fee="9">RM9</button>
-                    <button class="fee-btn" data-fee="10">RM10</button>
+        <!-- TAB 1: TAKE ORDER -->
+        <div id="tab-take-order" class="tab-content">
+            <div class="order-grid">
+                <!-- Left: Menu & Input -->
+                <div class="card">
+                    <div class="card-title"><i class="fas fa-utensils"></i> Menu</div>
+                    <div class="add-item-form">
+                        <div class="row">
+                            <input type="text" id="itemNameInput" placeholder="Item name" />
+                            <input type="number" id="itemPriceInput" placeholder="Price (RM)" step="0.01" min="0" />
+                            <button class="btn btn-success" id="addItemBtn"><i class="fas fa-plus"></i> Add</button>
+                        </div>
+                    </div>
+                    <div class="quick-menu-wrap" id="quickMenuWrap"></div>
                 </div>
-            </div>
-            <div class="order-actions-row">
-                <button class="btn btn-danger btn-sm" id="clearOrderBtn"><i class="fas fa-trash"></i> Clear order</button>
-            </div>
-        </section>
 
-        <section class="receipt-preview" id="receiptSection">
-            <div class="receipt-paper" id="receiptPaper">
-                <div class="receipt-header">
-                    <h2>Restoran Pak Haji Ali</h2>
-                    <div style="font-weight:600;font-size:0.9rem;">&amp; Muiz Hot Chicken</div>
-                    <div class="sub">JAKIM Halal · USJ 8, Subang Jaya</div>
-                    <div class="meta" id="receiptDateTime">—</div>
-                    <div class="meta" style="font-size:0.65rem;">📞 +6017-908 1447</div>
-                </div>
-                <div class="receipt-items" id="receiptItems"><div style="text-align:center;opacity:0.5;padding:0.5rem 0;">No items</div></div>
-                <div class="receipt-totals" id="receiptTotals">
-                    <div class="line"><span>Subtotal</span><span id="receiptSubtotal">RM0.00</span></div>
-                    <div class="line"><span>Delivery</span><span id="receiptDelivery">RM0.00</span></div>
-                    <div class="line total"><span>TOTAL</span><span id="receiptTotal">RM0.00</span></div>
-                </div>
-                <div class="receipt-footer">
-                    <div class="thankyou">✨ Thank you! ✨</div>
-                    <div>Visit again · muizhotchicken.com</div>
-                    <div style="margin-top:0.2rem;font-size:0.6rem;">📱 Order via WhatsApp: +6017-908 1447</div>
+                <!-- Right: Cart & Order Actions -->
+                <div class="card">
+                    <div class="card-title"><i class="fas fa-shopping-cart"></i> Current Order <span id="editBadge" class="edit-badge" style="display:none;">Editing</span></div>
+
+                    <div class="table-number-input">
+                        <label><i class="fas fa-chair"></i> Table #</label>
+                        <input type="number" id="tableNumberInput" placeholder="No." min="1" value="1" />
+                    </div>
+
+                    <div class="order-list" id="orderList">
+                        <div class="order-empty">No items in order.</div>
+                    </div>
+
+                    <div class="delivery-fee-row">
+                        <label><i class="fas fa-truck"></i> Delivery</label>
+                        <input type="number" id="deliveryFee" value="0.00" step="0.50" min="0" />
+                        <span class="text-muted">RM</span>
+                        <div class="fee-quick-btns" id="feeQuickBtns">
+                            <button class="fee-btn" data-fee="1">RM1</button>
+                            <button class="fee-btn" data-fee="2">RM2</button>
+                            <button class="fee-btn" data-fee="3">RM3</button>
+                            <button class="fee-btn" data-fee="4">RM4</button>
+                            <button class="fee-btn" data-fee="5">RM5</button>
+                            <button class="fee-btn" data-fee="6">RM6</button>
+                            <button class="fee-btn" data-fee="7">RM7</button>
+                            <button class="fee-btn" data-fee="8">RM8</button>
+                            <button class="fee-btn" data-fee="9">RM9</button>
+                            <button class="fee-btn" data-fee="10">RM10</button>
+                        </div>
+                    </div>
+
+                    <div class="order-actions-row">
+                        <button class="btn btn-danger btn-sm" id="clearOrderBtn"><i class="fas fa-trash"></i> Clear</button>
+                        <button class="btn btn-primary" id="submitOrderBtn"><i class="fas fa-check"></i> Submit Order</button>
+                        <button class="btn btn-outline btn-sm" id="cancelEditBtn" style="display:none;"><i class="fas fa-times"></i> Cancel Edit</button>
+                    </div>
                 </div>
             </div>
-            <div class="receipt-actions">
-                <div class="btn-group">
-                    <button class="btn btn-print" id="printBtn"><i class="fas fa-print"></i> Print</button>
-                    <button class="btn btn-bluetooth" id="bluetoothBtn"><i class="fas fa-bluetooth-b"></i> Bluetooth</button>
+
+            <!-- Receipt Preview -->
+            <div class="receipt-preview" id="receiptSection">
+                <div class="receipt-paper" id="receiptPaper">
+                    <div class="receipt-header">
+                        <h2>Restoran Pak Haji Ali</h2>
+                        <div style="font-weight:600;font-size:0.9rem;">&amp; Muiz Hot Chicken</div>
+                        <div class="sub">JAKIM Halal · USJ 8, Subang Jaya</div>
+                        <div class="meta" id="receiptDateTime">—</div>
+                        <div class="meta" style="font-size:0.65rem;">📞 +6017-908 1447</div>
+                    </div>
+                    <div class="receipt-items" id="receiptItems">
+                        <div style="text-align:center;opacity:0.5;padding:0.5rem 0;">No items</div>
+                    </div>
+                    <div class="receipt-totals" id="receiptTotals">
+                        <div class="line"><span>Subtotal</span><span id="receiptSubtotal">RM0.00</span></div>
+                        <div class="line"><span>Delivery</span><span id="receiptDelivery">RM0.00</span></div>
+                        <div class="line total"><span>TOTAL</span><span id="receiptTotal">RM0.00</span></div>
+                    </div>
+                    <div class="receipt-footer">
+                        <div class="thankyou">✨ Thank you! ✨</div>
+                        <div>Visit again · muizhotchicken.com</div>
+                        <div style="margin-top:0.2rem;font-size:0.6rem;">📱 Order via WhatsApp: +6017-908 1447</div>
+                    </div>
                 </div>
-                <div class="btn-group">
-                    <button class="btn btn-outline" id="copyBtn"><i class="fas fa-copy"></i> Copy</button>
-                    <button class="btn btn-outline" id="downloadBtn"><i class="fas fa-download"></i> .txt</button>
-                </div>
-                <div style="font-size:0.7rem;color:var(--text2);text-align:center;margin-top:0.5rem;">
-                    <i class="fas fa-info-circle"></i> Bluetooth works with compatible thermal printers (ESC/POS).
+                <div class="receipt-actions">
+                    <div class="btn-group">
+                        <button class="btn btn-print" id="printBtn"><i class="fas fa-print"></i> Print</button>
+                        <button class="btn btn-bluetooth" id="bluetoothBtn"><i class="fas fa-bluetooth-b"></i> Bluetooth</button>
+                    </div>
+                    <div class="btn-group">
+                        <button class="btn btn-outline" id="copyBtn"><i class="fas fa-copy"></i> Copy</button>
+                        <button class="btn btn-outline" id="downloadBtn"><i class="fas fa-download"></i> .txt</button>
+                    </div>
+                    <div style="font-size:0.7rem;color:var(--text2);text-align:center;margin-top:0.5rem;">
+                        <i class="fas fa-info-circle"></i> Bluetooth works with compatible thermal printers (ESC/POS).
+                    </div>
                 </div>
             </div>
-        </section>
+        </div>
+
+        <!-- TAB 2: MANAGE ORDERS -->
+        <div id="tab-manage-orders" class="tab-content hidden">
+            <div class="card">
+                <div class="card-title"><i class="fas fa-clipboard-list"></i> All Orders</div>
+                <div class="orders-list-container" id="ordersListContainer">
+                    <div class="empty-orders">
+                        <i class="fas fa-inbox"></i>
+                        No orders yet. Take some orders in the "Take Order" tab!
+                    </div>
+                </div>
+            </div>
+        </div>
+
     </div>
 
     <script>
         // ───────────────────────────────────────────────
-        //  FULL MENU DATA (copied from data.js)
+        //  FULL MENU DATA
         // ───────────────────────────────────────────────
         const MENU_DATA = [{
             category: "Most Ordered",
@@ -848,16 +1038,30 @@
         const itemPriceInput = document.getElementById('itemPriceInput');
         const addItemBtn = document.getElementById('addItemBtn');
         const clearOrderBtn = document.getElementById('clearOrderBtn');
+        const submitOrderBtn = document.getElementById('submitOrderBtn');
+        const cancelEditBtn = document.getElementById('cancelEditBtn');
         const printBtn = document.getElementById('printBtn');
         const bluetoothBtn = document.getElementById('bluetoothBtn');
         const copyBtn = document.getElementById('copyBtn');
         const downloadBtn = document.getElementById('downloadBtn');
         const quickMenuWrap = document.getElementById('quickMenuWrap');
         const feeQuickBtns = document.getElementById('feeQuickBtns');
+        const tableNumberInput = document.getElementById('tableNumberInput');
+        const ordersListContainer = document.getElementById('ordersListContainer');
+        const orderCountBadge = document.getElementById('orderCountBadge');
+        const editBadge = document.getElementById('editBadge');
 
-        let order = {};
+        // ───────────────────────────────────────────────
+        //  STATE
+        // ───────────────────────────────────────────────
+        let cart = {};
+        let editingOrderId = null;
+        const ORDERS_STORAGE_KEY = 'restaurant_orders';
         let toastTimer = null;
 
+        // ───────────────────────────────────────────────
+        //  TOAST
+        // ───────────────────────────────────────────────
         function showToast(msg, duration = 2200) {
             if (!toastEl) return;
             toastEl.textContent = msg;
@@ -866,7 +1070,26 @@
             toastTimer = setTimeout(() => toastEl.classList.remove('show'), duration);
         }
 
-        // ─── Build Quick Menu ──────────────────────────
+        // ───────────────────────────────────────────────
+        //  STORAGE
+        // ───────────────────────────────────────────────
+        function getOrders() {
+            try {
+                return JSON.parse(localStorage.getItem(ORDERS_STORAGE_KEY)) || [];
+            } catch (e) { return []; }
+        }
+
+        function saveOrders(orders) {
+            localStorage.setItem(ORDERS_STORAGE_KEY, JSON.stringify(orders));
+        }
+
+        function generateId() {
+            return Date.now().toString(36) + Math.random().toString(36).substr(2, 5);
+        }
+
+        // ───────────────────────────────────────────────
+        //  BUILD QUICK MENU
+        // ───────────────────────────────────────────────
         function buildQuickMenu() {
             quickMenuWrap.innerHTML = '';
             MENU_DATA.forEach(category => {
@@ -885,7 +1108,7 @@
                     btn.addEventListener('click', function() {
                         const name = this.dataset.name;
                         const price = parseFloat(this.dataset.price);
-                        addOrUpdateOrder(name, price);
+                        addToCart(name, price);
                         showToast(`+1 × ${name} (RM${price.toFixed(2)})`);
                     });
                     container.appendChild(btn);
@@ -894,7 +1117,9 @@
             });
         }
 
-        // ─── Delivery Fee Buttons ──────────────────────
+        // ───────────────────────────────────────────────
+        //  DELIVERY FEE BUTTONS
+        // ───────────────────────────────────────────────
         function initFeeButtons() {
             const btns = feeQuickBtns.querySelectorAll('.fee-btn');
             btns.forEach(btn => {
@@ -919,12 +1144,14 @@
             });
         }
 
-        // ─── Order Core ────────────────────────────────
-        function addOrUpdateOrder(name, price) {
-            if (!order[name]) order[name] = { qty: 0, price: price };
-            order[name].qty += 1;
-            order[name].price = price;
-            renderOrder();
+        // ───────────────────────────────────────────────
+        //  CART OPERATIONS
+        // ───────────────────────────────────────────────
+        function addToCart(name, price) {
+            if (!cart[name]) cart[name] = { qty: 0, price: price };
+            cart[name].qty += 1;
+            cart[name].price = price;
+            renderCart();
             updateReceipt();
         }
 
@@ -933,7 +1160,7 @@
             const price = parseFloat(itemPriceInput.value);
             if (!name) { showToast('Please enter an item name.'); return; }
             if (isNaN(price) || price < 0) { showToast('Please enter a valid price.'); return; }
-            addOrUpdateOrder(name, price);
+            addToCart(name, price);
             itemNameInput.value = '';
             itemPriceInput.value = '';
             showToast(`Added "${name}" (RM${price.toFixed(2)})`);
@@ -941,39 +1168,39 @@
         }
 
         function changeQty(name, delta) {
-            if (!order[name]) return;
-            const newQty = order[name].qty + delta;
-            if (newQty <= 0) delete order[name];
-            else order[name].qty = newQty;
-            renderOrder();
+            if (!cart[name]) return;
+            const newQty = cart[name].qty + delta;
+            if (newQty <= 0) delete cart[name];
+            else cart[name].qty = newQty;
+            renderCart();
             updateReceipt();
         }
 
-        function removeOrderItem(name) {
-            delete order[name];
-            renderOrder();
+        function removeFromCart(name) {
+            delete cart[name];
+            renderCart();
             updateReceipt();
             showToast(`Removed "${name}"`);
         }
 
-        function clearOrder() {
-            if (Object.keys(order).length === 0) return;
-            if (!confirm('Clear all items?')) return;
-            order = {};
-            renderOrder();
+        function clearCart() {
+            if (Object.keys(cart).length === 0) return;
+            if (!confirm('Clear all items in cart?')) return;
+            cart = {};
+            renderCart();
             updateReceipt();
-            showToast('Order cleared.');
+            showToast('Cart cleared.');
         }
 
-        function renderOrder() {
+        function renderCart() {
             orderList.innerHTML = '';
-            const keys = Object.keys(order);
+            const keys = Object.keys(cart);
             if (keys.length === 0) {
                 orderList.innerHTML = '<div class="order-empty">No items in order.</div>';
                 return;
             }
             keys.forEach(name => {
-                const { qty, price } = order[name];
+                const { qty, price } = cart[name];
                 const row = document.createElement('div');
                 row.className = 'order-item-row';
                 row.innerHTML = `
@@ -1003,11 +1230,14 @@
             orderList.querySelectorAll('.remove-btn').forEach(btn => {
                 btn.addEventListener('click', function() {
                     const name = this.dataset.name;
-                    if (name) removeOrderItem(name);
+                    if (name) removeFromCart(name);
                 });
             });
         }
 
+        // ───────────────────────────────────────────────
+        //  RECEIPT UPDATE
+        // ───────────────────────────────────────────────
         function updateReceipt() {
             const now = new Date();
             receiptDateTime.textContent = now.toLocaleString('en-MY', {
@@ -1019,14 +1249,15 @@
                 second: '2-digit',
                 hour12: true
             });
-            const keys = Object.keys(order);
+
+            const keys = Object.keys(cart);
             let subtotal = 0;
             receiptItems.innerHTML = '';
             if (keys.length === 0) {
                 receiptItems.innerHTML = '<div style="text-align:center;opacity:0.5;padding:0.5rem 0;">No items</div>';
             } else {
                 keys.forEach(name => {
-                    const { qty, price } = order[name];
+                    const { qty, price } = cart[name];
                     const total = qty * price;
                     subtotal += total;
                     const div = document.createElement('div');
@@ -1043,32 +1274,241 @@
             receiptTotal.textContent = `RM${total.toFixed(2)}`;
         }
 
-        function resetAll() {
-            if (!confirm('Reset everything? This will clear the order.')) return;
-            order = {};
-            renderOrder();
-            deliveryFeeInput.value = '0.00';
-            document.querySelectorAll('.fee-btn').forEach(b => b.classList.remove('active'));
-            itemNameInput.value = '';
-            itemPriceInput.value = '';
+        // ───────────────────────────────────────────────
+        //  SUBMIT / UPDATE ORDER
+        // ───────────────────────────────────────────────
+        function submitOrder() {
+            const tableNumber = parseInt(tableNumberInput.value);
+            if (!tableNumber || tableNumber < 1) {
+                showToast('Please enter a valid table number.');
+                return;
+            }
+            if (Object.keys(cart).length === 0) {
+                showToast('Cart is empty. Add some items first.');
+                return;
+            }
+
+            const orders = getOrders();
+            const orderData = {
+                items: JSON.parse(JSON.stringify(cart)),
+                tableNumber: tableNumber,
+                timestamp: new Date().toISOString(),
+                deliveryFee: parseFloat(deliveryFeeInput.value) || 0
+            };
+
+            if (editingOrderId) {
+                // Update existing order
+                const index = orders.findIndex(o => o.id === editingOrderId);
+                if (index !== -1) {
+                    orders[index] = { ...orders[index], ...orderData };
+                    saveOrders(orders);
+                    showToast(`✅ Order #${editingOrderId} updated!`);
+                    cancelEdit();
+                    renderManageOrders();
+                    updateBadge();
+                } else {
+                    showToast('Error: Order not found.');
+                }
+            } else {
+                // Create new order
+                const newOrder = {
+                    id: generateId(),
+                    ...orderData
+                };
+                orders.push(newOrder);
+                saveOrders(orders);
+                showToast(`✅ Order #${newOrder.id} submitted for Table ${tableNumber}!`);
+                // Clear cart and table number
+                cart = {};
+                renderCart();
+                updateReceipt();
+                tableNumberInput.value = '';
+                renderManageOrders();
+                updateBadge();
+            }
+        }
+
+        function cancelEdit() {
+            editingOrderId = null;
+            editBadge.style.display = 'none';
+            cancelEditBtn.style.display = 'none';
+            submitOrderBtn.innerHTML = '<i class="fas fa-check"></i> Submit Order';
+            // Optionally clear cart
+            cart = {};
+            renderCart();
             updateReceipt();
-            showToast('Reset complete.');
+            tableNumberInput.value = '';
+            // Switch to manage tab to see updates
+            switchTab('tab-manage-orders');
         }
 
-        // ─── Print ──────────────────────────────────────
-        function printReceipt() {
-            if (Object.keys(order).length === 0) { showToast('Order is empty.'); return; }
+        // ───────────────────────────────────────────────
+        //  MANAGE ORDERS
+        // ───────────────────────────────────────────────
+        function renderManageOrders() {
+            const orders = getOrders();
+            if (orders.length === 0) {
+                ordersListContainer.innerHTML = `
+                    <div class="empty-orders">
+                        <i class="fas fa-inbox"></i>
+                        No orders yet. Take some orders in the "Take Order" tab!
+                    </div>
+                `;
+                return;
+            }
+
+            let html = '';
+            // Sort by newest first
+            orders.sort((a, b) => new Date(b.timestamp) - new Date(a.timestamp));
+
+            orders.forEach(order => {
+                const itemsHtml = Object.keys(order.items).map(name => {
+                    const { qty, price } = order.items[name];
+                    return `<div class="item-line"><span>${qty}× ${escapeHtml(name)}</span><span>RM${(qty * price).toFixed(2)}</span></div>`;
+                }).join('');
+
+                let subtotal = 0;
+                Object.keys(order.items).forEach(name => {
+                    subtotal += order.items[name].qty * order.items[name].price;
+                });
+                const delivery = order.deliveryFee || 0;
+                const total = subtotal + delivery;
+
+                const time = new Date(order.timestamp).toLocaleString('en-MY', {
+                    day: '2-digit',
+                    month: 'short',
+                    year: 'numeric',
+                    hour: '2-digit',
+                    minute: '2-digit',
+                    hour12: true
+                });
+
+                html += `
+                    <div class="order-card" data-id="${order.id}">
+                        <div class="order-card-header">
+                            <div>
+                                <span class="table-badge"><i class="fas fa-chair"></i> Table ${order.tableNumber}</span>
+                                <span style="margin-left:0.5rem;font-size:0.8rem;font-weight:500;">#${order.id}</span>
+                            </div>
+                            <span class="order-time"><i class="far fa-clock"></i> ${time}</span>
+                        </div>
+                        <div class="order-card-items">${itemsHtml}</div>
+                        <div class="order-card-total">Total: RM${total.toFixed(2)}</div>
+                        <div class="order-card-actions">
+                            <button class="btn btn-outline btn-sm" onclick="editOrder('${order.id}')"><i class="fas fa-edit"></i> Edit</button>
+                            <button class="btn btn-danger btn-sm" onclick="deleteOrder('${order.id}')"><i class="fas fa-trash"></i> Delete</button>
+                            <button class="btn btn-print btn-sm" onclick="printOrder('${order.id}')"><i class="fas fa-print"></i> Print</button>
+                            <button class="btn btn-bluetooth btn-sm" onclick="printOrderBluetooth('${order.id}')"><i class="fas fa-bluetooth-b"></i> BT</button>
+                        </div>
+                    </div>
+                `;
+            });
+
+            ordersListContainer.innerHTML = html;
+        }
+
+        function updateBadge() {
+            const orders = getOrders();
+            orderCountBadge.textContent = orders.length;
+        }
+
+        // ───────────────────────────────────────────────
+        //  ORDER ACTIONS (Edit, Delete, Print)
+        // ───────────────────────────────────────────────
+        function editOrder(id) {
+            const orders = getOrders();
+            const order = orders.find(o => o.id === id);
+            if (!order) {
+                showToast('Order not found.');
+                return;
+            }
+
+            // Load into cart
+            cart = JSON.parse(JSON.stringify(order.items));
+            tableNumberInput.value = order.tableNumber;
+            if (order.deliveryFee) {
+                deliveryFeeInput.value = order.deliveryFee.toFixed(2);
+                // Highlight fee button
+                document.querySelectorAll('.fee-btn').forEach(b => {
+                    const fee = parseFloat(b.dataset.fee);
+                    b.classList.toggle('active', fee === order.deliveryFee);
+                });
+            }
+
+            editingOrderId = id;
+            editBadge.style.display = 'inline-block';
+            cancelEditBtn.style.display = 'inline-flex';
+            submitOrderBtn.innerHTML = '<i class="fas fa-save"></i> Update Order';
+
+            renderCart();
+            updateReceipt();
+            switchTab('tab-take-order');
+            showToast(`✏️ Editing order #${id}`);
+        }
+
+        function deleteOrder(id) {
+            if (!confirm(`Delete order #${id}?`)) return;
+            let orders = getOrders();
+            orders = orders.filter(o => o.id !== id);
+            saveOrders(orders);
+            renderManageOrders();
+            updateBadge();
+            showToast(`🗑️ Order #${id} deleted.`);
+        }
+
+        function printOrder(id) {
+            const orders = getOrders();
+            const order = orders.find(o => o.id === id);
+            if (!order) {
+                showToast('Order not found.');
+                return;
+            }
+            // Temporarily set cart to order items for printing
+            const originalCart = cart;
+            cart = JSON.parse(JSON.stringify(order.items));
+            // Set delivery fee
+            const originalDelivery = deliveryFeeInput.value;
+            deliveryFeeInput.value = order.deliveryFee || 0;
+            updateReceipt();
             window.print();
+            // Restore
+            cart = originalCart;
+            deliveryFeeInput.value = originalDelivery;
+            updateReceipt();
         }
 
-        // ─── Bluetooth (with robust chunking) ──────────
-        async function printBluetooth() {
-            if (Object.keys(order).length === 0) {
-                showToast('Order is empty. Add items first.');
+        async function printOrderBluetooth(id) {
+            const orders = getOrders();
+            const order = orders.find(o => o.id === id);
+            if (!order) {
+                showToast('Order not found.');
+                return;
+            }
+            // Temporarily set cart to order items
+            const originalCart = cart;
+            const originalDelivery = deliveryFeeInput.value;
+            cart = JSON.parse(JSON.stringify(order.items));
+            deliveryFeeInput.value = order.deliveryFee || 0;
+            updateReceipt();
+
+            await printBluetoothInternal();
+
+            // Restore
+            cart = originalCart;
+            deliveryFeeInput.value = originalDelivery;
+            updateReceipt();
+        }
+
+        // ───────────────────────────────────────────────
+        //  BLUETOOTH PRINTING (Internal)
+        // ───────────────────────────────────────────────
+        async function printBluetoothInternal() {
+            if (Object.keys(cart).length === 0) {
+                showToast('Order is empty.');
                 return;
             }
             if (!navigator.bluetooth) {
-                showToast('⚠️ Web Bluetooth is not supported on this browser.');
+                showToast('⚠️ Web Bluetooth not supported.');
                 return;
             }
 
@@ -1088,11 +1528,9 @@
 
                 showToast(`Connecting to ${device.name || 'printer'}...`);
                 const server = await device.gatt.connect();
-
                 const services = await server.getPrimaryServices();
                 let characteristic = null;
 
-                // Find any writable characteristic
                 for (const service of services) {
                     try {
                         const chars = await service.getCharacteristics();
@@ -1106,7 +1544,6 @@
                     } catch (_) {}
                 }
 
-                // Fallback: common ESC/POS UUIDs
                 if (!characteristic) {
                     const commonUuids = [
                         '00002a7e-0000-1000-8000-00805f9b34fb',
@@ -1125,37 +1562,26 @@
                 }
 
                 if (!characteristic) {
-                    throw new Error('No writable characteristic found on this printer.');
+                    throw new Error('No writable characteristic found.');
                 }
 
-                // Build the receipt data (without cut command)
                 const receiptData = buildEscPosReceipt(false);
-
-                // Chunk size: use 128 bytes (very conservative, works with all printers)
                 const chunkSize = 128;
                 const totalChunks = Math.ceil(receiptData.length / chunkSize);
 
                 showToast(`Sending ${totalChunks} chunks...`);
 
-                // Send data chunks with sufficient delay
                 for (let i = 0; i < totalChunks; i++) {
                     const start = i * chunkSize;
                     const end = Math.min(start + chunkSize, receiptData.length);
                     const chunk = receiptData.slice(start, end);
-
-                    // Use writeValue (with response) for reliability
                     await characteristic.writeValue(chunk);
-
-                    // Wait longer between chunks to let the printer process
                     if (i < totalChunks - 1) {
                         await new Promise(r => setTimeout(r, 150));
                     }
                 }
 
-                // Wait a bit for the printer to finish processing
                 await new Promise(r => setTimeout(r, 300));
-
-                // Send cut command separately
                 const cutCmd = new Uint8Array([0x1B, 0x6D, 0x1D, 0x56, 0x42, 0x00]);
                 await characteristic.writeValue(cutCmd);
 
@@ -1188,12 +1614,12 @@
             lines.push(`  ${dt}`);
             lines.push('');
             let subtotal = 0;
-            const keys = Object.keys(order);
+            const keys = Object.keys(cart);
             if (keys.length === 0) {
                 lines.push('  (empty order)');
             } else {
                 keys.forEach(name => {
-                    const { qty, price } = order[name];
+                    const { qty, price } = cart[name];
                     const total = qty * price;
                     subtotal += total;
                     const line = `${qty}× ${name}`;
@@ -1217,14 +1643,10 @@
             lines.push('');
             lines.push('');
 
-            // Build the text bytes
             const text = lines.join('\n');
             const bytes = encoder.encode(text);
-
-            // Add init command at the beginning
             const init = new Uint8Array([0x1B, 0x40]);
 
-            // Add cut command at the end if requested
             if (includeCut) {
                 const cut = new Uint8Array([0x1D, 0x56, 0x42, 0x00]);
                 const result = new Uint8Array(init.length + bytes.length + cut.length);
@@ -1233,7 +1655,6 @@
                 result.set(cut, init.length + bytes.length);
                 return result;
             } else {
-                // Without cut (for chunked sending)
                 const result = new Uint8Array(init.length + bytes.length);
                 result.set(init, 0);
                 result.set(bytes, init.length);
@@ -1241,9 +1662,11 @@
             }
         }
 
-        // ─── Copy & Download ─────────────────────────────
+        // ───────────────────────────────────────────────
+        //  COPY & DOWNLOAD
+        // ───────────────────────────────────────────────
         function copyReceipt() {
-            if (Object.keys(order).length === 0) { showToast('Order is empty.'); return; }
+            if (Object.keys(cart).length === 0) { showToast('Order is empty.'); return; }
             const lines = buildTextReceipt();
             navigator.clipboard.writeText(lines).then(() => showToast('✅ Receipt copied!'))
                 .catch(() => {
@@ -1258,7 +1681,7 @@
         }
 
         function downloadReceipt() {
-            if (Object.keys(order).length === 0) { showToast('Order is empty.'); return; }
+            if (Object.keys(cart).length === 0) { showToast('Order is empty.'); return; }
             const lines = buildTextReceipt();
             const blob = new Blob([lines], { type: 'text/plain;charset=utf-8' });
             const url = URL.createObjectURL(blob);
@@ -1294,12 +1717,12 @@
             lines.push(`  ${dt}`);
             lines.push('───────────────────────────────────');
             let subtotal = 0;
-            const keys = Object.keys(order);
+            const keys = Object.keys(cart);
             if (keys.length === 0) {
                 lines.push('  (empty order)');
             } else {
                 keys.forEach(name => {
-                    const { qty, price } = order[name];
+                    const { qty, price } = cart[name];
                     const total = qty * price;
                     subtotal += total;
                     const line = `${qty}× ${name}`;
@@ -1321,13 +1744,54 @@
             return lines.join('\n');
         }
 
+        // ───────────────────────────────────────────────
+        //  TAB SWITCHING
+        // ───────────────────────────────────────────────
+        function switchTab(tabId) {
+            document.querySelectorAll('.tab-content').forEach(el => el.classList.add('hidden'));
+            document.getElementById(tabId).classList.remove('hidden');
+            document.querySelectorAll('.tab-btn').forEach(el => el.classList.remove('active'));
+            document.querySelector(`.tab-btn[data-tab="${tabId}"]`).classList.add('active');
+
+            if (tabId === 'tab-manage-orders') {
+                renderManageOrders();
+                updateBadge();
+            }
+        }
+
+        // ───────────────────────────────────────────────
+        //  RESET
+        // ───────────────────────────────────────────────
+        function resetAll() {
+            if (!confirm('Reset everything? This will clear the cart and all saved orders.')) return;
+            localStorage.removeItem(ORDERS_STORAGE_KEY);
+            cart = {};
+            editingOrderId = null;
+            editBadge.style.display = 'none';
+            cancelEditBtn.style.display = 'none';
+            submitOrderBtn.innerHTML = '<i class="fas fa-check"></i> Submit Order';
+            renderCart();
+            updateReceipt();
+            tableNumberInput.value = '';
+            deliveryFeeInput.value = '0.00';
+            document.querySelectorAll('.fee-btn').forEach(b => b.classList.remove('active'));
+            renderManageOrders();
+            updateBadge();
+            showToast('Reset complete.');
+        }
+
+        // ───────────────────────────────────────────────
+        //  UTILITY
+        // ───────────────────────────────────────────────
         function escapeHtml(str) {
             const div = document.createElement('div');
             div.textContent = str;
             return div.innerHTML;
         }
 
-        // ─── Theme ──────────────────────────────────────
+        // ───────────────────────────────────────────────
+        //  THEME
+        // ───────────────────────────────────────────────
         const themeToggle = document.getElementById('themeToggle');
         const themeIcon = document.getElementById('themeIcon');
         let dark = localStorage.getItem('muiz_receipt_theme') === 'dark';
@@ -1343,7 +1807,9 @@
         }
         applyTheme();
 
-        // ─── Clock ──────────────────────────────────────
+        // ───────────────────────────────────────────────
+        //  CLOCK
+        // ───────────────────────────────────────────────
         function updateClock() {
             const el = document.getElementById('currentDateTime');
             if (el) {
@@ -1361,7 +1827,9 @@
         updateClock();
         setInterval(updateClock, 30000);
 
-        // ─── Event Bindings ─────────────────────────────
+        // ───────────────────────────────────────────────
+        //  EVENT BINDINGS
+        // ───────────────────────────────────────────────
         addItemBtn.addEventListener('click', addItemFromForm);
         itemNameInput.addEventListener('keydown', (e) => {
             if (e.key === 'Enter') { e.preventDefault();
@@ -1371,21 +1839,44 @@
             if (e.key === 'Enter') { e.preventDefault();
                 addItemFromForm(); }
         });
-        clearOrderBtn.addEventListener('click', clearOrder);
-        printBtn.addEventListener('click', printReceipt);
-        bluetoothBtn.addEventListener('click', printBluetooth);
+        clearOrderBtn.addEventListener('click', clearCart);
+        submitOrderBtn.addEventListener('click', submitOrder);
+        cancelEditBtn.addEventListener('click', cancelEdit);
+        printBtn.addEventListener('click', () => {
+            if (Object.keys(cart).length === 0) { showToast('Cart is empty.'); return; }
+            window.print();
+        });
+        bluetoothBtn.addEventListener('click', printBluetoothInternal);
         copyBtn.addEventListener('click', copyReceipt);
         downloadBtn.addEventListener('click', downloadReceipt);
         deliveryFeeInput.addEventListener('input', updateReceipt);
 
-        // ─── Init ──────────────────────────────────────
+        // Tab switching
+        document.querySelectorAll('.tab-btn').forEach(btn => {
+            btn.addEventListener('click', function() {
+                const tabId = this.dataset.tab;
+                switchTab(tabId);
+            });
+        });
+
+        // ───────────────────────────────────────────────
+        //  INIT
+        // ───────────────────────────────────────────────
         buildQuickMenu();
         initFeeButtons();
-        renderOrder();
+        renderCart();
         updateReceipt();
+        renderManageOrders();
+        updateBadge();
 
+        // Expose globals for inline onclick
+        window.editOrder = editOrder;
+        window.deleteOrder = deleteOrder;
+        window.printOrder = printOrder;
+        window.printOrderBluetooth = printOrderBluetooth;
         window.resetAll = resetAll;
-        console.log('🧾 Receipt Generator ready (Bluetooth chunking with 128-byte chunks).');
+
+        console.log('🧾 Two-Tab Receipt System ready.');
     </script>
 </body>
 </html>
