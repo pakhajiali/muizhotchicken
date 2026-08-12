@@ -942,7 +942,6 @@
                     const fee = parseFloat(this.dataset.fee);
                     if (!isNaN(fee)) {
                         deliveryFeeInput.value = fee.toFixed(2);
-                        // Update active state
                         btns.forEach(b => b.classList.remove('active'));
                         this.classList.add('active');
                         updateReceipt();
@@ -950,7 +949,6 @@
                     }
                 });
             });
-            // Also update active state when user types manually
             deliveryFeeInput.addEventListener('input', function() {
                 const val = parseFloat(this.value);
                 btns.forEach(b => {
@@ -1046,7 +1044,6 @@
                 `;
                 orderList.appendChild(row);
             });
-            // attach events
             orderList.querySelectorAll('.qty-down').forEach(btn => {
                 btn.addEventListener('click', function() {
                     const name = this.dataset.name;
@@ -1117,7 +1114,6 @@
             order = {};
             renderOrder();
             deliveryFeeInput.value = '0.00';
-            // Clear active state on fee buttons
             document.querySelectorAll('.fee-btn').forEach(b => b.classList.remove('active'));
             itemNameInput.value = '';
             itemPriceInput.value = '';
@@ -1126,7 +1122,7 @@
         }
 
         // ───────────────────────────────────────────────
-        //  PRINT & BLUETOOTH (same as before)
+        //  PRINT
         // ───────────────────────────────────────────────
         function printReceipt() {
             if (Object.keys(order).length === 0) {
@@ -1136,15 +1132,20 @@
             window.print();
         }
 
+        // ───────────────────────────────────────────────
+        //  BLUETOOTH PRINTING (FIXED: auto-find writable characteristic)
+        // ───────────────────────────────────────────────
         async function printBluetooth() {
             if (Object.keys(order).length === 0) {
                 showToast('Order is empty. Add items first.');
                 return;
             }
+
             if (!navigator.bluetooth) {
-                showToast('⚠️ Web Bluetooth is not supported.');
+                showToast('⚠️ Web Bluetooth is not supported on this browser.');
                 return;
             }
+
             try {
                 const device = await navigator.bluetooth.requestDevice({
                     filters: [
@@ -1158,38 +1159,61 @@
                         '00001802-0000-1000-8000-00805f9b34fb'
                     ]
                 });
+
                 showToast(`Connecting to ${device.name || 'printer'}...`);
                 const server = await device.gatt.connect();
-                let service;
-                try {
-                    service = await server.getPrimaryService('000018f0-0000-1000-8000-00805f9b34fb');
-                } catch (_) {
+
+                // Get all services
+                const services = await server.getPrimaryServices();
+                let characteristic = null;
+
+                // Search for any writable characteristic
+                for (const service of services) {
                     try {
-                        service = await server.getPrimaryService('00001801-0000-1000-8000-00805f9b34fb');
-                    } catch (_2) {
-                        try {
-                            service = await server.getPrimaryService('00001802-0000-1000-8000-00805f9b34fb');
-                        } catch (_3) {
-                            throw new Error('Printer service not found.');
+                        const chars = await service.getCharacteristics();
+                        for (const char of chars) {
+                            const props = char.properties;
+                            if (props.write || props.writeWithoutResponse) {
+                                characteristic = char;
+                                break;
+                            }
                         }
+                        if (characteristic) break;
+                    } catch (_) { /* ignore */ }
+                }
+
+                // Fallback: try common ESC/POS UUIDs
+                if (!characteristic) {
+                    const commonUuids = [
+                        '00002a7e-0000-1000-8000-00805f9b34fb',
+                        '00002a7d-0000-1000-8000-00805f9b34fb',
+                        '00002a7f-0000-1000-8000-00805f9b34fb'
+                    ];
+                    for (const service of services) {
+                        for (const uuid of commonUuids) {
+                            try {
+                                const char = await service.getCharacteristic(uuid);
+                                if (char) {
+                                    characteristic = char;
+                                    break;
+                                }
+                            } catch (_) { /* ignore */ }
+                        }
+                        if (characteristic) break;
                     }
                 }
-                let characteristic;
-                try {
-                    characteristic = await service.getCharacteristic('00002a7e-0000-1000-8000-00805f9b34fb');
-                } catch (_) {
-                    try {
-                        characteristic = await service.getCharacteristic('00002a7d-0000-1000-8000-00805f9b34fb');
-                    } catch (_2) {
-                        throw new Error('Writable characteristic not found.');
-                    }
+
+                if (!characteristic) {
+                    throw new Error('No writable characteristic found on this printer.');
                 }
+
                 const receiptData = buildEscPosReceipt();
                 await characteristic.writeValue(receiptData);
+
                 showToast(`✅ Printed to ${device.name || 'printer'}!`);
             } catch (err) {
                 console.error(err);
-                showToast(`❌ Bluetooth error: ${err.message || 'Unknown'}`);
+                showToast(`❌ Bluetooth error: ${err.message || 'Unknown error'}`);
             }
         }
 
@@ -1412,10 +1436,9 @@
         renderOrder();
         updateReceipt();
 
-        // Expose reset globally
         window.resetAll = resetAll;
 
-        console.log('🧾 Receipt Generator ready with full menu quick-add + delivery fee shortcuts.');
+        console.log('🧾 Receipt Generator ready with full menu, delivery fee shortcuts, and improved Bluetooth.');
     </script>
 </body>
 </html>
