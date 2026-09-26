@@ -104,6 +104,503 @@
     </style>
 
     <!-- ============================================================ -->
+    <!-- ===== ON-SITE ORDERING SYSTEM STYLES ===== -->
+    <!-- ============================================================ -->
+    <style>
+    /* ==========================================================================
+       ON-SITE ORDERING SYSTEM
+       Fully self-contained — uses only --ord-* variables so it never clashes
+       with style.css. Respects [data-theme="dark"].
+       ========================================================================== */
+
+    :root{
+        --ord-primary:#161628;
+        --ord-on-primary:#ffffff;
+        --ord-accent:#e8a838;
+        --ord-wa:#25D366;
+        --ord-wa-2:#1da851;
+        --ord-danger:#c0392b;
+        --ord-surface:#ffffff;
+        --ord-surface-2:#f5f6fa;
+        --ord-surface-3:#eceef4;
+        --ord-ink:#161628;
+        --ord-ink-2:#57576f;
+        --ord-ink-3:#8d8da4;
+        --ord-line:#e5e7ef;
+        --ord-shadow:0 18px 50px rgba(15,17,40,.16);
+    }
+
+    [data-theme="dark"]{
+        --ord-primary:#f2f2f7;
+        --ord-on-primary:#161628;
+        --ord-surface:#191932;
+        --ord-surface-2:#212140;
+        --ord-surface-3:#2b2b4d;
+        --ord-ink:#f2f2f7;
+        --ord-ink-2:#b4b4cb;
+        --ord-ink-3:#83839c;
+        --ord-line:#32324f;
+        --ord-shadow:0 18px 50px rgba(0,0,0,.62);
+    }
+
+    /* Hide the legacy "Order in App" modal — it is replaced by the new one */
+    #itemModal{ display:none !important; }
+
+    body.ord-locked{ overflow:hidden !important; }
+
+    /* ---------------------------------------------------------------
+       FLOATING ORDER BUTTON
+       --------------------------------------------------------------- */
+    .ord-fab{
+        position:fixed;
+        right:18px;
+        bottom:18px;
+        z-index:99990;
+        display:inline-flex;
+        align-items:center;
+        gap:9px;
+        padding:14px 20px;
+        border:0;
+        border-radius:999px;
+        background:var(--ord-primary);
+        color:var(--ord-on-primary);
+        font-family:inherit;
+        font-size:15px;
+        font-weight:700;
+        line-height:1;
+        cursor:pointer;
+        box-shadow:0 12px 32px rgba(15,17,40,.30);
+        transition:transform .2s cubic-bezier(.2,.9,.35,1), box-shadow .2s;
+        -webkit-tap-highlight-color:transparent;
+    }
+    .ord-fab:hover{ transform:translateY(-2px); box-shadow:0 16px 40px rgba(15,17,40,.38); }
+    .ord-fab:active{ transform:scale(.96); }
+    .ord-fab > i{ font-size:17px; }
+
+    .ord-fab-count{
+        min-width:22px; height:22px; padding:0 7px;
+        border-radius:999px;
+        background:var(--ord-accent);
+        color:#161628;
+        font-size:11px; font-weight:800; line-height:22px; text-align:center;
+        display:none;
+    }
+    .ord-fab.has-items .ord-fab-count{ display:inline-block; }
+
+    .ord-fab-total{
+        display:none;
+        padding-left:10px;
+        margin-left:1px;
+        border-left:1px solid rgba(128,128,128,.35);
+        font-variant-numeric:tabular-nums;
+    }
+    .ord-fab.has-items .ord-fab-total{ display:inline-block; }
+
+    .ord-fab.bump{ animation:ordBump .45s cubic-bezier(.2,.9,.35,1); }
+    @keyframes ordBump{
+        0%{ transform:scale(1); }
+        35%{ transform:scale(1.12); }
+        100%{ transform:scale(1); }
+    }
+
+    @media (max-width:560px){
+        .ord-fab{ right:14px; bottom:14px; padding:13px 17px; font-size:14px; }
+        .ord-fab-total{ display:none !important; }
+    }
+
+    /* ---------------------------------------------------------------
+       CART DRAWER
+       --------------------------------------------------------------- */
+    .ord-drawer{ position:fixed; inset:0; z-index:99995; display:none; }
+    .ord-drawer.open{ display:block; }
+
+    .ord-drawer-overlay{
+        position:absolute; inset:0;
+        background:rgba(10,11,25,.50);
+        -webkit-backdrop-filter:blur(4px);
+        backdrop-filter:blur(4px);
+        animation:ordFade .25s ease;
+    }
+    @keyframes ordFade{ from{opacity:0;} to{opacity:1;} }
+
+    .ord-drawer-panel{
+        position:absolute; top:0; right:0; bottom:0;
+        width:min(430px,100%);
+        display:flex; flex-direction:column;
+        background:var(--ord-surface);
+        color:var(--ord-ink);
+        box-shadow:-16px 0 50px rgba(10,11,25,.28);
+        animation:ordSlideIn .32s cubic-bezier(.2,.9,.35,1);
+    }
+    @keyframes ordSlideIn{ from{ transform:translateX(100%); } to{ transform:translateX(0); } }
+
+    .ord-drawer-head{
+        flex:0 0 auto;
+        display:flex; align-items:center; justify-content:space-between;
+        padding:18px 20px;
+        border-bottom:1px solid var(--ord-line);
+    }
+    .ord-drawer-head h3{
+        margin:0;
+        display:flex; align-items:center; gap:9px;
+        font-size:17px; font-weight:800; letter-spacing:-.2px;
+        color:var(--ord-ink);
+    }
+    .ord-drawer-head h3 i{ color:var(--ord-accent); }
+
+    .ord-drawer-close{
+        width:36px; height:36px; border-radius:50%; border:0;
+        background:var(--ord-surface-2); color:var(--ord-ink-2);
+        display:grid; place-items:center;
+        font-size:15px; cursor:pointer;
+        transition:background .2s, color .2s, transform .2s;
+    }
+    .ord-drawer-close:hover{
+        background:var(--ord-primary); color:var(--ord-on-primary); transform:rotate(90deg);
+    }
+
+    .ord-drawer-body{
+        flex:1 1 auto; overflow-y:auto; padding:16px 18px;
+        -webkit-overflow-scrolling:touch;
+    }
+    .ord-drawer-foot{
+        flex:0 0 auto;
+        padding:16px 18px calc(16px + env(safe-area-inset-bottom,0px));
+        border-top:1px solid var(--ord-line);
+        background:var(--ord-surface);
+    }
+
+    /* ------- cart line ------- */
+    .ord-line{
+        display:flex; gap:12px;
+        padding:12px; margin-bottom:10px;
+        background:var(--ord-surface-2);
+        border:1px solid var(--ord-line);
+        border-radius:14px;
+        animation:ordFade .22s ease;
+    }
+    .ord-line-img{
+        flex:0 0 56px; width:56px; height:56px;
+        border-radius:10px; object-fit:cover;
+        background:var(--ord-surface-3);
+    }
+    .ord-line-main{ flex:1 1 auto; min-width:0; }
+
+    .ord-line-top{ display:flex; align-items:flex-start; gap:8px; }
+    .ord-line-name{
+        flex:1 1 auto;
+        font-size:14px; font-weight:700; line-height:1.32;
+        color:var(--ord-ink); word-break:break-word;
+    }
+    .ord-line-remove{
+        flex:0 0 auto; border:0; background:transparent; cursor:pointer;
+        color:var(--ord-ink-3); font-size:13px;
+        padding:3px 5px; border-radius:6px;
+        transition:color .2s, background .2s;
+    }
+    .ord-line-remove:hover{ color:var(--ord-danger); background:rgba(192,57,43,.10); }
+
+    .ord-line-opt{ font-size:12px; color:var(--ord-ink-2); margin-top:4px; }
+    .ord-line-note{
+        display:flex; gap:5px;
+        font-size:12px; color:var(--ord-accent); margin-top:4px;
+    }
+    .ord-line-note i{ margin-top:3px; font-size:10px; }
+
+    .ord-line-bottom{
+        display:flex; align-items:center; justify-content:space-between;
+        gap:8px; margin-top:9px;
+    }
+    .ord-line-price{
+        font-size:14px; font-weight:800; color:var(--ord-ink);
+        font-variant-numeric:tabular-nums;
+    }
+    .ord-line-qty{
+        display:flex; align-items:center; gap:2px;
+        padding:2px; border-radius:999px;
+        background:var(--ord-surface);
+        border:1px solid var(--ord-line);
+    }
+    .ord-line-qty button{
+        width:28px; height:28px; border-radius:50%; border:0;
+        display:grid; place-items:center;
+        background:transparent; color:var(--ord-ink);
+        font-size:11px; cursor:pointer;
+        transition:background .18s, color .18s;
+    }
+    .ord-line-qty button:hover{ background:var(--ord-primary); color:var(--ord-on-primary); }
+    .ord-line-qty span{
+        min-width:26px; text-align:center;
+        font-size:14px; font-weight:800;
+        font-variant-numeric:tabular-nums;
+    }
+
+    /* ------- empty state ------- */
+    .ord-empty{ text-align:center; padding:56px 20px; }
+    .ord-empty i{ display:block; margin-bottom:14px; font-size:42px; color:var(--ord-ink-3); }
+    .ord-empty p{ margin:0 0 4px; font-size:16px; font-weight:700; color:var(--ord-ink); }
+    .ord-empty span{ font-size:13px; color:var(--ord-ink-3); }
+
+    /* ------- summary ------- */
+    .ord-sum-row{
+        display:flex; align-items:center; justify-content:space-between;
+        margin-bottom:6px;
+        font-size:15px; font-weight:600; color:var(--ord-ink-2);
+    }
+    .ord-sum-row strong{
+        font-size:22px; font-weight:900; color:var(--ord-ink);
+        font-variant-numeric:tabular-nums;
+    }
+    .ord-sum-note{ margin:0 0 12px; font-size:12px; line-height:1.5; color:var(--ord-ink-3); }
+
+    /* ---------------------------------------------------------------
+       BUTTONS
+       --------------------------------------------------------------- */
+    .ord-btn{
+        display:inline-flex; align-items:center; justify-content:center; gap:9px;
+        padding:14px 22px;
+        border:0; border-radius:999px;
+        font-family:inherit; font-size:15px; font-weight:700;
+        cursor:pointer;
+        transition:transform .18s, box-shadow .18s, background .18s, color .18s, border-color .18s;
+        -webkit-tap-highlight-color:transparent;
+    }
+    .ord-btn:active{ transform:scale(.97); }
+    .ord-btn-block{ width:100%; }
+
+    .ord-btn-add{ background:var(--ord-primary); color:var(--ord-on-primary); }
+    .ord-btn-add:hover{ box-shadow:0 10px 26px rgba(15,17,40,.28); }
+
+    .ord-btn-buy{
+        background:var(--ord-wa); color:#fff;
+        box-shadow:0 6px 20px rgba(37,211,102,.32);
+    }
+    .ord-btn-buy:hover{ background:var(--ord-wa-2); box-shadow:0 10px 28px rgba(37,211,102,.44); }
+
+    .ord-btn-ghost{
+        margin-top:8px; padding:11px 18px;
+        background:transparent; color:var(--ord-ink-3);
+        border:1px solid var(--ord-line); font-size:13px;
+    }
+    .ord-btn-ghost:hover{ color:var(--ord-danger); border-color:var(--ord-danger); }
+
+    /* ---------------------------------------------------------------
+       ORDERING MODAL
+       --------------------------------------------------------------- */
+    .ord-modal{ position:fixed; inset:0; z-index:99998; display:none; }
+    .ord-modal.open{ display:block; }
+
+    .ord-modal-overlay{
+        position:absolute; inset:0;
+        background:rgba(10,11,25,.55);
+        -webkit-backdrop-filter:blur(6px);
+        backdrop-filter:blur(6px);
+        animation:ordFade .22s ease;
+    }
+
+    .ord-modal-panel{
+        position:absolute;
+        left:50%; top:50%;
+        transform:translate(-50%,-50%);
+        width:min(780px, calc(100% - 32px));
+        max-height:min(88vh, 800px);
+        display:grid;
+        grid-template-columns:300px 1fr;
+        overflow:hidden;
+        background:var(--ord-surface);
+        color:var(--ord-ink);
+        border-radius:22px;
+        box-shadow:var(--ord-shadow);
+        animation:ordPop .3s cubic-bezier(.2,.9,.35,1);
+    }
+    @keyframes ordPop{
+        from{ opacity:0; transform:translate(-50%,-50%) scale(.94); }
+        to{ opacity:1; transform:translate(-50%,-50%) scale(1); }
+    }
+    .ord-modal-panel.no-media{ grid-template-columns:1fr; }
+
+    .ord-modal-close{
+        position:absolute; top:12px; right:12px; z-index:3;
+        width:36px; height:36px; border-radius:50%; border:0;
+        display:grid; place-items:center;
+        background:rgba(255,255,255,.92); color:#161628;
+        font-size:15px; cursor:pointer;
+        box-shadow:0 3px 12px rgba(0,0,0,.18);
+        transition:transform .2s, background .2s;
+    }
+    .ord-modal-close:hover{ transform:rotate(90deg); background:#fff; }
+
+    .ord-modal-media{ align-self:start; padding:20px 0 20px 20px; }
+    .ord-modal-media img{
+        display:block; width:100%;
+        aspect-ratio:1/1; object-fit:cover;
+        border-radius:16px;
+        background:var(--ord-surface-3);
+    }
+
+    .ord-modal-body{
+        display:flex; flex-direction:column;
+        padding:24px;
+        overflow-y:auto;
+        -webkit-overflow-scrolling:touch;
+    }
+
+    .ord-modal-name{
+        margin:0 0 6px;
+        font-size:22px; font-weight:900; letter-spacing:-.4px; line-height:1.25;
+        color:var(--ord-ink);
+    }
+    .ord-modal-desc{ margin:0; font-size:14px; line-height:1.55; color:var(--ord-ink-2); }
+
+    .ord-modal-price{
+        display:flex; align-items:baseline; gap:12px; flex-wrap:wrap;
+        margin:8px 0 18px;
+    }
+    .ord-price-unit{
+        font-size:28px; font-weight:900; letter-spacing:-.6px;
+        color:var(--ord-ink);
+        font-variant-numeric:tabular-nums;
+    }
+    .ord-price-total{ font-size:13px; font-weight:600; color:var(--ord-ink-3); }
+
+    /* ------- options ------- */
+    .ord-options{ margin-bottom:4px; }
+    .ord-opt-group{ margin-bottom:16px; }
+    .ord-opt-label{
+        margin-bottom:8px;
+        font-size:11px; font-weight:800;
+        letter-spacing:.09em; text-transform:uppercase;
+        color:var(--ord-ink-3);
+    }
+    .ord-opt-row{ display:flex; flex-wrap:wrap; gap:8px; }
+    .ord-opt-chip{
+        display:inline-flex; align-items:center; gap:8px;
+        padding:9px 16px;
+        border:1.5px solid var(--ord-line); border-radius:999px;
+        background:var(--ord-surface); color:var(--ord-ink);
+        font-family:inherit; font-size:13px; font-weight:600;
+        cursor:pointer;
+        transition:background .18s, border-color .18s, color .18s;
+    }
+    .ord-opt-chip small{ font-size:11px; font-weight:600; color:var(--ord-ink-3); }
+    .ord-opt-chip:hover{ border-color:var(--ord-ink-3); }
+    .ord-opt-chip.is-on{
+        background:var(--ord-primary);
+        border-color:var(--ord-primary);
+        color:var(--ord-on-primary);
+    }
+    .ord-opt-chip.is-on small{ color:var(--ord-on-primary); opacity:.75; }
+
+    /* ------- quantity ------- */
+    .ord-qty-row{
+        display:flex; align-items:center; justify-content:space-between; gap:16px;
+        margin-top:4px; padding:14px 0;
+        border-top:1px solid var(--ord-line);
+    }
+    .ord-qty-label{ font-size:13px; font-weight:700; color:var(--ord-ink-2); }
+    .ord-qty{
+        display:flex; align-items:center; gap:2px;
+        padding:3px; border-radius:999px;
+        background:var(--ord-surface-2);
+        border:1px solid var(--ord-line);
+    }
+    .ord-qty button{
+        width:34px; height:34px; border-radius:50%; border:0;
+        display:grid; place-items:center;
+        background:transparent; color:var(--ord-ink);
+        font-size:12px; cursor:pointer;
+        transition:background .18s, color .18s;
+    }
+    .ord-qty button:hover{ background:var(--ord-primary); color:var(--ord-on-primary); }
+    .ord-qty input{
+        width:48px; border:0; background:transparent;
+        text-align:center;
+        font-family:inherit; font-size:16px; font-weight:800;
+        color:var(--ord-ink);
+        -moz-appearance:textfield; appearance:textfield;
+    }
+    .ord-qty input::-webkit-outer-spin-button,
+    .ord-qty input::-webkit-inner-spin-button{ -webkit-appearance:none; margin:0; }
+    .ord-qty input:focus{ outline:none; }
+
+    /* ------- note ------- */
+    .ord-note-label{
+        display:block; margin-bottom:7px;
+        font-size:13px; font-weight:700; color:var(--ord-ink-2);
+    }
+    .ord-note-label span{ font-weight:500; color:var(--ord-ink-3); }
+    .ord-note{
+        width:100%; box-sizing:border-box;
+        min-height:56px; padding:12px 14px;
+        border:1.5px solid var(--ord-line); border-radius:12px;
+        background:var(--ord-surface-2); color:var(--ord-ink);
+        font-family:inherit; font-size:14px; line-height:1.5;
+        resize:vertical;
+        transition:border-color .18s, background .18s;
+    }
+    .ord-note::placeholder{ color:var(--ord-ink-3); }
+    .ord-note:focus{ outline:none; border-color:var(--ord-primary); background:var(--ord-surface); }
+
+    .ord-modal-actions{
+        display:grid; grid-template-columns:1fr 1.15fr; gap:10px;
+        margin-top:auto; padding-top:18px;
+    }
+
+    /* ------- modal on mobile ------- */
+    @media (max-width:720px){
+        .ord-modal-panel{
+            left:0; right:0; bottom:0; top:auto;
+            width:100%; max-width:none;
+            transform:none;
+            grid-template-columns:1fr;
+            max-height:92vh;
+            border-radius:22px 22px 0 0;
+            animation:ordSheetUp .32s cubic-bezier(.2,.9,.35,1);
+        }
+        @keyframes ordSheetUp{
+            from{ transform:translateY(100%); }
+            to{ transform:translateY(0); }
+        }
+        .ord-modal-panel.no-media{ grid-template-columns:1fr; }
+        .ord-modal-media{ padding:16px 16px 0; }
+        .ord-modal-media img{ aspect-ratio:16/10; max-height:210px; }
+        .ord-modal-body{
+            padding:18px 18px calc(18px + env(safe-area-inset-bottom,0px));
+        }
+        .ord-modal-close{ top:10px; right:10px; }
+    }
+    @media (max-width:520px){
+        .ord-modal-actions{ grid-template-columns:1fr; }
+    }
+
+    /* ---------------------------------------------------------------
+       TOAST
+       --------------------------------------------------------------- */
+    .ord-toast{
+        position:fixed; left:50%; bottom:92px;
+        z-index:99999;
+        max-width:calc(100% - 32px);
+        padding:13px 24px;
+        border-radius:999px;
+        background:var(--ord-primary); color:var(--ord-on-primary);
+        font-size:14px; font-weight:600; text-align:center;
+        box-shadow:0 12px 32px rgba(15,17,40,.32);
+        opacity:0; pointer-events:none;
+        transform:translate(-50%,24px);
+        transition:opacity .28s, transform .28s cubic-bezier(.2,.9,.35,1);
+    }
+    .ord-toast.show{ opacity:1; transform:translate(-50%,0); }
+    @media (max-width:560px){
+        .ord-toast{ bottom:84px; font-size:13px; padding:11px 18px; }
+    }
+
+    @media (prefers-reduced-motion: reduce){
+        .ord-fab, .ord-drawer-panel, .ord-modal-panel, .ord-toast,
+        .ord-btn, .ord-opt-chip{ transition:none !important; animation:none !important; }
+    }
+    </style>
+
+    <!-- ============================================================ -->
     <!-- ===== STRUCTURED DATA (JSON-LD) ===== -->
     <!-- ============================================================ -->
 
@@ -2415,7 +2912,7 @@
             </div>
         </div>
 
-        <!-- ===== ITEM DETAIL MODAL ===== -->
+        <!-- ===== ITEM DETAIL MODAL (legacy — hidden by ordering system CSS) ===== -->
         <div class="item-modal" id="itemModal">
             <div class="item-modal-overlay" id="itemModalOverlay"></div>
             <div class="item-modal-content">
@@ -2458,9 +2955,829 @@
         </footer>
     </main>
 
+    <!-- ===================== ON-SITE ORDERING UI ===================== -->
+
+    <!-- Floating order button -->
+    <button class="ord-fab" id="ordFab" type="button"
+            aria-label="View your order" aria-haspopup="dialog" aria-expanded="false">
+        <i class="fas fa-shopping-bag" aria-hidden="true"></i>
+        <span class="ord-fab-count" id="ordFabCount">0</span>
+        <span class="ord-fab-total" id="ordFabTotal">RM0.00</span>
+    </button>
+
+    <!-- Cart drawer -->
+    <div class="ord-drawer" id="ordDrawer" aria-hidden="true">
+        <div class="ord-drawer-overlay" id="ordDrawerOverlay"></div>
+        <aside class="ord-drawer-panel" role="dialog" aria-modal="true" aria-labelledby="ordDrawerTitle">
+            <header class="ord-drawer-head">
+                <h3 id="ordDrawerTitle"><i class="fas fa-shopping-bag" aria-hidden="true"></i> Your Order</h3>
+                <button class="ord-drawer-close" id="ordDrawerClose" type="button" aria-label="Close order panel">
+                    <i class="fas fa-times" aria-hidden="true"></i>
+                </button>
+            </header>
+            <div class="ord-drawer-body" id="ordDrawerBody"></div>
+            <div class="ord-drawer-foot" id="ordDrawerFoot"></div>
+        </aside>
+    </div>
+
+    <!-- Ordering modal -->
+    <div class="ord-modal" id="ordModal" aria-hidden="true">
+        <div class="ord-modal-overlay" id="ordModalOverlay"></div>
+        <div class="ord-modal-panel" id="ordModalPanel" role="dialog" aria-modal="true" aria-labelledby="ordModalName">
+            <button class="ord-modal-close" id="ordModalClose" type="button" aria-label="Close">
+                <i class="fas fa-times" aria-hidden="true"></i>
+            </button>
+
+            <div class="ord-modal-media" id="ordModalMedia">
+                <img id="ordModalImg" src="" alt="" />
+            </div>
+
+            <div class="ord-modal-body">
+                <h3 class="ord-modal-name" id="ordModalName">Item</h3>
+                <p class="ord-modal-desc" id="ordModalDesc"></p>
+                <div class="ord-modal-price" id="ordModalPrice"></div>
+
+                <div class="ord-options" id="ordModalOptions"></div>
+
+                <div class="ord-qty-row">
+                    <span class="ord-qty-label">Quantity</span>
+                    <div class="ord-qty">
+                        <button type="button" id="ordQtyMinus" aria-label="Decrease quantity">
+                            <i class="fas fa-minus" aria-hidden="true"></i>
+                        </button>
+                        <input type="number" id="ordQty" value="1" min="1" max="99"
+                               inputmode="numeric" aria-label="Quantity" />
+                        <button type="button" id="ordQtyPlus" aria-label="Increase quantity">
+                            <i class="fas fa-plus" aria-hidden="true"></i>
+                        </button>
+                    </div>
+                </div>
+
+                <label class="ord-note-label" for="ordNote">
+                    Special request <span>(optional)</span>
+                </label>
+                <textarea class="ord-note" id="ordNote" rows="2" maxlength="200"
+                          placeholder="e.g. less spicy, extra sambal, no onions…"></textarea>
+
+                <div class="ord-modal-actions">
+                    <button class="ord-btn ord-btn-add" id="ordAddToCart" type="button">
+                        <i class="fas fa-plus" aria-hidden="true"></i> Add to Order
+                    </button>
+                    <button class="ord-btn ord-btn-buy" id="ordBuyNow" type="button">
+                        <i class="fab fa-whatsapp" aria-hidden="true"></i> Order Now
+                    </button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Toast -->
+    <div class="ord-toast" id="ordToast" role="status" aria-live="polite"></div>
+
     <!-- ===== SCRIPTS ===== -->
     <script src="messages.js"></script>
     <script src="rating-manager.js"></script>
     <script src="script.js"></script>
+
+    <!-- ==========================================================================
+         ON-SITE ORDERING SCRIPT
+         Loaded last so it can override the legacy openItemModal() from script.js
+         ========================================================================== -->
+    <script>
+    /* ==========================================================================
+       MUIZ HOT CHICKEN — ON-SITE ORDERING
+       --------------------------------------------------------------------------
+       Replaces the legacy "Order in App" popup with a real ordering flow:
+         • quantity picker
+         • auto-detected options (Hot/Cold drinks, flavours, chicken/beef)
+         • special-request notes
+         • persistent cart (localStorage)
+         • slide-in cart drawer
+         • WhatsApp checkout with a full itemised message
+       ========================================================================== */
+    (function () {
+        'use strict';
+
+        var WA_NUMBER = '60179081447';
+        var STORE_KEY = 'muiz_web_order_v1';
+
+        var cart = [];
+        var current = null;
+        var chipRefs = {};
+        var lockCount = 0;
+        var lastFocus = null;
+        var toastTimer;
+
+        /* ------------------------------------------------------------------
+           tiny helpers
+           ------------------------------------------------------------------ */
+        function $(id) { return document.getElementById(id); }
+
+        function rm(n) {
+            return 'RM' + (Math.round(Number(n) * 100) / 100).toFixed(2);
+        }
+
+        function esc(s) {
+            var d = document.createElement('div');
+            d.textContent = (s === null || s === undefined) ? '' : String(s);
+            return d.innerHTML;
+        }
+
+        function toast(msg) {
+            var el = $('ordToast');
+            if (!el) return;
+            el.textContent = msg;
+            el.classList.add('show');
+            clearTimeout(toastTimer);
+            toastTimer = setTimeout(function () { el.classList.remove('show'); }, 2400);
+        }
+
+        /* ------------------------------------------------------------------
+           scroll lock (reference-counted + legacy-script safe)
+           ------------------------------------------------------------------ */
+        function lockScroll() {
+            lockCount++;
+            document.body.classList.add('ord-locked');
+        }
+
+        function unlockScroll() {
+            lockCount = Math.max(0, lockCount - 1);
+            if (lockCount === 0) {
+                document.body.classList.remove('ord-locked');
+                document.body.style.overflow = '';
+                document.body.style.position = '';
+                document.body.style.top = '';
+                document.body.classList.remove('modal-open', 'no-scroll', 'overflow-hidden');
+            }
+        }
+
+        /* Safety net: if a legacy handler locks the page and never releases it,
+           release it whenever we are not the ones holding the lock. */
+        try {
+            new MutationObserver(function () {
+                if (lockCount === 0 && document.body.style.overflow === 'hidden') {
+                    document.body.style.overflow = '';
+                }
+            }).observe(document.body, { attributes: true, attributeFilter: ['style'] });
+        } catch (e) { /* MutationObserver unavailable — ignore */ }
+
+        /* ------------------------------------------------------------------
+           cart state
+           ------------------------------------------------------------------ */
+        function lineKey(l) {
+            return l.name + '|' + JSON.stringify(l.options || {}) + '|' + (l.note || '');
+        }
+
+        function saveCart() {
+            try { localStorage.setItem(STORE_KEY, JSON.stringify(cart)); } catch (e) {}
+            renderFab();
+        }
+
+        function loadCart() {
+            cart = [];
+            try {
+                var raw = localStorage.getItem(STORE_KEY);
+                var parsed = raw ? JSON.parse(raw) : [];
+                if (Array.isArray(parsed)) {
+                    parsed.forEach(function (it) {
+                        if (!it || !it.name || !(Number(it.qty) > 0)) return;
+                        var line = {
+                            name: String(it.name),
+                            img: it.img || '',
+                            unitPrice: Number(it.unitPrice) || 0,
+                            qty: Math.min(99, Math.max(1, Math.floor(Number(it.qty)))),
+                            options: (it.options && typeof it.options === 'object') ? it.options : {},
+                            note: it.note || ''
+                        };
+                        line.key = it.key || lineKey(line);
+                        cart.push(line);
+                    });
+                }
+            } catch (e) { cart = []; }
+            renderFab();
+        }
+
+        function itemCount() {
+            return cart.reduce(function (s, i) { return s + i.qty; }, 0);
+        }
+
+        function subtotal() {
+            return cart.reduce(function (s, i) { return s + i.unitPrice * i.qty; }, 0);
+        }
+
+        /* ------------------------------------------------------------------
+           floating button
+           ------------------------------------------------------------------ */
+        function renderFab() {
+            var fab = $('ordFab');
+            if (!fab) return;
+
+            var n = itemCount();
+            fab.classList.toggle('has-items', n > 0);
+            fab.setAttribute('aria-label',
+                n > 0 ? 'View your order — ' + n + ' item' + (n > 1 ? 's' : '') + ', ' + rm(subtotal())
+                      : 'View your order');
+
+            var badge = $('ordFabCount');
+            if (badge) badge.textContent = n;
+
+            var total = $('ordFabTotal');
+            if (total) total.textContent = rm(subtotal());
+        }
+
+        function bumpFab() {
+            var fab = $('ordFab');
+            if (!fab) return;
+            fab.classList.remove('bump');
+            void fab.offsetWidth; /* force reflow to restart the animation */
+            fab.classList.add('bump');
+        }
+
+        /* ------------------------------------------------------------------
+           option auto-detection
+           ------------------------------------------------------------------ */
+        function detectOptions(name, desc) {
+            var out = [];
+            var d = String(desc || '');
+
+            /* Hot RM1.50 / Cold RM2.00  → temperature choice with its own price */
+            var hc = d.match(/Hot\s*RM\s*([0-9]+(?:\.[0-9]+)?)\s*\/\s*Cold\s*RM\s*([0-9]+(?:\.[0-9]+)?)/i);
+            if (hc) {
+                out.push({
+                    label: 'Serve',
+                    values: [
+                        { name: 'Hot',  price: parseFloat(hc[1]) },
+                        { name: 'Cold', price: parseFloat(hc[2]) }
+                    ],
+                    def: 1
+                });
+            }
+
+            /* "Choose flavour: Mala • Peri-Peri • Thai Lime • Charcoal" */
+            var fl = d.match(/choose\s*flavou?r\s*:\s*(.+)/i);
+            if (fl) {
+                var list = fl[1].split(/[•·|,\/]/)
+                    .map(function (s) { return s.replace(/\s+/g, ' ').trim(); })
+                    .filter(Boolean);
+                if (list.length) {
+                    out.push({
+                        label: 'Flavour',
+                        values: list.map(function (n) { return { name: n, price: null }; }),
+                        def: 0
+                    });
+                }
+            }
+
+            /* "Chicken or Beef" → protein choice */
+            if (/chicken\s+or\s+beef/i.test(d) || /chicken\s+or\s+beef/i.test(name)) {
+                out.push({
+                    label: 'Choice',
+                    values: [
+                        { name: 'Chicken', price: null },
+                        { name: 'Beef',    price: null }
+                    ],
+                    def: 0
+                });
+            }
+
+            return out;
+        }
+
+        /* ------------------------------------------------------------------
+           ordering modal
+           ------------------------------------------------------------------ */
+        function openModal(name, basePrice, img, desc) {
+            /* support both openItemModal('x', 1, 'img', 'desc')
+               and openItemModal({ name, price, img, desc }) */
+            if (name && typeof name === 'object') {
+                var o = name;
+                name = o.name; basePrice = o.price; img = o.img; desc = o.desc;
+            }
+
+            basePrice = parseFloat(basePrice);
+            if (!isFinite(basePrice) || basePrice < 0) basePrice = 0;
+
+            current = {
+                name: String(name || 'Item'),
+                basePrice: basePrice,
+                img: img || '',
+                desc: desc || '',
+                options: detectOptions(name, desc),
+                sel: {}
+            };
+            current.options.forEach(function (op) { current.sel[op.label] = op.def || 0; });
+
+            renderModal();
+
+            lastFocus = document.activeElement;
+            var modal = $('ordModal');
+            modal.classList.add('open');
+            modal.setAttribute('aria-hidden', 'false');
+
+            var fab = $('ordFab');
+            if (fab) fab.setAttribute('aria-expanded', 'false');
+
+            lockScroll();
+
+            setTimeout(function () {
+                var c = $('ordModalClose');
+                if (c) c.focus();
+            }, 60);
+        }
+
+        function closeModal() {
+            var modal = $('ordModal');
+            if (!modal || !modal.classList.contains('open')) return;
+
+            modal.classList.remove('open');
+            modal.setAttribute('aria-hidden', 'true');
+            unlockScroll();
+
+            current = null;
+            chipRefs = {};
+
+            if (lastFocus && typeof lastFocus.focus === 'function') {
+                try { lastFocus.focus(); } catch (e) {}
+            }
+            lastFocus = null;
+        }
+
+        function renderModal() {
+            if (!current) return;
+
+            var panel  = $('ordModalPanel');
+            var media  = $('ordModalMedia');
+            var imgEl  = $('ordModalImg');
+
+            /* --- image --- */
+            imgEl.onerror = function () {
+                this.onerror = null;
+                if (panel) panel.classList.add('no-media');
+            };
+            if (current.img) {
+                if (panel) panel.classList.remove('no-media');
+                imgEl.src = current.img;
+                imgEl.alt = current.name;
+            } else {
+                if (panel) panel.classList.add('no-media');
+                imgEl.removeAttribute('src');
+            }
+
+            /* --- text --- */
+            $('ordModalName').textContent = current.name;
+
+            var descEl = $('ordModalDesc');
+            descEl.textContent = current.desc;
+            descEl.style.display = current.desc ? '' : 'none';
+
+            /* --- options --- */
+            var wrap = $('ordModalOptions');
+            wrap.innerHTML = '';
+            chipRefs = {};
+
+            if (current.options.length) {
+                wrap.style.display = '';
+
+                current.options.forEach(function (op) {
+                    var group = document.createElement('div');
+                    group.className = 'ord-opt-group';
+
+                    var label = document.createElement('div');
+                    label.className = 'ord-opt-label';
+                    label.textContent = op.label;
+                    group.appendChild(label);
+
+                    var row = document.createElement('div');
+                    row.className = 'ord-opt-row';
+                    chipRefs[op.label] = [];
+
+                    op.values.forEach(function (val, idx) {
+                        var btn = document.createElement('button');
+                        btn.type = 'button';
+                        btn.className = 'ord-opt-chip' + (current.sel[op.label] === idx ? ' is-on' : '');
+                        btn.setAttribute('aria-pressed', current.sel[op.label] === idx ? 'true' : 'false');
+                        btn.innerHTML =
+                            '<span>' + esc(val.name) + '</span>' +
+                            (val.price !== null && val.price !== undefined
+                                ? '<small>' + rm(val.price) + '</small>'
+                                : '');
+
+                        btn.addEventListener('click', function () {
+                            current.sel[op.label] = idx;
+                            (chipRefs[op.label] || []).forEach(function (b, j) {
+                                b.classList.toggle('is-on', j === idx);
+                                b.setAttribute('aria-pressed', j === idx ? 'true' : 'false');
+                            });
+                            updateModalPrice();
+                        });
+
+                        chipRefs[op.label].push(btn);
+                        row.appendChild(btn);
+                    });
+
+                    group.appendChild(row);
+                    wrap.appendChild(group);
+                });
+            } else {
+                wrap.style.display = 'none';
+            }
+
+            /* --- reset controls --- */
+            $('ordQty').value = '1';
+            $('ordNote').value = '';
+
+            updateModalPrice();
+        }
+
+        /* ------------------------------------------------------------------
+           price helpers
+           ------------------------------------------------------------------ */
+        function unitPrice() {
+            if (!current) return 0;
+            var p = current.basePrice;
+            current.options.forEach(function (op) {
+                var v = op.values[current.sel[op.label] || 0];
+                if (v && v.price !== null && v.price !== undefined) p = v.price;
+            });
+            return p;
+        }
+
+        function currentQty() {
+            var q = parseInt($('ordQty').value, 10);
+            if (!isFinite(q) || q < 1) q = 1;
+            if (q > 99) q = 99;
+            return q;
+        }
+
+        function updateModalPrice() {
+            if (!current) return;
+            var p = unitPrice();
+            var q = currentQty();
+
+            $('ordModalPrice').innerHTML =
+                '<span class="ord-price-unit">' + rm(p) + '</span>' +
+                (q > 1
+                    ? '<span class="ord-price-total">' + q + ' × ' + rm(p) + ' = ' + rm(p * q) + '</span>'
+                    : '');
+        }
+
+        /* ------------------------------------------------------------------
+           build / push a cart line
+           ------------------------------------------------------------------ */
+        function buildLine() {
+            if (!current) return null;
+
+            var opts = {};
+            current.options.forEach(function (op) {
+                var v = op.values[current.sel[op.label] || 0];
+                if (v) opts[op.label] = v.name;
+            });
+
+            var line = {
+                name: current.name,
+                img: current.img,
+                unitPrice: unitPrice(),
+                qty: currentQty(),
+                options: opts,
+                note: ($('ordNote').value || '').trim().slice(0, 200)
+            };
+            line.key = lineKey(line);
+            return line;
+        }
+
+        function pushLine(line) {
+            for (var i = 0; i < cart.length; i++) {
+                if (cart[i].key === line.key) {
+                    cart[i].qty = Math.min(99, cart[i].qty + line.qty);
+                    return false;
+                }
+            }
+            cart.push(line);
+            return true;
+        }
+
+        /* ------------------------------------------------------------------
+           cart drawer
+           ------------------------------------------------------------------ */
+        function openDrawer() {
+            renderDrawer();
+
+            var drawer = $('ordDrawer');
+            if (!drawer) return;
+
+            drawer.classList.add('open');
+            drawer.setAttribute('aria-hidden', 'false');
+
+            var fab = $('ordFab');
+            if (fab) fab.setAttribute('aria-expanded', 'true');
+
+            lockScroll();
+
+            setTimeout(function () {
+                var c = $('ordDrawerClose');
+                if (c) c.focus();
+            }, 60);
+        }
+
+        function closeDrawer() {
+            var drawer = $('ordDrawer');
+            if (!drawer || !drawer.classList.contains('open')) return;
+
+            drawer.classList.remove('open');
+            drawer.setAttribute('aria-hidden', 'true');
+
+            var fab = $('ordFab');
+            if (fab) fab.setAttribute('aria-expanded', 'false');
+
+            unlockScroll();
+        }
+
+        function renderDrawer() {
+            var body = $('ordDrawerBody');
+            var foot = $('ordDrawerFoot');
+            if (!body || !foot) return;
+
+            if (!cart.length) {
+                body.innerHTML =
+                    '<div class="ord-empty">' +
+                        '<i class="fas fa-bowl-food" aria-hidden="true"></i>' +
+                        '<p>Your order is empty</p>' +
+                        '<span>Add something delicious from the menu</span>' +
+                    '</div>';
+                foot.innerHTML = '';
+                return;
+            }
+
+            var html = '';
+
+            cart.forEach(function (item, idx) {
+                var optText = Object.keys(item.options || {})
+                    .map(function (k) { return k + ': ' + item.options[k]; })
+                    .join(' · ');
+
+                html +=
+                    '<div class="ord-line">' +
+                        '<img class="ord-line-img" src="' + esc(item.img) + '" alt="" loading="lazy" ' +
+                             'onerror="this.onerror=null;this.style.visibility=\'hidden\';">' +
+                        '<div class="ord-line-main">' +
+                            '<div class="ord-line-top">' +
+                                '<span class="ord-line-name">' + esc(item.name) + '</span>' +
+                                '<button class="ord-line-remove" data-remove="' + idx + '" type="button" ' +
+                                        'aria-label="Remove ' + esc(item.name) + '">' +
+                                    '<i class="fas fa-trash-can" aria-hidden="true"></i>' +
+                                '</button>' +
+                            '</div>' +
+                            (optText ? '<div class="ord-line-opt">' + esc(optText) + '</div>' : '') +
+                            (item.note
+                                ? '<div class="ord-line-note"><i class="fas fa-pen" aria-hidden="true"></i>' +
+                                  esc(item.note) + '</div>'
+                                : '') +
+                            '<div class="ord-line-bottom">' +
+                                '<div class="ord-line-price">' + rm(item.unitPrice * item.qty) + '</div>' +
+                                '<div class="ord-line-qty">' +
+                                    '<button data-dec="' + idx + '" type="button" aria-label="Decrease quantity">' +
+                                        '<i class="fas fa-minus" aria-hidden="true"></i>' +
+                                    '</button>' +
+                                    '<span>' + item.qty + '</span>' +
+                                    '<button data-inc="' + idx + '" type="button" aria-label="Increase quantity">' +
+                                        '<i class="fas fa-plus" aria-hidden="true"></i>' +
+                                    '</button>' +
+                                '</div>' +
+                            '</div>' +
+                        '</div>' +
+                    '</div>';
+            });
+
+            body.innerHTML = html;
+
+            foot.innerHTML =
+                '<div class="ord-sum-row"><span>Subtotal</span><strong>' + rm(subtotal()) + '</strong></div>' +
+                '<p class="ord-sum-note">Pickup or delivery details will be confirmed on WhatsApp.</p>' +
+                '<button class="ord-btn ord-btn-buy ord-btn-block" id="ordCheckout" type="button">' +
+                    '<i class="fab fa-whatsapp" aria-hidden="true"></i> Order via WhatsApp' +
+                '</button>' +
+                '<button class="ord-btn ord-btn-ghost ord-btn-block" id="ordClear" type="button">' +
+                    '<i class="fas fa-trash-can" aria-hidden="true"></i> Clear order' +
+                '</button>';
+        }
+
+        /* ------------------------------------------------------------------
+           WhatsApp checkout
+           ------------------------------------------------------------------ */
+        function checkout() {
+            if (!cart.length) { toast('Your order is empty'); return; }
+
+            var L = [];
+            L.push('Hi *Restoran Pak Haji Ali & Muiz Hot Chicken - Subang Jaya (USJ 8)*,');
+            L.push('I would like to place an order:');
+            L.push('');
+
+            cart.forEach(function (it, i) {
+                L.push('*' + (i + 1) + '. ' + it.name + '*  ×' + it.qty);
+
+                var opt = Object.keys(it.options || {})
+                    .map(function (k) { return it.options[k]; })
+                    .join(' · ');
+                if (opt) L.push('   › ' + opt);
+                if (it.note) L.push('   › Note: ' + it.note);
+
+                L.push('   ' + rm(it.unitPrice) + ' × ' + it.qty + ' = *' + rm(it.unitPrice * it.qty) + '*');
+                L.push('');
+            });
+
+            L.push('────────────────');
+            L.push('*Total: ' + rm(subtotal()) + '*');
+            L.push('────────────────');
+            L.push('');
+            L.push('Name: ');
+            L.push('Pickup / Delivery: ');
+            L.push('Address (if delivery): ');
+            L.push('');
+            L.push('Thank you!');
+
+            var url = 'https://wa.me/' + WA_NUMBER + '?text=' + encodeURIComponent(L.join('\n'));
+            window.open(url, '_blank', 'noopener');
+        }
+
+        /* ------------------------------------------------------------------
+           events
+           ------------------------------------------------------------------ */
+        function bindDrawerEvents() {
+            var body = $('ordDrawerBody');
+            var foot = $('ordDrawerFoot');
+
+            if (body) {
+                body.addEventListener('click', function (e) {
+                    var btn = e.target.closest ? e.target.closest('button') : null;
+                    if (!btn) return;
+
+                    var v;
+
+                    if (btn.hasAttribute('data-inc')) {
+                        v = parseInt(btn.getAttribute('data-inc'), 10);
+                        if (cart[v]) {
+                            cart[v].qty = Math.min(99, cart[v].qty + 1);
+                            saveCart(); renderDrawer();
+                        }
+                        return;
+                    }
+
+                    if (btn.hasAttribute('data-dec')) {
+                        v = parseInt(btn.getAttribute('data-dec'), 10);
+                        if (cart[v]) {
+                            cart[v].qty -= 1;
+                            if (cart[v].qty < 1) cart.splice(v, 1);
+                            saveCart(); renderDrawer();
+                        }
+                        return;
+                    }
+
+                    if (btn.hasAttribute('data-remove')) {
+                        v = parseInt(btn.getAttribute('data-remove'), 10);
+                        if (cart[v]) {
+                            var name = cart[v].name;
+                            cart.splice(v, 1);
+                            saveCart(); renderDrawer();
+                            toast(name + ' removed');
+                        }
+                    }
+                });
+            }
+
+            if (foot) {
+                foot.addEventListener('click', function (e) {
+                    var btn = e.target.closest ? e.target.closest('button') : null;
+                    if (!btn) return;
+
+                    if (btn.id === 'ordCheckout') { checkout(); return; }
+
+                    if (btn.id === 'ordClear') {
+                        if (!cart.length) return;
+                        if (window.confirm('Clear your entire order?')) {
+                            cart = [];
+                            saveCart();
+                            renderDrawer();
+                            toast('Order cleared');
+                        }
+                    }
+                });
+            }
+        }
+
+        function bindModalEvents() {
+            var modal = $('ordModal');
+            if (!modal) return;
+
+            $('ordModalClose').addEventListener('click', closeModal);
+            $('ordModalOverlay').addEventListener('click', closeModal);
+
+            $('ordQtyMinus').addEventListener('click', function () {
+                var input = $('ordQty');
+                var v = parseInt(input.value, 10) || 1;
+                input.value = Math.max(1, v - 1);
+                updateModalPrice();
+            });
+
+            $('ordQtyPlus').addEventListener('click', function () {
+                var input = $('ordQty');
+                var v = parseInt(input.value, 10) || 1;
+                input.value = Math.min(99, v + 1);
+                updateModalPrice();
+            });
+
+            $('ordQty').addEventListener('input', function () {
+                var v = parseInt(this.value, 10);
+                if (isFinite(v) && v > 99) this.value = 99;
+                updateModalPrice();
+            });
+
+            $('ordQty').addEventListener('blur', function () {
+                var v = parseInt(this.value, 10);
+                if (!isFinite(v) || v < 1) this.value = 1;
+                updateModalPrice();
+            });
+
+            /* Add to Order */
+            $('ordAddToCart').addEventListener('click', function () {
+                var line = buildLine();
+                if (!line) return;
+
+                var isNew = pushLine(line);
+                saveCart();
+                bumpFab();
+                closeModal();
+                toast(isNew ? 'Added to your order' : 'Quantity updated');
+            });
+
+            /* Order Now → add + straight to WhatsApp */
+            $('ordBuyNow').addEventListener('click', function () {
+                var line = buildLine();
+                if (!line) return;
+
+                pushLine(line);
+                saveCart();
+                closeModal();
+                checkout();
+            });
+        }
+
+        function bindGlobalEvents() {
+            var fab = $('ordFab');
+            if (fab) fab.addEventListener('click', openDrawer);
+
+            var closeBtn = $('ordDrawerClose');
+            if (closeBtn) closeBtn.addEventListener('click', closeDrawer);
+
+            var overlay = $('ordDrawerOverlay');
+            if (overlay) overlay.addEventListener('click', closeDrawer);
+
+            document.addEventListener('keydown', function (e) {
+                if (e.key !== 'Escape') return;
+
+                var modal = $('ordModal');
+                if (modal && modal.classList.contains('open')) { closeModal(); return; }
+
+                var drawer = $('ordDrawer');
+                if (drawer && drawer.classList.contains('open')) { closeDrawer(); }
+            });
+        }
+
+        /* ------------------------------------------------------------------
+           boot
+           ------------------------------------------------------------------ */
+        function boot() {
+            loadCart();
+            bindGlobalEvents();
+            bindModalEvents();
+            bindDrawerEvents();
+            renderFab();
+        }
+
+        if (document.readyState === 'loading') {
+            document.addEventListener('DOMContentLoaded', boot);
+        } else {
+            boot();
+        }
+
+        /* ------------------------------------------------------------------
+           PUBLIC API — overrides the legacy openItemModal()
+           ------------------------------------------------------------------ */
+        window.openItemModal  = openModal;
+        window.closeItemModal = closeModal;
+        window.openOrderCart  = openDrawer;
+        window.closeOrderCart = closeDrawer;
+        window.ordAddToCart   = function (name, price, img, desc, qty, note) {
+            openModal(name, price, img, desc);
+            if (qty)   $('ordQty').value = Math.min(99, Math.max(1, parseInt(qty, 10) || 1));
+            if (note)  $('ordNote').value = String(note).slice(0, 200);
+            updateModalPrice();
+            var line = buildLine();
+            if (line) { pushLine(line); saveCart(); bumpFab(); }
+            closeModal();
+        };
+
+        console.log('%c🍗 Muiz Hot Chicken — on-site ordering ready', 'color:#e8a838;font-weight:700;');
+    })();
+    </script>
 </body>
 </html>
