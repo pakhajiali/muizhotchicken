@@ -637,4 +637,14 @@
             <image:title>Corporate Lunch Catering in Subang Jaya by Restoran Pak Haji Ali &amp; Muiz Hot Chicken</image:title>
         </image:image>
     </url>
+    <url>
+    <loc>https://muizhotchicken.com/blog/corporate-lunch-catering-puchong/</loc>
+    <lastmod>2026-10-03</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.9</priority>
+    <image:image>
+        <image:loc>https://muizhotchicken.com/images/logo.webp</image:loc>
+        <image:title>Corporate Lunch Catering in Puchong by Restoran Pak Haji Ali &amp; Muiz Hot Chicken</image:title>
+    </image:image>
+</url>
 </urlset>
