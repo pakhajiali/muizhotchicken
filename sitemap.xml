@@ -620,6 +620,21 @@
         <loc>https://muizhotchicken.com/blog/corporate-lunch-catering-shah-alam/</loc>
         <lastmod>2026-10-02</lastmod>
         <changefreq>monthly</changefreq>
-        <priority>0.8</priority>
+        <priority>0.9</priority>
+        <image:image>
+            <image:loc>https://muizhotchicken.com/images/logo.webp</image:loc>
+            <image:title>Corporate Lunch Catering in Shah Alam by Restoran Pak Haji Ali &amp; Muiz Hot Chicken</image:title>
+        </image:image>
+    </url>
+
+    <url>
+        <loc>https://muizhotchicken.com/blog/corporate-lunch-catering-subang-jaya/</loc>
+        <lastmod>2026-10-03</lastmod>
+        <changefreq>monthly</changefreq>
+        <priority>0.9</priority>
+        <image:image>
+            <image:loc>https://muizhotchicken.com/images/logo.webp</image:loc>
+            <image:title>Corporate Lunch Catering in Subang Jaya by Restoran Pak Haji Ali &amp; Muiz Hot Chicken</image:title>
+        </image:image>
     </url>
 </urlset>
