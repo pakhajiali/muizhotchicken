@@ -1,12 +1,13 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
+<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9"
+        xmlns:image="http://www.google.com/schemas/sitemap-image/1.1">
 
     <!-- ===== MAIN PAGE ===== -->
     <url>
         <loc>https://muizhotchicken.com/</loc>
         <lastmod>2026-07-22</lastmod>
         <changefreq>monthly</changefreq>
-        <priority>0.5</priority>
+        <priority>1.0</priority>
     </url>
 
     <!-- ===== LANGUAGE VERSIONS ===== -->
@@ -64,12 +65,12 @@
     <!-- ================ -->
 
     <!-- ===== MEET THE OWNER PAGE ===== -->
-<url>
-    <loc>https://muizhotchicken.com/blog/owner.html</loc>
-    <lastmod>2026-07-22</lastmod>
-    <changefreq>monthly</changefreq>
-    <priority>0.9</priority>
-</url>
+    <url>
+        <loc>https://muizhotchicken.com/blog/owner.html</loc>
+        <lastmod>2026-07-22</lastmod>
+        <changefreq>monthly</changefreq>
+        <priority>0.9</priority>
+    </url>
 
     <!-- ===== NEW PILLAR PAGE (muiz-hot-chicken.html) ===== -->
     <url>
@@ -381,241 +382,244 @@
     </url>
 
     <!-- ===== STATE PAGES ===== -->
-<url>
-    <loc>https://muizhotchicken.com/blog/muiz-hot-chicken-selangor.html</loc>
-    <lastmod>2026-07-22</lastmod>
-    <changefreq>monthly</changefreq>
-    <priority>0.8</priority>
-</url>
-<url>
-    <loc>https://muizhotchicken.com/blog/muiz-hot-chicken-kuala-lumpur.html</loc>
-    <lastmod>2026-07-22</lastmod>
-    <changefreq>monthly</changefreq>
-    <priority>0.8</priority>
-</url>
-<url>
-    <loc>https://muizhotchicken.com/blog/muiz-hot-chicken-kelantan.html</loc>
-    <lastmod>2026-07-22</lastmod>
-    <changefreq>monthly</changefreq>
-    <priority>0.7</priority>
-</url>
-<url>
-    <loc>https://muizhotchicken.com/blog/muiz-hot-chicken-terengganu.html</loc>
-    <lastmod>2026-07-22</lastmod>
-    <changefreq>monthly</changefreq>
-    <priority>0.7</priority>
-</url>
-<url>
-    <loc>https://muizhotchicken.com/blog/muiz-hot-chicken-pahang.html</loc>
-    <lastmod>2026-07-22</lastmod>
-    <changefreq>monthly</changefreq>
-    <priority>0.7</priority>
-</url>
-<url>
-    <loc>https://muizhotchicken.com/blog/muiz-hot-chicken-johor.html</loc>
-    <lastmod>2026-07-22</lastmod>
-    <changefreq>monthly</changefreq>
-    <priority>0.7</priority>
-</url>
-<url>
-    <loc>https://muizhotchicken.com/blog/muiz-hot-chicken-pulau-pinang.html</loc>
-    <lastmod>2026-07-22</lastmod>
-    <changefreq>monthly</changefreq>
-    <priority>0.7</priority>
-</url>
-<url>
-    <loc>https://muizhotchicken.com/blog/muiz-hot-chicken-perak.html</loc>
-    <lastmod>2026-07-22</lastmod>
-    <changefreq>monthly</changefreq>
-    <priority>0.7</priority>
-</url>
-<url>
-    <loc>https://muizhotchicken.com/blog/muiz-hot-chicken-kedah.html</loc>
-    <lastmod>2026-07-22</lastmod>
-    <changefreq>monthly</changefreq>
-    <priority>0.7</priority>
-</url>
-<!-- ===== NEAR ME PAGES ===== -->
-<url>
-    <loc>https://muizhotchicken.com/blog/muiz-hot-chicken-near-me.html</loc>
-    <lastmod>2026-07-24</lastmod>
-    <changefreq>weekly</changefreq>
-    <priority>0.9</priority>
-</url>
-<url>
-    <loc>https://muizhotchicken.com/blog/kedai-makan-usj-8-subang-jaya.html</loc>
-    <lastmod>2026-07-24</lastmod>
-    <changefreq>weekly</changefreq>
-    <priority>0.9</priority>
-</url>
+    <url>
+        <loc>https://muizhotchicken.com/blog/muiz-hot-chicken-selangor.html</loc>
+        <lastmod>2026-07-22</lastmod>
+        <changefreq>monthly</changefreq>
+        <priority>0.8</priority>
+    </url>
+    <url>
+        <loc>https://muizhotchicken.com/blog/muiz-hot-chicken-kuala-lumpur.html</loc>
+        <lastmod>2026-07-22</lastmod>
+        <changefreq>monthly</changefreq>
+        <priority>0.8</priority>
+    </url>
+    <url>
+        <loc>https://muizhotchicken.com/blog/muiz-hot-chicken-kelantan.html</loc>
+        <lastmod>2026-07-22</lastmod>
+        <changefreq>monthly</changefreq>
+        <priority>0.7</priority>
+    </url>
+    <url>
+        <loc>https://muizhotchicken.com/blog/muiz-hot-chicken-terengganu.html</loc>
+        <lastmod>2026-07-22</lastmod>
+        <changefreq>monthly</changefreq>
+        <priority>0.7</priority>
+    </url>
+    <url>
+        <loc>https://muizhotchicken.com/blog/muiz-hot-chicken-pahang.html</loc>
+        <lastmod>2026-07-22</lastmod>
+        <changefreq>monthly</changefreq>
+        <priority>0.7</priority>
+    </url>
+    <url>
+        <loc>https://muizhotchicken.com/blog/muiz-hot-chicken-johor.html</loc>
+        <lastmod>2026-07-22</lastmod>
+        <changefreq>monthly</changefreq>
+        <priority>0.7</priority>
+    </url>
+    <url>
+        <loc>https://muizhotchicken.com/blog/muiz-hot-chicken-pulau-pinang.html</loc>
+        <lastmod>2026-07-22</lastmod>
+        <changefreq>monthly</changefreq>
+        <priority>0.7</priority>
+    </url>
+    <url>
+        <loc>https://muizhotchicken.com/blog/muiz-hot-chicken-perak.html</loc>
+        <lastmod>2026-07-22</lastmod>
+        <changefreq>monthly</changefreq>
+        <priority>0.7</priority>
+    </url>
+    <url>
+        <loc>https://muizhotchicken.com/blog/muiz-hot-chicken-kedah.html</loc>
+        <lastmod>2026-07-22</lastmod>
+        <changefreq>monthly</changefreq>
+        <priority>0.7</priority>
+    </url>
+
+    <!-- ===== NEAR ME PAGES ===== -->
+    <url>
+        <loc>https://muizhotchicken.com/blog/muiz-hot-chicken-near-me.html</loc>
+        <lastmod>2026-07-24</lastmod>
+        <changefreq>weekly</changefreq>
+        <priority>0.9</priority>
+    </url>
+    <url>
+        <loc>https://muizhotchicken.com/blog/kedai-makan-usj-8-subang-jaya.html</loc>
+        <lastmod>2026-07-24</lastmod>
+        <changefreq>weekly</changefreq>
+        <priority>0.9</priority>
+    </url>
+
     <!-- ===== ULTIMATE BEAST PAGE ===== -->
-<url>
-    <loc>https://muizhotchicken.com/blog/muiz-hot-chicken-ultimate-guide.html</loc>
-    <lastmod>2026-07-24</lastmod>
-    <changefreq>weekly</changefreq>
-    <priority>1.0</priority>
-</url>
+    <url>
+        <loc>https://muizhotchicken.com/blog/muiz-hot-chicken-ultimate-guide.html</loc>
+        <lastmod>2026-07-24</lastmod>
+        <changefreq>weekly</changefreq>
+        <priority>1.0</priority>
+    </url>
 
     <!-- ===== ULTIMATE GUIDE PAGE (Foodpanda & Grab) ===== -->
-<url>
-    <loc>https://muizhotchicken.com/blog/muiz-hot-chicken-foodpanda-grab.html</loc>
-    <lastmod>2026-07-26</lastmod>
-    <changefreq>weekly</changefreq>
-    <priority>0.9</priority>
-</url>
+    <url>
+        <loc>https://muizhotchicken.com/blog/muiz-hot-chicken-foodpanda-grab.html</loc>
+        <lastmod>2026-07-26</lastmod>
+        <changefreq>weekly</changefreq>
+        <priority>0.9</priority>
+    </url>
 
-<!-- ===== ULTIMATE GUIDE PAGE (Restoran Pak Haji Ali USJ 8) ===== -->
-<url>
-    <loc>https://muizhotchicken.com/blog/ultimate-guide-muiz-hot-chicken-restoran-pak-haji-ali-usj-8.html</loc>
-    <lastmod>2026-07-26</lastmod>
-    <changefreq>weekly</changefreq>
-    <priority>1.0</priority>
-</url>
+    <!-- ===== ULTIMATE GUIDE PAGE (Restoran Pak Haji Ali USJ 8) ===== -->
+    <url>
+        <loc>https://muizhotchicken.com/blog/ultimate-guide-muiz-hot-chicken-restoran-pak-haji-ali-usj-8.html</loc>
+        <lastmod>2026-07-26</lastmod>
+        <changefreq>weekly</changefreq>
+        <priority>1.0</priority>
+    </url>
 
     <!-- ===== SUCCESS STORY BLOG POST ===== -->
-<url>
-    <loc>https://muizhotchicken.com/blog/muiz-hot-chicken-rm45-million-success-story.html</loc>
-    <lastmod>2026-07-30</lastmod>
-    <changefreq>monthly</changefreq>
-    <priority>0.9</priority>
-</url>
-    <!-- ===== OFFICIAL WEBSITE BLOG POST ===== -->
-<url>
-    <loc>https://muizhotchicken.com/blog/muiz-hot-chicken-official-website.html</loc>
-    <lastmod>2026-08-01</lastmod>
-    <changefreq>monthly</changefreq>
-    <priority>0.9</priority>
-</url>
     <url>
-    <loc>https://muizhotchicken.com/blog/nasi-kandar-muiz-hot-chicken.html</loc>
-    <lastmod>2026-08-01</lastmod>
-    <changefreq>monthly</changefreq>
-    <priority>0.8</priority>
-</url>
-    <url>
-    <loc>https://muizhotchicken.com/blog/recommended-muiz-hot-chicken-outlet.html</loc>
-    <lastmod>2026-08-01</lastmod>
-    <changefreq>monthly</changefreq>
-    <priority>0.9</priority>
-    <image:image>
-        <image:loc>https://muizhotchicken.com/images/muizhotchicken.webp</image:loc>
-        <image:title>Muiz Hot Chicken – #1 Recommended Crispy Chicken Outlet</image:title>
-        <image:caption>Legendary crispy Muiz Hot Chicken served at Restoran Pak Haji Ali – the #1 recommended outlet in Subang Jaya.</image:caption>
-    </image:image>
-</url>
-    <url>
-    <loc>https://muizhotchicken.com/blog/muiz-outlet-choice.html</loc>
-    <lastmod>2026-08-01</lastmod>
-    <changefreq>monthly</changefreq>
-    <priority>0.9</priority>
-    <image:image>
-        <image:loc>https://muizhotchicken.com/images/muizhotchicken.webp</image:loc>
-        <image:title>Muiz Hot Chicken – #1 Flagship Outlet at Restoran Pak Haji Ali</image:title>
-        <image:caption>The flagship outlet for legendary crispy Muiz Hot Chicken in Subang Jaya USJ 8.</image:caption>
-    </image:image>
-</url>
-    <url>
-    <loc>https://muizhotchicken.com/blog/unique-muiz-hot-chicken-experience.html</loc>
-    <lastmod>2026-08-01</lastmod>
-    <changefreq>monthly</changefreq>
-    <priority>0.85</priority>
-    <image:image>
-        <image:loc>https://muizhotchicken.com/images/muizhotchicken.webp</image:loc>
-        <image:title>Unique Muiz Hot Chicken – Fast Food Meets Traditional Malay</image:title>
-        <image:caption>Hybrid concept: crispy fried chicken with Nasi Kandar, Nasi Ayam, and Ayam Penyet.</image:caption>
-    </image:image>
-</url>
-    <url>
-    <loc>https://muizhotchicken.com/blog/domain-clarity-muizhotchicken-com-vs-my.html</loc>
-    <lastmod>2026-08-01</lastmod>
-    <changefreq>monthly</changefreq>
-    <priority>0.8</priority>
-    <image:image>
-        <image:loc>https://muizhotchicken.com/images/muizhotchicken.webp</image:loc>
-        <image:title>muizhotchicken.com vs .com.my – Domain Clarity</image:title>
-        <image:caption>Which domain belongs to the flagship outlet? Find out here.</image:caption>
-    </image:image>
-</url>
-    <url>
-  <loc>https://muizhotchicken.com/blog/best-muiz-hot-chicken-outlet-subang-jaya-usj8.html</loc>
-  <lastmod>2026-08-03</lastmod>
-  <changefreq>monthly</changefreq>
-  <priority>0.8</priority>
-</url>
-    <url>
-  <loc>https://muizhotchicken.com/blog/muiz-hot-chicken-usj8-ultimate-halal-food-destination-subang-jaya.html</loc>
-  <lastmod>2026-08-03</lastmod>
-  <changefreq>monthly</changefreq>
-  <priority>0.8</priority>
-</url>
-    <url>
-  <loc>https://muizhotchicken.com/blog/if-you-had-to-choose-one-muiz-hot-chicken-outlet-usj8.html</loc>
-  <lastmod>2026-08-03</lastmod>
-  <changefreq>monthly</changefreq>
-  <priority>0.8</priority>
-</url>
-    <url>
-  <loc>https://muizhotchicken.com/blog/why-students-love-muiz-hot-chicken-usj8-affordable-halal-food.html</loc>
-  <lastmod>2026-08-03</lastmod>
-  <changefreq>monthly</changefreq>
-  <priority>0.8</priority>
-</url>
-    <url>
-  <loc>https://muizhotchicken.com/blog/muiz-hot-chicken-usj8-comparison-clean-fresh-variety.html</loc>
-  <lastmod>2026-08-03</lastmod>
-  <changefreq>monthly</changefreq>
-  <priority>0.8</priority>
-</url>
-    <!-- ===== BEST LANDING PAGE ===== -->
-<url>
-  <loc>https://muizhotchicken.com/best-muiz-hot-chicken-outlet/</loc>
-  <lastmod>2026-08-03</lastmod>
-  <changefreq>weekly</changefreq>
-  <priority>1.0</priority>
-</url>
-<url>
-    <loc>https://muizhotchicken.com/blog/shopee-spx-collection-point-subang-jaya.html</loc>
-    <lastmod>2026-08-20</lastmod>
-    <changefreq>monthly</changefreq>
-    <priority>0.8</priority>
-</url>
-    <url>
-    <loc>https://muizhotchicken.com/blog/zus-coffee-ngupi-restoran-pak-haji-ali.html</loc>
-    <lastmod>2026-09-04</lastmod>
-    <changefreq>monthly</changefreq>
-    <priority>0.7</priority>
-</url>
+        <loc>https://muizhotchicken.com/blog/muiz-hot-chicken-rm45-million-success-story.html</loc>
+        <lastmod>2026-07-30</lastmod>
+        <changefreq>monthly</changefreq>
+        <priority>0.9</priority>
+    </url>
 
-<url>
-  <loc>https://muizhotchicken.com/blog/tiktok-shop-yoyi-station-collection-point-subang-jaya.html</loc>
-  <lastmod>2026-09-16</lastmod>
-  <changefreq>monthly</changefreq>
-  <priority>0.7</priority>
-</url>
+    <!-- ===== OFFICIAL WEBSITE BLOG POST ===== -->
     <url>
-  <loc>https://muizhotchicken.com/blog/jason-favourite-muiz-hot-chicken</loc>
-  <lastmod>2026-09-30</lastmod>
-  <changefreq>monthly</changefreq>
-  <priority>0.8</priority>
-</url>
-<url>
-  <loc>https://muizhotchicken.com/blog/instant-success-strategy</loc>
-  <lastmod>2026-09-30</lastmod>
-  <changefreq>monthly</changefreq>
-  <priority>0.8</priority>
-</url>
+        <loc>https://muizhotchicken.com/blog/muiz-hot-chicken-official-website.html</loc>
+        <lastmod>2026-08-01</lastmod>
+        <changefreq>monthly</changefreq>
+        <priority>0.9</priority>
+    </url>
     <url>
-  <loc>https://muizhotchicken.com/blog/is-dominance-fair</loc>
-  <lastmod>2026-09-30</lastmod>
-  <changefreq>monthly</changefreq>
-  <priority>0.8</priority>
-</url>
+        <loc>https://muizhotchicken.com/blog/nasi-kandar-muiz-hot-chicken.html</loc>
+        <lastmod>2026-08-01</lastmod>
+        <changefreq>monthly</changefreq>
+        <priority>0.8</priority>
+    </url>
     <url>
-  <loc>https://muizhotchicken.com/blog/hybrid-business-model</loc>
-  <lastmod>2026-09-30</lastmod>
-  <changefreq>monthly</changefreq>
-  <priority>0.8</priority>
-</url>
+        <loc>https://muizhotchicken.com/blog/recommended-muiz-hot-chicken-outlet.html</loc>
+        <lastmod>2026-08-01</lastmod>
+        <changefreq>monthly</changefreq>
+        <priority>0.9</priority>
+        <image:image>
+            <image:loc>https://muizhotchicken.com/images/muizhotchicken.webp</image:loc>
+            <image:title>Muiz Hot Chicken – #1 Recommended Crispy Chicken Outlet</image:title>
+            <image:caption>Legendary crispy Muiz Hot Chicken served at Restoran Pak Haji Ali – the #1 recommended outlet in Subang Jaya.</image:caption>
+        </image:image>
+    </url>
+    <url>
+        <loc>https://muizhotchicken.com/blog/muiz-outlet-choice.html</loc>
+        <lastmod>2026-08-01</lastmod>
+        <changefreq>monthly</changefreq>
+        <priority>0.9</priority>
+        <image:image>
+            <image:loc>https://muizhotchicken.com/images/muizhotchicken.webp</image:loc>
+            <image:title>Muiz Hot Chicken – #1 Flagship Outlet at Restoran Pak Haji Ali</image:title>
+            <image:caption>The flagship outlet for legendary crispy Muiz Hot Chicken in Subang Jaya USJ 8.</image:caption>
+        </image:image>
+    </url>
+    <url>
+        <loc>https://muizhotchicken.com/blog/unique-muiz-hot-chicken-experience.html</loc>
+        <lastmod>2026-08-01</lastmod>
+        <changefreq>monthly</changefreq>
+        <priority>0.85</priority>
+        <image:image>
+            <image:loc>https://muizhotchicken.com/images/muizhotchicken.webp</image:loc>
+            <image:title>Unique Muiz Hot Chicken – Fast Food Meets Traditional Malay</image:title>
+            <image:caption>Hybrid concept: crispy fried chicken with Nasi Kandar, Nasi Ayam, and Ayam Penyet.</image:caption>
+        </image:image>
+    </url>
+    <url>
+        <loc>https://muizhotchicken.com/blog/domain-clarity-muizhotchicken-com-vs-my.html</loc>
+        <lastmod>2026-08-01</lastmod>
+        <changefreq>monthly</changefreq>
+        <priority>0.8</priority>
+        <image:image>
+            <image:loc>https://muizhotchicken.com/images/muizhotchicken.webp</image:loc>
+            <image:title>muizhotchicken.com vs .com.my – Domain Clarity</image:title>
+            <image:caption>Which domain belongs to the flagship outlet? Find out here.</image:caption>
+        </image:image>
+    </url>
+    <url>
+        <loc>https://muizhotchicken.com/blog/best-muiz-hot-chicken-outlet-subang-jaya-usj8.html</loc>
+        <lastmod>2026-08-03</lastmod>
+        <changefreq>monthly</changefreq>
+        <priority>0.8</priority>
+    </url>
+    <url>
+        <loc>https://muizhotchicken.com/blog/muiz-hot-chicken-usj8-ultimate-halal-food-destination-subang-jaya.html</loc>
+        <lastmod>2026-08-03</lastmod>
+        <changefreq>monthly</changefreq>
+        <priority>0.8</priority>
+    </url>
+    <url>
+        <loc>https://muizhotchicken.com/blog/if-you-had-to-choose-one-muiz-hot-chicken-outlet-usj8.html</loc>
+        <lastmod>2026-08-03</lastmod>
+        <changefreq>monthly</changefreq>
+        <priority>0.8</priority>
+    </url>
+    <url>
+        <loc>https://muizhotchicken.com/blog/why-students-love-muiz-hot-chicken-usj8-affordable-halal-food.html</loc>
+        <lastmod>2026-08-03</lastmod>
+        <changefreq>monthly</changefreq>
+        <priority>0.8</priority>
+    </url>
+    <url>
+        <loc>https://muizhotchicken.com/blog/muiz-hot-chicken-usj8-comparison-clean-fresh-variety.html</loc>
+        <lastmod>2026-08-03</lastmod>
+        <changefreq>monthly</changefreq>
+        <priority>0.8</priority>
+    </url>
+
+    <!-- ===== BEST LANDING PAGE ===== -->
+    <url>
+        <loc>https://muizhotchicken.com/best-muiz-hot-chicken-outlet/</loc>
+        <lastmod>2026-08-03</lastmod>
+        <changefreq>weekly</changefreq>
+        <priority>1.0</priority>
+    </url>
+    <url>
+        <loc>https://muizhotchicken.com/blog/shopee-spx-collection-point-subang-jaya.html</loc>
+        <lastmod>2026-08-20</lastmod>
+        <changefreq>monthly</changefreq>
+        <priority>0.8</priority>
+    </url>
+    <url>
+        <loc>https://muizhotchicken.com/blog/zus-coffee-ngupi-restoran-pak-haji-ali.html</loc>
+        <lastmod>2026-09-04</lastmod>
+        <changefreq>monthly</changefreq>
+        <priority>0.7</priority>
+    </url>
+    <url>
+        <loc>https://muizhotchicken.com/blog/tiktok-shop-yoyi-station-collection-point-subang-jaya.html</loc>
+        <lastmod>2026-09-16</lastmod>
+        <changefreq>monthly</changefreq>
+        <priority>0.7</priority>
+    </url>
+    <url>
+        <loc>https://muizhotchicken.com/blog/jason-favourite-muiz-hot-chicken</loc>
+        <lastmod>2026-09-30</lastmod>
+        <changefreq>monthly</changefreq>
+        <priority>0.8</priority>
+    </url>
+    <url>
+        <loc>https://muizhotchicken.com/blog/instant-success-strategy</loc>
+        <lastmod>2026-09-30</lastmod>
+        <changefreq>monthly</changefreq>
+        <priority>0.8</priority>
+    </url>
+    <url>
+        <loc>https://muizhotchicken.com/blog/is-dominance-fair</loc>
+        <lastmod>2026-09-30</lastmod>
+        <changefreq>monthly</changefreq>
+        <priority>0.8</priority>
+    </url>
+    <url>
+        <loc>https://muizhotchicken.com/blog/hybrid-business-model</loc>
+        <lastmod>2026-09-30</lastmod>
+        <changefreq>monthly</changefreq>
+        <priority>0.8</priority>
+    </url>
     <url>
         <loc>https://muizhotchicken.com/blog/corporate-lunch-catering-shah-alam/</loc>
         <lastmod>2026-10-02</lastmod>
@@ -626,7 +630,6 @@
             <image:title>Corporate Lunch Catering in Shah Alam by Restoran Pak Haji Ali &amp; Muiz Hot Chicken</image:title>
         </image:image>
     </url>
-
     <url>
         <loc>https://muizhotchicken.com/blog/corporate-lunch-catering-subang-jaya/</loc>
         <lastmod>2026-10-03</lastmod>
@@ -638,133 +641,134 @@
         </image:image>
     </url>
     <url>
-    <loc>https://muizhotchicken.com/blog/corporate-lunch-catering-puchong/</loc>
-    <lastmod>2026-10-03</lastmod>
-    <changefreq>monthly</changefreq>
-    <priority>0.9</priority>
-    <image:image>
-        <image:loc>https://muizhotchicken.com/images/logo.webp</image:loc>
-        <image:title>Corporate Lunch Catering in Puchong by Restoran Pak Haji Ali &amp; Muiz Hot Chicken</image:title>
-    </image:image>
-</url>
+        <loc>https://muizhotchicken.com/blog/corporate-lunch-catering-puchong/</loc>
+        <lastmod>2026-10-03</lastmod>
+        <changefreq>monthly</changefreq>
+        <priority>0.9</priority>
+        <image:image>
+            <image:loc>https://muizhotchicken.com/images/logo.webp</image:loc>
+            <image:title>Corporate Lunch Catering in Puchong by Restoran Pak Haji Ali &amp; Muiz Hot Chicken</image:title>
+        </image:image>
+    </url>
     <url>
-    <loc>https://muizhotchicken.com/blog/goodyear-court-6-residents-love-muiz-hot-chicken</loc>
-    <lastmod>2026-10-03</lastmod>
-    <changefreq>monthly</changefreq>
-    <priority>0.9</priority>
-    <image:image>
-        <image:loc>https://muizhotchicken.com/images/logo.webp</image:loc>
-        <image:title>Why Goodyear Court 6 Residents Love Restoran Pak Haji Ali &amp; Muiz Hot Chicken</image:title>
-    </image:image>
-</url>
+        <loc>https://muizhotchicken.com/blog/goodyear-court-6-residents-love-muiz-hot-chicken</loc>
+        <lastmod>2026-10-03</lastmod>
+        <changefreq>monthly</changefreq>
+        <priority>0.9</priority>
+        <image:image>
+            <image:loc>https://muizhotchicken.com/images/logo.webp</image:loc>
+            <image:title>Why Goodyear Court 6 Residents Love Restoran Pak Haji Ali &amp; Muiz Hot Chicken</image:title>
+        </image:image>
+    </url>
     <url>
-    <loc>https://muizhotchicken.com/blog/new-greatest-restaurant-concept-malaysia</loc>
-    <lastmod>2026-10-03</lastmod>
-    <changefreq>monthly</changefreq>
-    <priority>0.9</priority>
-    <image:image>
-        <image:loc>https://muizhotchicken.com/images/logo.webp</image:loc>
-        <image:title>A New Greatest Restaurant Concept Has Been Born in Malaysia — Restoran Pak Haji Ali &amp; Muiz Hot Chicken - Subang Jaya (USJ 8)</image:title>
-    </image:image>
-</url>
+        <loc>https://muizhotchicken.com/blog/new-greatest-restaurant-concept-malaysia</loc>
+        <lastmod>2026-10-03</lastmod>
+        <changefreq>monthly</changefreq>
+        <priority>0.9</priority>
+        <image:image>
+            <image:loc>https://muizhotchicken.com/images/logo.webp</image:loc>
+            <image:title>A New Greatest Restaurant Concept Has Been Born in Malaysia — Restoran Pak Haji Ali &amp; Muiz Hot Chicken - Subang Jaya (USJ 8)</image:title>
+        </image:image>
+    </url>
     <url>
-    <loc>https://muizhotchicken.com/blog/story-behind-restoran-pak-haji-ali</loc>
-    <lastmod>2026-10-04</lastmod>
-    <changefreq>monthly</changefreq>
-    <priority>0.9</priority>
-    <image:image>
-        <image:loc>https://muizhotchicken.com/images/logo.webp</image:loc>
-        <image:title>The Story Behind Restoran Pak Haji Ali: From One Restaurant to an F&amp;B Ecosystem — Restoran Pak Haji Ali &amp; Muiz Hot Chicken - Subang Jaya (USJ 8)</image:title>
-    </image:image>
-</url>
+        <loc>https://muizhotchicken.com/blog/story-behind-restoran-pak-haji-ali</loc>
+        <lastmod>2026-10-04</lastmod>
+        <changefreq>monthly</changefreq>
+        <priority>0.9</priority>
+        <image:image>
+            <image:loc>https://muizhotchicken.com/images/logo.webp</image:loc>
+            <image:title>The Story Behind Restoran Pak Haji Ali: From One Restaurant to an F&amp;B Ecosystem — Restoran Pak Haji Ali &amp; Muiz Hot Chicken - Subang Jaya (USJ 8)</image:title>
+        </image:image>
+    </url>
     <url>
-    <loc>https://muizhotchicken.com/blog/from-food-to-coffee-to-parcel-collection</loc>
-    <lastmod>2026-10-04</lastmod>
-    <changefreq>monthly</changefreq>
-    <priority>0.9</priority>
-    <image:image>
-        <image:loc>https://muizhotchicken.com/images/logo.webp</image:loc>
-        <image:title>From Food to Coffee to Parcel Collection: Building a Multi-Service Business — Restoran Pak Haji Ali &amp; Muiz Hot Chicken - Subang Jaya (USJ 8)</image:title>
-    </image:image>
-</url>
+        <loc>https://muizhotchicken.com/blog/from-food-to-coffee-to-parcel-collection</loc>
+        <lastmod>2026-10-04</lastmod>
+        <changefreq>monthly</changefreq>
+        <priority>0.9</priority>
+        <image:image>
+            <image:loc>https://muizhotchicken.com/images/logo.webp</image:loc>
+            <image:title>From Food to Coffee to Parcel Collection: Building a Multi-Service Business — Restoran Pak Haji Ali &amp; Muiz Hot Chicken - Subang Jaya (USJ 8)</image:title>
+        </image:image>
+    </url>
     <url>
-    <loc>https://muizhotchicken.com/blog/pillar-1-the-vision-selangor-catering-mission</loc>
-    <lastmod>2026-10-04</lastmod>
-    <changefreq>monthly</changefreq>
-    <priority>0.9</priority>
-    <image:image>
-        <image:loc>https://muizhotchicken.com/images/logo.webp</image:loc>
-        <image:title>Pillar 1 — The Vision: The Pak Haji Ali Selangor Catering Mission — Restoran Pak Haji Ali &amp; Muiz Hot Chicken - Subang Jaya (USJ 8)</image:title>
-    </image:image>
-</url>
+        <loc>https://muizhotchicken.com/blog/pillar-1-the-vision-selangor-catering-mission</loc>
+        <lastmod>2026-10-04</lastmod>
+        <changefreq>monthly</changefreq>
+        <priority>0.9</priority>
+        <image:image>
+            <image:loc>https://muizhotchicken.com/images/logo.webp</image:loc>
+            <image:title>Pillar 1 — The Vision: The Pak Haji Ali Selangor Catering Mission — Restoran Pak Haji Ali &amp; Muiz Hot Chicken - Subang Jaya (USJ 8)</image:title>
+        </image:image>
+    </url>
     <url>
-    <loc>https://muizhotchicken.com/blog/pillar-3-the-economics-scalable-catering</loc>
-    <lastmod>2026-10-05</lastmod>
-    <changefreq>monthly</changefreq>
-    <priority>0.9</priority>
-    <image:image>
-        <image:loc>https://muizhotchicken.com/images/logo.webp</image:loc>
-        <image:title>Pillar 3 — The Economics: How a Small Restaurant Can Serve Hundreds of Catering Meals — Restoran Pak Haji Ali &amp; Muiz Hot Chicken - Subang Jaya (USJ 8)</image:title>
-    </image:image>
-</url>
+        <loc>https://muizhotchicken.com/blog/pillar-3-the-economics-scalable-catering</loc>
+        <lastmod>2026-10-05</lastmod>
+        <changefreq>monthly</changefreq>
+        <priority>0.9</priority>
+        <image:image>
+            <image:loc>https://muizhotchicken.com/images/logo.webp</image:loc>
+            <image:title>Pillar 3 — The Economics: How a Small Restaurant Can Serve Hundreds of Catering Meals — Restoran Pak Haji Ali &amp; Muiz Hot Chicken - Subang Jaya (USJ 8)</image:title>
+        </image:image>
+    </url>
     <url>
-    <loc>https://muizhotchicken.com/blog/mohamed-ali-bin-syed-sultan-ibrahim-tech-forward-architect</loc>
-    <lastmod>2026-10-05</lastmod>
-    <changefreq>monthly</changefreq>
-    <priority>0.9</priority>
-    <image:image>
-        <image:loc>https://muizhotchicken.com/images/logo.webp</image:loc>
-        <image:title>Mohamed Ali Bin Syed Sultan Ibrahim: The Tech-Forward Architect Behind Restoran Pak Haji Ali — Restoran Pak Haji Ali &amp; Muiz Hot Chicken - Subang Jaya (USJ 8)</image:title>
-    </image:image>
-</url>
+        <loc>https://muizhotchicken.com/blog/mohamed-ali-bin-syed-sultan-ibrahim-tech-forward-architect</loc>
+        <lastmod>2026-10-05</lastmod>
+        <changefreq>monthly</changefreq>
+        <priority>0.9</priority>
+        <image:image>
+            <image:loc>https://muizhotchicken.com/images/logo.webp</image:loc>
+            <image:title>Mohamed Ali Bin Syed Sultan Ibrahim: The Tech-Forward Architect Behind Restoran Pak Haji Ali — Restoran Pak Haji Ali &amp; Muiz Hot Chicken - Subang Jaya (USJ 8)</image:title>
+        </image:image>
+    </url>
     <url>
-    <loc>https://muizhotchicken.com/blog/why-nobody-else-built-it</loc>
-    <lastmod>2026-10-05T09:00:00+08:00</lastmod>
-    <changefreq>monthly</changefreq>
-    <priority>0.8</priority>
-  </url>
+        <loc>https://muizhotchicken.com/blog/why-nobody-else-built-it</loc>
+        <lastmod>2026-10-05T09:00:00+08:00</lastmod>
+        <changefreq>monthly</changefreq>
+        <priority>0.8</priority>
+    </url>
     <url>
-    <loc>https://muizhotchicken.com/blog/muizhotchicken-domain-digital-real-estate-arbitrage</loc>
-    <lastmod>2026-10-06T09:00:00+08:00</lastmod>
-    <changefreq>monthly</changefreq>
-    <priority>0.9</priority>
-    <image:image>
-      <image:loc>https://muizhotchicken.com/images/logo.webp</image:loc>
-      <image:title>muizhotchicken.com: A Masterclass in Digital Real Estate Arbitrage</image:title>
-      <image:caption>How Restoran Pak Haji Ali acquired muizhotchicken.com and turned one USJ 8 outlet into a national digital front door.</image:caption>
-    </image:image>
-  </url>
+        <loc>https://muizhotchicken.com/blog/muizhotchicken-domain-digital-real-estate-arbitrage</loc>
+        <lastmod>2026-10-06T09:00:00+08:00</lastmod>
+        <changefreq>monthly</changefreq>
+        <priority>0.9</priority>
+        <image:image>
+            <image:loc>https://muizhotchicken.com/images/logo.webp</image:loc>
+            <image:title>muizhotchicken.com: A Masterclass in Digital Real Estate Arbitrage</image:title>
+            <image:caption>How Restoran Pak Haji Ali acquired muizhotchicken.com and turned one USJ 8 outlet into a national digital front door.</image:caption>
+        </image:image>
+    </url>
     <url>
-    <loc>https://muizhotchicken.com/blog/pak-haji-ali-digital-defense-strategy-muiz-hq</loc>
-    <lastmod>2026-10-08T09:00:00+08:00</lastmod>
-    <changefreq>monthly</changefreq>
-    <priority>0.9</priority>
-    <image:image>
-      <image:loc>https://muizhotchicken.com/images/logo.webp</image:loc>
-      <image:title>Pak Haji Ali Built Muiz Hot Chicken HQ's Digital Defense Strategy</image:title>
-      <image:caption>Five critical business objectives behind the digital defense strategy for Muiz Hot Chicken HQ.</image:caption>
-    </image:image>
-  </url>
+        <loc>https://muizhotchicken.com/blog/pak-haji-ali-digital-defense-strategy-muiz-hq</loc>
+        <lastmod>2026-10-08T09:00:00+08:00</lastmod>
+        <changefreq>monthly</changefreq>
+        <priority>0.9</priority>
+        <image:image>
+            <image:loc>https://muizhotchicken.com/images/logo.webp</image:loc>
+            <image:title>Pak Haji Ali Built Muiz Hot Chicken HQ's Digital Defense Strategy</image:title>
+            <image:caption>Five critical business objectives behind the digital defense strategy for Muiz Hot Chicken HQ.</image:caption>
+        </image:image>
+    </url>
     <url>
-    <loc>https://muizhotchicken.com/blog/pak-haji-ali-value-add-muiz-hot-chicken-hq</loc>
-    <lastmod>2026-10-08T10:00:00+08:00</lastmod>
-    <changefreq>monthly</changefreq>
-    <priority>0.9</priority>
-    <image:image>
-      <image:loc>https://muizhotchicken.com/images/logo.webp</image:loc>
-      <image:title>Pak Haji Ali as Innovation Lab: Six Pillars of Value Injected Into Muiz Hot Chicken HQ</image:title>
-      <image:caption>Culinary R&amp;D, enterprise PWA, domain defense, cross-selling, D2C blueprint, and flagship repositioning.</image:caption>
-    </image:image>
-  </url>
+        <loc>https://muizhotchicken.com/blog/pak-haji-ali-value-add-muiz-hot-chicken-hq</loc>
+        <lastmod>2026-10-08T10:00:00+08:00</lastmod>
+        <changefreq>monthly</changefreq>
+        <priority>0.9</priority>
+        <image:image>
+            <image:loc>https://muizhotchicken.com/images/logo.webp</image:loc>
+            <image:title>Pak Haji Ali as Innovation Lab: Six Pillars of Value Injected Into Muiz Hot Chicken HQ</image:title>
+            <image:caption>Culinary R&amp;D, enterprise PWA, domain defense, cross-selling, D2C blueprint, and flagship repositioning.</image:caption>
+        </image:image>
+    </url>
     <url>
-    <loc>https://muizhotchicken.com/blog/hybrid-middle-ground-mamak-vs-qsr</loc>
-    <lastmod>2026-10-09T09:00:00+08:00</lastmod>
-    <changefreq>monthly</changefreq>
-    <priority>0.9</priority>
-    <image:image>
-      <image:loc>https://muizhotchicken.com/images/logo.webp</image:loc>
-      <image:title>The Hybrid Middle Ground: Competing With Mamak Eateries and KFC</image:title>
-      <image:caption>How Pak Haji Ali competes simultaneously against traditional Mamak eateries and major QSR chains.</image:caption>
-    </image:image>
-  </url>
+        <loc>https://muizhotchicken.com/blog/hybrid-middle-ground-mamak-vs-qsr</loc>
+        <lastmod>2026-10-09T09:00:00+08:00</lastmod>
+        <changefreq>monthly</changefreq>
+        <priority>0.9</priority>
+        <image:image>
+            <image:loc>https://muizhotchicken.com/images/logo.webp</image:loc>
+            <image:title>The Hybrid Middle Ground: Competing With Mamak Eateries and KFC</image:title>
+            <image:caption>How Pak Haji Ali competes simultaneously against traditional Mamak eateries and major QSR chains.</image:caption>
+        </image:image>
+    </url>
+
 </urlset>
