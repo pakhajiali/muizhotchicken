@@ -1,0 +1,839 @@
+<!DOCTYPE html>
+<html lang="en" data-theme="light">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover, maximum-scale=1.0, user-scalable=no" />
+
+  <!-- ===== PRIMARY ===== -->
+  <title>Standard Operating Procedures | SOP Index</title>
+  <meta name="description" content="Internal SOP library for Restoran Pak Haji Ali & Muiz Hot Chicken - Subang Jaya (USJ 8). Step-by-step procedures for each kitchen station." />
+  <meta name="robots" content="noindex, nofollow" />
+  <link rel="canonical" href="https://muizhotchicken.com/sop/" />
+
+  <!-- ===== PWA ===== -->
+  <meta name="theme-color" content="#000000" id="themeColor" />
+  <meta name="apple-mobile-web-app-capable" content="yes" />
+  <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent" />
+  <meta name="apple-mobile-web-app-title" content="Muiz SOP" />
+  <link rel="manifest" href="/manifest.json" />
+  <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+  <link rel="icon" type="image/png" sizes="96x96" href="/favicon-96x96.png" />
+  <link rel="apple-touch-icon" href="/apple-touch-icon.png" />
+
+  <!-- ===== FONT AWESOME ===== -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css" />
+
+  <!-- ============================================================
+       ALL STYLES EMBEDDED - Cupertino Design (SOP Index Variant)
+       ============================================================ -->
+  <style>
+    /* ===== RESET & BASE ===== */
+    * { margin: 0; padding: 0; box-sizing: border-box; }
+
+    :root {
+      --bg: #f2f2f7;
+      --bg-secondary: #e5e5ea;
+      --card: #ffffff;
+      --card-secondary: #f8f8fc;
+      --text: #1c1c1e;
+      --text-secondary: #3a3a3c;
+      --text-tertiary: #8e8e93;
+      --text-quaternary: #aeaeb2;
+      --text-inverse: #ffffff;
+      --primary: #000000;
+      --primary-dark: #000000;
+      --primary-light: #3a3a3c;
+      --primary-gradient: linear-gradient(135deg, #1c1c1e, #3a3a3c);
+      --primary-surface: #f0f0f0;
+      --separator: #e5e5ea;
+      --separator-heavy: #d1d1d6;
+      --shadow: 0 2px 16px rgba(0,0,0,0.06);
+      --shadow-lg: 0 8px 40px rgba(0,0,0,0.10);
+      --radius: 16px;
+      --radius-sm: 10px;
+      --radius-full: 9999px;
+      --header-height: 64px;
+      --safe-bottom: env(safe-area-inset-bottom, 0px);
+      --safe-top: env(safe-area-inset-top, 0px);
+      --transition: 0.25s cubic-bezier(0.2, 0.9, 0.4, 1);
+      --gold: #f59e0b;
+      --green: #22c55e;
+      --blue: #3b82f6;
+      --purple: #8b5cf6;
+      --red: #ef4444;
+    }
+
+    [data-theme="dark"] {
+      --bg: #000000;
+      --bg-secondary: #1c1c1e;
+      --card: #1c1c1e;
+      --card-secondary: #2c2c2e;
+      --text: #f2f2f7;
+      --text-secondary: #aeaeb2;
+      --text-tertiary: #8e8e93;
+      --text-quaternary: #636366;
+      --text-inverse: #1c1c1e;
+      --primary: #ffffff;
+      --primary-dark: #e5e5ea;
+      --primary-light: #f2f2f7;
+      --primary-gradient: linear-gradient(135deg, #f2f2f7, #aeaeb2);
+      --primary-surface: #2c2c2e;
+      --separator: #38383a;
+      --separator-heavy: #48484a;
+      --shadow: 0 2px 16px rgba(0,0,0,0.4);
+      --shadow-lg: 0 8px 40px rgba(0,0,0,0.5);
+    }
+
+    html { scroll-behavior: smooth; -webkit-tap-highlight-color: transparent; }
+
+    body {
+      font-family: -apple-system, BlinkMacSystemFont, "SF Pro Display", "SF Pro Text", "Helvetica Neue", Arial, sans-serif;
+      background: var(--bg);
+      color: var(--text);
+      line-height: 1.6;
+      padding-top: var(--header-height);
+      padding-bottom: calc(var(--safe-bottom) + 40px);
+      min-height: 100vh; min-height: 100dvh;
+      overflow-x: hidden;
+      -webkit-font-smoothing: antialiased;
+      -moz-osx-font-smoothing: grayscale;
+      -webkit-user-select: none;
+      user-select: none;
+    }
+
+    ::-webkit-scrollbar { width: 3px; height: 3px; }
+    ::-webkit-scrollbar-track { background: transparent; }
+    ::-webkit-scrollbar-thumb { background: var(--text-tertiary); border-radius: 20px; }
+    ::selection { background: var(--primary); color: var(--text-inverse); }
+
+    /* ----- HEADER ----- */
+    .ios-header {
+      position: fixed;
+      top: 0; left: 0; right: 0;
+      height: var(--header-height);
+      padding-top: var(--safe-top);
+      background: var(--card);
+      backdrop-filter: blur(20px);
+      -webkit-backdrop-filter: blur(20px);
+      border-bottom: 1px solid var(--separator);
+      z-index: 100;
+      transition: var(--transition);
+    }
+    .ios-header.scrolled { border-bottom-color: var(--separator-heavy); }
+    .header-content {
+      max-width: 680px;
+      margin: 0 auto;
+      padding: 8px 16px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      height: 100%;
+    }
+    .brand h1 {
+      font-size: 20px;
+      font-weight: 800;
+      color: var(--text);
+      letter-spacing: -0.3px;
+      line-height: 1.1;
+    }
+    .brand h1 a { color: inherit; text-decoration: none; }
+    .brand p {
+      font-size: 12px;
+      color: var(--text-secondary);
+      letter-spacing: -0.2px;
+      font-weight: 500;
+    }
+    .brand p a {
+      color: var(--text-secondary);
+      text-decoration: none;
+      border-bottom: 1px dotted var(--text-tertiary);
+    }
+
+    /* ----- CONTENT ----- */
+    .blog-content {
+      max-width: 680px;
+      margin: 0 auto;
+      padding: 20px 16px 40px;
+    }
+
+    .back-link {
+      display: inline-flex;
+      align-items: center;
+      gap: 6px;
+      font-size: 14px;
+      font-weight: 600;
+      color: var(--text-secondary);
+      text-decoration: none;
+      margin-bottom: 18px;
+      transition: var(--transition);
+    }
+    .back-link:active { transform: translateX(-3px); color: var(--primary); }
+
+    /* ----- HERO ----- */
+    .article-hero {
+      background: var(--primary-gradient);
+      border-radius: var(--radius);
+      padding: 32px 28px 28px;
+      margin-bottom: 24px;
+      position: relative;
+      overflow: hidden;
+    }
+    [data-theme="light"] .article-hero { color: #ffffff; }
+    [data-theme="dark"] .article-hero { color: #000000; }
+    .article-hero::after {
+      content: "📋";
+      position: absolute;
+      right: -10px; bottom: -16px;
+      font-size: 120px;
+      opacity: 0.08;
+      transform: rotate(-8deg);
+      pointer-events: none;
+    }
+    .article-hero .hero-badge {
+      display: inline-flex;
+      align-items: center;
+      gap: 6px;
+      padding: 4px 14px;
+      border-radius: var(--radius-full);
+      font-size: 11px;
+      font-weight: 600;
+      letter-spacing: 0.3px;
+      margin-bottom: 14px;
+      backdrop-filter: blur(4px);
+      -webkit-backdrop-filter: blur(4px);
+    }
+    [data-theme="light"] .article-hero .hero-badge { color: #ffffff; background: rgba(255,255,255,0.18); }
+    [data-theme="dark"] .article-hero .hero-badge { color: #000000; background: rgba(0,0,0,0.12); }
+    .article-hero h1 {
+      font-size: 26px;
+      font-weight: 800;
+      letter-spacing: -0.6px;
+      line-height: 1.18;
+      margin-bottom: 8px;
+    }
+    [data-theme="light"] .article-hero h1 { color: #ffffff; }
+    [data-theme="dark"] .article-hero h1 { color: #000000; }
+    .article-hero .lede {
+      font-size: 15px;
+      opacity: 0.92;
+      margin-bottom: 6px;
+      line-height: 1.55;
+    }
+    [data-theme="light"] .article-hero .lede { color: #ffffff; }
+    [data-theme="dark"] .article-hero .lede { color: #000000; }
+    .article-hero .meta {
+      font-size: 13px;
+      opacity: 0.9;
+      display: flex;
+      flex-wrap: wrap;
+      gap: 14px;
+      margin-top: 12px;
+    }
+    [data-theme="light"] .article-hero .meta { color: #ffffff; }
+    [data-theme="dark"] .article-hero .meta { color: #000000; }
+    .article-hero .meta span { display: inline-flex; align-items: center; gap: 5px; }
+
+    /* ----- INTRO CARD ----- */
+    .intro-card {
+      background: var(--card);
+      border-radius: var(--radius);
+      padding: 22px 24px;
+      box-shadow: var(--shadow);
+      border: 1px solid var(--separator);
+      border-left: 4px solid var(--primary);
+      margin-bottom: 24px;
+      font-size: 15px;
+      color: var(--text-secondary);
+      line-height: 1.65;
+    }
+    .intro-card strong { color: var(--text); }
+
+    /* ----- SECTION HEADINGS ----- */
+    .blog-section { margin-bottom: 28px; }
+    .blog-section h2 {
+      font-size: 22px;
+      font-weight: 800;
+      letter-spacing: -0.3px;
+      color: var(--text);
+      margin-bottom: 4px;
+      display: flex;
+      align-items: center;
+      gap: 10px;
+    }
+    .blog-section h2 i { font-size: 20px; color: var(--primary); }
+    .blog-section .section-desc {
+      font-size: 14px;
+      color: var(--text-secondary);
+      margin-bottom: 16px;
+    }
+
+    /* ----- SOP LIST CARD ----- */
+    .sop-list {
+      display: flex;
+      flex-direction: column;
+      gap: 12px;
+    }
+
+    .sop-card {
+      display: flex;
+      align-items: flex-start;
+      gap: 14px;
+      background: var(--card);
+      border-radius: var(--radius);
+      padding: 20px 22px;
+      box-shadow: var(--shadow);
+      border: 1px solid var(--separator);
+      border-left: 4px solid var(--accent, var(--primary));
+      text-decoration: none;
+      transition: var(--transition);
+      position: relative;
+    }
+    .sop-card:active { transform: scale(0.985); }
+
+    .sop-icon {
+      width: 46px; height: 46px;
+      border-radius: 14px;
+      background: var(--card-secondary);
+      border: 1px solid var(--separator);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 20px;
+      flex-shrink: 0;
+      color: var(--accent, var(--primary));
+    }
+
+    .sop-body { flex: 1; min-width: 0; }
+    .sop-num {
+      font-size: 11px;
+      font-weight: 800;
+      letter-spacing: 0.8px;
+      color: var(--accent, var(--primary));
+      text-transform: uppercase;
+      display: block;
+      margin-bottom: 2px;
+    }
+    .sop-body h3 {
+      font-size: 17px;
+      font-weight: 800;
+      color: var(--text);
+      letter-spacing: -0.3px;
+      line-height: 1.3;
+      margin-bottom: 4px;
+    }
+    .sop-body p {
+      font-size: 14px;
+      color: var(--text-secondary);
+      line-height: 1.55;
+      margin-bottom: 8px;
+    }
+    .sop-tags {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 6px;
+    }
+    .sop-tag {
+      display: inline-flex;
+      align-items: center;
+      gap: 5px;
+      font-size: 11px;
+      font-weight: 700;
+      color: var(--text-tertiary);
+      background: var(--card-secondary);
+      border: 1px solid var(--separator);
+      padding: 3px 10px;
+      border-radius: var(--radius-full);
+    }
+    .sop-arrow {
+      color: var(--text-quaternary);
+      font-size: 15px;
+      flex-shrink: 0;
+      align-self: center;
+      transition: var(--transition);
+    }
+    .sop-card:hover .sop-arrow { color: var(--accent, var(--primary)); transform: translateX(2px); }
+
+    /* ----- EMPTY / NOTE ----- */
+    .note-card {
+      background: var(--card-secondary);
+      border-radius: var(--radius-sm);
+      padding: 14px 16px;
+      border: 1px dashed var(--separator-heavy);
+      font-size: 14px;
+      color: var(--text-secondary);
+      line-height: 1.55;
+      display: flex;
+      gap: 11px;
+      align-items: flex-start;
+      margin-top: 14px;
+    }
+    .note-card i {
+      color: var(--accent, var(--gold));
+      font-size: 15px;
+      margin-top: 2px;
+      flex-shrink: 0;
+    }
+    .note-card strong { color: var(--text); }
+
+    /* ----- PLAYBOOK ----- */
+    .playbook {
+      background: var(--card);
+      border-radius: var(--radius);
+      padding: 22px 24px;
+      box-shadow: var(--shadow);
+      border: 1px solid var(--separator);
+      margin-bottom: 24px;
+    }
+    .playbook h3 {
+      font-size: 17px;
+      font-weight: 800;
+      color: var(--text);
+      margin-bottom: 14px;
+      display: flex;
+      align-items: center;
+      gap: 9px;
+    }
+    .playbook h3 i { color: var(--primary); }
+    .playbook-list {
+      display: flex;
+      flex-direction: column;
+      gap: 12px;
+    }
+    .playbook-row {
+      display: flex;
+      align-items: flex-start;
+      gap: 12px;
+      padding-bottom: 12px;
+      border-bottom: 1px solid var(--separator);
+    }
+    .playbook-row:last-child { border-bottom: none; padding-bottom: 0; }
+    .playbook-row .pb-num {
+      width: 26px; height: 26px;
+      border-radius: 8px;
+      background: var(--primary-surface);
+      color: var(--text);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 12px;
+      font-weight: 800;
+      flex-shrink: 0;
+    }
+    .playbook-row .pb-text {
+      font-size: 14px;
+      color: var(--text-secondary);
+      line-height: 1.55;
+    }
+    .playbook-row .pb-text strong {
+      color: var(--text);
+      display: block;
+      font-size: 14px;
+      margin-bottom: 1px;
+    }
+
+    /* ----- CTA ----- */
+    .cta-box {
+      background: var(--primary-gradient);
+      border-radius: var(--radius);
+      padding: 28px 26px;
+      text-align: center;
+      position: relative;
+      overflow: hidden;
+      margin-bottom: 24px;
+    }
+    [data-theme="light"] .cta-box { color: #ffffff; }
+    [data-theme="dark"] .cta-box { color: #000000; }
+    .cta-box::after {
+      content: "🍗";
+      position: absolute;
+      right: -8px; bottom: -12px;
+      font-size: 100px;
+      opacity: 0.08;
+      transform: rotate(-8deg);
+      pointer-events: none;
+    }
+    .cta-box h3 {
+      font-size: 22px;
+      font-weight: 800;
+      letter-spacing: -0.3px;
+      margin-bottom: 6px;
+    }
+    .cta-box p {
+      font-size: 14px;
+      opacity: 0.9;
+      margin-bottom: 18px;
+      max-width: 400px;
+      margin-left: auto;
+      margin-right: auto;
+    }
+    .cta-box .cta-btn {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      padding: 12px 28px;
+      border-radius: var(--radius-full);
+      font-weight: 700;
+      font-size: 15px;
+      text-decoration: none;
+      transition: var(--transition);
+      border: none;
+      cursor: pointer;
+      font-family: inherit;
+    }
+    [data-theme="light"] .cta-box .cta-btn { background: #ffffff; color: #1c1c1e; }
+    [data-theme="dark"] .cta-box .cta-btn { background: #000000; color: #ffffff; }
+    .cta-box .cta-btn:active { transform: scale(0.96); }
+    .cta-box .cta-btn i { font-size: 18px; }
+
+    /* ----- READ NEXT ----- */
+    .read-next {
+      background: var(--card);
+      border-radius: var(--radius);
+      padding: 18px 20px;
+      box-shadow: var(--shadow);
+      border: 1px solid var(--separator);
+      margin-bottom: 24px;
+      display: flex;
+      align-items: center;
+      gap: 14px;
+      text-decoration: none;
+      transition: var(--transition);
+    }
+    .read-next:active { transform: scale(0.98); }
+    .read-next .rn-icon {
+      width: 44px; height: 44px;
+      border-radius: 12px;
+      background: var(--primary-surface);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 19px;
+      flex-shrink: 0;
+      color: var(--text);
+    }
+    .read-next .rn-text { flex: 1; min-width: 0; }
+    .read-next .rn-label {
+      font-size: 11px;
+      font-weight: 800;
+      letter-spacing: 0.6px;
+      text-transform: uppercase;
+      color: var(--text-tertiary);
+      display: block;
+      margin-bottom: 2px;
+    }
+    .read-next .rn-title {
+      font-size: 15px;
+      font-weight: 700;
+      color: var(--text);
+      line-height: 1.3;
+    }
+    .read-next .rn-arrow {
+      color: var(--text-quaternary);
+      font-size: 15px;
+      flex-shrink: 0;
+    }
+
+    /* ----- FOOTER ----- */
+    .blog-footer {
+      text-align: center;
+      padding: 24px 16px 0;
+      font-size: 12px;
+      color: var(--text-tertiary);
+      line-height: 1.6;
+    }
+    .blog-footer a {
+      color: var(--text-secondary);
+      text-decoration: none;
+      font-weight: 600;
+    }
+
+    /* ===== RESPONSIVE ===== */
+    @media (min-width: 600px) {
+      .blog-content { padding: 24px 20px 48px; }
+    }
+    @media (max-width: 480px) {
+      .article-hero { padding: 24px 20px 22px; }
+      .article-hero h1 { font-size: 21px; }
+      .article-hero .lede { font-size: 14px; }
+      .intro-card { padding: 18px 18px; font-size: 14px; }
+      .sop-card { padding: 16px 16px; gap: 12px; }
+      .sop-icon { width: 40px; height: 40px; font-size: 17px; border-radius: 12px; }
+      .sop-body h3 { font-size: 16px; }
+      .sop-body p { font-size: 13.5px; }
+      .playbook { padding: 18px 18px; }
+      .cta-box { padding: 22px 18px; }
+      .cta-box h3 { font-size: 19px; }
+      .brand h1 { font-size: 17px; }
+      .brand p { font-size: 10px; }
+    }
+    @media (max-width: 380px) {
+      .article-hero h1 { font-size: 19px; }
+      .sop-card { padding: 14px 14px; }
+    }
+
+    /* ===== THEME TOGGLE ===== */
+    .theme-toggle-ios {
+      position: fixed;
+      top: 76px;
+      right: 16px;
+      z-index: 999;
+      background: var(--card);
+      border: 1px solid var(--separator);
+      border-radius: 50%;
+      width: 40px;
+      height: 40px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 18px;
+      cursor: pointer;
+      transition: all 0.3s cubic-bezier(0.2,0.9,0.4,1);
+      box-shadow: var(--shadow);
+      color: var(--text);
+      backdrop-filter: blur(8px);
+      -webkit-backdrop-filter: blur(8px);
+    }
+    .theme-toggle-ios:hover { transform: scale(1.08); box-shadow: var(--shadow-lg); }
+    .theme-toggle-ios:active { transform: scale(0.92); }
+
+    @media (max-width: 480px) {
+      .theme-toggle-ios { top: 68px; right: 12px; width: 36px; height: 36px; font-size: 16px; }
+    }
+
+    @media print {
+      .theme-toggle-ios, .back-link, .cta-box, .read-next { display: none; }
+      body { padding-top: 0; background: #fff; }
+      .sop-card, .playbook, .intro-card { box-shadow: none; }
+    }
+  </style>
+</head>
+<body>
+
+  <!-- ===== THEME TOGGLE ===== -->
+  <button class="theme-toggle-ios" id="themeToggle" aria-label="Toggle theme">
+    <i class="fas fa-moon" id="themeIcon"></i>
+  </button>
+
+  <!-- ===== HEADER ===== -->
+  <header class="ios-header" id="sopHeader">
+    <div class="header-content">
+      <div class="brand">
+        <h1><a href="/">Muiz Hot Chicken</a></h1>
+        <p>
+          SOP •
+          <i class="fas fa-location-dot" style="color:var(--text-secondary);font-size:11px;margin-right:3px;"></i>
+          <a href="https://g.page/r/CUrZw9xvAXIPEBE" target="_blank" rel="noopener noreferrer">
+            Subang Jaya (USJ 8)
+          </a>
+        </p>
+      </div>
+    </div>
+  </header>
+
+  <!-- ===== CONTENT ===== -->
+  <main class="blog-content">
+
+    <a href="/" class="back-link">
+      <i class="fas fa-chevron-left"></i> Back to Home
+    </a>
+
+    <article>
+
+      <!-- Hero -->
+      <div class="article-hero">
+        <div class="hero-badge">
+          <i class="fas fa-clipboard-list"></i> Internal
+        </div>
+        <h1>Standard Operating Procedures</h1>
+        <p class="lede">
+          Step-by-step procedures for every kitchen station — written to be followed
+          the same way, every shift.
+        </p>
+        <div class="meta">
+          <span><i class="fas fa-location-dot"></i> USJ 8, Subang Jaya</span>
+          <span><i class="fas fa-user-chef"></i> Kitchen staff</span>
+          <span><i class="fas fa-file-lines"></i> 1 procedure documented</span>
+        </div>
+      </div>
+
+      <!-- Intro -->
+      <div class="intro-card">
+        This section documents the standard operating procedures used at
+        <strong>Restoran Pak Haji Ali &amp; Muiz Hot Chicken - Subang Jaya (USJ 8)</strong>.
+        Each SOP covers one station end to end — preparation, process and completion —
+        so the same result comes out no matter who is on the line.
+      </div>
+
+      <!-- ===== PROCEDURES ===== -->
+      <section class="blog-section">
+        <h2><i class="fas fa-folder-open"></i> Procedures</h2>
+        <p class="section-desc">Tap a procedure to open the full step-by-step guide.</p>
+
+        <div class="sop-list">
+
+          <!-- Muiz SOP -->
+          <a href="/sop/muiz" class="sop-card" style="--accent: var(--green);">
+            <div class="sop-icon" style="--accent: var(--green);">
+              <i class="fas fa-drumstick-bite"></i>
+            </div>
+            <div class="sop-body">
+              <span class="sop-num" style="color: var(--green);">SOP 01 • Muiz</span>
+              <h3>Standard Operating Procedure (Muiz)</h3>
+              <p>
+                The chicken station — preparation, breading, frying timelines and
+                completion. Method A (staggered) and Method B (all-in-one).
+              </p>
+              <div class="sop-tags">
+                <span class="sop-tag"><i class="fas fa-fire-burner"></i> Deep fryer</span>
+                <span class="sop-tag"><i class="fas fa-temperature-high"></i> 180°C</span>
+                <span class="sop-tag"><i class="fas fa-stopwatch"></i> 13 min cycle</span>
+                <span class="sop-tag"><i class="fas fa-drumstick-bite"></i> 20 pcs batch</span>
+              </div>
+            </div>
+            <i class="fas fa-chevron-right sop-arrow"></i>
+          </a>
+
+        </div>
+
+        <div class="note-card">
+          <i class="fas fa-circle-info"></i>
+          <div>
+            <strong>More stations will be added here</strong> as their procedures are
+            documented. Each one follows the same format: preparation, process,
+            completion.
+          </div>
+        </div>
+      </section>
+
+      <!-- ===== HOW TO USE ===== -->
+      <div class="playbook">
+        <h3><i class="fas fa-clipboard-check"></i> How to Use These SOPs</h3>
+        <div class="playbook-list">
+          <div class="playbook-row">
+            <div class="pb-num">1</div>
+            <div class="pb-text">
+              <strong>Read before your shift</strong>
+              Open the procedure for your station before service starts — not halfway through.
+            </div>
+          </div>
+          <div class="playbook-row">
+            <div class="pb-num">2</div>
+            <div class="pb-text">
+              <strong>Follow the order</strong>
+              Preparation first, then the process, then completion. Do not skip ahead.
+            </div>
+          </div>
+          <div class="playbook-row">
+            <div class="pb-num">3</div>
+            <div class="pb-text">
+              <strong>Use the checklists</strong>
+              Where a procedure has a checklist, tap each item as you complete it.
+            </div>
+          </div>
+          <div class="playbook-row">
+            <div class="pb-num">4</div>
+            <div class="pb-text">
+              <strong>Ask if unsure</strong>
+              If anything in a procedure is unclear, confirm with the person in charge
+              before starting the batch.
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- ===== CTA ===== -->
+      <div class="cta-box">
+        <h3>Start with the Chicken Station</h3>
+        <p>
+          The full Muiz SOP — preparation, breading, frying and completion — is ready
+          to open.
+        </p>
+        <a href="/sop/muiz" class="cta-btn">
+          <i class="fas fa-clipboard-list"></i> Open SOP (Muiz)
+        </a>
+      </div>
+
+      <!-- ===== READ NEXT ===== -->
+      <a href="/" class="read-next">
+        <div class="rn-icon">🍗</div>
+        <div class="rn-text">
+          <span class="rn-label">Back to</span>
+          <span class="rn-title">Restoran Pak Haji Ali &amp; Muiz Hot Chicken — Home</span>
+        </div>
+        <i class="fas fa-chevron-right rn-arrow"></i>
+      </a>
+
+    </article>
+
+    <!-- Footer -->
+    <footer class="blog-footer">
+      <p>
+        <a href="/">Restoran Pak Haji Ali &amp; Muiz Hot Chicken - Subang Jaya (USJ 8)</a> •
+        <a href="/sop/">SOP</a>
+      </p>
+      <p style="margin-top:6px;">J2-00-04, Subang Perdana Phase 3, Persiaran Mulia, Goodyear Court 6, USJ 8, 47610 Subang Jaya, Selangor</p>
+      <p style="margin-top:4px;">Internal Document • JAKIM Halal • MeSTI Certified</p>
+    </footer>
+
+  </main>
+
+  <!-- ============================================================
+       JAVASCRIPT
+       ============================================================ -->
+  <script>
+    // ============================================================
+    // THEME TOGGLE
+    // ============================================================
+    (function() {
+      var saved = localStorage.getItem('muiz-theme') || 'light';
+      var toggle = document.getElementById('themeToggle');
+      var icon = document.getElementById('themeIcon');
+      var color = document.getElementById('themeColor');
+
+      function apply(theme) {
+        document.documentElement.setAttribute('data-theme', theme);
+        localStorage.setItem('muiz-theme', theme);
+        if (theme === 'dark') {
+          icon.className = 'fas fa-sun';
+        } else {
+          icon.className = 'fas fa-moon';
+        }
+        color.content = '#000000';
+      }
+      apply(saved);
+      toggle.addEventListener('click', function() {
+        var current = document.documentElement.getAttribute('data-theme') || 'light';
+        apply(current === 'light' ? 'dark' : 'light');
+      });
+    })();
+
+    // ============================================================
+    // HEADER SCROLL EFFECT
+    // ============================================================
+    (function() {
+      var header = document.getElementById('sopHeader');
+      window.addEventListener('scroll', function() {
+        if (window.scrollY > 10) {
+          header.classList.add('scrolled');
+        } else {
+          header.classList.remove('scrolled');
+        }
+      }, { passive: true });
+    })();
+
+    // ============================================================
+    // SERVICE WORKER
+    // ============================================================
+    if ('serviceWorker' in navigator) {
+      window.addEventListener('load', function() {
+        navigator.serviceWorker.register('/sw.js')
+          .then(function() { console.log('✅ Service Worker registered'); })
+          .catch(function(err) { console.log('❌ SW registration failed:', err); });
+      });
+    }
+
+    console.log('📋 SOP index loaded — muizhotchicken.com/sop/');
+  </script>
+
+</body>
+</html>
