@@ -1,0 +1,1445 @@
+<!DOCTYPE html>
+<html lang="en" data-theme="light">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover, maximum-scale=1.0, user-scalable=no" />
+
+  <!-- ===== PRIMARY ===== -->
+  <title>Standard Operating Procedure (Muiz) | SOP</title>
+  <meta name="description" content="Internal SOP for Muiz Hot Chicken — preparation, breading, frying timelines and completion. 17 litres of oil, 180°C, 13 minutes." />
+  <meta name="robots" content="noindex, nofollow" />
+  <link rel="canonical" href="https://muizhotchicken.com/sop/muiz" />
+
+  <!-- ===== PWA ===== -->
+  <meta name="theme-color" content="#000000" id="themeColor" />
+  <meta name="apple-mobile-web-app-capable" content="yes" />
+  <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent" />
+  <meta name="apple-mobile-web-app-title" content="Muiz SOP" />
+  <link rel="manifest" href="/manifest.json" />
+  <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+  <link rel="icon" type="image/png" sizes="96x96" href="/favicon-96x96.png" />
+  <link rel="apple-touch-icon" href="/apple-touch-icon.png" />
+
+  <!-- ===== FONT AWESOME ===== -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css" />
+
+  <!-- ============================================================
+       ALL STYLES EMBEDDED - Cupertino Design (SOP Variant)
+       ============================================================ -->
+  <style>
+    /* ===== RESET & BASE ===== */
+    * { margin: 0; padding: 0; box-sizing: border-box; }
+
+    :root {
+      --bg: #f2f2f7;
+      --bg-secondary: #e5e5ea;
+      --card: #ffffff;
+      --card-secondary: #f8f8fc;
+      --text: #1c1c1e;
+      --text-secondary: #3a3a3c;
+      --text-tertiary: #8e8e93;
+      --text-quaternary: #aeaeb2;
+      --text-inverse: #ffffff;
+      --primary: #000000;
+      --primary-dark: #000000;
+      --primary-light: #3a3a3c;
+      --primary-gradient: linear-gradient(135deg, #1c1c1e, #3a3a3c);
+      --primary-surface: #f0f0f0;
+      --separator: #e5e5ea;
+      --separator-heavy: #d1d1d6;
+      --shadow: 0 2px 16px rgba(0,0,0,0.06);
+      --shadow-lg: 0 8px 40px rgba(0,0,0,0.10);
+      --radius: 16px;
+      --radius-sm: 10px;
+      --radius-full: 9999px;
+      --header-height: 64px;
+      --safe-bottom: env(safe-area-inset-bottom, 0px);
+      --safe-top: env(safe-area-inset-top, 0px);
+      --transition: 0.25s cubic-bezier(0.2, 0.9, 0.4, 1);
+      --gold: #f59e0b;
+      --green: #22c55e;
+      --blue: #3b82f6;
+      --purple: #8b5cf6;
+      --red: #ef4444;
+    }
+
+    [data-theme="dark"] {
+      --bg: #000000;
+      --bg-secondary: #1c1c1e;
+      --card: #1c1c1e;
+      --card-secondary: #2c2c2e;
+      --text: #f2f2f7;
+      --text-secondary: #aeaeb2;
+      --text-tertiary: #8e8e93;
+      --text-quaternary: #636366;
+      --text-inverse: #1c1c1e;
+      --primary: #ffffff;
+      --primary-dark: #e5e5ea;
+      --primary-light: #f2f2f7;
+      --primary-gradient: linear-gradient(135deg, #f2f2f7, #aeaeb2);
+      --primary-surface: #2c2c2e;
+      --separator: #38383a;
+      --separator-heavy: #48484a;
+      --shadow: 0 2px 16px rgba(0,0,0,0.4);
+      --shadow-lg: 0 8px 40px rgba(0,0,0,0.5);
+    }
+
+    html { scroll-behavior: smooth; -webkit-tap-highlight-color: transparent; }
+
+    body {
+      font-family: -apple-system, BlinkMacSystemFont, "SF Pro Display", "SF Pro Text", "Helvetica Neue", Arial, sans-serif;
+      background: var(--bg);
+      color: var(--text);
+      line-height: 1.6;
+      padding-top: var(--header-height);
+      padding-bottom: calc(var(--safe-bottom) + 40px);
+      min-height: 100vh; min-height: 100dvh;
+      overflow-x: hidden;
+      -webkit-font-smoothing: antialiased;
+      -moz-osx-font-smoothing: grayscale;
+      -webkit-user-select: none;
+      user-select: none;
+    }
+
+    ::-webkit-scrollbar { width: 3px; height: 3px; }
+    ::-webkit-scrollbar-track { background: transparent; }
+    ::-webkit-scrollbar-thumb { background: var(--text-tertiary); border-radius: 20px; }
+    ::selection { background: var(--primary); color: var(--text-inverse); }
+
+    /* ----- HEADER ----- */
+    .ios-header {
+      position: fixed;
+      top: 0; left: 0; right: 0;
+      height: var(--header-height);
+      padding-top: var(--safe-top);
+      background: var(--card);
+      backdrop-filter: blur(20px);
+      -webkit-backdrop-filter: blur(20px);
+      border-bottom: 1px solid var(--separator);
+      z-index: 100;
+      transition: var(--transition);
+    }
+    .ios-header.scrolled { border-bottom-color: var(--separator-heavy); }
+    .header-content {
+      max-width: 680px;
+      margin: 0 auto;
+      padding: 8px 16px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      height: 100%;
+    }
+    .brand h1 {
+      font-size: 20px;
+      font-weight: 800;
+      color: var(--text);
+      letter-spacing: -0.3px;
+      line-height: 1.1;
+    }
+    .brand h1 a { color: inherit; text-decoration: none; }
+    .brand p {
+      font-size: 12px;
+      color: var(--text-secondary);
+      letter-spacing: -0.2px;
+      font-weight: 500;
+    }
+    .brand p a {
+      color: var(--text-secondary);
+      text-decoration: none;
+      border-bottom: 1px dotted var(--text-tertiary);
+    }
+
+    /* ----- CONTENT ----- */
+    .blog-content {
+      max-width: 680px;
+      margin: 0 auto;
+      padding: 20px 16px 40px;
+    }
+
+    .back-link {
+      display: inline-flex;
+      align-items: center;
+      gap: 6px;
+      font-size: 14px;
+      font-weight: 600;
+      color: var(--text-secondary);
+      text-decoration: none;
+      margin-bottom: 18px;
+      transition: var(--transition);
+    }
+    .back-link:active { transform: translateX(-3px); color: var(--primary); }
+
+    /* ----- ARTICLE HERO ----- */
+    .article-hero {
+      background: var(--primary-gradient);
+      border-radius: var(--radius);
+      padding: 32px 28px 28px;
+      margin-bottom: 24px;
+      position: relative;
+      overflow: hidden;
+    }
+    [data-theme="light"] .article-hero { color: #ffffff; }
+    [data-theme="dark"] .article-hero { color: #000000; }
+    .article-hero::after {
+      content: "🍗";
+      position: absolute;
+      right: -10px; bottom: -16px;
+      font-size: 120px;
+      opacity: 0.08;
+      transform: rotate(-8deg);
+      pointer-events: none;
+    }
+    .article-hero .hero-badge {
+      display: inline-flex;
+      align-items: center;
+      gap: 6px;
+      padding: 4px 14px;
+      border-radius: var(--radius-full);
+      font-size: 11px;
+      font-weight: 600;
+      letter-spacing: 0.3px;
+      margin-bottom: 14px;
+      backdrop-filter: blur(4px);
+      -webkit-backdrop-filter: blur(4px);
+    }
+    [data-theme="light"] .article-hero .hero-badge { color: #ffffff; background: rgba(255,255,255,0.18); }
+    [data-theme="dark"] .article-hero .hero-badge { color: #000000; background: rgba(0,0,0,0.12); }
+    .article-hero h1 {
+      font-size: 26px;
+      font-weight: 800;
+      letter-spacing: -0.6px;
+      line-height: 1.18;
+      margin-bottom: 8px;
+    }
+    [data-theme="light"] .article-hero h1 { color: #ffffff; }
+    [data-theme="dark"] .article-hero h1 { color: #000000; }
+    .article-hero .lede {
+      font-size: 15px;
+      opacity: 0.92;
+      margin-bottom: 6px;
+      line-height: 1.55;
+    }
+    [data-theme="light"] .article-hero .lede { color: #ffffff; }
+    [data-theme="dark"] .article-hero .lede { color: #000000; }
+    .article-hero .meta {
+      font-size: 13px;
+      opacity: 0.9;
+      display: flex;
+      flex-wrap: wrap;
+      gap: 14px;
+      margin-top: 12px;
+    }
+    [data-theme="light"] .article-hero .meta { color: #ffffff; }
+    [data-theme="dark"] .article-hero .meta { color: #000000; }
+    .article-hero .meta span { display: inline-flex; align-items: center; gap: 5px; }
+
+    /* ----- INTRO CARD ----- */
+    .intro-card {
+      background: var(--card);
+      border-radius: var(--radius);
+      padding: 22px 24px;
+      box-shadow: var(--shadow);
+      border: 1px solid var(--separator);
+      border-left: 4px solid var(--primary);
+      margin-bottom: 24px;
+      font-size: 15px;
+      color: var(--text-secondary);
+      line-height: 1.65;
+    }
+    .intro-card strong { color: var(--text); }
+
+    /* ----- STAT STRIP ----- */
+    .stat-strip {
+      display: grid;
+      grid-template-columns: repeat(2, 1fr);
+      gap: 10px;
+      margin-bottom: 28px;
+    }
+    .stat-box {
+      background: var(--card);
+      border-radius: var(--radius-sm);
+      padding: 16px 14px;
+      text-align: center;
+      box-shadow: var(--shadow);
+      border: 1px solid var(--separator);
+    }
+    .stat-box i {
+      font-size: 20px;
+      color: var(--primary);
+      display: block;
+      margin-bottom: 4px;
+    }
+    .stat-box strong {
+      display: block;
+      font-size: 18px;
+      font-weight: 800;
+      color: var(--text);
+      letter-spacing: -0.3px;
+      line-height: 1.2;
+    }
+    .stat-box small {
+      font-size: 11px;
+      color: var(--text-tertiary);
+      line-height: 1.3;
+      display: block;
+      margin-top: 2px;
+    }
+
+    /* ----- SECTION HEADINGS ----- */
+    .blog-section { margin-bottom: 28px; }
+    .blog-section h2 {
+      font-size: 22px;
+      font-weight: 800;
+      letter-spacing: -0.3px;
+      color: var(--text);
+      margin-bottom: 4px;
+      display: flex;
+      align-items: center;
+      gap: 10px;
+    }
+    .blog-section h2 i { font-size: 20px; color: var(--primary); }
+    .blog-section .section-desc {
+      font-size: 14px;
+      color: var(--text-secondary);
+      margin-bottom: 16px;
+    }
+
+    /* ----- PILLAR / STEP CARDS ----- */
+    .pillar-card {
+      background: var(--card);
+      border-radius: var(--radius);
+      padding: 22px 24px 22px;
+      box-shadow: var(--shadow);
+      border: 1px solid var(--separator);
+      margin-bottom: 16px;
+      position: relative;
+      overflow: hidden;
+    }
+    .pillar-card::before {
+      content: "";
+      position: absolute;
+      top: 0; bottom: 0; left: 0;
+      width: 4px;
+      background: var(--accent, var(--primary));
+    }
+    .pillar-head {
+      display: flex;
+      align-items: flex-start;
+      gap: 14px;
+      margin-bottom: 14px;
+    }
+    .pillar-icon {
+      width: 46px; height: 46px;
+      border-radius: 14px;
+      background: var(--card-secondary);
+      border: 1px solid var(--separator);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 20px;
+      flex-shrink: 0;
+      color: var(--accent, var(--primary));
+    }
+    .pillar-head-text { flex: 1; min-width: 0; }
+    .pillar-num {
+      font-size: 11px;
+      font-weight: 800;
+      letter-spacing: 0.8px;
+      color: var(--accent, var(--primary));
+      text-transform: uppercase;
+      display: block;
+      margin-bottom: 2px;
+    }
+    .pillar-head h3 {
+      font-size: 18px;
+      font-weight: 800;
+      color: var(--text);
+      letter-spacing: -0.3px;
+      line-height: 1.25;
+    }
+    .pillar-tag {
+      display: inline-flex;
+      align-items: center;
+      gap: 5px;
+      font-size: 11px;
+      font-weight: 700;
+      color: var(--text-tertiary);
+      background: var(--card-secondary);
+      border: 1px solid var(--separator);
+      padding: 3px 10px;
+      border-radius: var(--radius-full);
+      margin-top: 6px;
+    }
+
+    .pillar-body p {
+      font-size: 15px;
+      color: var(--text-secondary);
+      line-height: 1.65;
+      margin-bottom: 12px;
+    }
+    .pillar-body p strong { color: var(--text); }
+    .pillar-body p:last-child { margin-bottom: 0; }
+
+    .key-points {
+      display: flex;
+      flex-direction: column;
+      gap: 10px;
+      margin-bottom: 14px;
+    }
+    .key-point {
+      display: flex;
+      align-items: flex-start;
+      gap: 11px;
+      font-size: 14px;
+      color: var(--text-secondary);
+      line-height: 1.55;
+    }
+    .key-point .kp-icon {
+      width: 26px; height: 26px;
+      border-radius: 50%;
+      background: var(--card-secondary);
+      border: 1px solid var(--separator);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      flex-shrink: 0;
+      font-size: 12px;
+      color: var(--accent, var(--green));
+      margin-top: 1px;
+    }
+    .key-point strong { color: var(--text); }
+
+    /* ----- CALLOUT ----- */
+    .callout {
+      background: var(--card-secondary);
+      border-radius: var(--radius-sm);
+      padding: 14px 16px;
+      border: 1px dashed var(--separator-heavy);
+      font-size: 14px;
+      color: var(--text-secondary);
+      line-height: 1.55;
+      display: flex;
+      gap: 11px;
+      align-items: flex-start;
+    }
+    .callout i {
+      color: var(--accent, var(--gold));
+      font-size: 15px;
+      margin-top: 2px;
+      flex-shrink: 0;
+    }
+    .callout strong { color: var(--text); }
+
+    /* ----- FLOW STEPS ----- */
+    .flow-steps {
+      display: flex;
+      flex-direction: column;
+      gap: 0;
+      margin: 14px 0;
+    }
+    .flow-step {
+      display: flex;
+      align-items: flex-start;
+      gap: 12px;
+      position: relative;
+      padding-bottom: 16px;
+    }
+    .flow-step:last-child { padding-bottom: 0; }
+    .flow-step:last-child::before { display: none; }
+    .flow-step::before {
+      content: "";
+      position: absolute;
+      left: 13px; top: 28px; bottom: 0;
+      width: 2px;
+      background: var(--separator);
+    }
+    .flow-dot {
+      width: 28px; height: 28px;
+      border-radius: 50%;
+      background: var(--accent, var(--primary));
+      color: var(--text-inverse);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 12px;
+      font-weight: 800;
+      flex-shrink: 0;
+      z-index: 1;
+      border: 3px solid var(--card);
+      box-sizing: content-box;
+    }
+    .flow-text {
+      font-size: 14px;
+      color: var(--text-secondary);
+      line-height: 1.55;
+      padding-top: 4px;
+    }
+    .flow-text strong { color: var(--text); }
+
+    /* ----- TIMELINE ----- */
+    .timeline {
+      display: flex;
+      flex-direction: column;
+      margin: 14px 0;
+    }
+    .tl-item {
+      display: flex;
+      align-items: flex-start;
+      gap: 12px;
+      padding-bottom: 14px;
+      position: relative;
+    }
+    .tl-item:last-child { padding-bottom: 0; }
+    .tl-item::before {
+      content: "";
+      position: absolute;
+      left: 25px; top: 30px; bottom: 0;
+      width: 2px;
+      background: var(--separator);
+    }
+    .tl-item:last-child::before { display: none; }
+    .tl-time {
+      flex-shrink: 0;
+      width: 52px;
+      text-align: center;
+      font-size: 11px;
+      font-weight: 800;
+      letter-spacing: -0.2px;
+      color: #ffffff;
+      background: var(--accent, var(--blue));
+      border-radius: 7px;
+      padding: 5px 0;
+      z-index: 1;
+      border: 3px solid var(--card);
+      box-sizing: content-box;
+      margin-left: -3px;
+    }
+    .tl-body { flex: 1; min-width: 0; padding-top: 4px; }
+    .tl-body strong {
+      display: block;
+      font-size: 14px;
+      color: var(--text);
+      font-weight: 800;
+      margin-bottom: 1px;
+    }
+    .tl-body span {
+      font-size: 13.5px;
+      color: var(--text-secondary);
+      line-height: 1.5;
+      display: block;
+    }
+
+    /* ----- CHECKLIST ----- */
+    .checklist {
+      display: flex;
+      flex-direction: column;
+      gap: 8px;
+      margin: 14px 0 0;
+    }
+    .check-item {
+      display: flex;
+      align-items: flex-start;
+      gap: 11px;
+      background: var(--card-secondary);
+      border: 1px solid var(--separator);
+      border-radius: var(--radius-sm);
+      padding: 12px 14px;
+      cursor: pointer;
+      transition: var(--transition);
+      font-size: 14px;
+      color: var(--text-secondary);
+      line-height: 1.5;
+    }
+    .check-item:active { transform: scale(0.985); }
+    .check-box {
+      width: 22px; height: 22px;
+      border-radius: 7px;
+      border: 2px solid var(--separator-heavy);
+      background: var(--card);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      flex-shrink: 0;
+      margin-top: 1px;
+      transition: var(--transition);
+    }
+    .check-box i { font-size: 11px; color: #ffffff; opacity: 0; transition: var(--transition); }
+    .check-item.done .check-box {
+      background: var(--accent, var(--green));
+      border-color: var(--accent, var(--green));
+    }
+    .check-item.done .check-box i { opacity: 1; }
+    .check-item.done .check-text {
+      color: var(--text-tertiary);
+      text-decoration: line-through;
+    }
+    .check-text strong { color: var(--text); }
+    .check-item.done .check-text strong { color: var(--text-tertiary); }
+
+    .check-reset {
+      display: inline-flex;
+      align-items: center;
+      gap: 6px;
+      margin-top: 12px;
+      font-size: 12px;
+      font-weight: 700;
+      color: var(--text-tertiary);
+      background: none;
+      border: none;
+      font-family: inherit;
+      cursor: pointer;
+      padding: 6px 0;
+    }
+    .check-reset:active { color: var(--primary); }
+
+    /* ----- PLAYBOOK ----- */
+    .playbook {
+      background: var(--card);
+      border-radius: var(--radius);
+      padding: 22px 24px;
+      box-shadow: var(--shadow);
+      border: 1px solid var(--separator);
+      margin-bottom: 24px;
+    }
+    .playbook h3 {
+      font-size: 17px;
+      font-weight: 800;
+      color: var(--text);
+      margin-bottom: 14px;
+      display: flex;
+      align-items: center;
+      gap: 9px;
+    }
+    .playbook h3 i { color: var(--primary); }
+    .playbook-list {
+      display: flex;
+      flex-direction: column;
+      gap: 12px;
+    }
+    .playbook-row {
+      display: flex;
+      align-items: flex-start;
+      gap: 12px;
+      padding-bottom: 12px;
+      border-bottom: 1px solid var(--separator);
+    }
+    .playbook-row:last-child { border-bottom: none; padding-bottom: 0; }
+    .playbook-row .pb-num {
+      width: 26px; height: 26px;
+      border-radius: 8px;
+      background: var(--primary-surface);
+      color: var(--text);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 12px;
+      font-weight: 800;
+      flex-shrink: 0;
+    }
+    .playbook-row .pb-text {
+      font-size: 14px;
+      color: var(--text-secondary);
+      line-height: 1.55;
+    }
+    .playbook-row .pb-text strong {
+      color: var(--text);
+      display: block;
+      font-size: 14px;
+      margin-bottom: 1px;
+    }
+
+    /* ----- WARNING ----- */
+    .warning {
+      background: var(--card);
+      border-radius: var(--radius);
+      padding: 18px 20px;
+      box-shadow: var(--shadow);
+      border: 1px solid var(--separator);
+      border-left: 4px solid var(--red);
+      margin-bottom: 24px;
+    }
+    .warning h3 {
+      font-size: 15px;
+      font-weight: 800;
+      color: var(--text);
+      margin-bottom: 8px;
+      display: flex;
+      align-items: center;
+      gap: 8px;
+    }
+    .warning h3 i { color: var(--red); font-size: 15px; }
+    .warning ul {
+      list-style: none;
+      display: flex;
+      flex-direction: column;
+      gap: 7px;
+    }
+    .warning li {
+      font-size: 13.5px;
+      color: var(--text-secondary);
+      line-height: 1.5;
+      display: flex;
+      gap: 8px;
+      align-items: flex-start;
+    }
+    .warning li::before {
+      content: "•";
+      color: var(--red);
+      font-weight: 800;
+      flex-shrink: 0;
+    }
+
+    /* ----- CTA ----- */
+    .cta-box {
+      background: var(--primary-gradient);
+      border-radius: var(--radius);
+      padding: 28px 26px;
+      text-align: center;
+      position: relative;
+      overflow: hidden;
+      margin-bottom: 24px;
+    }
+    [data-theme="light"] .cta-box { color: #ffffff; }
+    [data-theme="dark"] .cta-box { color: #000000; }
+    .cta-box::after {
+      content: "📋";
+      position: absolute;
+      right: -8px; bottom: -12px;
+      font-size: 100px;
+      opacity: 0.08;
+      transform: rotate(-8deg);
+      pointer-events: none;
+    }
+    .cta-box h3 {
+      font-size: 22px;
+      font-weight: 800;
+      letter-spacing: -0.3px;
+      margin-bottom: 6px;
+    }
+    .cta-box p {
+      font-size: 14px;
+      opacity: 0.9;
+      margin-bottom: 18px;
+      max-width: 400px;
+      margin-left: auto;
+      margin-right: auto;
+    }
+    .cta-box .cta-btn {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      padding: 12px 28px;
+      border-radius: var(--radius-full);
+      font-weight: 700;
+      font-size: 15px;
+      text-decoration: none;
+      transition: var(--transition);
+      border: none;
+      cursor: pointer;
+      font-family: inherit;
+    }
+    [data-theme="light"] .cta-box .cta-btn { background: #ffffff; color: #1c1c1e; }
+    [data-theme="dark"] .cta-box .cta-btn { background: #000000; color: #ffffff; }
+    .cta-box .cta-btn:active { transform: scale(0.96); }
+    .cta-box .cta-btn i { font-size: 18px; }
+
+    /* ----- READ NEXT ----- */
+    .read-next {
+      background: var(--card);
+      border-radius: var(--radius);
+      padding: 18px 20px;
+      box-shadow: var(--shadow);
+      border: 1px solid var(--separator);
+      margin-bottom: 24px;
+      display: flex;
+      align-items: center;
+      gap: 14px;
+      text-decoration: none;
+      transition: var(--transition);
+    }
+    .read-next:active { transform: scale(0.98); }
+    .read-next .rn-icon {
+      width: 44px; height: 44px;
+      border-radius: 12px;
+      background: var(--primary-surface);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 19px;
+      flex-shrink: 0;
+      color: var(--text);
+    }
+    .read-next .rn-text { flex: 1; min-width: 0; }
+    .read-next .rn-label {
+      font-size: 11px;
+      font-weight: 800;
+      letter-spacing: 0.6px;
+      text-transform: uppercase;
+      color: var(--text-tertiary);
+      display: block;
+      margin-bottom: 2px;
+    }
+    .read-next .rn-title {
+      font-size: 15px;
+      font-weight: 700;
+      color: var(--text);
+      line-height: 1.3;
+    }
+    .read-next .rn-arrow {
+      color: var(--text-quaternary);
+      font-size: 15px;
+      flex-shrink: 0;
+    }
+
+    /* ----- FOOTER ----- */
+    .blog-footer {
+      text-align: center;
+      padding: 24px 16px 0;
+      font-size: 12px;
+      color: var(--text-tertiary);
+      line-height: 1.6;
+    }
+    .blog-footer a {
+      color: var(--text-secondary);
+      text-decoration: none;
+      font-weight: 600;
+    }
+
+    /* ===== RESPONSIVE ===== */
+    @media (min-width: 600px) {
+      .blog-content { padding: 24px 20px 48px; }
+      .stat-strip { grid-template-columns: repeat(4, 1fr); }
+    }
+    @media (max-width: 480px) {
+      .article-hero { padding: 24px 20px 22px; }
+      .article-hero h1 { font-size: 21px; }
+      .article-hero .lede { font-size: 14px; }
+      .pillar-card { padding: 18px 18px 18px; }
+      .pillar-icon { width: 40px; height: 40px; font-size: 17px; border-radius: 12px; }
+      .pillar-head h3 { font-size: 16px; }
+      .pillar-body p { font-size: 14px; }
+      .intro-card { padding: 18px 18px; font-size: 14px; }
+      .stat-box { padding: 13px 10px; }
+      .stat-box strong { font-size: 15px; }
+      .stat-box small { font-size: 10px; }
+      .playbook { padding: 18px 18px; }
+      .warning { padding: 16px 18px; }
+      .cta-box { padding: 22px 18px; }
+      .cta-box h3 { font-size: 19px; }
+      .brand h1 { font-size: 17px; }
+      .brand p { font-size: 10px; }
+      .tl-time { width: 48px; font-size: 10px; }
+    }
+    @media (max-width: 380px) {
+      .article-hero h1 { font-size: 19px; }
+      .pillar-card { padding: 16px 15px; }
+      .stat-strip { gap: 8px; }
+    }
+
+    /* ===== THEME TOGGLE ===== */
+    .theme-toggle-ios {
+      position: fixed;
+      top: 76px;
+      right: 16px;
+      z-index: 999;
+      background: var(--card);
+      border: 1px solid var(--separator);
+      border-radius: 50%;
+      width: 40px;
+      height: 40px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 18px;
+      cursor: pointer;
+      transition: all 0.3s cubic-bezier(0.2,0.9,0.4,1);
+      box-shadow: var(--shadow);
+      color: var(--text);
+      backdrop-filter: blur(8px);
+      -webkit-backdrop-filter: blur(8px);
+    }
+    .theme-toggle-ios:hover { transform: scale(1.08); box-shadow: var(--shadow-lg); }
+    .theme-toggle-ios:active { transform: scale(0.92); }
+
+    @media (max-width: 480px) {
+      .theme-toggle-ios { top: 68px; right: 12px; width: 36px; height: 36px; font-size: 16px; }
+    }
+
+    @media print {
+      .theme-toggle-ios, .back-link, .cta-box, .read-next { display: none; }
+      body { padding-top: 0; background: #fff; }
+      .pillar-card, .playbook, .warning, .intro-card { box-shadow: none; }
+    }
+  </style>
+</head>
+<body>
+
+  <!-- ===== THEME TOGGLE ===== -->
+  <button class="theme-toggle-ios" id="themeToggle" aria-label="Toggle theme">
+    <i class="fas fa-moon" id="themeIcon"></i>
+  </button>
+
+  <!-- ===== HEADER ===== -->
+  <header class="ios-header" id="sopHeader">
+    <div class="header-content">
+      <div class="brand">
+        <h1><a href="/">Muiz Hot Chicken</a></h1>
+        <p>
+          SOP •
+          <i class="fas fa-location-dot" style="color:var(--text-secondary);font-size:11px;margin-right:3px;"></i>
+          <a href="https://g.page/r/CUrZw9xvAXIPEBE" target="_blank" rel="noopener noreferrer">
+            Subang Jaya (USJ 8)
+          </a>
+        </p>
+      </div>
+    </div>
+  </header>
+
+  <!-- ===== CONTENT ===== -->
+  <main class="blog-content">
+
+    <a href="/sop/" class="back-link">
+      <i class="fas fa-chevron-left"></i> Back to SOP
+    </a>
+
+    <article>
+
+      <!-- Hero -->
+      <div class="article-hero">
+        <div class="hero-badge">
+          <i class="fas fa-clipboard-list"></i> SOP
+        </div>
+        <h1>Standard Operating Procedure (Muiz)</h1>
+        <p class="lede">
+          Preparation, breading, frying and completion — the full chicken station
+          procedure, step by step.
+        </p>
+        <div class="meta">
+          <span><i class="fas fa-fire-burner"></i> Deep fryer station</span>
+          <span><i class="fas fa-clock"></i> 13 min cycle</span>
+          <span><i class="fas fa-user-chef"></i> Kitchen staff</span>
+        </div>
+      </div>
+
+      <!-- Intro -->
+      <div class="intro-card">
+        This procedure covers the complete fried chicken workflow at
+        <strong>Restoran Pak Haji Ali &amp; Muiz Hot Chicken - Subang Jaya (USJ 8)</strong>.
+        Follow it in order: <strong>prepare → bread → fry → complete</strong>.
+        Do not skip the preparation check — the oil and temperature must be correct
+        before any chicken goes in.
+      </div>
+
+      <!-- Stat strip -->
+      <div class="stat-strip">
+        <div class="stat-box">
+          <i class="fas fa-droplet"></i>
+          <strong>17 L</strong>
+          <small>Oil volume</small>
+        </div>
+        <div class="stat-box">
+          <i class="fas fa-temperature-high"></i>
+          <strong>180°C</strong>
+          <small>Frying temperature</small>
+        </div>
+        <div class="stat-box">
+          <i class="fas fa-stopwatch"></i>
+          <strong>13:00</strong>
+          <small>Regular chicken timer</small>
+        </div>
+        <div class="stat-box">
+          <i class="fas fa-drumstick-bite"></i>
+          <strong>20 pcs</strong>
+          <small>Standard batch</small>
+        </div>
+      </div>
+
+      <!-- ===== 1. PREPARATION ===== -->
+      <section class="blog-section">
+        <h2><i class="fas fa-fire-burner"></i> 1. Preparation</h2>
+        <p class="section-desc">Get the chicken and the oil right before anything else.</p>
+
+        <div class="pillar-card" style="--accent: var(--primary);">
+          <div class="pillar-head">
+            <div class="pillar-icon" style="--accent: var(--primary);">
+              <i class="fas fa-list-check"></i>
+            </div>
+            <div class="pillar-head-text">
+              <span class="pillar-num" style="color: var(--primary);">Step 01</span>
+              <h3>Set Up the Station</h3>
+              <span class="pillar-tag"><i class="fas fa-check"></i> Tap each item when done</span>
+            </div>
+          </div>
+
+          <div class="pillar-body" style="--accent: var(--primary);">
+            <div class="checklist" id="prepChecklist" style="--accent: var(--green);">
+
+              <div class="check-item" data-check="prep-1" style="--accent: var(--green);">
+                <div class="check-box"><i class="fas fa-check"></i></div>
+                <div class="check-text">
+                  <strong>Check the chicken.</strong> Ensure the chicken is fully defrosted
+                  and smells fresh. Do not use chicken that is still frozen or off-smelling.
+                </div>
+              </div>
+
+              <div class="check-item" data-check="prep-2" style="--accent: var(--green);">
+                <div class="check-box"><i class="fas fa-check"></i></div>
+                <div class="check-text">
+                  <strong>Prep the oil.</strong> Fill the deep fryer with
+                  <strong>17 litres of oil</strong>, keeping the level
+                  <strong>1 cm below the max line</strong>.
+                </div>
+              </div>
+
+              <div class="check-item" data-check="prep-3" style="--accent: var(--green);">
+                <div class="check-box"><i class="fas fa-check"></i></div>
+                <div class="check-text">
+                  <strong>Set the temperature.</strong> Turn on the deep fryer and set it to
+                  <strong>180°C</strong>. Wait until it reaches this temperature.
+                </div>
+              </div>
+
+              <div class="check-item" data-check="prep-4" style="--accent: var(--green);">
+                <div class="check-box"><i class="fas fa-check"></i></div>
+                <div class="check-text">
+                  <strong>Confirm the heat indicator.</strong> The
+                  <strong>"small fire" indicator</strong> means the oil has reached 180°C
+                  and will maintain that heat.
+                </div>
+              </div>
+
+            </div>
+
+            <button class="check-reset" id="resetPrep">
+              <i class="fas fa-rotate-left"></i> Reset checklist
+            </button>
+
+            <div class="callout" style="--accent: var(--gold); margin-top: 14px;">
+              <i class="fas fa-lightbulb"></i>
+              <div>
+                <strong>Do not start frying</strong> until the indicator shows the oil is at
+                180°C. Breading the chicken while the oil heats up is fine — putting chicken
+                into cold oil is not.
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- ===== 2. BREADING ===== -->
+      <section class="blog-section">
+        <h2><i class="fas fa-bowl-food"></i> 2. Breading</h2>
+        <p class="section-desc">Do this while waiting for the oil to reach 180°C.</p>
+
+        <div class="pillar-card" style="--accent: var(--blue);">
+          <div class="pillar-head">
+            <div class="pillar-icon" style="--accent: var(--blue);">
+              <i class="fas fa-wheat-awn"></i>
+            </div>
+            <div class="pillar-head-text">
+              <span class="pillar-num" style="color: var(--blue);">Step 02</span>
+              <h3>Flour → Water → Flour</h3>
+              <span class="pillar-tag"><i class="fas fa-drumstick-bite"></i> Regular 20 pcs • Tenders 3 pcs</span>
+            </div>
+          </div>
+
+          <div class="pillar-body" style="--accent: var(--blue);">
+            <p>
+              The breading sequence is the same for <strong>regular chicken</strong> and
+              <strong>chicken tenders</strong>. Only the quantity changes.
+            </p>
+
+            <div class="flow-steps" style="--accent: var(--blue);">
+              <div class="flow-step">
+                <div class="flow-dot" style="--accent: var(--blue);">1</div>
+                <div class="flow-text">
+                  <strong>First flour coat.</strong> Coat the chicken pieces in flour and
+                  mix well.
+                </div>
+              </div>
+              <div class="flow-step">
+                <div class="flow-dot" style="--accent: var(--blue);">2</div>
+                <div class="flow-text">
+                  <strong>Water dip.</strong> Immerse the pieces in water.
+                </div>
+              </div>
+              <div class="flow-step">
+                <div class="flow-dot" style="--accent: var(--blue);">3</div>
+                <div class="flow-text">
+                  <strong>Second flour coat.</strong> Coat them in flour a second time and
+                  mix again.
+                </div>
+              </div>
+            </div>
+
+            <div class="key-points" style="margin-top: 16px;">
+              <div class="key-point" style="--accent: var(--blue);">
+                <div class="kp-icon" style="--accent: var(--blue);"><i class="fas fa-drumstick-bite"></i></div>
+                <div>
+                  <strong>Regular chicken:</strong> 20 pieces per batch, following
+                  flour → water → flour.
+                </div>
+              </div>
+              <div class="key-point" style="--accent: var(--blue);">
+                <div class="kp-icon" style="--accent: var(--blue);"><i class="fas fa-utensils"></i></div>
+                <div>
+                  <strong>Chicken tenders:</strong> 3 pieces per batch, following the exact
+                  same steps — flour → water → flour.
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- ===== 3. COOKING & FRYING ===== -->
+      <section class="blog-section">
+        <h2><i class="fas fa-stopwatch"></i> 3. Cooking &amp; Frying</h2>
+        <p class="section-desc">Two approved methods. Use Method A unless the situation calls for Method B.</p>
+
+        <!-- METHOD A -->
+        <div class="pillar-card" style="--accent: var(--green);">
+          <div class="pillar-head">
+            <div class="pillar-icon" style="--accent: var(--green);">
+              <i class="fas fa-a"></i>
+            </div>
+            <div class="pillar-head-text">
+              <span class="pillar-num" style="color: var(--green);">Method A</span>
+              <h3>Staggered Cooking (Standard)</h3>
+              <span class="pillar-tag"><i class="fas fa-star"></i> Default method</span>
+            </div>
+          </div>
+
+          <div class="pillar-body" style="--accent: var(--green);">
+            <p>
+              First, <strong>separate the chicken thigh and drumsticks from the breast, ribs
+              and wings</strong>. Then set the timer to <strong>13 minutes</strong> and follow
+              the timeline below.
+            </p>
+
+            <div class="timeline" style="--accent: var(--green);">
+              <div class="tl-item" style="--accent: var(--green);">
+                <div class="tl-time">13:00</div>
+                <div class="tl-body">
+                  <strong>Timer starts — thighs &amp; drumsticks in</strong>
+                  <span>Put the thighs and drumsticks into the deep fryer and start the timer.</span>
+                </div>
+              </div>
+              <div class="tl-item" style="--accent: var(--green);">
+                <div class="tl-time">11:00</div>
+                <div class="tl-body">
+                  <strong>2 minutes later — add the rest</strong>
+                  <span>When 11 minutes remain on the timer, put the chicken ribs, breasts and wings into the deep fryer.</span>
+                </div>
+              </div>
+              <div class="tl-item" style="--accent: var(--green);">
+                <div class="tl-time">0:00</div>
+                <div class="tl-body">
+                  <strong>Timer ends — take everything out</strong>
+                  <span>Remove all remaining chicken pieces once the timeout is reached. Ready to serve.</span>
+                </div>
+              </div>
+            </div>
+
+            <div class="callout" style="--accent: var(--green); margin-top: 14px;">
+              <i class="fas fa-drumstick-bite"></i>
+              <div>
+                <strong>Chicken tenders:</strong> repeat the same staggered process using a
+                <strong>3-minute timer</strong>.
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- METHOD B -->
+        <div class="pillar-card" style="--accent: var(--gold);">
+          <div class="pillar-head">
+            <div class="pillar-icon" style="--accent: var(--gold);">
+              <i class="fas fa-b"></i>
+            </div>
+            <div class="pillar-head-text">
+              <span class="pillar-num" style="color: var(--gold);">Method B</span>
+              <h3>All-In-One Cooking (Alternative)</h3>
+              <span class="pillar-tag"><i class="fas fa-shuffle"></i> When everything goes in together</span>
+            </div>
+          </div>
+
+          <div class="pillar-body" style="--accent: var(--gold);">
+            <p>
+              Use this only when <strong>all regular chicken pieces are put into the deep
+              fryer at the same time</strong>.
+            </p>
+
+            <div class="timeline" style="--accent: var(--gold);">
+              <div class="tl-item" style="--accent: var(--gold);">
+                <div class="tl-time">13:00</div>
+                <div class="tl-body">
+                  <strong>All pieces in — timer starts</strong>
+                  <span>Every piece of regular chicken goes into the fryer together.</span>
+                </div>
+              </div>
+              <div class="tl-item" style="--accent: var(--gold);">
+                <div class="tl-time">2:00</div>
+                <div class="tl-body">
+                  <strong>Timer reads 2:00 — pull the ribs, wings and breasts</strong>
+                  <span>That is 11 minutes of frying time elapsed out of the 13-minute total. Take out the ribs, wings and breasts.</span>
+                </div>
+              </div>
+              <div class="tl-item" style="--accent: var(--gold);">
+                <div class="tl-time">0:00</div>
+                <div class="tl-body">
+                  <strong>Timer ends — thighs and drumsticks out</strong>
+                  <span>Leave the thighs and drumsticks in to finish cooking until the timeout is reached.</span>
+                </div>
+              </div>
+            </div>
+
+            <div class="callout" style="--accent: var(--gold); margin-top: 14px;">
+              <i class="fas fa-triangle-exclamation"></i>
+              <div>
+                <strong>Watch the clock carefully:</strong> at 2:00 remaining on the timer,
+                the ribs, wings and breasts <em>must</em> come out. Only the thighs and
+                drumsticks stay in until 0:00.
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- ===== 4. COMPLETION ===== -->
+      <section class="blog-section">
+        <h2><i class="fas fa-circle-check"></i> 4. Completion</h2>
+        <p class="section-desc">Finish the batch cleanly and hand it over for service.</p>
+
+        <div class="pillar-card" style="--accent: var(--purple);">
+          <div class="pillar-head">
+            <div class="pillar-icon" style="--accent: var(--purple);">
+              <i class="fas fa-bell-concierge"></i>
+            </div>
+            <div class="pillar-head-text">
+              <span class="pillar-num" style="color: var(--purple);">Step 04</span>
+              <h3>Out of the Fryer, Onto the Counter</h3>
+              <span class="pillar-tag"><i class="fas fa-utensils"></i> Ready to serve</span>
+            </div>
+          </div>
+
+          <div class="pillar-body" style="--accent: var(--purple);">
+            <div class="key-points">
+              <div class="key-point" style="--accent: var(--purple);">
+                <div class="kp-icon" style="--accent: var(--purple);"><i class="fas fa-clock"></i></div>
+                <div>
+                  <strong>Wait for the timeout.</strong> Take all remaining chicken pieces out
+                  of the fryer once the timeout is reached — not before.
+                </div>
+              </div>
+              <div class="key-point" style="--accent: var(--purple);">
+                <div class="kp-icon" style="--accent: var(--purple);"><i class="fas fa-check-double"></i></div>
+                <div>
+                  <strong>Confirm the batch is complete.</strong> Every piece that went in
+                  comes out. Nothing is left in the oil.
+                </div>
+              </div>
+              <div class="key-point" style="--accent: var(--purple);">
+                <div class="kp-icon" style="--accent: var(--purple);"><i class="fas fa-hand-holding-heart"></i></div>
+                <div>
+                  <strong>Ready to serve customers.</strong> Hand the batch over to the
+                  serving counter.
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- ===== SAFETY ===== -->
+      <div class="warning">
+        <h3><i class="fas fa-triangle-exclamation"></i> Safety &amp; Quality Reminders</h3>
+        <ul>
+          <li>Never overfill the fryer — keep the oil <strong>1 cm below the max line</strong>.</li>
+          <li>Only add chicken once the oil is at <strong>180°C</strong> and the "small fire" indicator is showing.</li>
+          <li>Do not leave the fryer unattended while chicken is cooking.</li>
+          <li>Keep the timer running for every batch — no estimating by eye.</li>
+          <li>Discard any chicken that is not fully defrosted or does not smell fresh.</li>
+        </ul>
+      </div>
+
+      <!-- ===== QUICK REFERENCE ===== -->
+      <div class="playbook">
+        <h3><i class="fas fa-clipboard-check"></i> Quick Reference</h3>
+        <div class="playbook-list">
+          <div class="playbook-row">
+            <div class="pb-num">1</div>
+            <div class="pb-text">
+              <strong>Oil &amp; heat</strong>
+              17 litres of oil, 1 cm below max line, set to 180°C.
+            </div>
+          </div>
+          <div class="playbook-row">
+            <div class="pb-num">2</div>
+            <div class="pb-text">
+              <strong>Breading</strong>
+              Flour → water → flour. Regular 20 pcs, tenders 3 pcs.
+            </div>
+          </div>
+          <div class="playbook-row">
+            <div class="pb-num">3</div>
+            <div class="pb-text">
+              <strong>Method A — staggered</strong>
+              Thighs &amp; drumsticks at 13:00. Ribs, breasts &amp; wings at 11:00. All out at 0:00.
+            </div>
+          </div>
+          <div class="playbook-row">
+            <div class="pb-num">4</div>
+            <div class="pb-text">
+              <strong>Method B — all-in</strong>
+              Everything in at 13:00. Ribs, wings &amp; breasts out at 2:00. Thighs &amp; drumsticks out at 0:00.
+            </div>
+          </div>
+          <div class="playbook-row">
+            <div class="pb-num">5</div>
+            <div class="pb-text">
+              <strong>Tenders</strong>
+              3-minute timer, same breading and frying steps.
+            </div>
+          </div>
+          <div class="playbook-row">
+            <div class="pb-num">6</div>
+            <div class="pb-text">
+              <strong>Completion</strong>
+              All pieces out at timeout. Ready to serve.
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- ===== CTA ===== -->
+      <div class="cta-box">
+        <h3>End of Procedure</h3>
+        <p>
+          Standard Operating Procedure (Muiz) — Restoran Pak Haji Ali &amp; Muiz Hot Chicken,
+          Subang Jaya (USJ 8). Return to the SOP index for other stations.
+        </p>
+        <a href="/sop/" class="cta-btn">
+          <i class="fas fa-clipboard-list"></i> Back to SOP Index
+        </a>
+      </div>
+
+      <!-- ===== READ NEXT ===== -->
+      <a href="/" class="read-next">
+        <div class="rn-icon">🍗</div>
+        <div class="rn-text">
+          <span class="rn-label">Back to</span>
+          <span class="rn-title">Restoran Pak Haji Ali &amp; Muiz Hot Chicken — Home</span>
+        </div>
+        <i class="fas fa-chevron-right rn-arrow"></i>
+      </a>
+
+    </article>
+
+    <!-- Footer -->
+    <footer class="blog-footer">
+      <p>
+        <a href="/">Restoran Pak Haji Ali &amp; Muiz Hot Chicken - Subang Jaya (USJ 8)</a> •
+        <a href="/sop/">SOP</a>
+      </p>
+      <p style="margin-top:6px;">J2-00-04, Subang Perdana Phase 3, Persiaran Mulia, Goodyear Court 6, USJ 8, 47610 Subang Jaya, Selangor</p>
+      <p style="margin-top:4px;">Internal Document • JAKIM Halal • MeSTI Certified</p>
+    </footer>
+
+  </main>
+
+  <!-- ============================================================
+       JAVASCRIPT
+       ============================================================ -->
+  <script>
+    // ============================================================
+    // THEME TOGGLE
+    // ============================================================
+    (function() {
+      var saved = localStorage.getItem('muiz-theme') || 'light';
+      var toggle = document.getElementById('themeToggle');
+      var icon = document.getElementById('themeIcon');
+      var color = document.getElementById('themeColor');
+
+      function apply(theme) {
+        document.documentElement.setAttribute('data-theme', theme);
+        localStorage.setItem('muiz-theme', theme);
+        if (theme === 'dark') {
+          icon.className = 'fas fa-sun';
+        } else {
+          icon.className = 'fas fa-moon';
+        }
+        color.content = '#000000';
+      }
+      apply(saved);
+      toggle.addEventListener('click', function() {
+        var current = document.documentElement.getAttribute('data-theme') || 'light';
+        apply(current === 'light' ? 'dark' : 'light');
+      });
+    })();
+
+    // ============================================================
+    // HEADER SCROLL EFFECT
+    // ============================================================
+    (function() {
+      var header = document.getElementById('sopHeader');
+      window.addEventListener('scroll', function() {
+        if (window.scrollY > 10) {
+          header.classList.add('scrolled');
+        } else {
+          header.classList.remove('scrolled');
+        }
+      }, { passive: true });
+    })();
+
+    // ============================================================
+    // PREPARATION CHECKLIST (persisted per device)
+    // ============================================================
+    (function() {
+      var STORE_KEY = 'muiz-sop-muiz-prep';
+      var items = document.querySelectorAll('.check-item');
+      var resetBtn = document.getElementById('resetPrep');
+
+      var state = {};
+      try { state = JSON.parse(localStorage.getItem(STORE_KEY) || '{}'); } catch (e) { state = {}; }
+
+      function save() {
+        try { localStorage.setItem(STORE_KEY, JSON.stringify(state)); } catch (e) {}
+      }
+
+      items.forEach(function(item) {
+        var id = item.getAttribute('data-check');
+        if (state[id]) { item.classList.add('done'); }
+
+        item.addEventListener('click', function() {
+          item.classList.toggle('done');
+          state[id] = item.classList.contains('done');
+          save();
+        });
+      });
+
+      resetBtn.addEventListener('click', function() {
+        items.forEach(function(item) {
+          item.classList.remove('done');
+          state[item.getAttribute('data-check')] = false;
+        });
+        save();
+      });
+    })();
+
+    // ============================================================
+    // SERVICE WORKER
+    // ============================================================
+    if ('serviceWorker' in navigator) {
+      window.addEventListener('load', function() {
+        navigator.serviceWorker.register('/sw.js')
+          .then(function() { console.log('✅ Service Worker registered'); })
+          .catch(function(err) { console.log('❌ SW registration failed:', err); });
+      });
+    }
+
+    console.log('📋 SOP page loaded — Standard Operating Procedure (Muiz)');
+  </script>
+
+</body>
+</html>
