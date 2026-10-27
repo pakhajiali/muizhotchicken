@@ -782,20 +782,5 @@
     <changefreq>monthly</changefreq>
     <priority>0.9</priority>
   </url>
-          <!-- SOP Index -->
-  <url>
-    <loc>https://muizhotchicken.com/sop/</loc>
-    <lastmod>2026-10-25</lastmod>
-    <changefreq>monthly</changefreq>
-    <priority>0.8</priority>
-  </url>
-
-  <!-- SOP: Muiz (Chicken Station) -->
-  <url>
-    <loc>https://muizhotchicken.com/sop/muiz</loc>
-    <lastmod>2026-10-25</lastmod>
-    <changefreq>monthly</changefreq>
-    <priority>0.7</priority>
-  </url>
-
+          
 </urlset>
